@@ -33,6 +33,7 @@ module.exports = (_, argv) => {
         },
         {
           test: /\.css$/,
+          exclude: /node_modules/,
           use: [
             { loader: MiniCssExtractPlugin.loader },
             '@teamsupercell/typings-for-css-modules-loader',
@@ -41,6 +42,16 @@ module.exports = (_, argv) => {
               options: { modules: true },
             },
             'postcss-loader',
+          ],
+        },
+        // Support for compiled CSS from node_modules
+        {
+          test: /\.css$/,
+          include: /node_modules/,
+          exclude: /src/,
+          use: [
+            { loader: MiniCssExtractPlugin.loader },
+            { loader: 'css-loader' },
           ],
         },
         {
