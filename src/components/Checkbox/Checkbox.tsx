@@ -26,7 +26,7 @@ const Checkbox: FunctionComponent<Props> = ({
       onClick={onClick}
       type="checkbox"
     />
-    <label htmlFor={id}>{label} </label>
+    <label htmlFor={id}>{label}</label>
   </Fragment>
 );
 

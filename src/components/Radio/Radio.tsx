@@ -29,7 +29,7 @@ const Radio: FunctionComponent<Props> = ({
       onClick={onClick}
       type="radio"
     />
-    <label htmlFor={id}>{label} </label>
+    <label htmlFor={id}>{label}</label>
   </Fragment>
 );
 
