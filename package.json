@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/beurkinger/preact-starter-kit#readme",
   "dependencies": {
+    "98.css": "^0.1.16",
     "preact": "^10.4.4"
   },
   "devDependencies": {
