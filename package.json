@@ -1,7 +1,7 @@
 {
-  "name": "preact-starter-kit",
+  "name": "windows-96",
   "version": "1.0.0",
-  "description": "Some boilerplate code to kickstart Preact-based projects.",
+  "description": "A faithful recreation of the Windows 96 exploitation system.",
   "main": "index.html",
   "scripts": {
     "build": "webpack --mode production",
@@ -13,25 +13,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beurkinger/preact-starter-kit.git"
+    "url": "git+https://github.com/beurkinger/windows-96.git"
   },
   "keywords": [
-    "preact",
-    "boilerplate",
     "javascript",
     "typescript",
-    "webpack",
-    "eslint",
-    "prettier",
-    "post-css",
-    "html5",
-    "css3",
-    "framework"
+    "os",
+    "windows",
+    "windows 96"
   ],
   "author": "Thibault Goehringer",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/beurkinger/preact-starter-kit/issues"
+    "url": "https://github.com/beurkinger/windows-96/issues"
   },
   "homepage": "https://github.com/beurkinger/preact-starter-kit#readme",
   "dependencies": {
