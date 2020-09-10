@@ -4,14 +4,14 @@ import style from './Checkbox.css';
 
 interface Props {
   checked: boolean;
-  disabled: boolean;
+  disabled?: boolean;
   id: string;
   label: string;
   onClick: () => void;
 }
 
 const Checkbox: FunctionComponent<Props> = ({
-  checked = false,
+  checked,
   disabled = false,
   id,
   label,
