@@ -1,7 +1,33 @@
-import { h, FunctionComponent } from 'preact';
+import { h, FunctionComponent, Fragment } from 'preact';
 
-import style from './Checkboxn.css';
+import style from './Checkbox.css';
 
-const Checkbox: FunctionComponent = () => <div className={style.checkbox}></div>;
+interface Props {
+  checked: boolean;
+  disabled: boolean;
+  id: string;
+  label: string;
+  onClick: () => void;
+}
+
+const Checkbox: FunctionComponent<Props> = ({
+  checked = false,
+  disabled = false,
+  id,
+  label,
+  onClick,
+}: Props) => (
+  <Fragment>
+    <input
+      className={style.checkbox}
+      disabled={disabled}
+      id={id}
+      checked={checked}
+      onClick={onClick}
+      type="checkbox"
+    />
+    <label htmlFor={id}>{label} </label>
+  </Fragment>
+);
 
 export default Checkbox;
