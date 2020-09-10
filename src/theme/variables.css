@@ -1,7 +1,18 @@
+@font-face {
+    font-family: 'Ms Sans Serif';
+    src: url('../assets/fonts/ms_sans_serif.woff') format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Ms Sans Serif';
+    src: url('../assets/fonts/ms_sans_serif_bold.woff') format("woff");
+    font-weight: 700;
+}
+
 
 :root {
-    --color-main-1: #0000FF;
-    --color-main-2: #FF0000;
     --color-black: #000000;
     --color-white: #FFFFFF;
+    --font-family-main: "Ms Sans Serif", "Microsoft Sans Serif", sans-serif;
 }
