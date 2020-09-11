@@ -10,7 +10,7 @@ export interface Props {
   onClickRestore?: () => void;
   onClickHelp?: () => void;
   onClickClose: () => void;
-  text: string;
+  title: string;
 }
 
 const TitleBar: FunctionComponent<Props> = ({
@@ -21,12 +21,12 @@ const TitleBar: FunctionComponent<Props> = ({
   onClickRestore,
   onClickHelp,
   onClickClose,
-  text,
+  title,
 }: Props) => (
   <div
     className={`${style.titlebar} title-bar ${isInactive ? 'inactive' : ''}`}
   >
-    <div className="title-bar-text">{text}</div>
+    <div className="title-bar-text">{title}</div>
     <div className="title-bar-controls">
       {onClickMinimize && (
         <button aria-label="Minimize" onClick={onClickMinimize} />

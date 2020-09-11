@@ -4,17 +4,9 @@ import TitleBar, { Props as TitleBarProps } from '../TitleBar/TitleBar';
 
 import style from './Window.css';
 
-interface Props {
+type Props = TitleBarProps & {
   children: ComponentChildren;
-  isInactive: boolean;
-  isMaximized: boolean;
-  onClickMinimize?: () => void;
-  onClickMaximize?: () => void;
-  onClickRestore?: () => void;
-  onClickHelp?: () => void;
-  onClickClose: () => void;
-  title: string;
-}
+};
 
 const Window: FunctionComponent<Props> = ({
   children = null,
@@ -36,7 +28,7 @@ const Window: FunctionComponent<Props> = ({
       onClickRestore={onClickRestore}
       onClickHelp={onClickHelp}
       onClickClose={onClickClose}
-      text={title}
+      title={title}
     />
     <div className="window-body">{children}</div>
   </div>
