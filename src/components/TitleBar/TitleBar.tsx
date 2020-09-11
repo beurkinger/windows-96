@@ -2,7 +2,7 @@ import { h, FunctionComponent } from 'preact';
 
 import style from './TitleBar.css';
 
-interface Props {
+export interface Props {
   isInactive: boolean;
   isMaximized: boolean;
   onClickMinimize?: () => void;
