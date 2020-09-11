@@ -18,19 +18,19 @@ export interface Options {
 }
 
 const useDragging = (
-  elementRef: RefObject<HTMLElement>,
+  eltRef: RefObject<HTMLElement>,
   { savedCoords = null, onDragStart, onDragStop }: Options
 ): Coords => {
   const originalElementCoords = useRef<Coords>({ x: 0, y: 0 });
   const originalMouseCoords = useRef<Coords>({ x: 0, y: 0 });
   const touchId = useRef<number | null>(null);
-  const elementRefClone = useRef<HTMLElement | null>();
+  const eltRefClone = useRef<HTMLElement | null>();
 
   const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [coords, setCoords] = useState<Coords>(savedCoords ?? { x: 0, y: 0 });
+  const [coords, setCoords] = useState<Coords>({ x: 10, y: 10 });
 
   useEffect(() => {
-    elementRefClone.current = elementRef.current;
+    eltRefClone.current = eltRef.current;
   });
 
   useEffect((): void => {
@@ -52,11 +52,11 @@ const useDragging = (
   }, []);
 
   const addPointerStartEventListeners = (): void => {
-    if (!elementRefClone.current) return;
-    elementRefClone.current.addEventListener('mousedown', handleOnMouseDown, {
+    if (!eltRefClone.current) return;
+    eltRefClone.current.addEventListener('mousedown', handleOnMouseDown, {
       passive: false,
     });
-    elementRefClone.current.addEventListener('touchstart', handleOnTouchStart, {
+    eltRefClone.current.addEventListener('touchstart', handleOnTouchStart, {
       passive: false,
     });
   };
@@ -83,9 +83,9 @@ const useDragging = (
   };
 
   const removePointerStartEventListeners = (): void => {
-    if (!elementRefClone.current) return;
-    elementRefClone.current.removeEventListener('mousedown', handleOnMouseDown);
-    elementRefClone.current.removeEventListener('touchstart', handleOnTouchStart);
+    if (!eltRefClone.current) return;
+    eltRefClone.current.removeEventListener('mousedown', handleOnMouseDown);
+    eltRefClone.current.removeEventListener('touchstart', handleOnTouchStart);
   };
 
   const removePointerMoveEventListeners = (): void => {
@@ -101,16 +101,16 @@ const useDragging = (
 
   const applyDragging = debounceWithRequestAnimationFrame(
     (mouseCoords: Coords) => {
-      if (!elementRefClone.current) return;
+      if (!eltRefClone.current) return;
       const mouseOffsetX = mouseCoords.x - originalMouseCoords.current.x;
       const mouseOffsetY = mouseCoords.y - originalMouseCoords.current.y;
       const nextX = originalElementCoords.current.x + mouseOffsetX;
       const nextY = originalElementCoords.current.y + mouseOffsetY;
 
-      const bounds = getBounds(elementRefClone.current);
+      const bounds = getBounds(eltRefClone.current);
       const coords = getBoundedOffset(nextX, nextY, bounds);
 
-      setCoords(coords);
+      setCoords(() => coords);
     }
   );
 
@@ -133,8 +133,11 @@ const useDragging = (
     addPointerMoveEventListeners();
     addPointerStopEventListeners();
 
-    originalElementCoords.current = coords;
-    originalMouseCoords.current = mouseCoords;
+    setCoords((elementCoords) => {
+      originalElementCoords.current = elementCoords;
+      originalMouseCoords.current = mouseCoords;
+      return elementCoords;
+    });
 
     setIsDragging(true);
 
@@ -152,8 +155,8 @@ const useDragging = (
     if (touchId.current === null || !hasTouchChanged(e, touchId.current))
       return;
 
-    const coords = getTouchCoordsFromEvent(e, touchId.current);
-    if (coords) applyDragging(coords);
+    const touchCoords = getTouchCoordsFromEvent(e, touchId.current);
+    if (touchCoords) applyDragging(touchCoords);
   };
 
   const handleOnEnd = (e: MouseEvent | TouchEvent): void => {
