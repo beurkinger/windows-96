@@ -8,7 +8,7 @@ interface Props {
   id: string;
   label: string;
   name: string;
-  onClick: () => void;
+  onChange: (e: Event) => void;
 }
 
 const Radio: FunctionComponent<Props> = ({
@@ -17,7 +17,7 @@ const Radio: FunctionComponent<Props> = ({
   id,
   label,
   name,
-  onClick,
+  onChange,
 }: Props) => (
   <Fragment>
     <input
@@ -26,7 +26,7 @@ const Radio: FunctionComponent<Props> = ({
       disabled={disabled}
       id={id}
       name={name}
-      onClick={onClick}
+      onChange={onChange}
       type="radio"
     />
     <label htmlFor={id}>{label}</label>

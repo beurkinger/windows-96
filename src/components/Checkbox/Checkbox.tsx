@@ -7,7 +7,7 @@ interface Props {
   disabled?: boolean;
   id: string;
   label: string;
-  onClick: () => void;
+  onChange: (e: Event) => void;
 }
 
 const Checkbox: FunctionComponent<Props> = ({
@@ -15,7 +15,7 @@ const Checkbox: FunctionComponent<Props> = ({
   disabled = false,
   id,
   label,
-  onClick,
+  onChange,
 }: Props) => (
   <Fragment>
     <input
@@ -23,7 +23,7 @@ const Checkbox: FunctionComponent<Props> = ({
       disabled={disabled}
       id={id}
       checked={checked}
-      onClick={onClick}
+      onChange={onChange}
       type="checkbox"
     />
     <label htmlFor={id}>{label}</label>
