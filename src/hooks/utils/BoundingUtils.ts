@@ -1,4 +1,4 @@
-import { Coords, getBoundingRect } from '../../../utils/DomUtils';
+import { Coords, getBoundingRect } from '../../utils/DomUtils';
 
 export interface Bounds {
   xMax: number;

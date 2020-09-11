@@ -1,7 +1,0 @@
-.draggable {
-  touch-action: none;
-  position: absolute;
-  display: inline-block;
-  width: auto;
-  height: auto;
-}
