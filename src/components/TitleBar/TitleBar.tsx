@@ -3,8 +3,8 @@ import { h, FunctionComponent } from 'preact';
 import style from './TitleBar.css';
 
 export interface Props {
-  isInactive: boolean;
-  isMaximized: boolean;
+  isInactive?: boolean;
+  isMaximized?: boolean;
   onClickMinimize?: () => void;
   onClickMaximize?: () => void;
   onClickRestore?: () => void;
