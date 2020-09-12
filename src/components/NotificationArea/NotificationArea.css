@@ -1,0 +1,12 @@
+.notificationArea {
+    height: 22px;
+    padding: 7px 2px 0 2px;
+    font-family: "Pixelated MS Sans Serif", Arial;
+    font-size: 11px;
+    box-shadow: inset -1px -1px var(--button-highlight), inset 1px 1px var(--button-shadow);
+    line-height: 1;
+}
+
+.clock {
+    margin: 0 10px;
+}
