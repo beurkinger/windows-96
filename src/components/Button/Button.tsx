@@ -1,17 +1,20 @@
-import { h, FunctionComponent, ComponentChildren } from 'preact';
+import { h, FunctionComponent, ComponentChild } from 'preact';
+import Icon from '../Icon/Icon';
 
 import style from './Button.css';
 
 interface Props {
-  children?: ComponentChildren;
   disabled?: boolean;
+  icon?: ComponentChild;
+  label?: string;
   onClick: () => void;
   type?: 'button' | 'reset' | 'submit';
 }
 
 const Button: FunctionComponent<Props> = ({
-  children = null,
   disabled = false,
+  icon = null,
+  label = '',
   onClick,
   type = 'button',
 }: Props) => (
@@ -21,7 +24,8 @@ const Button: FunctionComponent<Props> = ({
     onClick={onClick}
     type={type}
   >
-    {children}
+    {icon && <Icon />}
+    {label && <div>{label}</div>}
   </button>
 );
 
