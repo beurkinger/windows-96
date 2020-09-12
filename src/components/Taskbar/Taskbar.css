@@ -11,11 +11,11 @@
     min-width: auto;
     min-height: 22px;
     height: 22px;
-    padding: 0 4px;
+    padding: 0 4px 0;
 }
 
 .taskbar button:not(:disabled):active {
-    padding: 0 4px;
+    padding: 1px 4px 0;
   }
 
 .start-button-wrapper {
@@ -28,6 +28,7 @@
 
 .task-buttons-wrapper {
     flex: 1;
+    display: flex;
     padding: 0 2px;
 }
 
@@ -38,6 +39,7 @@
 }
 
 .notification-area-wrapper {
+    display: flex;
     margin: 0 1px;
 
 }
