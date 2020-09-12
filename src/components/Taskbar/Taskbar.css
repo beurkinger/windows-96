@@ -7,24 +7,6 @@
     background: var(--surface);
 }
 
-.taskbar button {
-    display: flex;
-    align-items: center;
-    width: auto;
-    min-width: auto;
-    min-height: 22px;
-    height: 22px;
-    padding: 0 4px 0;
-}
-
-.taskbar button *:first-child {
-    margin-right: 3px;
-}
-
-.taskbar button:not(:disabled):active {
-    padding: 1px 4px 0;
-  }
-
 .startMenuWrapper {
     z-index: 1;
     position: absolute;
@@ -36,8 +18,8 @@
     margin: 0 2px;
 }
 
-.startButtonWrapper button {
-    font-weight: bold;
+.startButtonWrapper  button {
+    min-width: auto;
 }
 
 .startButtonLabel {
@@ -51,13 +33,8 @@
 }
 
 .taskButtonsWrapper button {
-    margin-right: 2px;
-    width: 160px;
-    text-align: left;
-}
-
-.taskButtonsWrapper button:focus {
-    outline: 0;
+    margin-right: 4px;
+    min-width: 160px;
 }
 
 .notificationAreaWrapper {

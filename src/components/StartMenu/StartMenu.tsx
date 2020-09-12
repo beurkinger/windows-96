@@ -16,16 +16,6 @@ const StartMenu: FunctionComponent = () => (
             icon: <Icon size={24} />,
             label: 'Programs',
             value: '',
-            // subMenu: {
-            //   isLarge: false,
-            //   options: [
-            //     [
-            //       { icon: <Icon />, label: 'Programs', value: '' },
-            //       { icon: <Icon />, label: 'Documents', value: '' },
-            //     ],
-            //     [{ icon: <Icon />, label: 'Settings', value: '' }],
-            //   ],
-            // },
             subMenu: {
               options: [
                 [
