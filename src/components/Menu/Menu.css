@@ -7,19 +7,27 @@
     font-family: "Pixelated MS Sans Serif", Arial;
     font-size: 11px;
     line-height: 1;
+    overflow: visible;
 }
 
-.menu li
-{
-    position: relative; 
-    margin: 1px 0;
-    min-width: 128px;
-    height: 20px;
-    padding: 5px 6px 0;
+.large {}
+
+.optionGroup {
+    padding: 5px 0 2px;
+    box-shadow:  inset 0px 1px var(--button-shadow), inset 0px 2px var(--button-highlight);
+    overflow: visible;
 }
 
-.menu > li:hover
-{
-    color: white;
-    background-color: var(--dialog-blue);
+.large > .optionGroup {
+    padding: 8px 0 6px;
 }
+
+.optionGroup:first-child {
+   padding-top: 0; 
+   box-shadow:  none;
+
+}  
+
+.optionGroup:last-child {
+    padding-bottom: 0; 
+ }  

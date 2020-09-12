@@ -1,0 +1,56 @@
+.menuOption{
+    position: relative; 
+    display: flex;
+    align-items: center;
+    margin: 1px 0;
+    min-width: 128px;
+    height: 20px;
+    color: black;
+    overflow: visible;
+}
+
+.menuOption:hover
+{
+    color: white;
+    background-color: var(--dialog-blue);
+}
+
+.menuOptionIcon {
+    margin: 0 6px;
+}
+
+.menuOptionArrow {
+  margin: 0 3px;
+}
+
+.menuOptionLabel {
+    flex: 1;
+    /* margin: 1px 0 0; */
+}
+
+.large {
+    margin: 0;
+    min-width: 136px;
+    height: 32px;
+}
+
+.large > .menuOptionIcon {
+    margin: 0 10px;
+}
+
+.large > .menuOptionLabel::first-letter {
+    text-decoration: underline;
+}
+
+.menuOptionSubMenu {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: translate3d(-3px, -6px, 0);
+}
+
+.menuOption:hover > .menuOptionSubMenu {
+  display: block;
+}

@@ -1,33 +1,42 @@
 import { h, FunctionComponent } from 'preact';
 
-import style from './Menu.css';
+import MenuOption, { OptionType } from '../MenuOption/MenuOption';
 
-interface Option {
-  disabled?: boolean;
-  label: string;
-  value: string;
-}
+import style from './Menu.css';
 
 interface Props {
   // disabled?: boolean;
+  isLarge?: boolean;
   onSelect: (value: string) => void;
-  options: Option[];
+  options: OptionType[][];
   // type: string;
 }
 
 const Menu: FunctionComponent<Props> = ({
   // disabled = false,
+  isLarge = false,
   onSelect,
   options,
 }: // type = 'menu',
 Props) => (
-  <ul className={style.menu}>
-    {options.map((option, i) => (
-      <li key={i + option.label} onSelect={() => onSelect(option.value)}>
-        {option.label}
-      </li>
+  <div className={`${style.menu} ${isLarge ? style.large : ''}`}>
+    {options.map((optionGroup, i) => (
+      <div className={style.optionGroup} key={i}>
+        {optionGroup.map((option, i) => (
+          <MenuOption
+            disabled={option.disabled}
+            icon={option.icon}
+            isLarge={isLarge}
+            key={i + option.label}
+            label={option.label}
+            onSelect={onSelect}
+            subMenu={option.subMenu}
+            value={option.value}
+          />
+        ))}
+      </div>
     ))}
-  </ul>
+  </div>
 );
 
 export default Menu;
