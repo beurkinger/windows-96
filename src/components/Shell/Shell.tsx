@@ -1,6 +1,7 @@
 import { h, FunctionComponent } from 'preact';
 
 import Desktop from '../Desktop/Desktop';
+import Taskbar from '../Taskbar/Taskbar';
 import WindowsContainer from '../WindowsContainer/WindowsContainer';
 
 import style from './Shell.css';
@@ -11,7 +12,9 @@ const Shell: FunctionComponent = () => (
       <Desktop />
       <WindowsContainer />
     </div>
-    <div className={style.taskbarView}></div>
+    <div className={style.taskbarView}>
+      <Taskbar />
+    </div>
   </div>
 );
 
