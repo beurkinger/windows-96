@@ -1,0 +1,25 @@
+.menu {
+    display: inline-flex;
+    flex-direction: column;
+    box-shadow: var(--border-window-outer), var(--border-window-inner);
+    background: var(--surface);
+    padding: 3px;
+    font-family: "Pixelated MS Sans Serif", Arial;
+    font-size: 11px;
+    line-height: 1;
+}
+
+.menu li
+{
+    position: relative; 
+    margin: 1px 0;
+    min-width: 128px;
+    height: 20px;
+    padding: 5px 6px 0;
+}
+
+.menu > li:hover
+{
+    color: white;
+    background-color: var(--dialog-blue);
+}
