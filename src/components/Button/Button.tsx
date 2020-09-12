@@ -3,10 +3,10 @@ import { h, FunctionComponent, ComponentChildren } from 'preact';
 import style from './Button.css';
 
 interface Props {
-  children: ComponentChildren;
-  disabled: boolean;
+  children?: ComponentChildren;
+  disabled?: boolean;
   onClick: () => void;
-  type: 'button' | 'reset' | 'submit';
+  type?: 'button' | 'reset' | 'submit';
 }
 
 const Button: FunctionComponent<Props> = ({
