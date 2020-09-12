@@ -6,6 +6,7 @@
     min-width: 128px;
     height: 20px;
     color: black;
+    white-space: nowrap;
     overflow: visible;
 }
 
@@ -25,20 +26,21 @@
 
 .menuOptionLabel {
     flex: 1;
+    margin-right: 14px;
     /* margin: 1px 0 0; */
 }
 
-.large {
+.menuOption.large {
     margin: 0;
     min-width: 136px;
     height: 32px;
 }
 
-.large > .menuOptionIcon {
+.menuOption.large > .menuOptionIcon {
     margin: 0 10px;
 }
 
-.large > .menuOptionLabel::first-letter {
+.menuOption.large > .menuOptionLabel::first-letter {
     text-decoration: underline;
 }
 

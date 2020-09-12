@@ -10,24 +10,22 @@
     overflow: visible;
 }
 
-.large {}
-
 .optionGroup {
     padding: 5px 0 2px;
     box-shadow:  inset 0px 1px var(--button-shadow), inset 0px 2px var(--button-highlight);
     overflow: visible;
 }
 
-.large > .optionGroup {
+.menu.large > .optionGroup {
     padding: 8px 0 6px;
 }
 
 .optionGroup:first-child {
-   padding-top: 0; 
-   box-shadow:  none;
+   padding-top: 0 !important; 
+   box-shadow:  none !important;
 
 }  
 
 .optionGroup:last-child {
-    padding-bottom: 0; 
+    padding-bottom: 0 !important; 
  }  
