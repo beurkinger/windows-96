@@ -1,6 +1,7 @@
 import { h, FunctionComponent } from 'preact';
 
 import Button from '../Button/Button';
+import Icon from '../Icon/Icon';
 import NotificationArea from '../NotificationArea/NotificationArea';
 
 import style from './Taskbar.css';
@@ -8,12 +9,12 @@ import style from './Taskbar.css';
 const Taskbar: FunctionComponent = () => (
   <div className={style.taskbar}>
     <div className={style['start-button-wrapper']}>
-      <Button onClick={() => null}>Start</Button>
+      <Button icon={Icon} label="Start" onClick={() => null} />
     </div>
     <div className={style['task-buttons-wrapper']}>
-      <Button onClick={() => null}>Notepad</Button>
-      <Button onClick={() => null}>Paint</Button>
-      <Button onClick={() => null}>Minesweeper</Button>
+      <Button icon={Icon} label="Notepad" onClick={() => null} />
+      <Button icon={Icon} label="Paint" onClick={() => null} />
+      <Button icon={Icon} label="Minesweeper" onClick={() => null} />
     </div>
     <div className={style['notification-area-wrapper']}>
       <NotificationArea />

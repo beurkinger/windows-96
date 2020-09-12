@@ -7,11 +7,17 @@
 }
 
 .taskbar button {
+    display: flex;
+    align-items: center;
     width: auto;
     min-width: auto;
     min-height: 22px;
     height: 22px;
     padding: 0 4px 0;
+}
+
+.taskbar button *:first-child {
+    margin-right: 3px;
 }
 
 .taskbar button:not(:disabled):active {
@@ -26,16 +32,24 @@
     font-weight: bold;
 }
 
+.start-button-label {
+    margin: 1px 1px 0 3px;
+}
+
 .task-buttons-wrapper {
     flex: 1;
     display: flex;
     padding: 0 2px;
 }
 
-.task-buttons-wrapper button{
+.task-buttons-wrapper button {
     margin-right: 2px;
     width: 160px;
     text-align: left;
+}
+
+.task-buttons-wrapper button:focus {
+    outline: 0;
 }
 
 .notification-area-wrapper {
