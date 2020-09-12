@@ -27,7 +27,7 @@ const useDragging = (
   const eltRefClone = useRef<HTMLElement | null>();
 
   const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [coords, setCoords] = useState<Coords>({ x: 10, y: 10 });
+  const [coords, setCoords] = useState<Coords>({ x: 100, y: 100 });
 
   useEffect(() => {
     eltRefClone.current = eltRef.current;
