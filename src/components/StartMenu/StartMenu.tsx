@@ -23,6 +23,99 @@ const StartMenu: FunctionComponent = () => (
                     label: 'Accessories',
                     icon: <Icon size={16} />,
                     value: '',
+                    subMenu: {
+                      options: [
+                        [
+                          {
+                            label: 'Multimedia',
+                            icon: <Icon size={16} />,
+                            value: '',
+                            subMenu: {
+                              options: [
+                                [
+                                  {
+                                    label: 'CD Player',
+                                    icon: <Icon size={16} />,
+                                    value: '',
+                                  },
+                                  {
+                                    label: 'Sound Recorder',
+                                    icon: <Icon size={16} />,
+                                    value: '',
+                                  },
+                                  {
+                                    label: 'Volume Control',
+                                    icon: <Icon size={16} />,
+                                    value: '',
+                                  },
+                                  {
+                                    label: 'Windows Media Player',
+                                    icon: <Icon size={16} />,
+                                    value: '',
+                                  },
+                                ],
+                              ],
+                            },
+                          },
+                          {
+                            label: 'System Tools',
+                            icon: <Icon size={16} />,
+                            value: '',
+                            subMenu: {
+                              options: [
+                                [
+                                  {
+                                    label: 'Disk Degragmenter',
+                                    icon: <Icon size={16} />,
+                                    value: '',
+                                  },
+                                  {
+                                    label: 'ScanDisk',
+                                    icon: <Icon size={16} />,
+                                    value: '',
+                                  },
+                                ],
+                              ],
+                            },
+                          },
+                          {
+                            label: 'Calculator',
+                            icon: <Icon size={16} />,
+                            value: '',
+                          },
+                          {
+                            label: 'Hyper Terminal',
+                            icon: <Icon size={16} />,
+                            value: '',
+                          },
+                          {
+                            label: 'Notepad',
+                            icon: <Icon size={16} />,
+                            value: '',
+                          },
+                          {
+                            label: 'Online Registration',
+                            icon: <Icon size={16} />,
+                            value: '',
+                          },
+                          {
+                            label: 'Paint',
+                            icon: <Icon size={16} />,
+                            value: '',
+                          },
+                          {
+                            label: 'Phone Dialer',
+                            icon: <Icon size={16} />,
+                            value: '',
+                          },
+                          {
+                            label: 'WordPad',
+                            icon: <Icon size={16} />,
+                            value: '',
+                          },
+                        ],
+                      ],
+                    },
                   },
                   {
                     label: 'StartUp',
