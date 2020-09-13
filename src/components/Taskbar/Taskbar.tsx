@@ -42,7 +42,7 @@ const Taskbar: FunctionComponent = () => {
       <div className={style.startButtonWrapper}>
         <Button
           fontWeight="bold"
-          icon={Icon}
+          icon={<Icon iconId="windowsLogo" />}
           isActive={isStartMenuOpen}
           inTaskbar
           label="Start"

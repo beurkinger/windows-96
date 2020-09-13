@@ -34,7 +34,7 @@ const MenuOption: FunctionComponent<Props> = ({
     <div className={style.menuOptionIcon}>{icon}</div>
     <div className={style.menuOptionLabel}>{label}</div>
     <div className={style.menuOptionArrow}>
-      {!!subMenu && <Icon size={8} />}
+      {!!subMenu && <Icon iconId="menuArrow" size={8} />}
     </div>
     {!!subMenu && (
       <div className={style.menuOptionSubMenu}>
