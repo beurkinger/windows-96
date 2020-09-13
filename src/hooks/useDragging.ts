@@ -108,9 +108,9 @@ const useDragging = (
       const nextY = originalElementCoords.current.y + mouseOffsetY;
 
       const bounds = getBounds(eltRefClone.current);
-      const coords = getBoundedOffset(nextX, nextY, bounds);
+      const newCoords = getBoundedOffset(nextX, nextY, bounds);
 
-      setCoords(() => coords);
+      setCoords(() => newCoords);
     }
   );
 
@@ -140,7 +140,6 @@ const useDragging = (
     });
 
     setIsDragging(true);
-
     if (onDragStart) onDragStart();
   };
 
@@ -166,7 +165,10 @@ const useDragging = (
     removePointerStopEventListeners();
     addPointerStartEventListeners();
 
-    if (onDragStop) onDragStop(coords);
+    setCoords((currentCoords) => {
+      if (onDragStop) onDragStop(currentCoords);
+      return currentCoords;
+    });
     setIsDragging(false);
   };
 

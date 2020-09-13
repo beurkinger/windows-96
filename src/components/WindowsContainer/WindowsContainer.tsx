@@ -7,15 +7,39 @@ import Window from '../Window/Window';
 import style from './WindowsContainer.css';
 
 const WindowsContainer: FunctionComponent = () => {
-  const { apps }= useContext(RunningAppsContext);
+  const {
+    apps,
+    closeApp,
+    focusOnApp,
+    maximizeApp,
+    minimizeApp,
+    moveApp,
+    unMaximizeApp,
+  } = useContext(RunningAppsContext);
 
+  console.log(apps);
   return (
     <div className={style.windowsContainer}>
-      {apps.map((app) => (
-        <Window key={app.zIndex} onClickClose={() => null} title={app.title}>
-          {app.content}
-        </Window>
-      ))}
+      {apps.map((app, i) =>
+        app.isMinimized ? null : (
+          <Window
+            coords={app.coords}
+            key={i}
+            onClickClose={() => closeApp(i)}
+            onClickMaximize={() => maximizeApp(i)}
+            onClickMinimize={() => minimizeApp(i)}
+            onClickRestore={() => unMaximizeApp(i)}
+            onMouseDown={() => focusOnApp(i)}
+            onMoved={(coords) => moveApp(i, coords)}
+            isInactive={!app.hasFocus}
+            isMaximized={app.isMaximized}
+            title={app.title}
+            zIndex={app.zIndex}
+          >
+            {app.content}
+          </Window>
+        )
+      )}
     </div>
   );
 };

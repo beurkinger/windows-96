@@ -1,7 +1,9 @@
 import { h, FunctionComponent } from 'preact';
 import { useContext } from 'preact/hooks';
 
-import RunningAppsContext from '../../context/RunningAppsContext';
+import RunningAppsContext, {
+  RunningApp,
+} from '../../context/RunningAppsContext';
 import useFloating from '../../hooks/useFloating';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
@@ -11,13 +13,25 @@ import StartMenu from '../StartMenu/StartMenu';
 import style from './Taskbar.css';
 
 const Taskbar: FunctionComponent = () => {
-  const { apps } = useContext(RunningAppsContext);
+  const { apps, focusOnApp, minimizeApp, unMinimizeApp } = useContext(
+    RunningAppsContext
+  );
   const [isStartMenuOpen, setIsStartMenuOpen] = useFloating();
 
   const handleStartButtonClick = (e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setIsStartMenuOpen(!isStartMenuOpen);
+  };
+
+  const handleTaskButtonClick = (app: RunningApp, i: number) => {
+    if (app.isMinimized) {
+      unMinimizeApp(i);
+    } else if (!app.hasFocus) {
+      focusOnApp(i);
+    } else if (app.hasFocus) {
+      minimizeApp(i);
+    }
   };
 
   return (
@@ -36,14 +50,15 @@ const Taskbar: FunctionComponent = () => {
         />
       </div>
       <div className={style.taskButtonsWrapper}>
-        {apps.map((app) => (
+        {apps.map((app, i) => (
           <Button
             icon={app.icon}
-            key={app.zIndex}
+            key={i}
             label={app.title}
             inTaskbar
+            isActive={app.hasFocus}
             noOutline
-            onClick={() => null}
+            onClick={() => handleTaskButtonClick(app, i)}
             textAlign="left"
           />
         ))}

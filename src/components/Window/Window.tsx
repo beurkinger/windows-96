@@ -7,34 +7,49 @@ import style from './Window.css';
 
 type Props = TitleBarProps & {
   children: ComponentChildren;
+  coords?: { x: number; y: number };
   height?: string;
+  onMouseDown?: () => void;
+  onMoved?: (coords: { x: number; y: number }) => void;
   width?: string;
+  zIndex?: number;
 };
 
 const Window: FunctionComponent<Props> = ({
+  coords,
   children = null,
   height = 'auto',
   isInactive = false,
   isMaximized = false,
+  onMouseDown,
   onClickMinimize,
   onClickMaximize,
   onClickRestore,
   onClickHelp,
   onClickClose,
+  onMoved,
   title,
   width = '300px',
+  zIndex = 0,
 }: Props) => {
   const eltRef = createRef<HTMLDivElement>();
-  const coords = useDragging(eltRef, {});
+  const coordsState = useDragging(eltRef, {
+    onDragStart: onMouseDown,
+    onDragStop: onMoved,
+    savedCoords: coords,
+  });
 
   return (
     <div
       className={`${style.window} window`}
       ref={eltRef}
       style={{
-        height,
-        transform: `translate3d(${coords.x}px, ${coords.y}px, 0px)`,
-        width,
+        height: isMaximized ? '100%' : height,
+        transform: isMaximized
+          ? 'none'
+          : `translate3d(${coordsState.x}px, ${coordsState.y}px, 0px)`,
+        width: isMaximized ? '100%' : width,
+        zIndex,
       }}
     >
       <TitleBar

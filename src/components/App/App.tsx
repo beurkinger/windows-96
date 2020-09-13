@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact';
 import { useState } from 'preact/hooks';
 
-import RunningAppContext, {
+import RunningAppsContext, {
   ContextType,
   RunningApp,
 } from '../../context/RunningAppsContext';
@@ -16,6 +16,9 @@ const App: FunctionComponent = () => {
       content: 'How do you do ?',
       coords: { x: 50, y: 50 },
       icon: <Icon />,
+      isMaximized: false,
+      isMinimized: false,
+      hasFocus: false,
       size: { width: 100, height: 100 },
       title: 'Notepad',
       zIndex: 0,
@@ -24,17 +27,23 @@ const App: FunctionComponent = () => {
       content: 'How do you do ?',
       coords: { x: 100, y: 100 },
       icon: <Icon />,
+      isMaximized: false,
+      isMinimized: false,
+      hasFocus: false,
       size: { width: 100, height: 100 },
       title: 'Paint',
-      zIndex: 0,
+      zIndex: 1,
     },
     {
       content: 'How do you do ?',
       coords: { x: 150, y: 150 },
       icon: <Icon />,
+      isMaximized: false,
+      isMinimized: false,
+      hasFocus: false,
       size: { width: 100, height: 100 },
       title: 'Minesweeeper',
-      zIndex: 0,
+      zIndex: 2,
     },
   ]);
 
@@ -44,25 +53,96 @@ const App: FunctionComponent = () => {
   };
 
   const addApp: ContextType['addApp'] = (app) => {
-    const zIndex = getBiggestZIndex(runningApps) + 1;
-    setRunningApps((apps) => [...apps, { ...app, zIndex }]);
+    setRunningApps((apps) => {
+      const zIndex = getBiggestZIndex(apps) + 1;
+      const existingApps = apps.map((app) => ({ ...app, hasFocus: false }));
+      return [
+        ...existingApps,
+        {
+          ...app,
+          isMinimized: false,
+          isMaximized: false,
+          hasFocus: true,
+          zIndex,
+        },
+      ];
+    });
   };
 
-  const makeAppOnTop = (appZIndex: number) => {
-    const zIndex = getBiggestZIndex(runningApps) + 1;
-    setRunningApps((apps) =>
-      apps.map((app) => (app.zIndex === appZIndex ? { ...app, zIndex } : app))
-    );
+  const closeApp: ContextType['closeApp'] = (appIndex) => {
+    setRunningApps((apps) => apps.filter((_, i) => i !== appIndex));
+  };
+
+  const focusOnApp = (appIndex: number) => {
+    setRunningApps((apps) => {
+      const zIndex = getBiggestZIndex(apps) + 1;
+      return apps.map((app, i) =>
+        i === appIndex
+          ? { ...app, hasFocus: true, zIndex }
+          : { ...app, hasFocus: false }
+      );
+    });
+  };
+
+  const maximizeApp = (appIndex: number) => {
+    setRunningApps((apps) => {
+      return apps.map((app, i) =>
+        i === appIndex ? { ...app, isMaximized: true } : app
+      );
+    });
+  };
+
+  const minimizeApp = (appIndex: number) => {
+    setRunningApps((apps) => {
+      return apps.map((app, i) =>
+        i === appIndex ? { ...app, hasFocus: false, isMinimized: true } : app
+      );
+    });
+  };
+
+  const moveApp = (appIndex: number, coords: { x: number; y: number }) => {
+    setRunningApps((apps) => {
+      return apps.map((app, i) => (i === appIndex ? { ...app, coords } : app));
+    });
+  };
+
+  const unMaximizeApp = (appIndex: number) => {
+    setRunningApps((apps) => {
+      return apps.map((app, i) =>
+        i === appIndex ? { ...app, isMaximized: false } : app
+      );
+    });
+  };
+
+  const unMinimizeApp = (appIndex: number) => {
+    setRunningApps((apps) => {
+      const zIndex = getBiggestZIndex(apps) + 1;
+      return apps.map((app, i) =>
+        i === appIndex
+          ? { ...app, hasFocus: true, isMinimized: false, zIndex }
+          : { ...app, hasFocus: false }
+      );
+    });
   };
 
   return (
-    <RunningAppContext.Provider
-      value={{ apps: runningApps, addApp, makeAppOnTop }}
+    <RunningAppsContext.Provider
+      value={{
+        apps: runningApps,
+        addApp,
+        closeApp,
+        focusOnApp,
+        maximizeApp,
+        minimizeApp,
+        moveApp,
+        unMaximizeApp,
+        unMinimizeApp,
+      }}
     >
       <div className={style.app}>
         <Shell />
       </div>
-    </RunningAppContext.Provider>
+    </RunningAppsContext.Provider>
   );
 };
 
