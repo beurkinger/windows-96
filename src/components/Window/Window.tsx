@@ -32,9 +32,19 @@ const Window: FunctionComponent<Props> = ({
   width = '300px',
   zIndex = 0,
 }: Props) => {
-  const eltRef = createRef<HTMLDivElement>();
-  const coordsState = useDragging(eltRef, {
-    onDragStart: onMouseDown,
+  const windowRef = createRef<HTMLDivElement>();
+  const titleBarRef = createRef<HTMLDivElement>();
+
+  const getParentElement = (): HTMLElement | null => {
+    return windowRef.current?.parentElement ?? null;
+  };
+
+  const getTitleBarElement = (): HTMLElement | null => {
+    return titleBarRef.current ?? null;
+  };
+
+  const coordsState = useDragging(getTitleBarElement, {
+    getBoundingElt: getParentElement,
     onDragStop: onMoved,
     savedCoords: coords,
   });
@@ -42,7 +52,8 @@ const Window: FunctionComponent<Props> = ({
   return (
     <div
       className={`${style.window} window`}
-      ref={eltRef}
+      onMouseDown={onMouseDown}
+      ref={windowRef}
       style={{
         height: isMaximized ? '100%' : height,
         transform: isMaximized
@@ -53,6 +64,7 @@ const Window: FunctionComponent<Props> = ({
       }}
     >
       <TitleBar
+        innerRef={titleBarRef}
         isInactive={isInactive}
         isMaximized={isMaximized}
         onClickMinimize={onClickMinimize}

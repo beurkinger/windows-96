@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact';
+import { h, FunctionComponent, RefObject } from 'preact';
 
 import style from './TitleBar.css';
 
@@ -10,6 +10,7 @@ export interface Props {
   onClickRestore?: () => void;
   onClickHelp?: () => void;
   onClickClose: () => void;
+  innerRef?: RefObject<HTMLDivElement>;
   title: string;
 }
 
@@ -21,10 +22,12 @@ const TitleBar: FunctionComponent<Props> = ({
   onClickRestore,
   onClickHelp,
   onClickClose,
+  innerRef,
   title,
 }: Props) => (
   <div
     className={`${style.titlebar} title-bar ${isInactive ? 'inactive' : ''}`}
+    ref={innerRef}
   >
     <div className="title-bar-text">{title}</div>
     <div className="title-bar-controls">

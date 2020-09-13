@@ -8,10 +8,13 @@ export interface Bounds {
 }
 
 // Right now we can only bound to parent. Better bounding handling = partial rewritting of component.
-export const getBounds = (node: HTMLElement): Bounds => {
+export const getBounds = (
+  node: HTMLElement,
+  boundingNode?: HTMLElement | null
+): Bounds => {
   const { height, width } = getBoundingRect(node);
   const { height: parentHeight, width: parentWidth } = getBoundingRect(
-    node.parentElement
+    boundingNode ? boundingNode : document.documentElement
   );
   return {
     xMax: parentWidth - width,

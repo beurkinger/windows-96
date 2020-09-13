@@ -1,4 +1,3 @@
-import { RefObject } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 
 import {
@@ -12,25 +11,28 @@ import { debounceWithRequestAnimationFrame } from '../utils/FunctionUtils';
 import { getBounds, getBoundedOffset } from './utils/BoundingUtils';
 
 export interface Options {
+  getBoundingElt?: () => HTMLElement | null;
   onDragStart?: () => void;
   onDragStop?: (coords: Coords) => void;
   savedCoords?: Coords | null;
 }
 
 const useDragging = (
-  eltRef: RefObject<HTMLElement>,
-  { savedCoords = null, onDragStart, onDragStop }: Options
+  getHandleElt: () => HTMLElement | null,
+  { getBoundingElt, savedCoords = null, onDragStart, onDragStop }: Options
 ): Coords => {
   const originalElementCoords = useRef<Coords>({ x: 0, y: 0 });
   const originalMouseCoords = useRef<Coords>({ x: 0, y: 0 });
   const touchId = useRef<number | null>(null);
-  const eltRefClone = useRef<HTMLElement | null>();
+  const handleEltRef = useRef<HTMLElement | null>();
+  const boundingEltRef = useRef<HTMLElement | null>();
 
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [coords, setCoords] = useState<Coords>(savedCoords || { x: 0, y: 0 });
 
   useEffect(() => {
-    eltRefClone.current = eltRef.current;
+    handleEltRef.current = getHandleElt();
+    boundingEltRef.current = getBoundingElt ? getBoundingElt() : null;
   });
 
   useEffect((): void => {
@@ -52,11 +54,11 @@ const useDragging = (
   }, []);
 
   const addPointerStartEventListeners = (): void => {
-    if (!eltRefClone.current) return;
-    eltRefClone.current.addEventListener('mousedown', handleOnMouseDown, {
+    if (!handleEltRef.current) return;
+    handleEltRef.current.addEventListener('mousedown', handleOnMouseDown, {
       passive: false,
     });
-    eltRefClone.current.addEventListener('touchstart', handleOnTouchStart, {
+    handleEltRef.current.addEventListener('touchstart', handleOnTouchStart, {
       passive: false,
     });
   };
@@ -83,9 +85,9 @@ const useDragging = (
   };
 
   const removePointerStartEventListeners = (): void => {
-    if (!eltRefClone.current) return;
-    eltRefClone.current.removeEventListener('mousedown', handleOnMouseDown);
-    eltRefClone.current.removeEventListener('touchstart', handleOnTouchStart);
+    if (!handleEltRef.current) return;
+    handleEltRef.current.removeEventListener('mousedown', handleOnMouseDown);
+    handleEltRef.current.removeEventListener('touchstart', handleOnTouchStart);
   };
 
   const removePointerMoveEventListeners = (): void => {
@@ -101,13 +103,13 @@ const useDragging = (
 
   const applyDragging = debounceWithRequestAnimationFrame(
     (mouseCoords: Coords) => {
-      if (!eltRefClone.current) return;
+      if (!handleEltRef.current) return;
       const mouseOffsetX = mouseCoords.x - originalMouseCoords.current.x;
       const mouseOffsetY = mouseCoords.y - originalMouseCoords.current.y;
       const nextX = originalElementCoords.current.x + mouseOffsetX;
       const nextY = originalElementCoords.current.y + mouseOffsetY;
 
-      const bounds = getBounds(eltRefClone.current);
+      const bounds = getBounds(handleEltRef.current, boundingEltRef.current);
       const newCoords = getBoundedOffset(nextX, nextY, bounds);
 
       setCoords(() => newCoords);
