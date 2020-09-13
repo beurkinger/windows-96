@@ -7,11 +7,11 @@ import Window from '../Window/Window';
 import style from './WindowsContainer.css';
 
 const WindowsContainer: FunctionComponent = () => {
-  const runningApps = useContext(RunningAppsContext);
+  const { apps }= useContext(RunningAppsContext);
 
   return (
     <div className={style.windowsContainer}>
-      {runningApps.map((app) => (
+      {apps.map((app) => (
         <Window key={app.zIndex} onClickClose={() => null} title={app.title}>
           {app.content}
         </Window>

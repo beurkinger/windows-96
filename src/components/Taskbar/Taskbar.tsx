@@ -11,7 +11,7 @@ import StartMenu from '../StartMenu/StartMenu';
 import style from './Taskbar.css';
 
 const Taskbar: FunctionComponent = () => {
-  const runningApps = useContext(RunningAppsContext);
+  const { apps } = useContext(RunningAppsContext);
   const [isStartMenuOpen, setIsStartMenuOpen] = useFloating();
 
   const handleStartButtonClick = (e: MouseEvent) => {
@@ -36,7 +36,7 @@ const Taskbar: FunctionComponent = () => {
         />
       </div>
       <div className={style.taskButtonsWrapper}>
-        {runningApps.map((app) => (
+        {apps.map((app) => (
           <Button
             icon={app.icon}
             key={app.zIndex}
