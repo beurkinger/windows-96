@@ -102,7 +102,9 @@ const App: FunctionComponent = () => {
 
   const moveApp = (appIndex: number, coords: { x: number; y: number }) => {
     setRunningApps((apps) => {
-      return apps.map((app, i) => (i === appIndex ? { ...app, coords } : app));
+      return apps.map((app, i) =>
+        i === appIndex && !app.isMaximized ? { ...app, coords } : app
+      );
     });
   };
 
