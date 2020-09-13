@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
-import { useState } from 'preact/hooks';
 
+import useFloating from '../../hooks/useFloating';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 import NotificationArea from '../NotificationArea/NotificationArea';
@@ -9,7 +9,13 @@ import StartMenu from '../StartMenu/StartMenu';
 import style from './Taskbar.css';
 
 const Taskbar: FunctionComponent = () => {
-  const [isStartMenuOpen, setIsStartMenuOpen] = useState(false);
+  const [isStartMenuOpen, setIsStartMenuOpen] = useFloating();
+
+  const handleStartButtonClick = (e: MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsStartMenuOpen(!isStartMenuOpen);
+  };
 
   return (
     <div className={style.taskbar}>
@@ -23,7 +29,7 @@ const Taskbar: FunctionComponent = () => {
           isActive={isStartMenuOpen}
           inTaskbar
           label="Start"
-          onClick={() => setIsStartMenuOpen((b) => !b)}
+          onClick={handleStartButtonClick}
         />
       </div>
       <div className={style.taskButtonsWrapper}>
