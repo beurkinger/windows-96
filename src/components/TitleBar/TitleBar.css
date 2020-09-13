@@ -1,1 +1,3 @@
-.titlebar {}
+.titlebar {
+    user-select: none;
+}

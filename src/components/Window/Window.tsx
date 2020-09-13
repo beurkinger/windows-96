@@ -35,7 +35,6 @@ const Window: FunctionComponent<Props> = ({
 }: Props) => {
   const windowRef = createRef<HTMLDivElement>();
   const titleBarRef = createRef<HTMLDivElement>();
-  if (title === 'Notepad') console.log(coords);
 
   const getParentElement = (): HTMLElement | null => {
     return windowRef.current?.parentElement ?? null;
