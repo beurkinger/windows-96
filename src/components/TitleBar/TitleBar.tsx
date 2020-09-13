@@ -10,6 +10,7 @@ export interface Props {
   onClickRestore?: () => void;
   onClickHelp?: () => void;
   onClickClose: () => void;
+  onDblClickTitleBar?: () => void;
   innerRef?: RefObject<HTMLDivElement>;
   title: string;
 }
@@ -22,11 +23,13 @@ const TitleBar: FunctionComponent<Props> = ({
   onClickRestore,
   onClickHelp,
   onClickClose,
+  onDblClickTitleBar,
   innerRef,
   title,
 }: Props) => (
   <div
     className={`${style.titlebar} title-bar ${isInactive ? 'inactive' : ''}`}
+    onDblClick={onDblClickTitleBar}
     ref={innerRef}
   >
     <div className="title-bar-text">{title}</div>

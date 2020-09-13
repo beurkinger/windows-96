@@ -28,7 +28,16 @@ const WindowsContainer: FunctionComponent = () => {
             onClickMaximize={() => maximizeApp(i)}
             onClickMinimize={() => minimizeApp(i)}
             onClickRestore={() => unMaximizeApp(i)}
-            onMouseDown={() => focusOnApp(i)}
+            onDblClickTitleBar={() => {
+              if (app.isMaximized) {
+                unMaximizeApp(i);
+              } else {
+                maximizeApp(i);
+              }
+            }}
+            onMouseDown={() => {
+              if (!app.isMaximized) focusOnApp(i);
+            }}
             onMoved={(coords) => moveApp(i, coords)}
             isInactive={!app.hasFocus}
             isMaximized={app.isMaximized}

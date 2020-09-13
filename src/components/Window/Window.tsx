@@ -27,6 +27,7 @@ const Window: FunctionComponent<Props> = ({
   onClickRestore,
   onClickHelp,
   onClickClose,
+  onDblClickTitleBar,
   onMoved,
   title,
   width = '300px',
@@ -34,6 +35,7 @@ const Window: FunctionComponent<Props> = ({
 }: Props) => {
   const windowRef = createRef<HTMLDivElement>();
   const titleBarRef = createRef<HTMLDivElement>();
+  if (title === 'Notepad') console.log(coords);
 
   const getParentElement = (): HTMLElement | null => {
     return windowRef.current?.parentElement ?? null;
@@ -43,9 +45,13 @@ const Window: FunctionComponent<Props> = ({
     return titleBarRef.current ?? null;
   };
 
+  const handleOnMoved = (coords: { x: number; y: number }) => {
+    if (!isMaximized && onMoved) onMoved(coords);
+  };
+
   const coordsState = useDragging(getTitleBarElement, {
     getBoundingElt: getParentElement,
-    onDragStop: onMoved,
+    onDragStop: handleOnMoved,
     savedCoords: coords,
   });
 
@@ -72,6 +78,7 @@ const Window: FunctionComponent<Props> = ({
         onClickRestore={onClickRestore}
         onClickHelp={onClickHelp}
         onClickClose={onClickClose}
+        onDblClickTitleBar={onDblClickTitleBar}
         title={title}
       />
       <div className="window-body">{children}</div>
