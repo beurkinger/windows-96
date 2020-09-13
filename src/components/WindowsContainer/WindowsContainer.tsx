@@ -17,7 +17,6 @@ const WindowsContainer: FunctionComponent = () => {
     unMaximizeApp,
   } = useContext(RunningAppsContext);
 
-  console.log(apps);
   return (
     <div className={style.windowsContainer}>
       {apps.map((app, i) =>
