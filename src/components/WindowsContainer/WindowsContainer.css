@@ -10,4 +10,7 @@
 
 .windowsContainer > * {
   pointer-events: all;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
