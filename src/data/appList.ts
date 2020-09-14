@@ -4,6 +4,8 @@ export type AppInfos = { id: AppId; iconId: IconId; name: string };
 export type AppList = { [key in AppId]: AppInfos };
 
 export type AppId =
+  | 'binEmpty'
+  | 'binFull'
   | 'briefcase'
   | 'calc'
   | 'cdPlayer'
@@ -21,7 +23,7 @@ export type AppId =
   | 'msDos'
   | 'msPaint'
   | 'myComputer'
-  | 'network'
+  | 'networkNeighborhood'
   | 'notepad'
   | 'phoneDialer'
   | 'printers'
@@ -35,6 +37,8 @@ export type AppId =
   | 'wordpad';
 
 export const appList: AppList = {
+  binEmpty: { id: 'binEmpty', iconId: 'binEmpty', name: 'Recycle Bin' },
+  binFull: { id: 'binFull', iconId: 'binFull', name: 'Recycle Bin' },
   briefcase: { id: 'briefcase', iconId: 'briefcase', name: 'My Briefcase' },
   calc: { id: 'calc', iconId: 'calc', name: 'Calculator' },
   cdPlayer: { id: 'cdPlayer', iconId: 'cdPlayer', name: 'CD Player' },
@@ -72,7 +76,11 @@ export const appList: AppList = {
   msDos: { id: 'msDos', iconId: 'msDos', name: 'MS-DOS Prompt' },
   msPaint: { id: 'msPaint', iconId: 'msPaint', name: 'Paint' },
   myComputer: { id: 'myComputer', iconId: 'myComputer', name: 'My Computer' },
-  network: { id: 'network', iconId: 'network', name: 'Network' },
+  networkNeighborhood: {
+    id: 'networkNeighborhood',
+    iconId: 'network',
+    name: 'Network Neighborhood',
+  },
   notepad: { id: 'notepad', iconId: 'notepad', name: 'Notepad' },
   phoneDialer: {
     id: 'phoneDialer',
