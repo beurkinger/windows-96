@@ -5,6 +5,7 @@
     background: var(--surface);
     padding: 3px;
     font-family: "Pixelated MS Sans Serif", Arial;
+    -webkit-font-smoothing: none;
     font-size: 11px;
     line-height: 1;
     overflow: visible;
