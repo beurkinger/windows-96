@@ -1,4 +1,4 @@
-import { IconId } from '../components/Icon/iconList';
+import { IconId } from './iconList';
 
 export type AppInfos = { iconId: IconId };
 export type AppList = { [key in AppId]: Partial<AppInfos> };
