@@ -11,6 +11,7 @@ export type AppId =
   | 'defrag'
   | 'exchange'
   | 'explorer'
+  | 'find'
   | 'findComputer'
   | 'findMsn'
   | 'help'
@@ -39,6 +40,7 @@ export const appList: AppList = {
   defrag: { iconId: 'defrag' },
   exchange: { iconId: 'exchange' },
   explorer: { iconId: 'explorer' },
+  find: { iconId: 'find' },
   findComputer: { iconId: 'findComputer' },
   findMsn: { iconId: 'findMsn' },
   help: { iconId: 'help' },
