@@ -7,10 +7,7 @@ import style from './NotificationArea.css';
 const NotificationArea: FunctionComponent = () => (
   <div className={style.notificationArea}>
     <div className={style.statusIcon}>
-      <Icon />
-    </div>
-    <div className={style.statusIcon}>
-      <Icon />
+      <Icon iconId="sound" />
     </div>
     <div className={style.clock}>8: 05 PM</div>
   </div>
