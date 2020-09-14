@@ -50,8 +50,8 @@ import network_16 from '../../assets/img/icons/network/network_16.png';
 import network_32 from '../../assets/img/icons/network/network_32.png';
 import notepad_16 from '../../assets/img/icons/notepad/notepad_16.png';
 import notepad_32 from '../../assets/img/icons/notepad/notepad_32.png';
-import notepad_alt_16 from '../../assets/img/icons/notepad_alt/notepad_alt_16.png';
-import notepad_alt_32 from '../../assets/img/icons/notepad_alt/notepad_alt_32.png';
+import notepad_doc_16 from '../../assets/img/icons/notepad_doc/notepad_doc_16.png';
+import notepad_doc_32 from '../../assets/img/icons/notepad_doc/notepad_doc_32.png';
 import phone_dialer_16 from '../../assets/img/icons/phone_dialer/phone_dialer_16.png';
 import printers_16 from '../../assets/img/icons/printers/printers_16.png';
 import printers_32 from '../../assets/img/icons/printers/printers_32.png';
@@ -85,8 +85,8 @@ import warning_32 from '../../assets/img/icons/warning/warning_32.png';
 import windows_logo_16 from '../../assets/img/icons/windows_logo/windows_logo_16.png';
 import wordpad_16 from '../../assets/img/icons/wordpad/wordpad_16.png';
 import wordpad_32 from '../../assets/img/icons/wordpad/wordpad_32.png';
-import wordpad_alt_16 from '../../assets/img/icons/wordpad_alt/wordpad_alt_16.png';
-import wordpad_alt_32 from '../../assets/img/icons/wordpad_alt/wordpad_alt_32.png';
+import wordpad_doc_16 from '../../assets/img/icons/wordpad_doc/wordpad_doc_16.png';
+import wordpad_doc_32 from '../../assets/img/icons/wordpad_doc/wordpad_doc_32.png';
 
 export type IconUrls = { 8: string; 16: string; 24: string; 32: string };
 export type IconList = { [key in IconId]: Partial<IconUrls> };
@@ -117,7 +117,7 @@ export type IconId =
   | 'myComputer'
   | 'network'
   | 'notepad'
-  | 'notepadAlt'
+  | 'notepadDoc'
   | 'phoneDialer'
   | 'printers'
   | 'programs'
@@ -134,7 +134,7 @@ export type IconId =
   | 'warning'
   | 'windowsLogo'
   | 'wordpad'
-  | 'wordpadAlt';
+  | 'wordpadDoc';
 
 export const iconList: IconList = {
   briefcase: { 16: briefcase_16, 32: briefcase_32 },
@@ -163,7 +163,7 @@ export const iconList: IconList = {
   myComputer: { 16: my_computer_16, 32: my_computer_32 },
   network: { 16: network_16, 32: network_32 },
   notepad: { 16: notepad_16, 32: notepad_32 },
-  notepadAlt: { 16: notepad_alt_16, 32: notepad_alt_32 },
+  notepadDoc: { 16: notepad_doc_16, 32: notepad_doc_32 },
   phoneDialer: { 16: phone_dialer_16 },
   printers: { 16: printers_16, 32: printers_32 },
   register: { 16: register_16, 32: register_32 },
@@ -179,5 +179,5 @@ export const iconList: IconList = {
   warning: { 32: warning_32 },
   windowsLogo: { 16: windows_logo_16 },
   wordpad: { 16: wordpad_16, 32: wordpad_32 },
-  wordpadAlt: { 16: wordpad_alt_16, 32: wordpad_alt_32 },
+  wordpadDoc: { 16: wordpad_doc_16, 32: wordpad_doc_32 },
 };
