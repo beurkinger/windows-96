@@ -89,7 +89,7 @@ import wordpad_alt_16 from '../../assets/img/icons/wordpad_alt/wordpad_alt_16.pn
 import wordpad_alt_32 from '../../assets/img/icons/wordpad_alt/wordpad_alt_32.png';
 
 export type IconUrls = { 8: string; 16: string; 24: string; 32: string };
-export type iconList = { [key in IconId]: Partial<IconUrls> };
+export type IconList = { [key in IconId]: Partial<IconUrls> };
 
 export type IconId =
   | 'briefcase'
@@ -136,7 +136,7 @@ export type IconId =
   | 'wordpad'
   | 'wordpadAlt';
 
-export const iconList: iconList = {
+export const iconList: IconList = {
   briefcase: { 16: briefcase_16, 32: briefcase_32 },
   calc: { 16: calc_16, 32: calc_32 },
   cdPlayer: { 16: cd_player_16, 32: cd_player_32 },
