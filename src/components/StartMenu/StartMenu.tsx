@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 
-import Icon from '../Icon/Icon';
+import { appList } from '../../data/appList';
 import Menu from '../Menu/Menu';
 
 import style from './StartMenu.css';
@@ -13,46 +13,44 @@ const StartMenu: FunctionComponent = () => (
       options={[
         [
           {
-            icon: <Icon iconId="programs" size={24} />,
             label: 'Programs',
+            iconId: 'programs',
             value: '',
             subMenu: {
               options: [
                 [
                   {
+                    iconId: 'programs',
                     label: 'Accessories',
-                    icon: <Icon iconId="programs" size={16} />,
                     value: '',
                     subMenu: {
                       options: [
                         [
                           {
                             label: 'Multimedia',
-                            icon: <Icon iconId="programs" size={16} />,
+                            iconId: 'programs',
                             value: '',
                             subMenu: {
                               options: [
                                 [
                                   {
-                                    label: 'CD Player',
-                                    icon: <Icon iconId="cdPlayer" size={16} />,
+                                    label: appList.cdPlayer.name,
+                                    iconId: appList.cdPlayer.iconId,
                                     value: '',
                                   },
                                   {
-                                    label: 'Sound Recorder',
-                                    icon: <Icon iconId="sound" size={16} />,
+                                    label: appList.soundRecorder.name,
+                                    iconId: appList.soundRecorder.iconId,
                                     value: '',
                                   },
                                   {
-                                    label: 'Volume Control',
-                                    icon: <Icon iconId="volume" size={16} />,
+                                    label: appList.volumeControl.name,
+                                    iconId: appList.volumeControl.iconId,
                                     value: '',
                                   },
                                   {
-                                    label: 'Windows Media Player',
-                                    icon: (
-                                      <Icon iconId="mediaPlayer" size={16} />
-                                    ),
+                                    label: appList.mediaPlayer.name,
+                                    iconId: appList.mediaPlayer.iconId,
                                     value: '',
                                   },
                                 ],
@@ -61,19 +59,19 @@ const StartMenu: FunctionComponent = () => (
                           },
                           {
                             label: 'System Tools',
-                            icon: <Icon iconId="programs" size={16} />,
+                            iconId: 'programs',
                             value: '',
                             subMenu: {
                               options: [
                                 [
                                   {
-                                    label: 'Disk Degragmenter',
-                                    icon: <Icon iconId="defrag" size={16} />,
+                                    label: appList.defrag.name,
+                                    iconId: appList.defrag.iconId,
                                     value: '',
                                   },
                                   {
-                                    label: 'ScanDisk',
-                                    icon: <Icon iconId="scandisk" size={16} />,
+                                    label: appList.scandisk.name,
+                                    iconId: appList.scandisk.iconId,
                                     value: '',
                                   },
                                 ],
@@ -81,38 +79,38 @@ const StartMenu: FunctionComponent = () => (
                             },
                           },
                           {
-                            label: 'Calculator',
-                            icon: <Icon iconId="calc" size={16} />,
+                            label: appList.calc.name,
+                            iconId: appList.calc.iconId,
                             value: '',
                           },
                           {
-                            label: 'Hyper Terminal',
-                            icon: <Icon iconId="hyperterminal"  size={16} />,
+                            label: appList.hyperterminal.name,
+                            iconId: appList.hyperterminal.iconId,
                             value: '',
                           },
                           {
-                            label: 'Notepad',
-                            icon: <Icon iconId="notepad" size={16} />,
+                            label: appList.notepad.name,
+                            iconId: appList.notepad.iconId,
                             value: '',
                           },
                           {
-                            label: 'Online Registration',
-                            icon: <Icon iconId="register" size={16} />,
+                            label: appList.register.name,
+                            iconId: appList.register.iconId,
                             value: '',
                           },
                           {
-                            label: 'Paint',
-                            icon: <Icon iconId="msPaint" size={16} />,
+                            label: appList.msPaint.name,
+                            iconId: appList.msPaint.iconId,
                             value: '',
                           },
                           {
-                            label: 'Phone Dialer',
-                            icon: <Icon iconId="phoneDialer" size={16} />,
+                            label: appList.phoneDialer.name,
+                            iconId: appList.phoneDialer.iconId,
                             value: '',
                           },
                           {
-                            label: 'WordPad',
-                            icon: <Icon iconId="wordpad" size={16} />,
+                            label: appList.wordpad.name,
+                            iconId: appList.wordpad.iconId,
                             value: '',
                           },
                         ],
@@ -121,27 +119,27 @@ const StartMenu: FunctionComponent = () => (
                   },
                   {
                     label: 'StartUp',
-                    icon: <Icon iconId="programs" size={16} />,
+                    iconId: 'programs',
                     value: '',
                   },
                   {
-                    label: 'Microsoft Exchange',
-                    icon: <Icon iconId="exchange" size={16} />,
+                    label: appList.exchange.name,
+                    iconId: appList.exchange.iconId,
                     value: '',
                   },
                   {
-                    label: 'MS-DOS Prompt',
-                    icon: <Icon iconId="msDos" size={16} />,
+                    label: appList.msDos.name,
+                    iconId: appList.msDos.iconId,
                     value: '',
                   },
                   {
-                    label: 'The Microsoft Network',
-                    icon: <Icon iconId="msn" size={16} />,
+                    label: appList.msn.name,
+                    iconId: appList.msn.iconId,
                     value: '',
                   },
                   {
-                    label: 'Windows Explorer',
-                    icon: <Icon iconId="explorer" size={16} />,
+                    label: appList.explorer.name,
+                    iconId: appList.explorer.iconId,
                     value: '',
                   },
                 ],
@@ -149,15 +147,15 @@ const StartMenu: FunctionComponent = () => (
             },
           },
           {
-            icon: <Icon iconId="documents" size={24} />,
             label: 'Documents',
+            iconId: 'documents',
             value: '',
             subMenu: {
               options: [
                 [
                   {
                     label: 'Readme',
-                    icon: <Icon iconId="notepadDoc" size={16} />,
+                    iconId: 'notepadDoc',
                     value: '',
                   },
                 ],
@@ -165,25 +163,25 @@ const StartMenu: FunctionComponent = () => (
             },
           },
           {
-            icon: <Icon iconId="settings" size={24} />,
             label: 'Settings',
+            iconId: 'settings',
             value: '',
             subMenu: {
               options: [
                 [
                   {
-                    label: 'Control Panel',
-                    icon: <Icon iconId="controlPanel" size={16} />,
+                    label: appList.controlPanel.name,
+                    iconId: appList.controlPanel.iconId,
                     value: '',
                   },
                   {
-                    label: 'Printers',
-                    icon: <Icon iconId="printers" size={16} />,
+                    label: appList.printers.name,
+                    iconId: appList.printers.iconId,
                     value: '',
                   },
                   {
-                    label: 'Taskbar...',
-                    icon: <Icon iconId="taskbar" size={16} />,
+                    label: appList.taskbar.name,
+                    iconId: appList.taskbar.iconId,
                     value: '',
                   },
                 ],
@@ -191,20 +189,20 @@ const StartMenu: FunctionComponent = () => (
             },
           },
           {
-            icon: <Icon iconId="find" size={24} />,
             label: 'Find',
+            iconId: 'find',
             value: '',
             subMenu: {
               options: [
                 [
                   {
                     label: 'Files or Folders...',
-                    icon: <Icon iconId="find" size={16} />,
+                    iconId: appList.find.iconId,
                     value: '',
                   },
                   {
-                    label: 'Computer...',
-                    icon: <Icon iconId="findComputer" size={16} />,
+                    label: 'Computers...',
+                    iconId: appList.findComputer.iconId,
                     value: '',
                   },
                 ],
@@ -212,20 +210,20 @@ const StartMenu: FunctionComponent = () => (
             },
           },
           {
-            icon: <Icon iconId="help" size={24} />,
-            label: 'Help',
+            label: appList.help.name,
+            iconId: appList.help.iconId,
             value: '',
           },
           {
-            icon: <Icon iconId="run" size={24} />,
-            label: 'Run',
+            label: appList.run.name,
+            iconId: appList.run.iconId,
             value: '',
           },
         ],
         [
           {
-            icon: <Icon iconId="shutdown" size={24} />,
-            label: 'Shutdown...',
+            label: appList.shutdown.name,
+            iconId: appList.shutdown.iconId,
             value: '',
           },
         ],

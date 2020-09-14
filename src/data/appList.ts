@@ -56,7 +56,7 @@ export const appList: AppList = {
   notepad: { iconId: 'notepad', name: 'Notepad' },
   phoneDialer: { iconId: 'phoneDialer', name: 'Phone Dialer' },
   printers: { iconId: 'printers', name: 'Printers' },
-  register: { iconId: 'register', name: 'Online registration' },
+  register: { iconId: 'register', name: 'Online Registration' },
   run: { iconId: 'run', name: 'Run' },
   scandisk: { iconId: 'scandisk', name: 'ScanDisk' },
   soundRecorder: { iconId: 'sound', name: 'Sound Recorder' },

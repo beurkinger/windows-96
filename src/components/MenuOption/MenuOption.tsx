@@ -1,5 +1,6 @@
-import { h, FunctionComponent, ComponentChild } from 'preact';
+import { h, FunctionComponent } from 'preact';
 
+import { IconId } from '../../data/iconList';
 import Icon from '../Icon/Icon';
 import Menu from '../Menu/Menu';
 
@@ -7,7 +8,7 @@ import style from './MenuOption.css';
 
 export type OptionType = {
   disabled?: boolean;
-  icon?: ComponentChild;
+  iconId?: IconId;
   label: string;
   subMenu?: { isLarge?: boolean; options: OptionType[][] };
   value: string;
@@ -20,7 +21,7 @@ export type Props = OptionType & {
 
 const MenuOption: FunctionComponent<Props> = ({
   // disabled,
-  icon,
+  iconId,
   isLarge = false,
   onSelect,
   label,
@@ -31,7 +32,9 @@ const MenuOption: FunctionComponent<Props> = ({
     className={`${style.menuOption} ${isLarge ? style.large : ''}`}
     onSelect={() => onSelect(value)}
   >
-    <div className={style.menuOptionIcon}>{icon}</div>
+    <div className={style.menuOptionIcon}>
+      {!!iconId && <Icon iconId={iconId} size={isLarge ? 24 : 16} />}
+    </div>
     <div className={style.menuOptionLabel}>{label}</div>
     <div className={style.menuOptionArrow}>
       {!!subMenu && <Icon iconId="menuArrow" size={8} />}

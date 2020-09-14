@@ -25,7 +25,7 @@ Props) => (
         {optionGroup.map((option, i) => (
           <MenuOption
             disabled={option.disabled}
-            icon={option.icon}
+            iconId={option.iconId}
             isLarge={isLarge}
             key={i + option.label}
             label={option.label}
