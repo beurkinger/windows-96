@@ -15,7 +15,7 @@ const App: FunctionComponent = () => {
     {
       content: 'How do you do ?',
       coords: { x: 50, y: 50 },
-      iconId: 'briefcase',
+      iconId: 'notepad',
       hasFocus: false,
       isMaximized: false,
       isMinimized: false,
@@ -26,7 +26,7 @@ const App: FunctionComponent = () => {
     {
       content: 'How do you do ?',
       coords: { x: 100, y: 100 },
-      iconId: 'briefcase',
+      iconId: 'msPaint',
       hasFocus: false,
       isMaximized: false,
       isMinimized: false,
@@ -37,12 +37,12 @@ const App: FunctionComponent = () => {
     {
       content: 'How do you do ?',
       coords: { x: 150, y: 150 },
-      iconId: 'briefcase',
+      iconId: 'explorer',
       hasFocus: false,
       isMaximized: false,
       isMinimized: false,
       size: { width: 100, height: 100 },
-      title: 'Minesweeeper',
+      title: 'Windows Explorer',
       zIndex: 2,
     },
   ]);
