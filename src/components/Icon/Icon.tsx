@@ -13,7 +13,6 @@ const Icon: FunctionComponent<Props> = ({
   size = 16,
 }: Props) => {
   const src = iconList[iconId][size] ?? '';
-  console.log(iconId, src);
   return (
     <img
       className={style.icon}
@@ -21,6 +20,6 @@ const Icon: FunctionComponent<Props> = ({
       style={{ height: `${size}px`, width: `${size}px` }}
     />
   );
-}
+};
 
 export default Icon;
