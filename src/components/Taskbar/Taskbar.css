@@ -27,18 +27,18 @@
 }
 
 .taskButtonsWrapper {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     padding: 0 2px;
 }
 
 .taskButtonsWrapper button {
+    flex: 1 1 0;
     margin-right: 4px;
-    min-width: 160px;
+    max-width: 160px;
 }
 
 .notificationAreaWrapper {
-    display: flex;
+    flex: 0 0 auto;
     margin: 0 1px;
-
 }
