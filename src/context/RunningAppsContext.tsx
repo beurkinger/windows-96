@@ -1,9 +1,12 @@
-import { createContext, ComponentChild } from 'preact';
+import { createContext } from 'preact';
+
+import { AppId } from '../data/appList';
+import { IconId } from '../data/iconList';
 
 export type RunningApp = {
   content: string;
   coords: { x: number; y: number };
-  icon: ComponentChild;
+  iconId: IconId;
   hasFocus: boolean;
   isMaximized: boolean;
   isMinimized: boolean;
@@ -14,9 +17,7 @@ export type RunningApp = {
 
 export interface ContextType {
   apps: RunningApp[];
-  addApp: (
-    app: Omit<RunningApp, 'isMaximized' | 'isMinimized' | 'zIndex'>
-  ) => void;
+  addApp: (appId: AppId) => void;
   closeApp: (zIndex: number) => void;
   focusOnApp: (appIndex: number) => void;
   maximizeApp: (appIndex: number) => void;

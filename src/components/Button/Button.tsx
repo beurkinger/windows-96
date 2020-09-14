@@ -1,11 +1,15 @@
-import { h, FunctionComponent, ComponentChild } from 'preact';
+import { h, FunctionComponent } from 'preact';
+
+import { IconId, IconSize } from '../../data/iconList';
+import Icon from '../Icon/Icon';
 
 import style from './Button.css';
 
 interface Props {
   disabled?: boolean;
   fontWeight?: 'normal' | 'bold';
-  icon?: ComponentChild;
+  iconId?: IconId;
+  iconSize?: IconSize;
   isActive?: boolean;
   inTaskbar?: boolean;
   label?: string;
@@ -18,7 +22,8 @@ interface Props {
 const Button: FunctionComponent<Props> = ({
   disabled = false,
   fontWeight = 'normal',
-  icon = null,
+  iconId,
+  iconSize = 16,
   isActive = false,
   inTaskbar = false,
   label = '',
@@ -36,7 +41,7 @@ const Button: FunctionComponent<Props> = ({
     type={type}
     style={{ fontWeight, textAlign }}
   >
-    {!!icon && icon}
+    {!!iconId && <Icon iconId={iconId} size={iconSize} />}
     {!!label && <div>{label}</div>}
   </button>
 );

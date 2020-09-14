@@ -88,6 +88,7 @@ import wordpad_32 from '../assets/img/icons/wordpad/wordpad_32.png';
 import wordpad_doc_16 from '../assets/img/icons/wordpad_doc/wordpad_doc_16.png';
 import wordpad_doc_32 from '../assets/img/icons/wordpad_doc/wordpad_doc_32.png';
 
+export type IconSize = 8 | 16 | 24 | 32;
 export type IconUrls = { 8: string; 16: string; 24: string; 32: string };
 export type IconList = { [key in IconId]: Partial<IconUrls> };
 

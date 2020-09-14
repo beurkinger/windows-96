@@ -5,10 +5,14 @@ import Menu from '../Menu/Menu';
 
 import style from './StartMenu.css';
 
-const StartMenu: FunctionComponent = () => (
+interface Props {
+  onSelect: (value: string) => void;
+}
+
+const StartMenu: FunctionComponent<Props> = ({ onSelect }: Props) => (
   <div className={style.startMenu}>
     <Menu
-      onSelect={() => null}
+      onSelect={onSelect}
       isLarge={true}
       options={[
         [
@@ -36,22 +40,22 @@ const StartMenu: FunctionComponent = () => (
                                   {
                                     label: appList.cdPlayer.name,
                                     iconId: appList.cdPlayer.iconId,
-                                    value: '',
+                                    value: appList.cdPlayer.id,
                                   },
                                   {
                                     label: appList.soundRecorder.name,
                                     iconId: appList.soundRecorder.iconId,
-                                    value: '',
+                                    value: appList.soundRecorder.id,
                                   },
                                   {
                                     label: appList.volumeControl.name,
                                     iconId: appList.volumeControl.iconId,
-                                    value: '',
+                                    value: appList.volumeControl.id,
                                   },
                                   {
                                     label: appList.mediaPlayer.name,
                                     iconId: appList.mediaPlayer.iconId,
-                                    value: '',
+                                    value: appList.mediaPlayer.id,
                                   },
                                 ],
                               ],
@@ -67,12 +71,12 @@ const StartMenu: FunctionComponent = () => (
                                   {
                                     label: appList.defrag.name,
                                     iconId: appList.defrag.iconId,
-                                    value: '',
+                                    value: appList.defrag.id,
                                   },
                                   {
                                     label: appList.scandisk.name,
                                     iconId: appList.scandisk.iconId,
-                                    value: '',
+                                    value: appList.scandisk.id,
                                   },
                                 ],
                               ],
@@ -81,37 +85,37 @@ const StartMenu: FunctionComponent = () => (
                           {
                             label: appList.calc.name,
                             iconId: appList.calc.iconId,
-                            value: '',
+                            value: appList.calc.id,
                           },
                           {
                             label: appList.hyperterminal.name,
                             iconId: appList.hyperterminal.iconId,
-                            value: '',
+                            value: appList.hyperterminal.id,
                           },
                           {
                             label: appList.notepad.name,
                             iconId: appList.notepad.iconId,
-                            value: '',
+                            value: appList.notepad.id,
                           },
                           {
                             label: appList.register.name,
                             iconId: appList.register.iconId,
-                            value: '',
+                            value: appList.register.id,
                           },
                           {
                             label: appList.msPaint.name,
                             iconId: appList.msPaint.iconId,
-                            value: '',
+                            value: appList.msPaint.id,
                           },
                           {
                             label: appList.phoneDialer.name,
                             iconId: appList.phoneDialer.iconId,
-                            value: '',
+                            value: appList.phoneDialer.id,
                           },
                           {
                             label: appList.wordpad.name,
                             iconId: appList.wordpad.iconId,
-                            value: '',
+                            value: appList.wordpad.id,
                           },
                         ],
                       ],
@@ -125,22 +129,22 @@ const StartMenu: FunctionComponent = () => (
                   {
                     label: appList.exchange.name,
                     iconId: appList.exchange.iconId,
-                    value: '',
+                    value: appList.exchange.id,
                   },
                   {
                     label: appList.msDos.name,
                     iconId: appList.msDos.iconId,
-                    value: '',
+                    value: appList.msDos.id,
                   },
                   {
                     label: appList.msn.name,
                     iconId: appList.msn.iconId,
-                    value: '',
+                    value: appList.msn.id,
                   },
                   {
                     label: appList.explorer.name,
                     iconId: appList.explorer.iconId,
-                    value: '',
+                    value: appList.explorer.id,
                   },
                 ],
               ],
@@ -172,17 +176,17 @@ const StartMenu: FunctionComponent = () => (
                   {
                     label: appList.controlPanel.name,
                     iconId: appList.controlPanel.iconId,
-                    value: '',
+                    value: appList.controlPanel.id,
                   },
                   {
                     label: appList.printers.name,
                     iconId: appList.printers.iconId,
-                    value: '',
+                    value: appList.printers.id,
                   },
                   {
                     label: appList.taskbar.name,
                     iconId: appList.taskbar.iconId,
-                    value: '',
+                    value: appList.taskbar.id,
                   },
                 ],
               ],
@@ -198,12 +202,12 @@ const StartMenu: FunctionComponent = () => (
                   {
                     label: 'Files or Folders...',
                     iconId: appList.find.iconId,
-                    value: '',
+                    value: appList.find.id,
                   },
                   {
                     label: 'Computers...',
                     iconId: appList.findComputer.iconId,
-                    value: '',
+                    value: appList.findComputer.id,
                   },
                 ],
               ],
@@ -212,19 +216,19 @@ const StartMenu: FunctionComponent = () => (
           {
             label: appList.help.name,
             iconId: appList.help.iconId,
-            value: '',
+            value: appList.help.id,
           },
           {
             label: appList.run.name,
             iconId: appList.run.iconId,
-            value: '',
+            value: appList.run.id,
           },
         ],
         [
           {
             label: appList.shutdown.name,
             iconId: appList.shutdown.iconId,
-            value: '',
+            value: appList.shutdown.id,
           },
         ],
       ]}

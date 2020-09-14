@@ -5,7 +5,7 @@ import RunningAppsContext, {
   ContextType,
   RunningApp,
 } from '../../context/RunningAppsContext';
-import Icon from '../Icon/Icon';
+import { appList } from '../../data/appList';
 import Shell from '../Shell/Shell';
 
 import style from './App.css';
@@ -15,10 +15,10 @@ const App: FunctionComponent = () => {
     {
       content: 'How do you do ?',
       coords: { x: 50, y: 50 },
-      icon: <Icon />,
+      iconId: 'briefcase',
+      hasFocus: false,
       isMaximized: false,
       isMinimized: false,
-      hasFocus: false,
       size: { width: 100, height: 100 },
       title: 'Notepad',
       zIndex: 0,
@@ -26,10 +26,10 @@ const App: FunctionComponent = () => {
     {
       content: 'How do you do ?',
       coords: { x: 100, y: 100 },
-      icon: <Icon />,
+      iconId: 'briefcase',
+      hasFocus: false,
       isMaximized: false,
       isMinimized: false,
-      hasFocus: false,
       size: { width: 100, height: 100 },
       title: 'Paint',
       zIndex: 1,
@@ -37,10 +37,10 @@ const App: FunctionComponent = () => {
     {
       content: 'How do you do ?',
       coords: { x: 150, y: 150 },
-      icon: <Icon />,
+      iconId: 'briefcase',
+      hasFocus: false,
       isMaximized: false,
       isMinimized: false,
-      hasFocus: false,
       size: { width: 100, height: 100 },
       title: 'Minesweeeper',
       zIndex: 2,
@@ -52,17 +52,25 @@ const App: FunctionComponent = () => {
     return apps.reduce((acc, app) => (app.zIndex > acc ? app.zIndex : acc), 0);
   };
 
-  const addApp: ContextType['addApp'] = (app) => {
+  const addApp: ContextType['addApp'] = (appId) => {
     setRunningApps((apps) => {
+      const appInfos = appList[appId];
       const zIndex = getBiggestZIndex(apps) + 1;
       const existingApps = apps.map((app) => ({ ...app, hasFocus: false }));
       return [
         ...existingApps,
         {
-          ...app,
+          content: 'Hello World !',
+          coords: {
+            x: 50 + Math.round(Math.random() * 200),
+            y: 50 + Math.round(Math.random() * 200),
+          },
+          iconId: appInfos.iconId,
+          hasFocus: true,
           isMinimized: false,
           isMaximized: false,
-          hasFocus: true,
+          size: { width: 100, height: 100 },
+          title: appInfos.name,
           zIndex,
         },
       ];

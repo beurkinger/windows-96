@@ -1,19 +1,19 @@
 import { h, FunctionComponent } from 'preact';
 import { useContext } from 'preact/hooks';
 
+import { AppId } from '../../data/appList';
 import RunningAppsContext, {
   RunningApp,
 } from '../../context/RunningAppsContext';
 import useFloating from '../../hooks/useFloating';
 import Button from '../Button/Button';
-import Icon from '../Icon/Icon';
 import NotificationArea from '../NotificationArea/NotificationArea';
 import StartMenu from '../StartMenu/StartMenu';
 
 import style from './Taskbar.css';
 
 const Taskbar: FunctionComponent = () => {
-  const { apps, focusOnApp, minimizeApp, unMinimizeApp } = useContext(
+  const { apps, addApp, focusOnApp, minimizeApp, unMinimizeApp } = useContext(
     RunningAppsContext
   );
   const [isStartMenuOpen, setIsStartMenuOpen] = useFloating();
@@ -22,6 +22,14 @@ const Taskbar: FunctionComponent = () => {
     e.preventDefault();
     e.stopPropagation();
     setIsStartMenuOpen(!isStartMenuOpen);
+  };
+
+  const handleStartMenuSelect = (appId: string) => {
+    console.log(appId);
+    if (appId) {
+      addApp(appId as AppId);
+      setIsStartMenuOpen(false);
+    }
   };
 
   const handleTaskButtonClick = (app: RunningApp, i: number) => {
@@ -37,12 +45,12 @@ const Taskbar: FunctionComponent = () => {
   return (
     <div className={style.taskbar}>
       <div className={style.startMenuWrapper}>
-        {isStartMenuOpen && <StartMenu />}
+        {isStartMenuOpen && <StartMenu onSelect={handleStartMenuSelect} />}
       </div>
       <div className={style.startButtonWrapper}>
         <Button
           fontWeight="bold"
-          icon={<Icon iconId="windowsLogo" />}
+          iconId="windowsLogo"
           isActive={isStartMenuOpen}
           inTaskbar
           label="Start"
@@ -52,7 +60,7 @@ const Taskbar: FunctionComponent = () => {
       <div className={style.taskButtonsWrapper}>
         {apps.map((app, i) => (
           <Button
-            icon={app.icon}
+            iconId={app.iconId}
             key={i}
             label={app.title}
             inTaskbar
