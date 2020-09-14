@@ -23,6 +23,7 @@ const WindowsContainer: FunctionComponent = () => {
         app.isMinimized ? null : (
           <Window
             coords={app.coords}
+            iconId={app.iconId}
             key={i}
             onClickClose={() => closeApp(i)}
             onClickMaximize={() => maximizeApp(i)}

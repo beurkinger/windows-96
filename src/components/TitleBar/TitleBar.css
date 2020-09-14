@@ -1,3 +1,15 @@
 .titlebar {
     user-select: none;
+    height: 18px;
+    padding: 1px 2px !important;
+    justify-content: flex-start !important;
+}
+
+.titlebarIcon {
+    margin-right: 2px;
+}
+
+.titlebarText {
+    flex:1;
+    margin-left: 1px;
 }

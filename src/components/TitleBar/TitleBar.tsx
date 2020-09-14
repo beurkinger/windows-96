@@ -1,8 +1,11 @@
 import { h, FunctionComponent, RefObject } from 'preact';
 
+import { IconId } from '../../data/iconList';
+import Icon from '../Icon/Icon';
 import style from './TitleBar.css';
 
 export interface Props {
+  iconId?: IconId;
   isInactive?: boolean;
   isMaximized?: boolean;
   onClickMinimize?: () => void;
@@ -16,6 +19,7 @@ export interface Props {
 }
 
 const TitleBar: FunctionComponent<Props> = ({
+  iconId,
   isInactive = false,
   isMaximized = false,
   onClickMinimize,
@@ -32,7 +36,10 @@ const TitleBar: FunctionComponent<Props> = ({
     onDblClick={onDblClickTitleBar}
     ref={innerRef}
   >
-    <div className="title-bar-text">{title}</div>
+    <div className={style.titlebarIcon}>
+      {!!iconId && <Icon iconId={iconId} />}
+    </div>
+    <div className={`${style.titlebarText} title-bar-text`}>{title}</div>
     <div className="title-bar-controls">
       {onClickMinimize && (
         <button aria-label="Minimize" onClick={onClickMinimize} />

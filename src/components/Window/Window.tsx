@@ -19,6 +19,7 @@ const Window: FunctionComponent<Props> = ({
   coords,
   children = null,
   height = 'auto',
+  iconId,
   isInactive = false,
   isMaximized = false,
   onMouseDown,
@@ -69,6 +70,7 @@ const Window: FunctionComponent<Props> = ({
       }}
     >
       <TitleBar
+        iconId={iconId}
         innerRef={titleBarRef}
         isInactive={isInactive}
         isMaximized={isMaximized}
