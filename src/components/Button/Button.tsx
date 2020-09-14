@@ -1,5 +1,4 @@
 import { h, FunctionComponent, ComponentChild } from 'preact';
-import Icon from '../Icon/Icon';
 
 import style from './Button.css';
 
@@ -37,8 +36,8 @@ const Button: FunctionComponent<Props> = ({
     type={type}
     style={{ fontWeight, textAlign }}
   >
-    {icon && <Icon />}
-    {label && <div>{label}</div>}
+    {!!icon && icon}
+    {!!label && <div>{label}</div>}
   </button>
 );
 
