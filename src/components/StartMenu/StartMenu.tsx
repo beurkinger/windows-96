@@ -157,12 +157,7 @@ const StartMenu: FunctionComponent = () => (
                 [
                   {
                     label: 'Readme',
-                    icon: <Icon size={16} />,
-                    value: '',
-                  },
-                  {
-                    label: 'Document',
-                    icon: <Icon size={16} />,
+                    icon: <Icon iconId="notepadDoc" size={16} />,
                     value: '',
                   },
                 ],
@@ -204,12 +199,12 @@ const StartMenu: FunctionComponent = () => (
                 [
                   {
                     label: 'Files or Folders...',
-                    icon: <Icon size={16} />,
+                    icon: <Icon iconId="find" size={16} />,
                     value: '',
                   },
                   {
                     label: 'Computer...',
-                    icon: <Icon size={16} />,
+                    icon: <Icon iconId="findComputer" size={16} />,
                     value: '',
                   },
                 ],
