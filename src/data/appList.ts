@@ -1,7 +1,7 @@
 import { IconId } from './iconList';
 
-export type AppInfos = { iconId: IconId };
-export type AppList = { [key in AppId]: Partial<AppInfos> };
+export type AppInfos = { iconId: IconId; name: string };
+export type AppList = { [key in AppId]: AppInfos };
 
 export type AppId =
   | 'briefcase'
@@ -29,35 +29,39 @@ export type AppId =
   | 'run'
   | 'scandisk'
   | 'shutdown'
+  | 'soundRecorder'
   | 'taskbar'
+  | 'volumeControl'
   | 'wordpad';
 
 export const appList: AppList = {
-  briefcase: { iconId: 'briefcase' },
-  calc: { iconId: 'calc' },
-  cdPlayer: { iconId: 'cdPlayer' },
-  controlPanel: { iconId: 'controlPanel' },
-  defrag: { iconId: 'defrag' },
-  exchange: { iconId: 'exchange' },
-  explorer: { iconId: 'explorer' },
-  find: { iconId: 'find' },
-  findComputer: { iconId: 'findComputer' },
-  findMsn: { iconId: 'findMsn' },
-  help: { iconId: 'help' },
-  hyperterminal: { iconId: 'hyperterminal' },
-  mediaPlayer: { iconId: 'mediaPlayer' },
-  msn: { iconId: 'msn' },
-  msDos: { iconId: 'msDos' },
-  msPaint: { iconId: 'msPaint' },
-  myComputer: { iconId: 'myComputer' },
-  network: { iconId: 'network' },
-  notepad: { iconId: 'notepad' },
-  phoneDialer: { iconId: 'phoneDialer' },
-  printers: { iconId: 'printers' },
-  register: { iconId: 'register' },
-  run: { iconId: 'run' },
-  scandisk: { iconId: 'scandisk' },
-  shutdown: { iconId: 'shutdown' },
-  taskbar: { iconId: 'taskbar' },
-  wordpad: { iconId: 'wordpad' },
+  briefcase: { iconId: 'briefcase', name: 'My Briefcase' },
+  calc: { iconId: 'calc', name: 'Calculator' },
+  cdPlayer: { iconId: 'cdPlayer', name: 'CD Player' },
+  controlPanel: { iconId: 'controlPanel', name: 'Control Panel' },
+  defrag: { iconId: 'defrag', name: 'Disk Defragmenter' },
+  exchange: { iconId: 'exchange', name: 'Microsoft Exchange' },
+  explorer: { iconId: 'explorer', name: 'Windows Explorer' },
+  find: { iconId: 'find', name: 'Find Files or Folders... ' },
+  findComputer: { iconId: 'findComputer', name: 'Find Computer...' },
+  findMsn: { iconId: 'findMsn', name: 'Find on The Microsoft Network' },
+  help: { iconId: 'help', name: 'Help' },
+  hyperterminal: { iconId: 'hyperterminal', name: 'Hyper Terminal' },
+  mediaPlayer: { iconId: 'mediaPlayer', name: 'Media Player' },
+  msn: { iconId: 'msn', name: 'The Microsoft Network' },
+  msDos: { iconId: 'msDos', name: 'MS-DOS Prompt' },
+  msPaint: { iconId: 'msPaint', name: 'Paint' },
+  myComputer: { iconId: 'myComputer', name: 'My Computer' },
+  network: { iconId: 'network', name: 'Network' },
+  notepad: { iconId: 'notepad', name: 'Notepad' },
+  phoneDialer: { iconId: 'phoneDialer', name: 'Phone Dialer' },
+  printers: { iconId: 'printers', name: 'Printers' },
+  register: { iconId: 'register', name: 'Online registration' },
+  run: { iconId: 'run', name: 'Run' },
+  scandisk: { iconId: 'scandisk', name: 'ScanDisk' },
+  soundRecorder: { iconId: 'sound', name: 'Sound Recorder' },
+  shutdown: { iconId: 'shutdown', name: 'Shutdown...' },
+  taskbar: { iconId: 'taskbar', name: 'Taskbar...' },
+  volumeControl: { iconId: 'volume', name: 'Volume Control' },
+  wordpad: { iconId: 'wordpad', name: 'WordPad' },
 };
