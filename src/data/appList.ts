@@ -1,6 +1,11 @@
 import { IconId } from './iconList';
 
-export type AppInfos = { id: AppId; iconId: IconId; name: string };
+export type AppInfos = {
+  component: null | string;
+  id: AppId;
+  iconId: IconId;
+  name: string;
+};
 export type AppList = { [key in AppId]: AppInfos };
 
 export type AppId =
@@ -37,71 +42,170 @@ export type AppId =
   | 'wordpad';
 
 export const appList: AppList = {
-  binEmpty: { id: 'binEmpty', iconId: 'binEmpty', name: 'Recycle Bin' },
-  binFull: { id: 'binFull', iconId: 'binFull', name: 'Recycle Bin' },
-  briefcase: { id: 'briefcase', iconId: 'briefcase', name: 'My Briefcase' },
-  calc: { id: 'calc', iconId: 'calc', name: 'Calculator' },
-  cdPlayer: { id: 'cdPlayer', iconId: 'cdPlayer', name: 'CD Player' },
+  binEmpty: {
+    component: null,
+    id: 'binEmpty',
+    iconId: 'binEmpty',
+    name: 'Recycle Bin',
+  },
+  binFull: {
+    component: null,
+    id: 'binFull',
+    iconId: 'binFull',
+    name: 'Recycle Bin',
+  },
+  briefcase: {
+    component: null,
+    id: 'briefcase',
+    iconId: 'briefcase',
+    name: 'My Briefcase',
+  },
+  calc: { component: null, id: 'calc', iconId: 'calc', name: 'Calculator' },
+  cdPlayer: {
+    component: null,
+    id: 'cdPlayer',
+    iconId: 'cdPlayer',
+    name: 'CD Player',
+  },
   controlPanel: {
+    component: null,
     id: 'controlPanel',
     iconId: 'controlPanel',
     name: 'Control Panel',
   },
-  defrag: { id: 'defrag', iconId: 'defrag', name: 'Disk Defragmenter' },
-  exchange: { id: 'exchange', iconId: 'exchange', name: 'Microsoft Exchange' },
-  explorer: { id: 'explorer', iconId: 'explorer', name: 'Windows Explorer' },
-  find: { id: 'find', iconId: 'find', name: 'Find Files or Folders... ' },
+  defrag: {
+    component: null,
+    id: 'defrag',
+    iconId: 'defrag',
+    name: 'Disk Defragmenter',
+  },
+  exchange: {
+    component: null,
+    id: 'exchange',
+    iconId: 'exchange',
+    name: 'Microsoft Exchange',
+  },
+  explorer: {
+    component: null,
+    id: 'explorer',
+    iconId: 'explorer',
+    name: 'Windows Explorer',
+  },
+  find: {
+    component: null,
+    id: 'find',
+    iconId: 'find',
+    name: 'Find Files or Folders... ',
+  },
   findComputer: {
+    component: null,
     id: 'findComputer',
     iconId: 'findComputer',
     name: 'Find Computer...',
   },
   findMsn: {
+    component: null,
     id: 'findMsn',
     iconId: 'findMsn',
     name: 'Find on The Microsoft Network',
   },
-  help: { id: 'help', iconId: 'help', name: 'Help' },
+  help: { component: null, id: 'help', iconId: 'help', name: 'Help' },
   hyperterminal: {
+    component: null,
     id: 'hyperterminal',
     iconId: 'hyperterminal',
     name: 'Hyper Terminal',
   },
   mediaPlayer: {
+    component: null,
     id: 'mediaPlayer',
     iconId: 'mediaPlayer',
     name: 'Media Player',
   },
-  msn: { id: 'msn', iconId: 'msn', name: 'The Microsoft Network' },
-  msDos: { id: 'msDos', iconId: 'msDos', name: 'MS-DOS Prompt' },
-  msPaint: { id: 'msPaint', iconId: 'msPaint', name: 'Paint' },
-  myComputer: { id: 'myComputer', iconId: 'myComputer', name: 'My Computer' },
+  msn: {
+    component: null,
+    id: 'msn',
+    iconId: 'msn',
+    name: 'The Microsoft Network',
+  },
+  msDos: {
+    component: null,
+    id: 'msDos',
+    iconId: 'msDos',
+    name: 'MS-DOS Prompt',
+  },
+  msPaint: { component: null, id: 'msPaint', iconId: 'msPaint', name: 'Paint' },
+  myComputer: {
+    component: null,
+    id: 'myComputer',
+    iconId: 'myComputer',
+    name: 'My Computer',
+  },
   networkNeighborhood: {
+    component: null,
     id: 'networkNeighborhood',
     iconId: 'network',
     name: 'Network Neighborhood',
   },
-  notepad: { id: 'notepad', iconId: 'notepad', name: 'Notepad' },
+  notepad: {
+    component: null,
+    id: 'notepad',
+    iconId: 'notepad',
+    name: 'Notepad',
+  },
   phoneDialer: {
+    component: null,
     id: 'phoneDialer',
     iconId: 'phoneDialer',
     name: 'Phone Dialer',
   },
-  printers: { id: 'printers', iconId: 'printers', name: 'Printers' },
-  register: { id: 'register', iconId: 'register', name: 'Online Registration' },
-  run: { id: 'run', iconId: 'run', name: 'Run' },
-  scandisk: { id: 'scandisk', iconId: 'scandisk', name: 'ScanDisk' },
+  printers: {
+    component: null,
+    id: 'printers',
+    iconId: 'printers',
+    name: 'Printers',
+  },
+  register: {
+    component: null,
+    id: 'register',
+    iconId: 'register',
+    name: 'Online Registration',
+  },
+  run: { component: null, id: 'run', iconId: 'run', name: 'Run' },
+  scandisk: {
+    component: null,
+    id: 'scandisk',
+    iconId: 'scandisk',
+    name: 'ScanDisk',
+  },
   soundRecorder: {
+    component: null,
     id: 'soundRecorder',
     iconId: 'sound',
     name: 'Sound Recorder',
   },
-  shutdown: { id: 'shutdown', iconId: 'shutdown', name: 'Shutdown...' },
-  taskbar: { id: 'taskbar', iconId: 'taskbar', name: 'Taskbar...' },
+  shutdown: {
+    component: null,
+    id: 'shutdown',
+    iconId: 'shutdown',
+    name: 'Shutdown...',
+  },
+  taskbar: {
+    component: null,
+    id: 'taskbar',
+    iconId: 'taskbar',
+    name: 'Taskbar...',
+  },
   volumeControl: {
+    component: null,
     id: 'volumeControl',
     iconId: 'volume',
     name: 'Volume Control',
   },
-  wordpad: { id: 'wordpad', iconId: 'wordpad', name: 'WordPad' },
+  wordpad: {
+    component: null,
+    id: 'wordpad',
+    iconId: 'wordpad',
+    name: 'WordPad',
+  },
 };
