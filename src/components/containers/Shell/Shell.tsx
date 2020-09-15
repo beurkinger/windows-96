@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 
-import Desktop from '../Desktop/Desktop';
+import Desktop from '../DesktopContainer/DesktopContainer';
 import Taskbar from '../Taskbar/Taskbar';
 import WindowsContainer from '../WindowsContainer/WindowsContainer';
 

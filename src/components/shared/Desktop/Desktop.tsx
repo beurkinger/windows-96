@@ -1,21 +1,21 @@
 import { h, FunctionComponent } from 'preact';
-import { useContext, useState } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 
 import { AppId, appList } from '../../../data/appList';
-import OpenWindowsContext from '../../../context/OpenWindowsContext';
+import { ContextType as OpenWindowsContextType } from '../../../context/OpenWindowsContext';
 import FileGrid, { GridFile } from '../../shared/FileGrid/FileGrid';
 
 import style from './Desktop.css';
 
 interface Props {
+  addWindow: OpenWindowsContextType['addWindow'];
   background?: string;
 }
 
 const Desktop: FunctionComponent<Props> = ({
+  addWindow,
   background = 'lightseagreen',
 }: Props) => {
-  const { addWindow } = useContext(OpenWindowsContext);
-
   const [files, setFiles] = useState<GridFile[]>([
     {
       id: appList.myComputer.id,
