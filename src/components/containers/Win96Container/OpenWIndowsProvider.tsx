@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact';
+import { h, FunctionComponent, ComponentChildren } from 'preact';
 import { useState } from 'preact/hooks';
 
 import { appList } from '../../../data/appList';
@@ -6,11 +6,12 @@ import OpenWindowsContext, {
   ContextType,
   OpenWindow,
 } from '../../../context/OpenWindowsContext';
-import ShellContainer from '../ShellContainer/ShellContainer';
 
-import style from './Win96.css';
+interface Props {
+  children: ComponentChildren;
+}
 
-const Win96: FunctionComponent = () => {
+const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([
     {
       app: appList.notepad,
@@ -154,11 +155,9 @@ const Win96: FunctionComponent = () => {
         windows: openWindows,
       }}
     >
-      <div className={style.win96}>
-        <ShellContainer />
-      </div>
+      {children}
     </OpenWindowsContext.Provider>
   );
 };
 
-export default Win96;
+export default OpenWindowsProvider;

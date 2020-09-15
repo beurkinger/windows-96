@@ -1,4 +1,10 @@
-.shellcontainer {
+.win96 {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.shell {
   display: flex;
   flex-direction: column;
   width: 100%;
