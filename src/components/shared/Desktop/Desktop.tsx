@@ -1,9 +1,8 @@
 import { h, FunctionComponent } from 'preact';
-import { useState } from 'preact/hooks';
 
 import { AppId, appList } from '../../../data/appList';
 import { ContextType as OpenWindowsContextType } from '../../../context/OpenWindowsContext';
-import FileGrid, { GridFile } from '../../shared/FileGrid/FileGrid';
+import FileGrid, { useFileGridState } from '../../shared/FileGrid/FileGrid';
 
 import style from './Desktop.css';
 
@@ -16,7 +15,7 @@ const Desktop: FunctionComponent<Props> = ({
   addWindow,
   background = 'lightseagreen',
 }: Props) => {
-  const [files, setFiles] = useState<GridFile[]>([
+  const { files, focusOnFile, removeFocus } = useFileGridState([
     {
       id: appList.myComputer.id,
       iconId: appList.myComputer.iconId,
@@ -52,38 +51,14 @@ const Desktop: FunctionComponent<Props> = ({
   ]);
 
   const handleOnClick = () => {
-    setFiles(
-      files.map((file) => ({
-        ...file,
-        hasFocus: false,
-        hasSoftFocus: file.hasFocus,
-      }))
-    );
+    removeFocus();
   };
 
-  const handleOnClickFile = (
-    fileId: string,
-    fileType: string,
-    e: MouseEvent
-  ) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setFiles(
-      files.map((file) => ({
-        ...file,
-        hasFocus: file.type === fileType && file.id === fileId,
-        hasSoftFocus: file.type === fileType && file.id === fileId,
-      }))
-    );
+  const handleOnClickFile = (fileId: string, fileType: string) => {
+    focusOnFile(fileId, fileType);
   };
 
-  const handleOnDblClickFile = (
-    fileId: string,
-    fileType: string,
-    e: MouseEvent
-  ) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleOnDblClickFile = (fileId: string, fileType: string) => {
     if (fileType === 'app') addWindow(fileId as AppId);
   };
 

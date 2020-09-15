@@ -1,23 +1,17 @@
 import { h, FunctionComponent } from 'preact';
 
-import { IconId } from '../../../data/iconList';
+import { GridFile } from '../../../hooks/useFileGridState';
 import Icon from '../Icon/Icon';
 
 import style from './FileGrid.css';
 
-export interface GridFile {
-  id: string;
-  iconId: IconId;
-  hasFocus: boolean;
-  hasSoftFocus: boolean;
-  name: string;
-  type: 'app' | 'folder' | 'file';
-}
+// For conveniance as bot the State and the Component will be used together
+export * from '../../../hooks/useFileGridState';
 
 interface Props {
   direction: 'column' | 'row';
-  onClickFile: (fileId: string, fileType: string, e: MouseEvent) => void;
-  onDblClickFile: (fileId: string, fileType: string, e: MouseEvent) => void;
+  onClickFile: (fileId: string, fileType: string) => void;
+  onDblClickFile: (fileId: string, fileType: string) => void;
   files: GridFile[];
 }
 
@@ -27,7 +21,26 @@ const FileGrid: FunctionComponent<Props> = ({
   onClickFile,
   onDblClickFile,
 }: Props) => {
-  console.log(files);
+  const handleOnClickFile = (
+    e: MouseEvent,
+    fileId: string,
+    fileType: string
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onClickFile(fileId, fileType);
+  };
+
+  const handleOnDblClickFile = (
+    e: MouseEvent,
+    fileId: string,
+    fileType: string
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onDblClickFile(fileId, fileType);
+  };
+
   return (
     <div className={style.fileGrid} style={{ flexDirection: direction }}>
       {files.map((file, i) => (
@@ -36,8 +49,8 @@ const FileGrid: FunctionComponent<Props> = ({
             file.hasSoftFocus ? style.softFocus : ''
           }`}
           key={i + file.id}
-          onClick={(e) => onClickFile(file.id, file.type, e)}
-          onDblClick={(e) => onDblClickFile(file.id, file.type, e)}
+          onClick={(e) => handleOnClickFile(e, file.id, file.type)}
+          onDblClick={(e) => handleOnDblClickFile(e, file.id, file.type)}
         >
           <div className={style.fileIcon}>
             <Icon iconId={file.iconId} size={32} />
