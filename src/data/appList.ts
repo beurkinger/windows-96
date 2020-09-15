@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'preact';
 
 import { IconId } from './iconList';
-import ExplorerApp from '../components/ExplorerApp/ExplorerApp';
-import MyComputerApp from '../components/MyComputerApp/MyComputerApp';
+import ExplorerApp from '../components/apps/ExplorerApp/ExplorerApp';
+import MyComputerApp from '../components/apps/MyComputerApp/MyComputerApp';
 
 export type AppInfos = {
   component: FunctionComponent | null;
