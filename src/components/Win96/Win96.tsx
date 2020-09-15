@@ -1,20 +1,20 @@
 import { h, FunctionComponent } from 'preact';
 import { useState } from 'preact/hooks';
 
-import RunningAppsContext, {
-  ContextType,
-  RunningApp,
-} from '../../context/RunningAppsContext';
 import { appList } from '../../data/appList';
+import OpenWindowsContext, {
+  ContextType,
+  OpenWindow,
+} from '../../context/OpenWindowsContext';
 import Shell from '../Shell/Shell';
 
 import style from './Win96.css';
 
 const Win96: FunctionComponent = () => {
-  const [runningApps, setRunningApps] = useState<RunningApp[]>([
+  const [openWindows, setOpenWindows] = useState<OpenWindow[]>([
     {
+      app: appList.notepad,
       coords: { x: 50, y: 50 },
-      data: appList.notepad,
       hasFocus: false,
       isMaximized: false,
       isMinimized: false,
@@ -22,8 +22,8 @@ const Win96: FunctionComponent = () => {
       zIndex: 0,
     },
     {
+      app: appList.msPaint,
       coords: { x: 100, y: 100 },
-      data: appList.msPaint,
       hasFocus: false,
       isMaximized: false,
       isMinimized: false,
@@ -31,8 +31,8 @@ const Win96: FunctionComponent = () => {
       zIndex: 1,
     },
     {
+      app: appList.myComputer,
       coords: { x: 150, y: 150 },
-      data: appList.myComputer,
       hasFocus: false,
       isMaximized: false,
       isMinimized: false,
@@ -41,20 +41,26 @@ const Win96: FunctionComponent = () => {
     },
   ]);
 
-  const getBiggestZIndex = (apps: RunningApp[]): number => {
-    if (!apps.length) return -1;
-    return apps.reduce((acc, app) => (app.zIndex > acc ? app.zIndex : acc), 0);
+  const getBiggestZIndex = (windows: OpenWindow[]): number => {
+    if (!windows.length) return -1;
+    return windows.reduce(
+      (acc, window) => (window.zIndex > acc ? window.zIndex : acc),
+      0
+    );
   };
 
-  const addApp: ContextType['addApp'] = (appId) => {
-    setRunningApps((apps) => {
-      const data = appList[appId];
-      const zIndex = getBiggestZIndex(apps) + 1;
-      const existingApps = apps.map((app) => ({ ...app, hasFocus: false }));
+  const addWindow: ContextType['addWindow'] = (appId) => {
+    setOpenWindows((windows) => {
+      const app = appList[appId];
+      const zIndex = getBiggestZIndex(windows) + 1;
+      const existingWindows = windows.map((window) => ({
+        ...window,
+        hasFocus: false,
+      }));
       return [
-        ...existingApps,
+        ...existingWindows,
         {
-          data,
+          app,
           coords: {
             x: 50 + Math.round(Math.random() * 200),
             y: 50 + Math.round(Math.random() * 200),
@@ -69,82 +75,89 @@ const Win96: FunctionComponent = () => {
     });
   };
 
-  const closeApp: ContextType['closeApp'] = (appIndex) => {
-    setRunningApps((apps) => apps.filter((_, i) => i !== appIndex));
+  const closeWindow: ContextType['closeWindow'] = (windowIndex) => {
+    setOpenWindows((windows) => windows.filter((_, i) => i !== windowIndex));
   };
 
-  const focusOnApp = (appIndex: number) => {
-    setRunningApps((apps) => {
-      const zIndex = getBiggestZIndex(apps) + 1;
-      return apps.map((app, i) =>
-        i === appIndex
-          ? { ...app, hasFocus: true, zIndex }
-          : { ...app, hasFocus: false }
+  const focusOnWindow = (windowIndex: number) => {
+    setOpenWindows((windows) => {
+      const zIndex = getBiggestZIndex(windows) + 1;
+      return windows.map((window, i) =>
+        i === windowIndex
+          ? { ...window, hasFocus: true, zIndex }
+          : { ...window, hasFocus: false }
       );
     });
   };
 
-  const maximizeApp = (appIndex: number) => {
-    setRunningApps((apps) => {
-      return apps.map((app, i) =>
-        i === appIndex ? { ...app, isMaximized: true } : app
+  const maximizeWindow = (windowIndex: number) => {
+    setOpenWindows((windows) => {
+      return windows.map((window, i) =>
+        i === windowIndex ? { ...window, isMaximized: true } : window
       );
     });
   };
 
-  const minimizeApp = (appIndex: number) => {
-    setRunningApps((apps) => {
-      return apps.map((app, i) =>
-        i === appIndex ? { ...app, hasFocus: false, isMinimized: true } : app
+  const minimizeWindow = (windowIndex: number) => {
+    setOpenWindows((windows) => {
+      return windows.map((window, i) =>
+        i === windowIndex
+          ? { ...window, hasFocus: false, isMinimized: true }
+          : window
       );
     });
   };
 
-  const moveApp = (appIndex: number, coords: { x: number; y: number }) => {
-    setRunningApps((apps) => {
-      return apps.map((app, i) =>
-        i === appIndex && !app.isMaximized ? { ...app, coords } : app
+  const moveWindow = (
+    windowIndex: number,
+    coords: { x: number; y: number }
+  ) => {
+    setOpenWindows((windows) => {
+      return windows.map((window, i) =>
+        i === windowIndex && !window.isMaximized
+          ? { ...window, coords }
+          : window
       );
     });
   };
 
-  const unMaximizeApp = (appIndex: number) => {
-    setRunningApps((apps) => {
-      return apps.map((app, i) =>
-        i === appIndex ? { ...app, isMaximized: false } : app
+  const unMaximizeWindow = (windowIndex: number) => {
+    setOpenWindows((windows) => {
+      return windows.map((window, i) =>
+        i === windowIndex ? { ...window, isMaximized: false } : window
       );
     });
   };
 
-  const unMinimizeApp = (appIndex: number) => {
-    setRunningApps((apps) => {
-      const zIndex = getBiggestZIndex(apps) + 1;
-      return apps.map((app, i) =>
-        i === appIndex
-          ? { ...app, hasFocus: true, isMinimized: false, zIndex }
-          : { ...app, hasFocus: false }
+  const unMinimizeWindow = (windowIndex: number) => {
+    setOpenWindows((windows) => {
+      const zIndex = getBiggestZIndex(windows) + 1;
+      return windows.map((window, i) =>
+        i === windowIndex
+          ? { ...window, hasFocus: true, isMinimized: false, zIndex }
+          : { ...window, hasFocus: false }
       );
     });
   };
 
   return (
-    <RunningAppsContext.Provider
+    <OpenWindowsContext.Provider
       value={{
-        apps: runningApps,
-        addApp,
-        closeApp,
-        focusOnApp,
-        maximizeApp,
-        minimizeApp,
-        moveApp,
-        unMaximizeApp,
-        unMinimizeApp,
+        addWindow,
+        closeWindow,
+        focusOnWindow,
+        maximizeWindow,
+        minimizeWindow,
+        moveWindow,
+        unMaximizeWindow,
+        unMinimizeWindow,
+        windows: openWindows,
       }}
     >
       <div className={style.win96}>
         <Shell />
       </div>
-    </RunningAppsContext.Provider>
+    </OpenWindowsContext.Provider>
   );
 };
 

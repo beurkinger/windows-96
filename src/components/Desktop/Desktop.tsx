@@ -2,7 +2,7 @@ import { h, FunctionComponent } from 'preact';
 import { useContext, useState } from 'preact/hooks';
 
 import { AppId, appList } from '../../data/appList';
-import RunningAppsContext from '../../context/RunningAppsContext';
+import OpenWindowsContext from '../../context/OpenWindowsContext';
 import FileGrid, { GridFile } from '../FileGrid/FileGrid';
 
 import style from './Desktop.css';
@@ -14,7 +14,7 @@ interface Props {
 const Desktop: FunctionComponent<Props> = ({
   background = 'lightseagreen',
 }: Props) => {
-  const { addApp } = useContext(RunningAppsContext);
+  const { addWindow } = useContext(OpenWindowsContext);
 
   const [files, setFiles] = useState<GridFile[]>([
     {
@@ -84,7 +84,7 @@ const Desktop: FunctionComponent<Props> = ({
   ) => {
     e.preventDefault();
     e.stopPropagation();
-    if (fileType === 'app') addApp(fileId as AppId);
+    if (fileType === 'app') addWindow(fileId as AppId);
   };
 
   return (

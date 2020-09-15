@@ -2,9 +2,9 @@ import { h, FunctionComponent } from 'preact';
 import { useContext } from 'preact/hooks';
 
 import { AppId } from '../../data/appList';
-import RunningAppsContext, {
-  RunningApp,
-} from '../../context/RunningAppsContext';
+import OpenWindowsContext, {
+  OpenWindow,
+} from '../../context/OpenWindowsContext';
 import useFloating from '../../hooks/useFloating';
 import Button from '../Button/Button';
 import NotificationArea from '../NotificationArea/NotificationArea';
@@ -13,9 +13,13 @@ import StartMenu from '../StartMenu/StartMenu';
 import style from './Taskbar.css';
 
 const Taskbar: FunctionComponent = () => {
-  const { apps, addApp, focusOnApp, minimizeApp, unMinimizeApp } = useContext(
-    RunningAppsContext
-  );
+  const {
+    windows,
+    addWindow,
+    focusOnWindow,
+    minimizeWindow,
+    unMinimizeWindow,
+  } = useContext(OpenWindowsContext);
   const [isStartMenuOpen, setIsStartMenuOpen] = useFloating();
 
   const handleStartButtonClick = (e: MouseEvent) => {
@@ -25,20 +29,19 @@ const Taskbar: FunctionComponent = () => {
   };
 
   const handleStartMenuSelect = (appId: string) => {
-    console.log(appId);
     if (appId) {
-      addApp(appId as AppId);
+      addWindow(appId as AppId);
       setIsStartMenuOpen(false);
     }
   };
 
-  const handleTaskButtonClick = (app: RunningApp, i: number) => {
-    if (app.isMinimized) {
-      unMinimizeApp(i);
-    } else if (!app.hasFocus) {
-      focusOnApp(i);
-    } else if (app.hasFocus) {
-      minimizeApp(i);
+  const handleTaskButtonClick = (window: OpenWindow, i: number) => {
+    if (window.isMinimized) {
+      unMinimizeWindow(i);
+    } else if (!window.hasFocus) {
+      focusOnWindow(i);
+    } else if (window.hasFocus) {
+      minimizeWindow(i);
     }
   };
 
@@ -58,15 +61,15 @@ const Taskbar: FunctionComponent = () => {
         />
       </div>
       <div className={style.taskButtonsWrapper}>
-        {apps.map((app, i) => (
+        {windows.map((window, i) => (
           <Button
-            iconId={app.data.iconId}
+            iconId={window.app.iconId}
             key={i}
-            label={app.data.name}
+            label={window.app.name}
             inTaskbar
-            isActive={app.hasFocus}
+            isActive={window.hasFocus}
             noOutline
-            onClick={() => handleTaskButtonClick(app, i)}
+            onClick={() => handleTaskButtonClick(window, i)}
             textAlign="left"
           />
         ))}

@@ -1,51 +1,51 @@
 import { h, FunctionComponent } from 'preact';
 import { useContext } from 'preact/hooks';
 
-import RunningAppsContext from '../../context/RunningAppsContext';
+import OpenWindowsContext from '../../context/OpenWindowsContext';
 import Window from '../Window/Window';
 
 import style from './WindowsContainer.css';
 
 const WindowsContainer: FunctionComponent = () => {
   const {
-    apps,
-    closeApp,
-    focusOnApp,
-    maximizeApp,
-    minimizeApp,
-    moveApp,
-    unMaximizeApp,
-  } = useContext(RunningAppsContext);
+    closeWindow,
+    focusOnWindow,
+    maximizeWindow,
+    minimizeWindow,
+    moveWindow,
+    unMaximizeWindow,
+    windows,
+  } = useContext(OpenWindowsContext);
 
   return (
     <div className={style.windowsContainer}>
-      {apps.map((app, i) =>
-        app.isMinimized ? null : (
+      {windows.map((window, i) =>
+        window.isMinimized ? null : (
           <Window
-            coords={app.coords}
-            iconId={app.data.iconId}
+            coords={window.coords}
+            iconId={window.app.iconId}
             key={i}
-            onClickClose={() => closeApp(i)}
-            onClickMaximize={() => maximizeApp(i)}
-            onClickMinimize={() => minimizeApp(i)}
-            onClickRestore={() => unMaximizeApp(i)}
+            onClickClose={() => closeWindow(i)}
+            onClickMaximize={() => maximizeWindow(i)}
+            onClickMinimize={() => minimizeWindow(i)}
+            onClickRestore={() => unMaximizeWindow(i)}
             onDblClickTitleBar={() => {
-              if (app.isMaximized) {
-                unMaximizeApp(i);
+              if (window.isMaximized) {
+                unMaximizeWindow(i);
               } else {
-                maximizeApp(i);
+                maximizeWindow(i);
               }
             }}
             onMouseDown={() => {
-              if (!app.isMaximized) focusOnApp(i);
+              if (!window.isMaximized) focusOnWindow(i);
             }}
-            onMoved={(coords) => moveApp(i, coords)}
-            isInactive={!app.hasFocus}
-            isMaximized={app.isMaximized}
-            title={app.data.name}
-            zIndex={app.zIndex}
+            onMoved={(coords) => moveWindow(i, coords)}
+            isInactive={!window.hasFocus}
+            isMaximized={window.isMaximized}
+            title={window.app.name}
+            zIndex={window.zIndex}
           >
-            {app.data.component && app.data.component({})}
+            {window.app.component && window.app.component({})}
           </Window>
         )
       )}
