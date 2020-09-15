@@ -22,13 +22,13 @@ export interface FileGridItem {
 }
 
 const getFileGridApp = (
-  item: FileSystemApp
-  // workingDir: FileSystemDir
+  item: FileSystemApp,
+  hasSoftFocus: boolean
 ): FileGridItem => ({
   id: getRandomId(item.appId),
   iconId: appList[item.appId].iconId,
   hasFocus: false,
-  hasSoftFocus: false,
+  hasSoftFocus,
   name: appList[item.appId].name,
   type: 'app',
   value: appList[item.appId].id,
@@ -37,13 +37,12 @@ const getFileGridApp = (
 
 const getFileGridDir = (
   item: FileSystemDir,
-  dirKey: string
-  // workingDir: FileSystemDir
+  hasSoftFocus: boolean
 ): FileGridItem => ({
-  id: getRandomId(dirKey),
+  id: getRandomId(item.name),
   iconId: item.iconId ?? 'folderClosed',
   hasFocus: false,
-  hasSoftFocus: false,
+  hasSoftFocus,
   name: item.name,
   type: 'dir',
   value: item,
@@ -51,13 +50,13 @@ const getFileGridDir = (
 });
 
 const getFileGridFile = (
-  item: FileSystemFile
-  // workingDir: FileSystemDir
+  item: FileSystemFile,
+  hasSoftFocus: boolean
 ): FileGridItem => ({
   id: getRandomId(item.name),
   iconId: 'program',
   hasFocus: false,
-  hasSoftFocus: false,
+  hasSoftFocus,
   name: item.name,
   type: 'file',
   value: item.content,
@@ -65,17 +64,17 @@ const getFileGridFile = (
 });
 
 const createFileGridItems = (fileSystemNode: FileSystemDir): FileGridItem[] => {
-  const gridFiles = Object.entries(fileSystemNode.dir).map(([dirKey, item]) => {
+  const gridFiles = Object.values(fileSystemNode.dir).map((item, i) => {
     // If App
     if ('appId' in item) {
-      return getFileGridApp(item as FileSystemApp);
+      return getFileGridApp(item as FileSystemApp, i === 0);
     }
     // If File
     if ('openWith' in item) {
-      return getFileGridFile(item as FileSystemFile);
+      return getFileGridFile(item as FileSystemFile, i === 0);
     }
     // Else Dir
-    return getFileGridDir(item as FileSystemDir, dirKey);
+    return getFileGridDir(item as FileSystemDir, i === 0);
   });
   return gridFiles;
 };
