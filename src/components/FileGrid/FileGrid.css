@@ -14,20 +14,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 4px 3px 7px 0;
+  margin: 4px 2px;
   width: 74px;
+  height: 66px;
 }
 
 .fileIcon {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .fileLabel {
-  height: 26px;
+  max-height: 30px;
+  padding: 2px 3px 2px 3px;
   font-family: "Pixelated MS Sans Serif", Arial;
   -webkit-font-smoothing: none;
   font-size: 11px;
   line-height: 13px;
   text-align: center;
   overflow: hidden;
+  user-select: none;
+}
+
+.file.focus .fileLabel {
+  background: var(--dialog-blue);
+}
+
+.file.softFocus .fileLabel {
+  outline: 1px dotted white;
+  outline-offset: -1px;
 }
