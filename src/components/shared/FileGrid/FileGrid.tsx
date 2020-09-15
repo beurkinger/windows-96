@@ -1,26 +1,30 @@
 import { h, FunctionComponent } from 'preact';
 
-import { GridFile } from '../../../hooks/useFileGridState';
+import useFileGridState, { GridFile } from '../../../hooks/useFileGridState';
 import Icon from '../Icon/Icon';
 
 import style from './FileGrid.css';
 
-// For conveniance as bot the State and the Component will be used together
-export * from '../../../hooks/useFileGridState';
+// For conveniance
+export { GridFile } from '../../../hooks/useFileGridState';
 
 interface Props {
-  direction: 'column' | 'row';
-  onClickFile: (fileId: string, fileType: string) => void;
+  direction?: 'column' | 'row';
+  initialFiles: GridFile[];
   onDblClickFile: (fileId: string, fileType: string) => void;
-  files: GridFile[];
+  textColor?: 'black' | 'white';
 }
 
 const FileGrid: FunctionComponent<Props> = ({
   direction = 'row',
-  files,
-  onClickFile,
+  initialFiles,
   onDblClickFile,
+  textColor = 'black',
 }: Props) => {
+  const { files, focusOnFile, removeFocus } = useFileGridState(initialFiles);
+
+  const handleOnClick = removeFocus;
+
   const handleOnClickFile = (
     e: MouseEvent,
     fileId: string,
@@ -28,7 +32,7 @@ const FileGrid: FunctionComponent<Props> = ({
   ) => {
     e.preventDefault();
     e.stopPropagation();
-    onClickFile(fileId, fileType);
+    focusOnFile(fileId, fileType);
   };
 
   const handleOnDblClickFile = (
@@ -42,7 +46,11 @@ const FileGrid: FunctionComponent<Props> = ({
   };
 
   return (
-    <div className={style.fileGrid} style={{ flexDirection: direction }}>
+    <div
+      className={style.fileGrid}
+      onClick={handleOnClick}
+      style={{ flexDirection: direction }}
+    >
       {files.map((file, i) => (
         <div
           className={`${style.file} ${file.hasFocus ? style.focus : ''} ${
@@ -51,6 +59,7 @@ const FileGrid: FunctionComponent<Props> = ({
           key={i + file.id}
           onClick={(e) => handleOnClickFile(e, file.id, file.type)}
           onDblClick={(e) => handleOnDblClickFile(e, file.id, file.type)}
+          style={{ color: textColor }}
         >
           <div className={style.fileIcon}>
             <Icon iconId={file.iconId} size={32} />

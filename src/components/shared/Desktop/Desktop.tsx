@@ -2,7 +2,7 @@ import { h, FunctionComponent } from 'preact';
 
 import { AppId, appList } from '../../../data/appList';
 import { ContextType as OpenWindowsContextType } from '../../../context/OpenWindowsContext';
-import FileGrid, { useFileGridState } from '../../shared/FileGrid/FileGrid';
+import FileGrid, { GridFile } from '../../shared/FileGrid/FileGrid';
 
 import style from './Desktop.css';
 
@@ -15,7 +15,7 @@ const Desktop: FunctionComponent<Props> = ({
   addWindow,
   background = 'lightseagreen',
 }: Props) => {
-  const { files, focusOnFile, removeFocus } = useFileGridState([
+  const initialFiles: GridFile[] = [
     {
       id: appList.myComputer.id,
       iconId: appList.myComputer.iconId,
@@ -48,18 +48,17 @@ const Desktop: FunctionComponent<Props> = ({
       name: appList.binEmpty.name,
       type: 'app',
     },
-  ]);
+  ];
 
   const handleOnDblClickFile = (fileId: string, fileType: string) => {
     if (fileType === 'app') addWindow(fileId as AppId);
   };
 
   return (
-    <div className={style.desktop} onClick={removeFocus} style={{ background }}>
+    <div className={style.desktop} style={{ background }}>
       <FileGrid
         direction="column"
-        files={files}
-        onClickFile={focusOnFile}
+        initialFiles={initialFiles}
         onDblClickFile={handleOnDblClickFile}
       />
     </div>
