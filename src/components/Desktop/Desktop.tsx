@@ -1,7 +1,8 @@
 import { h, FunctionComponent } from 'preact';
-import { useState } from 'preact/hooks';
+import { useContext, useState } from 'preact/hooks';
 
-import { appList } from '../../data/appList';
+import { AppId, appList } from '../../data/appList';
+import RunningAppsContext from '../../context/RunningAppsContext';
 import FileGrid, { GridFile } from '../FileGrid/FileGrid';
 
 import style from './Desktop.css';
@@ -13,6 +14,8 @@ interface Props {
 const Desktop: FunctionComponent<Props> = ({
   background = 'lightseagreen',
 }: Props) => {
+  const { addApp } = useContext(RunningAppsContext);
+
   const [files, setFiles] = useState<GridFile[]>([
     {
       id: appList.myComputer.id,
@@ -74,6 +77,16 @@ const Desktop: FunctionComponent<Props> = ({
     );
   };
 
+  const handleOnDblClickFile = (
+    fileId: string,
+    fileType: string,
+    e: MouseEvent
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (fileType === 'app') addApp(fileId as AppId);
+  };
+
   return (
     <div
       className={style.desktop}
@@ -84,7 +97,7 @@ const Desktop: FunctionComponent<Props> = ({
         direction="column"
         files={files}
         onClickFile={handleOnClickFile}
-        onDblClickFile={() => console.log('db click')}
+        onDblClickFile={handleOnDblClickFile}
       />
     </div>
   );
