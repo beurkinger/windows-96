@@ -2,7 +2,7 @@ import { h, FunctionComponent } from 'preact';
 import { useContext } from 'preact/hooks';
 
 import OpenWindowsContext from '../../../context/OpenWindowsContext';
-import Window from '../Window/Window';
+import Window from '../../shared/Window/Window';
 
 import style from './WindowsContainer.css';
 

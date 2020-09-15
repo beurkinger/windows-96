@@ -6,9 +6,9 @@ import OpenWindowsContext, {
   OpenWindow,
 } from '../../../context/OpenWindowsContext';
 import useFloating from '../../../hooks/useFloating';
-import Button from '../Button/Button';
-import NotificationArea from '../NotificationArea/NotificationArea';
-import StartMenu from '../StartMenu/StartMenu';
+import Button from '../../shared/Button/Button';
+import NotificationArea from '../../shared/NotificationArea/NotificationArea';
+import StartMenu from '../../shared/StartMenu/StartMenu';
 
 import style from './Taskbar.css';
 
