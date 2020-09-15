@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 
-import { IconId } from '../../data/iconList';
+import { IconId } from '../../../data/iconList';
 import Icon from '../Icon/Icon';
 import Menu from '../Menu/Menu';
 

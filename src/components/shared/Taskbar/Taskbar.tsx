@@ -1,11 +1,11 @@
 import { h, FunctionComponent } from 'preact';
 import { useContext } from 'preact/hooks';
 
-import { AppId } from '../../data/appList';
+import { AppId } from '../../../data/appList';
 import OpenWindowsContext, {
   OpenWindow,
-} from '../../context/OpenWindowsContext';
-import useFloating from '../../hooks/useFloating';
+} from '../../../context/OpenWindowsContext';
+import useFloating from '../../../hooks/useFloating';
 import Button from '../Button/Button';
 import NotificationArea from '../NotificationArea/NotificationArea';
 import StartMenu from '../StartMenu/StartMenu';

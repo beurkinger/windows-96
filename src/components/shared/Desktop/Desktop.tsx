@@ -1,8 +1,8 @@
 import { h, FunctionComponent } from 'preact';
 import { useContext, useState } from 'preact/hooks';
 
-import { AppId, appList } from '../../data/appList';
-import OpenWindowsContext from '../../context/OpenWindowsContext';
+import { AppId, appList } from '../../../data/appList';
+import OpenWindowsContext from '../../../context/OpenWindowsContext';
 import FileGrid, { GridFile } from '../FileGrid/FileGrid';
 
 import style from './Desktop.css';

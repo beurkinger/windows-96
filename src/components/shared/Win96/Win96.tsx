@@ -1,11 +1,11 @@
 import { h, FunctionComponent } from 'preact';
 import { useState } from 'preact/hooks';
 
-import { appList } from '../../data/appList';
+import { appList } from '../../../data/appList';
 import OpenWindowsContext, {
   ContextType,
   OpenWindow,
-} from '../../context/OpenWindowsContext';
+} from '../../../context/OpenWindowsContext';
 import Shell from '../Shell/Shell';
 
 import style from './Win96.css';

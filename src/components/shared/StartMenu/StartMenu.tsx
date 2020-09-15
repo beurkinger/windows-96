@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 
-import { appList } from '../../data/appList';
+import { appList } from '../../../data/appList';
 import Menu from '../Menu/Menu';
 
 import style from './StartMenu.css';
