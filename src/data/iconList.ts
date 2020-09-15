@@ -32,8 +32,8 @@ import find_computer_16 from '../assets/img/icons/find_computer/find_computer_16
 import find_computer_32 from '../assets/img/icons/find_computer/find_computer_32.png';
 import find_msn_16 from '../assets/img/icons/find_msn/find_msn_16.png';
 import find_msn_32 from '../assets/img/icons/find_msn/find_msn_32.png';
-import floppy_16 from '../assets/img/icons/floppy/floppy_16.png';
-import floppy_32 from '../assets/img/icons/floppy/floppy_32.png';
+import floppy_drive_16 from '../assets/img/icons/floppy_drive/floppy_drive_16.png';
+import floppy_drive_32 from '../assets/img/icons/floppy_drive/floppy_drive_32.png';
 import folder_closed_16 from '../assets/img/icons/folder_closed/folder_closed_16.png';
 import folder_closed_32 from '../assets/img/icons/folder_closed/folder_closed_32.png';
 import folder_open_16 from '../assets/img/icons/folder_open/folder_open_16.png';
@@ -121,7 +121,7 @@ export type IconId =
   | 'find'
   | 'findComputer'
   | 'findMsn'
-  | 'floppy'
+  | 'floppyDrive'
   | 'folderOpen'
   | 'folderClosed'
   | 'help'
@@ -172,7 +172,7 @@ export const iconList: IconList = {
   find: { 16: find_16, 24: find_24, 32: find_32 },
   findComputer: { 16: find_computer_16, 32: find_computer_32 },
   findMsn: { 16: find_msn_16, 32: find_msn_32 },
-  floppy: { 16: floppy_16, 32: floppy_32 },
+  floppyDrive: { 16: floppy_drive_16, 32: floppy_drive_32 },
   folderOpen: { 16: folder_open_16, 32: folder_open_32 },
   folderClosed: { 16: folder_closed_16, 32: folder_closed_32 },
   help: { 16: help_16, 24: help_24, 32: help_32 },
