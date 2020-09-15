@@ -27,6 +27,8 @@ export type AppId =
   | 'find'
   | 'findComputer'
   | 'findMsn'
+  | 'floppyDrive'
+  | 'hardDrive'
   | 'help'
   | 'hyperterminal'
   | 'mediaPlayer'
@@ -71,7 +73,7 @@ export const appList: AppList = {
     component: null,
     id: 'cdDrive',
     iconId: 'cdDrive',
-    name: 'CD Drive',
+    name: '(D:)',
   },
   cdPlayer: {
     component: null,
@@ -126,6 +128,18 @@ export const appList: AppList = {
     id: 'findMsn',
     iconId: 'findMsn',
     name: 'Find on The Microsoft Network',
+  },
+  floppyDrive: {
+    component: null,
+    id: 'floppyDrive',
+    iconId: 'floppyDrive',
+    name: '3½ Floppy (A:)',
+  },
+  hardDrive: {
+    component: null,
+    id: 'hardDrive',
+    iconId: 'hardDrive',
+    name: '(C:)',
   },
   help: { component: null, id: 'help', iconId: 'help', name: 'Help' },
   hyperterminal: {
