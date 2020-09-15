@@ -1,27 +1,27 @@
 import { h, FunctionComponent } from 'preact';
 
-import useFileGridState, { GridFile } from '../../../hooks/useFileGridState';
+import { FileSystemDir } from '../../../data/filesystem';
+import useFileGridState from '../../../hooks/useFileGridState';
 import Icon from '../Icon/Icon';
 
 import style from './FileGrid.css';
 
-// For conveniance
-export { GridFile } from '../../../hooks/useFileGridState';
-
+// For convenianc
 interface Props {
   direction?: 'column' | 'row';
-  initialFiles: GridFile[];
+  fileSystemNode: FileSystemDir;
   onDblClickFile: (fileId: string, fileType: string) => void;
   textColor?: 'black' | 'white';
 }
 
 const FileGrid: FunctionComponent<Props> = ({
   direction = 'row',
-  initialFiles,
+  fileSystemNode,
+  // initialFiles,
   onDblClickFile,
   textColor = 'black',
 }: Props) => {
-  const { files, focusOnFile, removeFocus } = useFileGridState(initialFiles);
+  const { files, focusOnFile, removeFocus } = useFileGridState(fileSystemNode);
 
   const handleOnClick = removeFocus;
 

@@ -1,8 +1,10 @@
-import { AppId } from './appList';
+import { AppId, appList } from './appList';
 import { IconId } from './iconList';
 
+export type FileSystemItem = FileSystemApp | FileSystemDir | FileSystemFile;
+
 export type FileSystemDir = {
-  content: { [key: string]: FileSystemApp | FileSystemDir };
+  dir: { [key: string]: FileSystemItem };
   iconId?: IconId;
   name: string;
 };
@@ -12,93 +14,106 @@ export type FileSystemApp = {
 };
 
 export type FileSystemFile = {
-  content: string;
+  dir: string;
   fileType: string;
   name: string;
 };
 
-const fileSystem: FileSystemDir = {
+const fileSystem = {
   name: 'root',
-  content: {
+  dir: {
     a: {
       name: '3½ Floppy (A:)',
       iconId: 'floppyDrive',
-      content: {},
+      dir: {},
     },
     c: {
       name: 'C:',
       iconId: 'hardDrive',
-      content: {
+      dir: {
         programFiles: {
           name: 'Program Files',
-          content: {},
+          dir: {},
         },
         windows: {
           name: 'Windows',
-          content: {
+          dir: {
             command: {
               name: 'Command',
-              content: {},
+              dir: {},
             },
             config: {
               name: 'Config',
-              content: {},
+              dir: {},
             },
             cursors: {
               name: 'Cursors',
-              content: {},
+              dir: {},
             },
             desktop: {
               name: 'Desktop',
-              content: {},
+              dir: {
+                myComputer: {
+                  appId: appList.myComputer.id,
+                },
+                networkNeighborhood: {
+                  appId: appList.networkNeighborhood.id,
+                },
+                briefcase: {
+                  appId: appList.briefcase.id,
+                },
+                bin: {
+                  appId: appList.binEmpty.id,
+                },
+              },
             },
             fonts: {
               name: 'Fonts',
-              content: {},
+              dir: {},
             },
             help: {
               name: 'Help',
-              content: {},
+              dir: {},
             },
             inf: {
               name: 'Inf',
-              content: {},
+              dir: {},
             },
             pif: {
               name: 'Pif',
-              content: {},
+              dir: {},
             },
             media: {
               name: 'Media',
-              content: {},
+              dir: {},
             },
             recent: {
               name: 'Recent',
-              content: {},
+              dir: {},
             },
             sendTo: {
               name: 'SendTo',
-              content: {},
+              dir: {},
             },
             shellNew: {
               name: 'ShellNew',
-              content: {},
+              dir: {},
             },
             spool: {
               name: 'Spool',
-              content: {},
+              dir: {},
             },
             startMenu: {
               name: 'Start Menu',
-              content: {},
+              dir: {},
             },
             sysbckup: {
               name: 'Sysbckup',
-              content: {},
+              dir: {},
             },
             temp: {
               name: 'Temp',
-              content: {},
+              dir: {},
             },
           },
         },
@@ -107,7 +122,7 @@ const fileSystem: FileSystemDir = {
     d: {
       name: 'D:',
       iconId: 'cdDrive',
-      content: {},
+      dir: {},
     },
     controlPanel: {
       appId: 'controlPanel',
@@ -119,6 +134,8 @@ const fileSystem: FileSystemDir = {
       appId: 'dialUpNetwork',
     },
   },
-};
+} as const;
 
-export default fileSystem;
+const typedFileSystem: FileSystemDir = fileSystem;
+
+export default typedFileSystem as typeof fileSystem;
