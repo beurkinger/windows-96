@@ -13,36 +13,30 @@ import style from './Win96.css';
 const Win96: FunctionComponent = () => {
   const [runningApps, setRunningApps] = useState<RunningApp[]>([
     {
-      content: 'How do you do ?',
       coords: { x: 50, y: 50 },
-      iconId: 'notepad',
+      data: appList.notepad,
       hasFocus: false,
       isMaximized: false,
       isMinimized: false,
       size: { width: 100, height: 100 },
-      title: 'Notepad',
       zIndex: 0,
     },
     {
-      content: 'How do you do ?',
       coords: { x: 100, y: 100 },
-      iconId: 'msPaint',
+      data: appList.msPaint,
       hasFocus: false,
       isMaximized: false,
       isMinimized: false,
       size: { width: 100, height: 100 },
-      title: 'Paint',
       zIndex: 1,
     },
     {
-      content: 'How do you do ?',
       coords: { x: 150, y: 150 },
-      iconId: 'explorer',
+      data: appList.explorer,
       hasFocus: false,
       isMaximized: false,
       isMinimized: false,
       size: { width: 100, height: 100 },
-      title: 'Windows Explorer',
       zIndex: 2,
     },
   ]);
@@ -54,23 +48,21 @@ const Win96: FunctionComponent = () => {
 
   const addApp: ContextType['addApp'] = (appId) => {
     setRunningApps((apps) => {
-      const appInfos = appList[appId];
+      const data = appList[appId];
       const zIndex = getBiggestZIndex(apps) + 1;
       const existingApps = apps.map((app) => ({ ...app, hasFocus: false }));
       return [
         ...existingApps,
         {
-          content: 'Hello World !',
+          data,
           coords: {
             x: 50 + Math.round(Math.random() * 200),
             y: 50 + Math.round(Math.random() * 200),
           },
-          iconId: appInfos.iconId,
           hasFocus: true,
           isMinimized: false,
           isMaximized: false,
           size: { width: 100, height: 100 },
-          title: appInfos.name,
           zIndex,
         },
       ];

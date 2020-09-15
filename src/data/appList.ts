@@ -1,7 +1,9 @@
+import { FunctionComponent } from 'preact';
+import ExplorerApp from '../components/ExplorerApp/ExplorerApp';
 import { IconId } from './iconList';
 
 export type AppInfos = {
-  component: null | string;
+  component: FunctionComponent | null;
   id: AppId;
   iconId: IconId;
   name: string;
@@ -86,7 +88,7 @@ export const appList: AppList = {
     name: 'Microsoft Exchange',
   },
   explorer: {
-    component: null,
+    component: ExplorerApp,
     id: 'explorer',
     iconId: 'explorer',
     name: 'Windows Explorer',

@@ -60,9 +60,9 @@ const Taskbar: FunctionComponent = () => {
       <div className={style.taskButtonsWrapper}>
         {apps.map((app, i) => (
           <Button
-            iconId={app.iconId}
+            iconId={app.data.iconId}
             key={i}
-            label={app.title}
+            label={app.data.name}
             inTaskbar
             isActive={app.hasFocus}
             noOutline

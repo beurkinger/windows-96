@@ -23,7 +23,7 @@ const WindowsContainer: FunctionComponent = () => {
         app.isMinimized ? null : (
           <Window
             coords={app.coords}
-            iconId={app.iconId}
+            iconId={app.data.iconId}
             key={i}
             onClickClose={() => closeApp(i)}
             onClickMaximize={() => maximizeApp(i)}
@@ -42,10 +42,10 @@ const WindowsContainer: FunctionComponent = () => {
             onMoved={(coords) => moveApp(i, coords)}
             isInactive={!app.hasFocus}
             isMaximized={app.isMaximized}
-            title={app.title}
+            title={app.data.name}
             zIndex={app.zIndex}
           >
-            {app.content}
+            {app.data.component}
           </Window>
         )
       )}

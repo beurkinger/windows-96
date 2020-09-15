@@ -1,17 +1,14 @@
 import { createContext } from 'preact';
 
-import { AppId } from '../data/appList';
-import { IconId } from '../data/iconList';
+import { AppId, AppInfos } from '../data/appList';
 
 export type RunningApp = {
-  content: string;
   coords: { x: number; y: number };
-  iconId: IconId;
+  data: AppInfos;
   hasFocus: boolean;
   isMaximized: boolean;
   isMinimized: boolean;
   size: { width: number; height: number };
-  title: string;
   zIndex: number;
 };
 
