@@ -1,25 +1,32 @@
 import { h, FunctionComponent } from 'preact';
-import { useContext } from 'preact/hooks';
 
 import { AppId } from '../../../data/appList';
-import OpenWindowsContext, {
+import {
+  ContextType as OpenWindowsContextType,
   OpenWindow,
 } from '../../../context/OpenWindowsContext';
 import useFloating from '../../../hooks/useFloating';
-import Button from '../../shared/Button/Button';
-import NotificationArea from '../../shared/NotificationArea/NotificationArea';
-import StartMenu from '../../shared/StartMenu/StartMenu';
+import Button from '../Button/Button';
+import NotificationArea from '../NotificationArea/NotificationArea';
+import StartMenu from '../StartMenu/StartMenu';
 
 import style from './Taskbar.css';
 
-const Taskbar: FunctionComponent = () => {
-  const {
-    windows,
-    addWindow,
-    focusOnWindow,
-    minimizeWindow,
-    unMinimizeWindow,
-  } = useContext(OpenWindowsContext);
+interface Props {
+  addWindow: OpenWindowsContextType['addWindow'];
+  focusOnWindow: OpenWindowsContextType['focusOnWindow'];
+  minimizeWindow: OpenWindowsContextType['minimizeWindow'];
+  unMinimizeWindow: OpenWindowsContextType['unMinimizeWindow'];
+  windows: OpenWindowsContextType['windows'];
+}
+
+const Taskbar: FunctionComponent<Props> = ({
+  addWindow,
+  focusOnWindow,
+  minimizeWindow,
+  unMinimizeWindow,
+  windows,
+}: Props) => {
   const [isStartMenuOpen, setIsStartMenuOpen] = useFloating();
 
   const handleStartButtonClick = (e: MouseEvent) => {

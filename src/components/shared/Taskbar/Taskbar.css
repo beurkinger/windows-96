@@ -1,0 +1,44 @@
+.taskbar {
+    position: relative;
+    display: flex;
+    height: 28px;
+    padding: 4px 0 2px 0;
+    box-shadow: inset 0 1px var(--button-face), inset 0 2px var(--button-highlight);
+    background: var(--surface);
+}
+
+.startMenuWrapper {
+    z-index: 1;
+    position: absolute;
+    left: 2px;
+    bottom: 24px;
+}
+
+.startButtonWrapper {
+    margin: 0 2px;
+}
+
+.startButtonWrapper  button {
+    min-width: auto;
+}
+
+.startButtonLabel {
+    margin: 1px 1px 0 3px;
+}
+
+.taskButtonsWrapper {
+    flex: 1 1 auto;
+    display: flex;
+    padding: 0 2px;
+}
+
+.taskButtonsWrapper button {
+    flex: 1 1 0;
+    margin-right: 4px;
+    max-width: 160px;
+}
+
+.notificationAreaWrapper {
+    flex: 0 0 auto;
+    margin: 0 1px;
+}
