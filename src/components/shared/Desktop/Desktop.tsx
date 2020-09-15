@@ -1,31 +1,31 @@
 import { h, FunctionComponent } from 'preact';
 
-import { AppId } from '../../../data/appList';
-import { ContextType as OpenWindowsContextType } from '../../../context/OpenWindowsContext';
+import { AppId, AppProps } from '../../../data/appList';
+import fileSystem, { FileSystemDir } from '../../../data/filesystem';
+import { FileGridItem } from '../../../hooks/useFileGridState';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 
 import style from './Desktop.css';
-import fileSystem, { FileSystemDir } from '../../../data/filesystem';
 
-interface Props {
-  addWindow: OpenWindowsContextType['addWindow'];
+type Props = AppProps & {
   background?: string;
-}
+};
 
 const Desktop: FunctionComponent<Props> = ({
   addWindow,
   background = 'lightseagreen',
 }: Props) => {
-  const handleOnDblClickFile = (fileId: string, fileType: string) => {
-    if (fileType === 'app') addWindow(fileId as AppId);
+  const handleOnDblClickFile = (file: FileGridItem) => {
+    if (file.type === 'app') addWindow(file.value as AppId);
+    if (file.type === 'dir') {
+      addWindow('myComputer', file.value as FileSystemDir);
+    }
   };
   return (
     <div className={style.desktop} style={{ background }}>
       <FileGrid
         direction="column"
-        fileSystemNode={
-          fileSystem.dir.c.dir.windows.dir.desktop as FileSystemDir
-        }
+        fileSystemNode={fileSystem.dir.c.dir.windows.dir.desktop}
         onDblClickFile={handleOnDblClickFile}
       />
     </div>

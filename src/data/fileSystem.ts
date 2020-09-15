@@ -14,7 +14,7 @@ export type FileSystemApp = {
 };
 
 export type FileSystemFile = {
-  dir: string;
+  content: string;
   fileType: string;
   name: string;
 };

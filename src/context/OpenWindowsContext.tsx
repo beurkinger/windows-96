@@ -1,6 +1,7 @@
 import { createContext } from 'preact';
 
 import { AppId, AppInfos } from '../data/appList';
+import { FileSystemDir } from '../data/filesystem';
 
 export type OpenWindow = {
   app: AppInfos;
@@ -10,11 +11,12 @@ export type OpenWindow = {
   isMaximized: boolean;
   isMinimized: boolean;
   size: { width: number; height: number };
+  workingDir?: FileSystemDir;
   zIndex: number;
 };
 
 export interface ContextType {
-  addWindow: (appId: AppId) => void;
+  addWindow: (appId: AppId, workingDir?: FileSystemDir) => void;
   closeWindow: (zIndex: number) => void;
   focusOnWindow: (windowIndex: number) => void;
   maximizeWindow: (windowIndex: number) => void;

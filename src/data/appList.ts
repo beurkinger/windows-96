@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { VNode } from 'preact';
+import { FileSystemDir } from './filesystem';
 import { IconId } from './iconList';
 import ExplorerApp from '../Components/apps/ExplorerApp/ExplorerApp';
 import MyComputerApp from '../Components/apps/MyComputerApp/MyComputerApp'; // } //   Props as MyComputerAppProps, // , {
@@ -7,6 +8,7 @@ import { ContextType as OpenWindowsContextType } from '../context/OpenWindowsCon
 
 export interface AppProps {
   addWindow: OpenWindowsContextType['addWindow'];
+  workingDir?: FileSystemDir;
 }
 
 export type AppInfos = {

@@ -1,7 +1,9 @@
 import { h, FunctionComponent } from 'preact';
 
 import { FileSystemDir } from '../../../data/filesystem';
-import useFileGridState from '../../../hooks/useFileGridState';
+import useFileGridState, {
+  FileGridItem,
+} from '../../../hooks/useFileGridState';
 import Icon from '../Icon/Icon';
 
 import style from './FileGrid.css';
@@ -10,7 +12,7 @@ import style from './FileGrid.css';
 interface Props {
   direction?: 'column' | 'row';
   fileSystemNode: FileSystemDir;
-  onDblClickFile: (fileId: string, fileType: string) => void;
+  onDblClickFile: (file: FileGridItem) => void;
   textColor?: 'black' | 'white';
 }
 
@@ -25,24 +27,16 @@ const FileGrid: FunctionComponent<Props> = ({
 
   const handleOnClick = removeFocus;
 
-  const handleOnClickFile = (
-    e: MouseEvent,
-    fileId: string,
-    fileType: string
-  ) => {
+  const handleOnClickFile = (e: MouseEvent, file: FileGridItem) => {
     e.preventDefault();
     e.stopPropagation();
-    focusOnFile(fileId, fileType);
+    focusOnFile(file.id, file.type);
   };
 
-  const handleOnDblClickFile = (
-    e: MouseEvent,
-    fileId: string,
-    fileType: string
-  ) => {
+  const handleOnDblClickFile = (e: MouseEvent, file: FileGridItem) => {
     e.preventDefault();
     e.stopPropagation();
-    onDblClickFile(fileId, fileType);
+    onDblClickFile(file);
   };
 
   return (
@@ -57,8 +51,8 @@ const FileGrid: FunctionComponent<Props> = ({
             file.hasSoftFocus ? style.softFocus : ''
           }`}
           key={i + file.id}
-          onClick={(e) => handleOnClickFile(e, file.id, file.type)}
-          onDblClick={(e) => handleOnDblClickFile(e, file.id, file.type)}
+          onClick={(e) => handleOnClickFile(e, file)}
+          onDblClick={(e) => handleOnDblClickFile(e, file)}
           style={{ color: textColor }}
         >
           <div className={style.fileIcon}>

@@ -46,7 +46,11 @@ const WindowsContainer: FunctionComponent = () => {
             title={window.app.name}
             zIndex={window.zIndex}
           >
-            {window.app.getComponent && window.app.getComponent({ addWindow })}
+            {window.app.getComponent &&
+              window.app.getComponent({
+                addWindow,
+                workingDir: window.workingDir,
+              })}
           </Window>
         )
       )}

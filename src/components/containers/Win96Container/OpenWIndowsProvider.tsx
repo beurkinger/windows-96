@@ -54,7 +54,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
     );
   };
 
-  const addWindow: ContextType['addWindow'] = (appId) => {
+  const addWindow: ContextType['addWindow'] = (appId, workingDir) => {
     setOpenWindows((windows) => {
       const app = appList[appId];
       const zIndex = getBiggestZIndex(windows) + 1;
@@ -75,6 +75,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
           isMinimized: false,
           isMaximized: false,
           size: { width: 100, height: 100 },
+          workingDir,
           zIndex,
         },
       ];
