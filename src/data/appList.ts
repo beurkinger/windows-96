@@ -17,9 +17,11 @@ export type AppId =
   | 'binFull'
   | 'briefcase'
   | 'calc'
+  | 'cdDrive'
   | 'cdPlayer'
   | 'controlPanel'
   | 'defrag'
+  | 'dialUpNetwork'
   | 'exchange'
   | 'explorer'
   | 'find'
@@ -65,6 +67,12 @@ export const appList: AppList = {
     name: 'My Briefcase',
   },
   calc: { component: null, id: 'calc', iconId: 'calc', name: 'Calculator' },
+  cdDrive: {
+    component: null,
+    id: 'cdDrive',
+    iconId: 'cdDrive',
+    name: 'CD Drive',
+  },
   cdPlayer: {
     component: null,
     id: 'cdPlayer',
@@ -82,6 +90,12 @@ export const appList: AppList = {
     id: 'defrag',
     iconId: 'defrag',
     name: 'Disk Defragmenter',
+  },
+  dialUpNetwork: {
+    component: null,
+    id: 'dialUpNetwork',
+    iconId: 'dialUpNetwork',
+    name: 'Dial-Up Networking',
   },
   exchange: {
     component: null,

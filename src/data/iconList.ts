@@ -6,12 +6,16 @@ import briefcase_16 from '../assets/img/icons/briefcase/briefcase_16.png';
 import briefcase_32 from '../assets/img/icons/briefcase/briefcase_32.png';
 import calc_16 from '../assets/img/icons/calc/calc_16.png';
 import calc_32 from '../assets/img/icons/calc/calc_32.png';
+import cd_drive_16 from '../assets/img/icons/cd_drive/cd_drive_16.png';
+import cd_drive_32 from '../assets/img/icons/cd_drive/cd_drive_32.png';
 import cd_player_16 from '../assets/img/icons/cd_player/cd_player_16.png';
 import cd_player_32 from '../assets/img/icons/cd_player/cd_player_32.png';
 import control_panel_16 from '../assets/img/icons/control_panel/control_panel_16.png';
 import control_panel_32 from '../assets/img/icons/control_panel/control_panel_32.png';
 import defrag_16 from '../assets/img/icons/defrag/defrag_16.png';
 import defrag_32 from '../assets/img/icons/defrag/defrag_32.png';
+import dial_up_network_16 from '../assets/img/icons/dial_up_network/dial_up_network_16.png';
+import dial_up_network_32 from '../assets/img/icons/dial_up_network/dial_up_network_32.png';
 import documents_16 from '../assets/img/icons/documents/documents_16.png';
 import documents_24 from '../assets/img/icons/documents/documents_24.png';
 import documents_32 from '../assets/img/icons/documents/documents_32.png';
@@ -105,9 +109,11 @@ export type IconId =
   | 'binFull'
   | 'briefcase'
   | 'calc'
+  | 'cdDrive'
   | 'cdPlayer'
   | 'controlPanel'
   | 'defrag'
+  | 'dialUpNetwork'
   | 'documents'
   | 'drive'
   | 'exchange'
@@ -154,9 +160,11 @@ export const iconList: IconList = {
   binFull: { 16: bin_full_16, 32: bin_full_32 },
   briefcase: { 16: briefcase_16, 32: briefcase_32 },
   calc: { 16: calc_16, 32: calc_32 },
+  cdDrive: { 16: cd_drive_16, 32: cd_drive_32 },
   cdPlayer: { 16: cd_player_16, 32: cd_player_32 },
   controlPanel: { 16: control_panel_16, 32: control_panel_32 },
   defrag: { 16: defrag_16, 32: defrag_32 },
+  dialUpNetwork: { 16: dial_up_network_16, 32: dial_up_network_32 },
   drive: { 16: drive_16, 32: drive_32 },
   exchange: { 16: exchange_16, 32: exchange_32 },
   explorer: { 16: explorer_16, 32: explorer_32 },
