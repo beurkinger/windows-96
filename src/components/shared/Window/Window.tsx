@@ -51,8 +51,8 @@ const Window: FunctionComponent<Props> = ({
 
   const coordsState = useDragging(getTitleBarElement, {
     getBoundingElt: getParentElement,
+    initialCoords: coords,
     onDragStop: handleOnMoved,
-    savedCoords: coords,
   });
 
   return (

@@ -12,14 +12,14 @@ import { getBounds, getBoundedOffset } from './utils/BoundingUtils';
 
 export interface Options {
   getBoundingElt?: () => HTMLElement | null;
+  initialCoords?: Coords | null;
   onDragStart?: () => void;
   onDragStop?: (coords: Coords) => void;
-  savedCoords?: Coords | null;
 }
 
 const useDragging = (
   getHandleElt: () => HTMLElement | null,
-  { getBoundingElt, savedCoords = null, onDragStart, onDragStop }: Options
+  { getBoundingElt, initialCoords = null, onDragStart, onDragStop }: Options
 ): Coords => {
   const originalElementCoords = useRef<Coords>({ x: 0, y: 0 });
   const originalMouseCoords = useRef<Coords>({ x: 0, y: 0 });
@@ -27,22 +27,13 @@ const useDragging = (
   const handleEltRef = useRef<HTMLElement | null>();
   const boundingEltRef = useRef<HTMLElement | null>();
 
-  const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [coords, setCoords] = useState<Coords>(savedCoords || { x: 0, y: 0 });
+  // const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [coords, setCoords] = useState<Coords>(initialCoords || { x: 0, y: 0 });
 
   useEffect(() => {
     handleEltRef.current = getHandleElt();
     boundingEltRef.current = getBoundingElt ? getBoundingElt() : null;
   });
-
-  useEffect((): void => {
-    if (!savedCoords) return;
-
-    const hasMoved = savedCoords.x !== coords.x || savedCoords.y !== coords.y;
-    if (!isDragging && hasMoved) {
-      setCoords({ x: savedCoords.x, y: savedCoords.y });
-    }
-  }, [coords, isDragging, savedCoords]);
 
   useEffect((): (() => void) => {
     addPointerStartEventListeners();
@@ -141,7 +132,6 @@ const useDragging = (
       return elementCoords;
     });
 
-    setIsDragging(true);
     if (onDragStart) onDragStart();
   };
 
@@ -171,7 +161,6 @@ const useDragging = (
       if (onDragStop) onDragStop(currentCoords);
       return currentCoords;
     });
-    setIsDragging(false);
   };
 
   return coords;
