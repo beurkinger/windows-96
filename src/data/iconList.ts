@@ -19,8 +19,8 @@ import dial_up_network_32 from '../assets/img/icons/dial_up_network/dial_up_netw
 import documents_16 from '../assets/img/icons/documents/documents_16.png';
 import documents_24 from '../assets/img/icons/documents/documents_24.png';
 import documents_32 from '../assets/img/icons/documents/documents_32.png';
-import drive_16 from '../assets/img/icons/drive/drive_16.png';
-import drive_32 from '../assets/img/icons/drive/drive_32.png';
+import hard_drive_16 from '../assets/img/icons/hard_drive/hard_drive_16.png';
+import hard_drive_32 from '../assets/img/icons/hard_drive/hard_drive_32.png';
 import exchange_16 from '../assets/img/icons/exchange/exchange_16.png';
 import exchange_32 from '../assets/img/icons/exchange/exchange_32.png';
 import explorer_16 from '../assets/img/icons/explorer/explorer_16.png';
@@ -115,7 +115,7 @@ export type IconId =
   | 'defrag'
   | 'dialUpNetwork'
   | 'documents'
-  | 'drive'
+  | 'hardDrive'
   | 'exchange'
   | 'explorer'
   | 'find'
@@ -165,7 +165,7 @@ export const iconList: IconList = {
   controlPanel: { 16: control_panel_16, 32: control_panel_32 },
   defrag: { 16: defrag_16, 32: defrag_32 },
   dialUpNetwork: { 16: dial_up_network_16, 32: dial_up_network_32 },
-  drive: { 16: drive_16, 32: drive_32 },
+  hardDrive: { 16: hard_drive_16, 32: hard_drive_32 },
   exchange: { 16: exchange_16, 32: exchange_32 },
   explorer: { 16: explorer_16, 32: explorer_32 },
   documents: { 16: documents_16, 24: documents_24, 32: documents_32 },
