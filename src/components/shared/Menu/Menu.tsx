@@ -9,7 +9,6 @@ interface Props {
   isLarge?: boolean;
   onSelect: (value: string, e: MouseEvent) => void;
   options: OptionType[][];
-  // type: string;
 }
 
 const Menu: FunctionComponent<Props> = ({
@@ -17,8 +16,7 @@ const Menu: FunctionComponent<Props> = ({
   isLarge = false,
   onSelect,
   options,
-}: // type = 'menu',
-Props) => (
+}: Props) => (
   <div className={`${style.menu} ${isLarge ? style.large : ''}`}>
     {options.map((optionGroup, i) => (
       <div className={style.optionGroup} key={i}>

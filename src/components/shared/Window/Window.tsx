@@ -82,7 +82,7 @@ const Window: FunctionComponent<Props> = ({
         onDblClickTitleBar={onDblClickTitleBar}
         title={title}
       />
-      <div className="window-body">{children}</div>
+      <div>{children}</div>
     </div>
   );
 };
