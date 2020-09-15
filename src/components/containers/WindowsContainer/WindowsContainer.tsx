@@ -8,6 +8,7 @@ import style from './WindowsContainer.css';
 
 const WindowsContainer: FunctionComponent = () => {
   const {
+    addWindow,
     closeWindow,
     focusOnWindow,
     maximizeWindow,
@@ -45,7 +46,7 @@ const WindowsContainer: FunctionComponent = () => {
             title={window.app.name}
             zIndex={window.zIndex}
           >
-            {window.app.component && window.app.component({})}
+            {window.app.getComponent && window.app.getComponent({ addWindow })}
           </Window>
         )
       )}

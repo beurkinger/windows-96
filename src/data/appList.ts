@@ -1,11 +1,16 @@
-import { FunctionComponent } from 'preact';
-
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import { VNode } from 'preact';
 import { IconId } from './iconList';
-import ExplorerApp from '../components/apps/ExplorerApp/ExplorerApp';
-import MyComputerApp from '../components/apps/MyComputerApp/MyComputerApp';
+import ExplorerApp from '../Components/apps/ExplorerApp/ExplorerApp';
+import MyComputerApp from '../Components/apps/MyComputerApp/MyComputerApp'; // } //   Props as MyComputerAppProps, // , {
+import { ContextType as OpenWindowsContextType } from '../context/OpenWindowsContext';
+
+export interface AppProps {
+  addWindow: OpenWindowsContextType['addWindow'];
+}
 
 export type AppInfos = {
-  component: FunctionComponent | null;
+  getComponent: ((props: AppProps) => VNode | null) | null;
   id: AppId;
   iconId: IconId;
   name: string;
@@ -51,191 +56,196 @@ export type AppId =
 
 export const appList: AppList = {
   binEmpty: {
-    component: null,
+    getComponent: null,
     id: 'binEmpty',
     iconId: 'binEmpty',
     name: 'Recycle Bin',
   },
   binFull: {
-    component: null,
+    getComponent: null,
     id: 'binFull',
     iconId: 'binFull',
     name: 'Recycle Bin',
   },
   briefcase: {
-    component: null,
+    getComponent: null,
     id: 'briefcase',
     iconId: 'briefcase',
     name: 'My Briefcase',
   },
-  calc: { component: null, id: 'calc', iconId: 'calc', name: 'Calculator' },
+  calc: { getComponent: null, id: 'calc', iconId: 'calc', name: 'Calculator' },
   cdDrive: {
-    component: null,
+    getComponent: null,
     id: 'cdDrive',
     iconId: 'cdDrive',
     name: '(D:)',
   },
   cdPlayer: {
-    component: null,
+    getComponent: null,
     id: 'cdPlayer',
     iconId: 'cdPlayer',
     name: 'CD Player',
   },
   controlPanel: {
-    component: null,
+    getComponent: null,
     id: 'controlPanel',
     iconId: 'controlPanel',
     name: 'Control Panel',
   },
   defrag: {
-    component: null,
+    getComponent: null,
     id: 'defrag',
     iconId: 'defrag',
     name: 'Disk Defragmenter',
   },
   dialUpNetwork: {
-    component: null,
+    getComponent: null,
     id: 'dialUpNetwork',
     iconId: 'dialUpNetwork',
     name: 'Dial-Up Networking',
   },
   exchange: {
-    component: null,
+    getComponent: null,
     id: 'exchange',
     iconId: 'exchange',
     name: 'Microsoft Exchange',
   },
   explorer: {
-    component: ExplorerApp,
+    getComponent: (props) => ExplorerApp(props),
     id: 'explorer',
     iconId: 'explorer',
     name: 'Windows Explorer',
   },
   find: {
-    component: null,
+    getComponent: null,
     id: 'find',
     iconId: 'find',
     name: 'Find Files or Folders... ',
   },
   findComputer: {
-    component: null,
+    getComponent: null,
     id: 'findComputer',
     iconId: 'findComputer',
     name: 'Find Computer...',
   },
   findMsn: {
-    component: null,
+    getComponent: null,
     id: 'findMsn',
     iconId: 'findMsn',
     name: 'Find on The Microsoft Network',
   },
   floppyDrive: {
-    component: null,
+    getComponent: null,
     id: 'floppyDrive',
     iconId: 'floppyDrive',
     name: '3½ Floppy (A:)',
   },
   hardDrive: {
-    component: null,
+    getComponent: null,
     id: 'hardDrive',
     iconId: 'hardDrive',
     name: '(C:)',
   },
-  help: { component: null, id: 'help', iconId: 'help', name: 'Help' },
+  help: { getComponent: null, id: 'help', iconId: 'help', name: 'Help' },
   hyperterminal: {
-    component: null,
+    getComponent: null,
     id: 'hyperterminal',
     iconId: 'hyperterminal',
     name: 'Hyper Terminal',
   },
   mediaPlayer: {
-    component: null,
+    getComponent: null,
     id: 'mediaPlayer',
     iconId: 'mediaPlayer',
     name: 'Media Player',
   },
   msn: {
-    component: null,
+    getComponent: null,
     id: 'msn',
     iconId: 'msn',
     name: 'The Microsoft Network',
   },
   msDos: {
-    component: null,
+    getComponent: null,
     id: 'msDos',
     iconId: 'msDos',
     name: 'MS-DOS Prompt',
   },
-  msPaint: { component: null, id: 'msPaint', iconId: 'msPaint', name: 'Paint' },
+  msPaint: {
+    getComponent: null,
+    id: 'msPaint',
+    iconId: 'msPaint',
+    name: 'Paint',
+  },
   myComputer: {
-    component: MyComputerApp,
+    getComponent: (props) => MyComputerApp(props),
     id: 'myComputer',
     iconId: 'myComputer',
     name: 'My Computer',
   },
   networkNeighborhood: {
-    component: null,
+    getComponent: null,
     id: 'networkNeighborhood',
     iconId: 'network',
     name: 'Network Neighborhood',
   },
   notepad: {
-    component: null,
+    getComponent: null,
     id: 'notepad',
     iconId: 'notepad',
     name: 'Notepad',
   },
   phoneDialer: {
-    component: null,
+    getComponent: null,
     id: 'phoneDialer',
     iconId: 'phoneDialer',
     name: 'Phone Dialer',
   },
   printers: {
-    component: null,
+    getComponent: null,
     id: 'printers',
     iconId: 'printers',
     name: 'Printers',
   },
   register: {
-    component: null,
+    getComponent: null,
     id: 'register',
     iconId: 'register',
     name: 'Online Registration',
   },
-  run: { component: null, id: 'run', iconId: 'run', name: 'Run' },
+  run: { getComponent: null, id: 'run', iconId: 'run', name: 'Run' },
   scandisk: {
-    component: null,
+    getComponent: null,
     id: 'scandisk',
     iconId: 'scandisk',
     name: 'ScanDisk',
   },
   soundRecorder: {
-    component: null,
+    getComponent: null,
     id: 'soundRecorder',
     iconId: 'sound',
     name: 'Sound Recorder',
   },
   shutdown: {
-    component: null,
+    getComponent: null,
     id: 'shutdown',
     iconId: 'shutdown',
     name: 'Shutdown...',
   },
   taskbar: {
-    component: null,
+    getComponent: null,
     id: 'taskbar',
     iconId: 'taskbar',
     name: 'Taskbar...',
   },
   volumeControl: {
-    component: null,
+    getComponent: null,
     id: 'volumeControl',
     iconId: 'volume',
     name: 'Volume Control',
   },
   wordpad: {
-    component: null,
+    getComponent: null,
     id: 'wordpad',
     iconId: 'wordpad',
     name: 'WordPad',

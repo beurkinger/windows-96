@@ -1,9 +1,10 @@
 import { h, FunctionComponent } from 'preact';
-// import { useState } from 'preact/hooks';
+
+import { AppProps } from '../../../data/appList';
 
 import style from './ExplorerApp.css';
 
-const ExplorerApp: FunctionComponent = () => {
+const ExplorerApp: FunctionComponent<AppProps> = () => {
   return <div className={style.explorerApp}>Hello</div>;
 };
 
