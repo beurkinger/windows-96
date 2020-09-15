@@ -71,7 +71,7 @@ const Taskbar: FunctionComponent<Props> = ({
         {windows.map((window, i) => (
           <Button
             iconId={window.app.iconId}
-            key={i}
+            key={window.id}
             label={window.app.name}
             inTaskbar
             isActive={window.hasFocus}

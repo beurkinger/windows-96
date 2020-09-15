@@ -11,12 +11,16 @@ interface Props {
   children: ComponentChildren;
 }
 
+const getRandomWindowId = (appId: string) =>
+  appId + '-' + Date.now() + '-' + Math.round(Math.random() * 100);
+
 const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([
     {
       app: appList.notepad,
       coords: { x: 50, y: 50 },
       hasFocus: false,
+      id: getRandomWindowId(appList.notepad.id),
       isMaximized: false,
       isMinimized: false,
       size: { width: 100, height: 100 },
@@ -26,6 +30,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
       app: appList.msPaint,
       coords: { x: 100, y: 100 },
       hasFocus: false,
+      id: getRandomWindowId(appList.msPaint.id),
       isMaximized: false,
       isMinimized: false,
       size: { width: 100, height: 100 },
@@ -35,6 +40,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
       app: appList.myComputer,
       coords: { x: 150, y: 150 },
       hasFocus: false,
+      id: getRandomWindowId(appList.myComputer.id),
       isMaximized: false,
       isMinimized: false,
       size: { width: 100, height: 100 },
@@ -62,6 +68,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
         ...existingWindows,
         {
           app,
+          id: getRandomWindowId(app.id),
           coords: {
             x: 50 + Math.round(Math.random() * 200),
             y: 50 + Math.round(Math.random() * 200),

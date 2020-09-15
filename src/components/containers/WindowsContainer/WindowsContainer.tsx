@@ -25,7 +25,7 @@ const WindowsContainer: FunctionComponent = () => {
           <Window
             coords={window.coords}
             iconId={window.app.iconId}
-            key={i}
+            key={window.id}
             onClickClose={() => closeWindow(i)}
             onClickMaximize={() => maximizeWindow(i)}
             onClickMinimize={() => minimizeWindow(i)}

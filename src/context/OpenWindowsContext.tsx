@@ -6,6 +6,7 @@ export type OpenWindow = {
   app: AppInfos;
   coords: { x: number; y: number };
   hasFocus: boolean;
+  id: string;
   isMaximized: boolean;
   isMinimized: boolean;
   size: { width: number; height: number };
