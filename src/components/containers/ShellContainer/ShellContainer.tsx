@@ -4,10 +4,10 @@ import DesktopContainer from '../DesktopContainer/DesktopContainer';
 import TaskbarContainer from '../TaskbarContainer/TaskbarContainer';
 import WindowsContainer from '../WindowsContainer/WindowsContainer';
 
-import style from './Shell.css';
+import style from './ShellContainer.css';
 
-const Shell: FunctionComponent = () => (
-  <div className={style.shell}>
+const ShellContainer: FunctionComponent = () => (
+  <div className={style.shellcontainer}>
     <div className={style.mainView}>
       <DesktopContainer />
       <WindowsContainer />
@@ -18,4 +18,4 @@ const Shell: FunctionComponent = () => (
   </div>
 );
 
-export default Shell;
+export default ShellContainer;

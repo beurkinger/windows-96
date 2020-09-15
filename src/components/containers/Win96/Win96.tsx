@@ -6,7 +6,7 @@ import OpenWindowsContext, {
   ContextType,
   OpenWindow,
 } from '../../../context/OpenWindowsContext';
-import Shell from '../Shell/Shell';
+import ShellContainer from '../ShellContainer/ShellContainer';
 
 import style from './Win96.css';
 
@@ -155,7 +155,7 @@ const Win96: FunctionComponent = () => {
       }}
     >
       <div className={style.win96}>
-        <Shell />
+        <ShellContainer />
       </div>
     </OpenWindowsContext.Provider>
   );
