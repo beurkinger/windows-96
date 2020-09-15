@@ -1,0 +1,5 @@
+.countour {
+    background: var(--button-highlight);
+    box-shadow: var(--border-field);
+    margin: 1px;
+}
