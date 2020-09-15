@@ -8,9 +8,9 @@ import RunningAppsContext, {
 import { appList } from '../../data/appList';
 import Shell from '../Shell/Shell';
 
-import style from './App.css';
+import style from './Win96.css';
 
-const App: FunctionComponent = () => {
+const Win96: FunctionComponent = () => {
   const [runningApps, setRunningApps] = useState<RunningApp[]>([
     {
       content: 'How do you do ?',
@@ -149,11 +149,11 @@ const App: FunctionComponent = () => {
         unMinimizeApp,
       }}
     >
-      <div className={style.app}>
+      <div className={style.win96}>
         <Shell />
       </div>
     </RunningAppsContext.Provider>
   );
 };
 
-export default App;
+export default Win96;
