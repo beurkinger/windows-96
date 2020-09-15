@@ -50,28 +50,16 @@ const Desktop: FunctionComponent<Props> = ({
     },
   ]);
 
-  const handleOnClick = () => {
-    removeFocus();
-  };
-
-  const handleOnClickFile = (fileId: string, fileType: string) => {
-    focusOnFile(fileId, fileType);
-  };
-
   const handleOnDblClickFile = (fileId: string, fileType: string) => {
     if (fileType === 'app') addWindow(fileId as AppId);
   };
 
   return (
-    <div
-      className={style.desktop}
-      onClick={handleOnClick}
-      style={{ background }}
-    >
+    <div className={style.desktop} onClick={removeFocus} style={{ background }}>
       <FileGrid
         direction="column"
         files={files}
-        onClickFile={handleOnClickFile}
+        onClickFile={focusOnFile}
         onDblClickFile={handleOnDblClickFile}
       />
     </div>
