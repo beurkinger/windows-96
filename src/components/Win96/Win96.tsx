@@ -32,7 +32,7 @@ const Win96: FunctionComponent = () => {
     },
     {
       coords: { x: 150, y: 150 },
-      data: appList.explorer,
+      data: appList.myComputer,
       hasFocus: false,
       isMaximized: false,
       isMinimized: false,

@@ -1,6 +1,8 @@
 import { FunctionComponent } from 'preact';
-import ExplorerApp from '../components/ExplorerApp/ExplorerApp';
+
 import { IconId } from './iconList';
+import ExplorerApp from '../components/ExplorerApp/ExplorerApp';
+import MyComputerApp from '../components/MyComputerApp/MyComputerApp';
 
 export type AppInfos = {
   component: FunctionComponent | null;
@@ -138,7 +140,7 @@ export const appList: AppList = {
   },
   msPaint: { component: null, id: 'msPaint', iconId: 'msPaint', name: 'Paint' },
   myComputer: {
-    component: null,
+    component: MyComputerApp,
     id: 'myComputer',
     iconId: 'myComputer',
     name: 'My Computer',

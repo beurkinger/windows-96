@@ -45,7 +45,7 @@ const WindowsContainer: FunctionComponent = () => {
             title={app.data.name}
             zIndex={app.zIndex}
           >
-            {app.data.component}
+            {app.data.component && app.data.component({})}
           </Window>
         )
       )}
