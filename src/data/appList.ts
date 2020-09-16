@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'preact';
 import { FileSystemDir, FileSystemFile } from './filesystem';
 import { IconId } from './iconList';
-import ExplorerApp from '../Components/apps/ExplorerApp/ExplorerApp';
-import MyComputerApp from '../Components/apps/MyComputerApp/MyComputerApp'; // } //   Props as MyComputerAppProps, // , {
+import ExplorerApp from '../components/apps/ExplorerApp/ExplorerApp';
+import MyComputerApp from '../components/apps/MyComputerApp/MyComputerApp'; // } //   Props as MyComputerAppProps, // , {
 import { ContextType as OpenWindowsContextType } from '../context/OpenWindowsContext';
 import NotepadApp from '../components/apps/NotepadApp/NotepadApp';
 
