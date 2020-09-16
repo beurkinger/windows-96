@@ -12,10 +12,10 @@
     user-select: none;
 }
 
-.menuBarOption:hover {
+/* .menuBarOption:hover {
     background: var(--dialog-blue);
     color: white;
-}
+} */
 
 .menuBarOptionLabel::first-letter {
     text-decoration: underline;
