@@ -144,6 +144,7 @@
     box-shadow: none;
     background: white;
     resize: none;
+    -webkit-font-smoothing: none;
 }
 ._1ew2QELWAyrXswoyfipXKT {
   display: block;
