@@ -117,7 +117,7 @@ const fileSystem = {
               dir: {},
             },
             readMe: {
-              content: '',
+              content: "Hello I'm a Readme file",
               name: 'Readme',
               fileTypeId: 'notepadDoc',
             },

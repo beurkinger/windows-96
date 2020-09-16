@@ -4,6 +4,7 @@ import { IconId } from './iconList';
 import ExplorerApp from '../Components/apps/ExplorerApp/ExplorerApp';
 import MyComputerApp from '../Components/apps/MyComputerApp/MyComputerApp'; // } //   Props as MyComputerAppProps, // , {
 import { ContextType as OpenWindowsContextType } from '../context/OpenWindowsContext';
+import NotepadApp from '../components/apps/NotepadApp/NotepadApp';
 
 export interface AppProps {
   addWindow: OpenWindowsContextType['addWindow'];
@@ -193,7 +194,7 @@ export const appList: AppList = {
     name: 'Network Neighborhood',
   },
   notepad: {
-    component: null,
+    component: NotepadApp,
     id: 'notepad',
     iconId: 'notepad',
     name: 'Notepad',
