@@ -2,6 +2,8 @@ import bin_empty_16 from '../assets/img/icons/bin_empty/bin_empty_16.png';
 import bin_empty_32 from '../assets/img/icons/bin_empty/bin_empty_32.png';
 import bin_full_16 from '../assets/img/icons/bin_full/bin_full_16.png';
 import bin_full_32 from '../assets/img/icons/bin_full/bin_full_32.png';
+import bmp_file_16 from '../assets/img/icons/bmp_file/bmp_file_16.png';
+import bmp_file_32 from '../assets/img/icons/bmp_file/bmp_file_32.png';
 import briefcase_16 from '../assets/img/icons/briefcase/briefcase_16.png';
 import briefcase_32 from '../assets/img/icons/briefcase/briefcase_32.png';
 import calc_16 from '../assets/img/icons/calc/calc_16.png';
@@ -10,6 +12,7 @@ import cd_drive_16 from '../assets/img/icons/cd_drive/cd_drive_16.png';
 import cd_drive_32 from '../assets/img/icons/cd_drive/cd_drive_32.png';
 import cd_player_16 from '../assets/img/icons/cd_player/cd_player_16.png';
 import cd_player_32 from '../assets/img/icons/cd_player/cd_player_32.png';
+import cd_track_32 from '../assets/img/icons/cd_track/cd_track_32.png';
 import control_panel_16 from '../assets/img/icons/control_panel/control_panel_16.png';
 import control_panel_32 from '../assets/img/icons/control_panel/control_panel_32.png';
 import defrag_16 from '../assets/img/icons/defrag/defrag_16.png';
@@ -21,6 +24,8 @@ import documents_24 from '../assets/img/icons/documents/documents_24.png';
 import documents_32 from '../assets/img/icons/documents/documents_32.png';
 import hard_drive_16 from '../assets/img/icons/hard_drive/hard_drive_16.png';
 import hard_drive_32 from '../assets/img/icons/hard_drive/hard_drive_32.png';
+import help_file_16 from '../assets/img/icons/help_file/help_file_16.png';
+import help_file_32 from '../assets/img/icons/help_file/help_file_32.png';
 import exchange_16 from '../assets/img/icons/exchange/exchange_16.png';
 import exchange_32 from '../assets/img/icons/exchange/exchange_32.png';
 import explorer_16 from '../assets/img/icons/explorer/explorer_16.png';
@@ -45,6 +50,8 @@ import hyperterminal_16 from '../assets/img/icons/hyperterminal/hyperterminal_16
 import hyperterminal_32 from '../assets/img/icons/hyperterminal/hyperterminal_32.png';
 import media_player_16 from '../assets/img/icons/media_player/media_player_16.png';
 import media_player_32 from '../assets/img/icons/media_player/media_player_32.png';
+import midi_file_16 from '../assets/img/icons/midi_file/midi_file_16.png';
+import midi_file_32 from '../assets/img/icons/midi_file/midi_file_32.png';
 import menu_arrow_8 from '../assets/img/icons/menu_arrow/menu_arrow_8.png';
 import msn_16 from '../assets/img/icons/msn/msn_16.png';
 import msn_32 from '../assets/img/icons/msn/msn_32.png';
@@ -91,9 +98,13 @@ import taskbar_16 from '../assets/img/icons/taskbar/taskbar_16.png';
 import taskbar_32 from '../assets/img/icons/taskbar/taskbar_32.png';
 import video_16 from '../assets/img/icons/video/video_16.png';
 import video_32 from '../assets/img/icons/video/video_32.png';
+import video_file_16 from '../assets/img/icons/video_file/video_file_16.png';
+import video_file_32 from '../assets/img/icons/video_file/video_file_32.png';
 import volume_16 from '../assets/img/icons/volume/volume_16.png';
 import volume_32 from '../assets/img/icons/volume/volume_32.png';
 import warning_32 from '../assets/img/icons/warning/warning_32.png';
+import wave_file_16 from '../assets/img/icons/wave_file/wave_file_16.png';
+import wave_file_32 from '../assets/img/icons/wave_file/wave_file_32.png';
 import windows_logo_16 from '../assets/img/icons/windows_logo/windows_logo_16.png';
 import wordpad_16 from '../assets/img/icons/wordpad/wordpad_16.png';
 import wordpad_32 from '../assets/img/icons/wordpad/wordpad_32.png';
@@ -107,15 +118,18 @@ export type IconList = { [key in IconId]: Partial<IconUrls> };
 export type IconId =
   | 'binEmpty'
   | 'binFull'
+  | 'bmpFile'
   | 'briefcase'
   | 'calc'
   | 'cdDrive'
   | 'cdPlayer'
+  | 'cdTrack'
   | 'controlPanel'
   | 'defrag'
   | 'dialUpNetwork'
   | 'documents'
   | 'hardDrive'
+  | 'helpFile'
   | 'exchange'
   | 'explorer'
   | 'find'
@@ -128,6 +142,7 @@ export type IconId =
   | 'hyperterminal'
   | 'mediaPlayer'
   | 'menuArrow'
+  | 'midiFile'
   | 'msn'
   | 'msDos'
   | 'msPaint'
@@ -149,8 +164,10 @@ export type IconId =
   | 'soundOff'
   | 'taskbar'
   | 'video'
+  | 'videoFile'
   | 'volume'
   | 'warning'
+  | 'waveFile'
   | 'windowsLogo'
   | 'wordpad'
   | 'wordpadDoc';
@@ -158,10 +175,12 @@ export type IconId =
 export const iconList: IconList = {
   binEmpty: { 16: bin_empty_16, 32: bin_empty_32 },
   binFull: { 16: bin_full_16, 32: bin_full_32 },
+  bmpFile: { 16: bmp_file_16, 32: bmp_file_32 },
   briefcase: { 16: briefcase_16, 32: briefcase_32 },
   calc: { 16: calc_16, 32: calc_32 },
   cdDrive: { 16: cd_drive_16, 32: cd_drive_32 },
   cdPlayer: { 16: cd_player_16, 32: cd_player_32 },
+  cdTrack: { 16: cd_track_16, 32: cd_track_32 },
   controlPanel: { 16: control_panel_16, 32: control_panel_32 },
   defrag: { 16: defrag_16, 32: defrag_32 },
   dialUpNetwork: { 16: dial_up_network_16, 32: dial_up_network_32 },
@@ -176,9 +195,11 @@ export const iconList: IconList = {
   folderOpen: { 16: folder_open_16, 32: folder_open_32 },
   folderClosed: { 16: folder_closed_16, 32: folder_closed_32 },
   help: { 16: help_16, 24: help_24, 32: help_32 },
+  helpFile: { 16: help_file_16, 32: help_file_32 },
   hyperterminal: { 16: hyperterminal_16, 32: hyperterminal_32 },
   mediaPlayer: { 16: media_player_16, 32: media_player_32 },
   menuArrow: { 8: menu_arrow_8 },
+  midiFile: { 16: midi_file_16, 32: midi_file_32 },
   msn: { 16: msn_16, 32: msn_32 },
   msDos: { 16: ms_dos_16, 32: ms_dos_32 },
   msPaint: { 16: ms_paint_16, 32: ms_paint_32 },
@@ -200,8 +221,10 @@ export const iconList: IconList = {
   soundOff: { 16: sound_off_16, 32: sound_off_32 },
   taskbar: { 16: taskbar_16, 32: taskbar_32 },
   video: { 16: video_16, 32: video_32 },
+  videoFile: { 16: video_file_16, 32: video_file_32 },
   volume: { 16: volume_16, 32: volume_32 },
   warning: { 32: warning_32 },
+  waveFile: { 16: wave_file_16, 32: wave_file_32 },
   windowsLogo: { 16: windows_logo_16 },
   wordpad: { 16: wordpad_16, 32: wordpad_32 },
   wordpadDoc: { 16: wordpad_doc_16, 32: wordpad_doc_32 },
