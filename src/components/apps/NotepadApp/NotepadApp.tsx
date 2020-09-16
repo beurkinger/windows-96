@@ -10,7 +10,7 @@ type Props = AppProps & {
   fileId: string;
 };
 
-const NotepadApp: FunctionComponent<Props> = ({ fileId }: AppProps) => {
+const NotepadApp: FunctionComponent<Props> = ({ fileId }: Props) => {
   return (
     <div className={style.notepadApp}>
       <MenuBar options={['File', 'Edit', 'Search', 'Help']} />

@@ -1,10 +1,10 @@
 import { createContext } from 'preact';
 
-import { AppId, AppInfos } from '../data/appList';
+import { AppId, App } from '../data/appList';
 import { FileSystemDir } from '../data/filesystem';
 
 export type OpenWindow = {
-  app: AppInfos;
+  app: App<unknown>;
   coords: { x: number; y: number };
   hasFocus: boolean;
   id: string;

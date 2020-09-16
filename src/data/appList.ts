@@ -11,13 +11,14 @@ export interface AppProps {
   workingDir?: FileSystemDir;
 }
 
-export type AppInfos = {
+export type App<T> = {
   getComponent: ((props: AppProps) => VNode | null) | null;
-  id: AppId;
+  id: T;
   iconId: IconId;
   name: string;
 };
-export type AppList = { [key in AppId]: AppInfos };
+
+export type AppList = { [key in AppId]: App<key> };
 
 export type AppId =
   | 'binEmpty'
