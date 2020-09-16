@@ -17,14 +17,13 @@ const WindowsContainer: FunctionComponent = () => {
     unMaximizeWindow,
     windows,
   } = useContext(OpenWindowsContext);
-
   return (
     <div className={style.windowsContainer}>
       {windows.map((window, i) =>
         window.isMinimized ? null : (
           <Window
             coords={window.coords}
-            iconId={window.app.iconId}
+            iconId={window.iconId}
             key={window.id}
             onClickClose={() => closeWindow(i)}
             onClickMaximize={() => maximizeWindow(i)}
@@ -43,7 +42,7 @@ const WindowsContainer: FunctionComponent = () => {
             onMoved={(coords) => moveWindow(i, coords)}
             isInactive={!window.hasFocus}
             isMaximized={window.isMaximized}
-            title={window.app.name}
+            title={window.title}
             zIndex={window.zIndex}
           >
             {window.app.component &&

@@ -7,6 +7,7 @@ import OpenWindowsContext, {
   ContextType,
   OpenWindow,
 } from '../../../context/OpenWindowsContext';
+import fileTypeList from '../../../data/fileTypeList';
 
 interface Props {
   children: ComponentChildren;
@@ -15,33 +16,15 @@ interface Props {
 const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([
     {
-      app: appList.notepad,
-      coords: { x: 50, y: 50 },
-      hasFocus: false,
-      id: getRandomId(appList.notepad.id),
-      isMaximized: false,
-      isMinimized: false,
-      size: { width: 100, height: 100 },
-      zIndex: 0,
-    },
-    {
-      app: appList.msPaint,
-      coords: { x: 100, y: 100 },
-      hasFocus: false,
-      id: getRandomId(appList.msPaint.id),
-      isMaximized: false,
-      isMinimized: false,
-      size: { width: 100, height: 100 },
-      zIndex: 1,
-    },
-    {
       app: appList.myComputer,
       coords: { x: 150, y: 150 },
       hasFocus: false,
+      iconId: appList.myComputer.iconId,
       id: getRandomId(appList.myComputer.id),
       isMaximized: false,
       isMinimized: false,
       size: { width: 100, height: 100 },
+      title: appList.myComputer.name,
       zIndex: 2,
     },
   ]);
@@ -61,6 +44,16 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   }) => {
     setOpenWindows((windows) => {
       const app = appList[appId];
+      const iconId = workingFile
+        ? fileTypeList[workingFile.fileTypeId].iconId
+        : workingDir && workingDir.iconId
+        ? workingDir.iconId
+        : app.iconId;
+      const title = workingFile
+        ? workingFile.name
+        : workingDir
+        ? workingDir.name
+        : app.name;
       const zIndex = getBiggestZIndex(windows) + 1;
       const existingWindows = windows.map((window) => ({
         ...window,
@@ -70,6 +63,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
         ...existingWindows,
         {
           app,
+          iconId,
           id: getRandomId(app.id),
           coords: {
             x: 50 + Math.round(Math.random() * 200),
@@ -79,6 +73,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
           isMinimized: false,
           isMaximized: false,
           size: { width: 100, height: 100 },
+          title,
           workingDir,
           workingFile,
           zIndex,

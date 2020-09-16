@@ -2,15 +2,18 @@ import { createContext } from 'preact';
 
 import { AppId, App } from '../data/appList';
 import { FileSystemDir, FileSystemFile } from '../data/filesystem';
+import { IconId } from '../data/iconList';
 
 export type OpenWindow = {
   app: App<unknown>;
   coords: { x: number; y: number };
   hasFocus: boolean;
+  iconId: IconId;
   id: string;
   isMaximized: boolean;
   isMinimized: boolean;
   size: { width: number; height: number };
+  title: string;
   workingDir?: FileSystemDir;
   workingFile?: FileSystemFile;
   zIndex: number;
