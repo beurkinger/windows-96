@@ -29,6 +29,7 @@
 .taskButtonsWrapper {
     flex: 1 1 auto;
     display: flex;
+    min-width: 1px;
     padding: 0 2px;
 }
 

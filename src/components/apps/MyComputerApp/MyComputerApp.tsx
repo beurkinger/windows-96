@@ -7,8 +7,7 @@ import { ShellItem } from '../../../hooks/useFileGridState';
 import Countour from '../../shared/Countour/Countour';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 import MenuBar from '../../shared/MenuBar/MenuBar';
-
-import style from './MyComputerApp.css';
+import WindowContent from '../../shared/WindowContent/WindowContent';
 
 const MyComputerApp: FunctionComponent<AppProps> = ({
   addWindow,
@@ -28,16 +27,30 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
     }
   };
 
+  // return (
+  //   <div className={style.myComputerApp}>
+  //     <MenuBar options={['File', 'Edit', 'View', 'Help']} />
+  //     <Countour>
+  //       <FileGrid
+  //         fileSystemNode={workingDir ?? filesystem}
+  //         onDblClickFile={handleOnDblClickFile}
+  //       />
+  //     </Countour>
+  //   </div>
+  // );
+
   return (
-    <div className={style.myComputerApp}>
-      <MenuBar options={['File', 'Edit', 'View', 'Help']} />
-      <Countour>
-        <FileGrid
-          fileSystemNode={workingDir ?? filesystem}
-          onDblClickFile={handleOnDblClickFile}
-        />
-      </Countour>
-    </div>
+    <WindowContent
+      menu={<MenuBar options={['File', 'Edit', 'View', 'Help']} />}
+      body={
+        <Countour>
+          <FileGrid
+            fileSystemNode={workingDir ?? filesystem}
+            onDblClickFile={handleOnDblClickFile}
+          />
+        </Countour>
+      }
+    />
   );
 };
 

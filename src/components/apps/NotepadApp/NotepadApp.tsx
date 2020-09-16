@@ -3,15 +3,16 @@ import { h, FunctionComponent } from 'preact';
 import { AppProps } from '../../../data/appList';
 import Countour from '../../shared/Countour/Countour';
 import MenuBar from '../../shared/MenuBar/MenuBar';
+import WindowContent from '../../shared/WindowContent/WindowContent';
 
 import style from './NotepadApp.css';
 
 type Props = AppProps;
 
-const NotepadApp: FunctionComponent<Props> = ({ workingFile }: Props) => {
-  return (
-    <div className={style.notepadApp}>
-      <MenuBar options={['File', 'Edit', 'Search', 'Help']} />
+const NotepadApp: FunctionComponent<Props> = ({ workingFile }: Props) => (
+  <WindowContent
+    menu={<MenuBar options={['File', 'Edit', 'Search', 'Help']} />}
+    body={
       <Countour>
         <textarea
           autoComplete="off"
@@ -23,8 +24,8 @@ const NotepadApp: FunctionComponent<Props> = ({ workingFile }: Props) => {
           {workingFile?.content ?? ''}
         </textarea>
       </Countour>
-    </div>
-  );
-};
+    }
+  />
+);
 
 export default NotepadApp;
