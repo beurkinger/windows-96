@@ -70,9 +70,9 @@ const Taskbar: FunctionComponent<Props> = ({
       <div className={style.taskButtonsWrapper}>
         {windows.map((window, i) => (
           <Button
-            iconId={window.app.iconId}
+            iconId={window.iconId}
             key={window.id}
-            label={window.app.name}
+            label={window.title}
             inTaskbar
             isActive={window.hasFocus}
             noOutline
