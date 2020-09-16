@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { VNode } from 'preact';
+import { FunctionComponent } from 'preact';
 import { FileSystemDir } from './filesystem';
 import { IconId } from './iconList';
 import ExplorerApp from '../Components/apps/ExplorerApp/ExplorerApp';
@@ -12,7 +11,7 @@ export interface AppProps {
 }
 
 export type App<T> = {
-  getComponent: ((props: AppProps) => VNode | null) | null;
+  component: FunctionComponent<AppProps> | null;
   id: T;
   iconId: IconId;
   name: string;
@@ -59,196 +58,196 @@ export type AppId =
 
 export const appList: AppList = {
   binEmpty: {
-    getComponent: null,
+    component: null,
     id: 'binEmpty',
     iconId: 'binEmpty',
     name: 'Recycle Bin',
   },
   binFull: {
-    getComponent: null,
+    component: null,
     id: 'binFull',
     iconId: 'binFull',
     name: 'Recycle Bin',
   },
   briefcase: {
-    getComponent: null,
+    component: null,
     id: 'briefcase',
     iconId: 'briefcase',
     name: 'My Briefcase',
   },
-  calc: { getComponent: null, id: 'calc', iconId: 'calc', name: 'Calculator' },
+  calc: { component: null, id: 'calc', iconId: 'calc', name: 'Calculator' },
   cdDrive: {
-    getComponent: null,
+    component: null,
     id: 'cdDrive',
     iconId: 'cdDrive',
     name: '(D:)',
   },
   cdPlayer: {
-    getComponent: null,
+    component: null,
     id: 'cdPlayer',
     iconId: 'cdPlayer',
     name: 'CD Player',
   },
   controlPanel: {
-    getComponent: null,
+    component: null,
     id: 'controlPanel',
     iconId: 'controlPanel',
     name: 'Control Panel',
   },
   defrag: {
-    getComponent: null,
+    component: null,
     id: 'defrag',
     iconId: 'defrag',
     name: 'Disk Defragmenter',
   },
   dialUpNetwork: {
-    getComponent: null,
+    component: null,
     id: 'dialUpNetwork',
     iconId: 'dialUpNetwork',
     name: 'Dial-Up Networking',
   },
   exchange: {
-    getComponent: null,
+    component: null,
     id: 'exchange',
     iconId: 'exchange',
     name: 'Microsoft Exchange',
   },
   explorer: {
-    getComponent: (props) => ExplorerApp(props),
+    component: ExplorerApp,
     id: 'explorer',
     iconId: 'explorer',
     name: 'Windows Explorer',
   },
   find: {
-    getComponent: null,
+    component: null,
     id: 'find',
     iconId: 'find',
     name: 'Find Files or Folders... ',
   },
   findComputer: {
-    getComponent: null,
+    component: null,
     id: 'findComputer',
     iconId: 'findComputer',
     name: 'Find Computer...',
   },
   findMsn: {
-    getComponent: null,
+    component: null,
     id: 'findMsn',
     iconId: 'findMsn',
     name: 'Find on The Microsoft Network',
   },
   floppyDrive: {
-    getComponent: null,
+    component: null,
     id: 'floppyDrive',
     iconId: 'floppyDrive',
     name: '3½ Floppy (A:)',
   },
   hardDrive: {
-    getComponent: null,
+    component: null,
     id: 'hardDrive',
     iconId: 'hardDrive',
     name: '(C:)',
   },
-  help: { getComponent: null, id: 'help', iconId: 'help', name: 'Help' },
+  help: { component: null, id: 'help', iconId: 'help', name: 'Help' },
   hyperterminal: {
-    getComponent: null,
+    component: null,
     id: 'hyperterminal',
     iconId: 'hyperterminal',
     name: 'Hyper Terminal',
   },
   mediaPlayer: {
-    getComponent: null,
+    component: null,
     id: 'mediaPlayer',
     iconId: 'mediaPlayer',
     name: 'Media Player',
   },
   msn: {
-    getComponent: null,
+    component: null,
     id: 'msn',
     iconId: 'msn',
     name: 'The Microsoft Network',
   },
   msDos: {
-    getComponent: null,
+    component: null,
     id: 'msDos',
     iconId: 'msDos',
     name: 'MS-DOS Prompt',
   },
   msPaint: {
-    getComponent: null,
+    component: null,
     id: 'msPaint',
     iconId: 'msPaint',
     name: 'Paint',
   },
   myComputer: {
-    getComponent: (props) => MyComputerApp(props),
+    component: MyComputerApp,
     id: 'myComputer',
     iconId: 'myComputer',
     name: 'My Computer',
   },
   networkNeighborhood: {
-    getComponent: null,
+    component: null,
     id: 'networkNeighborhood',
     iconId: 'network',
     name: 'Network Neighborhood',
   },
   notepad: {
-    getComponent: null,
+    component: null,
     id: 'notepad',
     iconId: 'notepad',
     name: 'Notepad',
   },
   phoneDialer: {
-    getComponent: null,
+    component: null,
     id: 'phoneDialer',
     iconId: 'phoneDialer',
     name: 'Phone Dialer',
   },
   printers: {
-    getComponent: null,
+    component: null,
     id: 'printers',
     iconId: 'printers',
     name: 'Printers',
   },
   register: {
-    getComponent: null,
+    component: null,
     id: 'register',
     iconId: 'register',
     name: 'Online Registration',
   },
-  run: { getComponent: null, id: 'run', iconId: 'run', name: 'Run' },
+  run: { component: null, id: 'run', iconId: 'run', name: 'Run' },
   scandisk: {
-    getComponent: null,
+    component: null,
     id: 'scandisk',
     iconId: 'scandisk',
     name: 'ScanDisk',
   },
   soundRecorder: {
-    getComponent: null,
+    component: null,
     id: 'soundRecorder',
     iconId: 'sound',
     name: 'Sound Recorder',
   },
   shutdown: {
-    getComponent: null,
+    component: null,
     id: 'shutdown',
     iconId: 'shutdown',
     name: 'Shutdown...',
   },
   taskbar: {
-    getComponent: null,
+    component: null,
     id: 'taskbar',
     iconId: 'taskbar',
     name: 'Taskbar...',
   },
   volumeControl: {
-    getComponent: null,
+    component: null,
     id: 'volumeControl',
     iconId: 'volume',
     name: 'Volume Control',
   },
   wordpad: {
-    getComponent: null,
+    component: null,
     id: 'wordpad',
     iconId: 'wordpad',
     name: 'WordPad',
