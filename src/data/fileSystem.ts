@@ -1,7 +1,12 @@
 import { AppId, appList } from './appList';
+import { FileTypeId } from './fileTypeList';
 import { IconId } from './iconList';
 
 export type FileSystemItem = FileSystemApp | FileSystemDir | FileSystemFile;
+
+export type FileSystemApp = {
+  appId: AppId;
+};
 
 export type FileSystemDir = {
   dir: { [key: string]: FileSystemItem };
@@ -9,13 +14,9 @@ export type FileSystemDir = {
   name: string;
 };
 
-export type FileSystemApp = {
-  appId: AppId;
-};
-
 export type FileSystemFile = {
   content: string;
-  fileType: string;
+  fileTypeId: FileTypeId;
   name: string;
 };
 
@@ -114,6 +115,11 @@ const fileSystem = {
             temp: {
               name: 'Temp',
               dir: {},
+            },
+            readMe: {
+              content: '',
+              name: 'Readme',
+              fileTypeId: 'notepadDoc',
             },
           },
         },

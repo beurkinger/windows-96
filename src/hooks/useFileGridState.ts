@@ -6,6 +6,7 @@ import {
   FileSystemDir,
   FileSystemFile,
 } from '../data/filesystem';
+import fileTypeList from '../data/fileTypeList';
 import { IconId } from '../data/iconList';
 import { getRandomId } from '../utils/RandomUtils';
 
@@ -31,7 +32,6 @@ const getFileGridApp = (
   name: appList[item.appId].name,
   type: 'app',
   value: appList[item.appId].id,
-  // workingDir,
 });
 
 const getFileGridDir = (
@@ -45,7 +45,6 @@ const getFileGridDir = (
   name: item.name,
   type: 'dir',
   value: item,
-  // workingDir,
 });
 
 const getFileGridFile = (
@@ -53,13 +52,12 @@ const getFileGridFile = (
   hasSoftFocus: boolean
 ): FileGridItem => ({
   id: getRandomId(item.name),
-  iconId: 'program',
+  iconId: fileTypeList[item.fileTypeId].iconId,
   hasFocus: false,
   hasSoftFocus,
   name: item.name,
   type: 'file',
   value: item.content,
-  // workingDir,
 });
 
 const createFileGridItems = (fileSystemNode: FileSystemDir): FileGridItem[] => {
@@ -69,7 +67,7 @@ const createFileGridItems = (fileSystemNode: FileSystemDir): FileGridItem[] => {
       return getFileGridApp(item as FileSystemApp, i === 0);
     }
     // If File
-    if ('openWith' in item) {
+    if ('fileTypeId' in item) {
       return getFileGridFile(item as FileSystemFile, i === 0);
     }
     // Else Dir
