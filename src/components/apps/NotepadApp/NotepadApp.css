@@ -6,5 +6,10 @@
     box-shadow: none;
     background: white;
     resize: none;
+    font-family: "Pixelated MS Sans Serif", Arial;
+    font-weight: bold;
     -webkit-font-smoothing: none;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: 1px;
 }

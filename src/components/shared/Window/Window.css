@@ -1,1 +1,12 @@
-.window {}
+.window {
+    display: flex;
+    flex-direction: column;
+}
+
+.windowMain {
+    flex: 1 1 auto;
+}
+
+.window, .windowMain {
+    overflow: hidden;
+}

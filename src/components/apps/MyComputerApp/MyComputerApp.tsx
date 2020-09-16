@@ -7,6 +7,7 @@ import { ShellItem } from '../../../hooks/useFileGridState';
 import Countour from '../../shared/Countour/Countour';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 import MenuBar from '../../shared/MenuBar/MenuBar';
+import Scrollable from '../../shared/Scrollable/Scrollable';
 import WindowContent from '../../shared/WindowContent/WindowContent';
 
 const MyComputerApp: FunctionComponent<AppProps> = ({
@@ -32,10 +33,12 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
       menu={<MenuBar options={['File', 'Edit', 'View', 'Help']} />}
       body={
         <Countour>
-          <FileGrid
-            fileSystemNode={workingDir ?? filesystem}
-            onDblClickFile={handleOnDblClickFile}
-          />
+          <Scrollable>
+            <FileGrid
+              fileSystemNode={workingDir ?? filesystem}
+              onDblClickFile={handleOnDblClickFile}
+            />
+          </Scrollable>
         </Countour>
       }
     />

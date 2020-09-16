@@ -1,6 +1,10 @@
 .countour {
+    flex: 1;
+    max-width: 100%;
+    max-height: 100%;
     background: var(--button-highlight);
     box-shadow: var(--border-field);
     margin: 1px;
     padding: 2px;
+    overflow: hidden;
 }

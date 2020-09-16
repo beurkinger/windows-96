@@ -3,7 +3,6 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 
 .windowContentMenu {
@@ -11,10 +10,18 @@
 }
 
 .windowContentBody {
+    display: flex;
     flex: 1 1 auto;
     min-width: 1px;
 }
 
 .windowContentFooter {
     flex: 0 0 auto;
+}
+
+.windowContent, 
+.windowContentMenu,
+.windowContentBody, 
+.windowContentFooter {
+    overflow: hidden;
 }

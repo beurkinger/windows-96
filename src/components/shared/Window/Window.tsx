@@ -18,7 +18,7 @@ type Props = TitleBarProps & {
 const Window: FunctionComponent<Props> = ({
   coords,
   children = null,
-  height = 'auto',
+  height = '300px',
   iconId,
   isInactive = false,
   isMaximized = false,
@@ -82,7 +82,7 @@ const Window: FunctionComponent<Props> = ({
         onDblClickTitleBar={onDblClickTitleBar}
         title={title}
       />
-      <div>{children}</div>
+      <div className={style.windowMain}>{children}</div>
     </div>
   );
 };
