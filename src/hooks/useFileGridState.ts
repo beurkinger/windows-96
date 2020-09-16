@@ -18,7 +18,6 @@ export interface FileGridItem {
   name: string;
   type: FileGridItemType;
   value: string | FileSystemDir;
-  // workingDir: FileSystemDir;
 }
 
 const getFileGridApp = (

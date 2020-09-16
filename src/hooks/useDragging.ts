@@ -8,7 +8,7 @@ import {
   getFirstTouchIdFromEvent,
 } from '../utils/DomUtils';
 import { debounceWithRequestAnimationFrame } from '../utils/FunctionUtils';
-import { getBounds, getBoundedOffset } from './utils/BoundingUtils';
+import { getBounds, getBoundedOffset } from '../utils/BoundingUtils';
 
 export interface Options {
   getBoundingElt?: () => HTMLElement | null;

@@ -1,4 +1,4 @@
-import { Coords, getBoundingRect } from '../../utils/DomUtils';
+import { Coords, getBoundingRect } from './DomUtils';
 
 export interface Bounds {
   xMax: number;
@@ -7,7 +7,6 @@ export interface Bounds {
   yMin: number;
 }
 
-// Right now we can only bound to parent. Better bounding handling = partial rewritting of component.
 export const getBounds = (
   node: HTMLElement,
   boundingNode?: HTMLElement | null
