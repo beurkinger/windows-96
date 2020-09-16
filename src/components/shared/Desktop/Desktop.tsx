@@ -1,8 +1,8 @@
 import { h, FunctionComponent } from 'preact';
 
-import { AppId, AppProps } from '../../../data/appList';
-import fileSystem, { FileSystemDir } from '../../../data/filesystem';
-import { FileGridItem } from '../../../hooks/useFileGridState';
+import { AppProps } from '../../../data/appList';
+import fileSystem from '../../../data/filesystem';
+import { ShellItem } from '../../../hooks/useFileGridState';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 
 import style from './Desktop.css';
@@ -15,11 +15,13 @@ const Desktop: FunctionComponent<Props> = ({
   addWindow,
   background = 'lightseagreen',
 }: Props) => {
-  const handleOnDblClickFile = (file: FileGridItem) => {
-    if (file.type === 'app') addWindow(file.value as AppId);
+  const handleOnDblClickFile = (file: ShellItem) => {
+    if (file.type === 'app') addWindow({ appId: file.appId });
     if (file.type === 'dir') {
-      addWindow('myComputer', file.value as FileSystemDir);
+      addWindow({ appId: 'myComputer', workingDir: file.fileSystemDir });
     }
+    // if (file.type === 'file') {
+    // }
   };
   return (
     <div className={style.desktop} style={{ background }}>

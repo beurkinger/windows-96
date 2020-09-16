@@ -1,9 +1,7 @@
 import { h, FunctionComponent } from 'preact';
 
 import { FileSystemDir } from '../../../data/filesystem';
-import useFileGridState, {
-  FileGridItem,
-} from '../../../hooks/useFileGridState';
+import useFileGridState, { ShellItem } from '../../../hooks/useFileGridState';
 import Icon from '../Icon/Icon';
 
 import style from './FileGrid.css';
@@ -12,7 +10,7 @@ import style from './FileGrid.css';
 interface Props {
   direction?: 'column' | 'row';
   fileSystemNode: FileSystemDir;
-  onDblClickFile: (file: FileGridItem) => void;
+  onDblClickFile: (file: ShellItem) => void;
   textColor?: 'black' | 'white';
 }
 
@@ -27,13 +25,13 @@ const FileGrid: FunctionComponent<Props> = ({
 
   const handleOnClick = removeFocus;
 
-  const handleOnClickFile = (e: MouseEvent, file: FileGridItem) => {
+  const handleOnClickFile = (e: MouseEvent, file: ShellItem) => {
     e.preventDefault();
     e.stopPropagation();
     focusOnFile(file.id, file.type);
   };
 
-  const handleOnDblClickFile = (e: MouseEvent, file: FileGridItem) => {
+  const handleOnDblClickFile = (e: MouseEvent, file: ShellItem) => {
     e.preventDefault();
     e.stopPropagation();
     onDblClickFile(file);

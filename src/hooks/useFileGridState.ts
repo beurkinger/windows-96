@@ -1,90 +1,114 @@
 import { useState } from 'preact/hooks';
-import { appList } from '../data/appList';
+import { AppId, appList } from '../data/appList';
 
 import {
   FileSystemApp,
   FileSystemDir,
   FileSystemFile,
 } from '../data/filesystem';
-import fileTypeList from '../data/fileTypeList';
+import fileTypeList, { FileTypeId } from '../data/fileTypeList';
 import { IconId } from '../data/iconList';
 import { getRandomId } from '../utils/RandomUtils';
 
-export type FileGridItemType = 'app' | 'dir' | 'file';
-export interface FileGridItem {
+export type ShellItemType = 'app' | 'dir' | 'file';
+export type ShellItem = ShellApp | ShellDir | ShellFile;
+
+export interface ShellApp {
   id: string;
+  appId: AppId;
   iconId: IconId;
   hasFocus: boolean;
   hasSoftFocus: boolean;
   name: string;
-  type: FileGridItemType;
-  value: string | FileSystemDir;
+  type: 'app';
 }
 
-const getFileGridApp = (
-  item: FileSystemApp,
+export interface ShellDir {
+  id: string;
+  iconId: IconId;
+  fileSystemDir: FileSystemDir;
+  hasFocus: boolean;
+  hasSoftFocus: boolean;
+  name: string;
+  type: 'dir';
+}
+
+export interface ShellFile {
+  id: string;
+  fileTypeId: FileTypeId;
+  iconId: IconId;
+  fileSystemFile: FileSystemFile;
+  hasFocus: boolean;
+  hasSoftFocus: boolean;
+  name: string;
+  type: 'file';
+}
+
+const getShellApp = (
+  fileSystemApp: FileSystemApp,
   hasSoftFocus: boolean
-): FileGridItem => ({
-  id: getRandomId(item.appId),
-  iconId: appList[item.appId].iconId,
+): ShellItem => ({
+  appId: appList[fileSystemApp.appId].id,
+  id: getRandomId(fileSystemApp.appId),
+  iconId: appList[fileSystemApp.appId].iconId,
   hasFocus: false,
   hasSoftFocus,
-  name: appList[item.appId].name,
+  name: appList[fileSystemApp.appId].name,
   type: 'app',
-  value: appList[item.appId].id,
 });
 
-const getFileGridDir = (
-  item: FileSystemDir,
+const getShellDir = (
+  fileSystemDir: FileSystemDir,
   hasSoftFocus: boolean
-): FileGridItem => ({
-  id: getRandomId(item.name),
-  iconId: item.iconId ?? 'folderClosed',
+): ShellItem => ({
+  id: getRandomId(fileSystemDir.name),
+  iconId: fileSystemDir.iconId ?? 'folderClosed',
+  fileSystemDir,
   hasFocus: false,
   hasSoftFocus,
-  name: item.name,
+  name: fileSystemDir.name,
   type: 'dir',
-  value: item,
 });
 
-const getFileGridFile = (
-  item: FileSystemFile,
+const getShellFile = (
+  fileSystemFile: FileSystemFile,
   hasSoftFocus: boolean
-): FileGridItem => ({
-  id: getRandomId(item.name),
-  iconId: fileTypeList[item.fileTypeId].iconId,
+): ShellItem => ({
+  fileTypeId: fileSystemFile.fileTypeId,
+  id: getRandomId(fileSystemFile.name),
+  iconId: fileTypeList[fileSystemFile.fileTypeId].iconId,
+  fileSystemFile,
   hasFocus: false,
   hasSoftFocus,
-  name: item.name,
+  name: fileSystemFile.name,
   type: 'file',
-  value: item.content,
 });
 
-const createFileGridItems = (fileSystemNode: FileSystemDir): FileGridItem[] => {
+const createShellItems = (fileSystemNode: FileSystemDir): ShellItem[] => {
   const gridFiles = Object.values(fileSystemNode.dir).map((item, i) => {
     // If App
     if ('appId' in item) {
-      return getFileGridApp(item as FileSystemApp, i === 0);
+      return getShellApp(item as FileSystemApp, i === 0);
     }
     // If File
     if ('fileTypeId' in item) {
-      return getFileGridFile(item as FileSystemFile, i === 0);
+      return getShellFile(item as FileSystemFile, i === 0);
     }
     // Else Dir
-    return getFileGridDir(item as FileSystemDir, i === 0);
+    return getShellDir(item as FileSystemDir, i === 0);
   });
   return gridFiles;
 };
 
-export const useFileGridState = (
+export const useShellState = (
   fileSystemNode: FileSystemDir
 ): {
-  files: FileGridItem[];
+  files: ShellItem[];
   focusOnFile: (fileId: string, fileType: string) => void;
   removeFocus: () => void;
 } => {
-  const [files, setFiles] = useState<FileGridItem[]>(
-    createFileGridItems(fileSystemNode)
+  const [files, setFiles] = useState<ShellItem[]>(
+    createShellItems(fileSystemNode)
   );
 
   const focusOnFile = (fileId: string, fileType: string) => {
@@ -110,4 +134,4 @@ export const useFileGridState = (
   return { files, focusOnFile, removeFocus };
 };
 
-export default useFileGridState;
+export default useShellState;

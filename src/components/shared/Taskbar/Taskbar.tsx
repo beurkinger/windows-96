@@ -35,9 +35,9 @@ const Taskbar: FunctionComponent<Props> = ({
     setIsStartMenuOpen(!isStartMenuOpen);
   };
 
-  const handleStartMenuSelect = (appId: string) => {
+  const handleStartMenuSelect = (appId: AppId) => {
     if (appId) {
-      addWindow(appId as AppId);
+      addWindow({ appId: appId });
       setIsStartMenuOpen(false);
     }
   };
