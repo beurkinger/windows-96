@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'preact/hooks';
 
-const useFloating = (
+const useDocumentClickToggle = (
   initialState = false
-): [boolean, (isOpen: boolean) => void] => {
-  const [isOpen, setIsOpen] = useState<boolean>(initialState);
+): [boolean, (bool: boolean) => void] => {
+  const [bool, setBool] = useState<boolean>(initialState);
 
   useEffect(() => {
-    if (isOpen) addEventListener();
+    if (bool) addEventListener();
     return removeEventListener;
   }, []);
 
@@ -22,22 +22,22 @@ const useFloating = (
     e.preventDefault();
     e.stopPropagation();
     removeEventListener();
-    setIsOpen(false);
+    setBool(false);
   };
 
-  const updateIsOpen = (newState: boolean) => {
-    if (isOpen === newState) return;
+  const updateBool = (newState: boolean) => {
+    if (bool === newState) return;
 
     if (newState) {
       addEventListener();
-      setIsOpen(true);
+      setBool(true);
     } else {
       removeEventListener();
-      setIsOpen(false);
+      setBool(false);
     }
   };
 
-  return [isOpen, updateIsOpen];
+  return [bool, updateBool];
 };
 
-export default useFloating;
+export default useDocumentClickToggle;

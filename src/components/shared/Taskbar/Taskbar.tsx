@@ -5,7 +5,7 @@ import {
   ContextType as OpenWindowsContextType,
   OpenWindow,
 } from '../../../context/OpenWindowsContext';
-import useFloating from '../../../hooks/useFloating';
+import useDocumentClickToggle from '../../../hooks/useDocumentClickToggle';
 import Button from '../Button/Button';
 import NotificationArea from '../NotificationArea/NotificationArea';
 import StartMenu from '../StartMenu/StartMenu';
@@ -27,7 +27,7 @@ const Taskbar: FunctionComponent<Props> = ({
   unMinimizeWindow,
   windows,
 }: Props) => {
-  const [isStartMenuOpen, setIsStartMenuOpen] = useFloating();
+  const [isStartMenuOpen, setIsStartMenuOpen] = useDocumentClickToggle();
 
   const handleStartButtonClick = (e: MouseEvent) => {
     e.preventDefault();
