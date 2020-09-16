@@ -1,4 +1,6 @@
 import { useState } from 'preact/hooks';
+import { v4 as uuid } from 'uuid';
+
 import { AppId, appList } from '../data/appList';
 
 import {
@@ -8,7 +10,6 @@ import {
 } from '../data/filesystem';
 import fileTypeList, { FileTypeId } from '../data/fileTypeList';
 import { IconId } from '../data/iconList';
-import { getRandomId } from '../utils/RandomUtils';
 
 export type ShellItemType = 'app' | 'dir' | 'file';
 export type ShellItem = ShellApp | ShellDir | ShellFile;
@@ -49,7 +50,7 @@ const getShellApp = (
   hasSoftFocus: boolean
 ): ShellItem => ({
   appId: appList[fileSystemApp.appId].id,
-  id: getRandomId(fileSystemApp.appId),
+  id: uuid(),
   iconId: appList[fileSystemApp.appId].iconId,
   hasFocus: false,
   hasSoftFocus,
@@ -61,7 +62,7 @@ const getShellDir = (
   fileSystemDir: FileSystemDir,
   hasSoftFocus: boolean
 ): ShellItem => ({
-  id: getRandomId(fileSystemDir.name),
+  id: uuid(),
   iconId: fileSystemDir.iconId ?? 'folderClosed',
   fileSystemDir,
   hasFocus: false,
@@ -75,7 +76,7 @@ const getShellFile = (
   hasSoftFocus: boolean
 ): ShellItem => ({
   fileTypeId: fileSystemFile.fileTypeId,
-  id: getRandomId(fileSystemFile.name),
+  id: uuid(),
   iconId: fileTypeList[fileSystemFile.fileTypeId].iconId,
   fileSystemFile,
   hasFocus: false,

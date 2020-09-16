@@ -29,7 +29,7 @@ const fileSystem = {
       dir: {},
     },
     c: {
-      name: 'C:',
+      name: '(C:)',
       iconId: 'hardDrive',
       dir: {
         programFiles: {
@@ -126,7 +126,7 @@ const fileSystem = {
       },
     },
     d: {
-      name: 'D:',
+      name: '(D:)',
       iconId: 'cdDrive',
       dir: {},
     },

@@ -1,8 +1,8 @@
 import { h, FunctionComponent, ComponentChildren } from 'preact';
 import { useState } from 'preact/hooks';
+import { v4 as uuid } from 'uuid';
 
 import { appList } from '../../../data/appList';
-import { getRandomId } from '../../../utils/RandomUtils';
 import OpenWindowsContext, {
   ContextType,
   OpenWindow,
@@ -20,7 +20,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
       coords: { x: 150, y: 150 },
       hasFocus: false,
       iconId: appList.myComputer.iconId,
-      id: getRandomId(appList.myComputer.id),
+      id: uuid(),
       isMaximized: false,
       isMinimized: false,
       size: { width: 100, height: 100 },
@@ -64,7 +64,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
         {
           app,
           iconId,
-          id: getRandomId(app.id),
+          id: uuid(),
           coords: {
             x: 50 + Math.round(Math.random() * 200),
             y: 50 + Math.round(Math.random() * 200),
