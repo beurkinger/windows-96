@@ -27,18 +27,6 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
     }
   };
 
-  // return (
-  //   <div className={style.myComputerApp}>
-  //     <MenuBar options={['File', 'Edit', 'View', 'Help']} />
-  //     <Countour>
-  //       <FileGrid
-  //         fileSystemNode={workingDir ?? filesystem}
-  //         onDblClickFile={handleOnDblClickFile}
-  //       />
-  //     </Countour>
-  //   </div>
-  // );
-
   return (
     <WindowContent
       menu={<MenuBar options={['File', 'Edit', 'View', 'Help']} />}

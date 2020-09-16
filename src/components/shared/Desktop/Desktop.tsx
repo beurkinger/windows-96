@@ -34,6 +34,7 @@ const Desktop: FunctionComponent<Props> = ({
         direction="column"
         fileSystemNode={fileSystem.dir.c.dir.windows.dir.desktop}
         onDblClickFile={handleOnDblClickFile}
+        textColor="white"
       />
     </div>
   );
