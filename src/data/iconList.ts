@@ -180,7 +180,7 @@ export const iconList: IconList = {
   calc: { 16: calc_16, 32: calc_32 },
   cdDrive: { 16: cd_drive_16, 32: cd_drive_32 },
   cdPlayer: { 16: cd_player_16, 32: cd_player_32 },
-  cdTrack: { 16: cd_track_16, 32: cd_track_32 },
+  cdTrack: { 32: cd_track_32 },
   controlPanel: { 16: control_panel_16, 32: control_panel_32 },
   defrag: { 16: defrag_16, 32: defrag_32 },
   dialUpNetwork: { 16: dial_up_network_16, 32: dial_up_network_32 },

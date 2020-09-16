@@ -21,14 +21,14 @@ export type FileTypeId =
   | 'wordpadDoc';
 
 const fileTypeList: FileTypeList = {
-  bmpFile: { appId: 'msPaint', id: 'bmpFile', iconId: 'msPaint' },
-  cdTrack: { appId: 'cdPlayer', id: 'cdTrack', iconId: 'msPaint' },
-  helpFile: { appId: 'help', id: 'helpFile', iconId: 'msPaint' },
-  midiFile: { appId: 'briefcase', id: 'midiFile', iconId: 'msPaint' },
-  msDosApp: { appId: 'msDos', id: 'msDosApp', iconId: 'msPaint' },
+  bmpFile: { appId: 'msPaint', id: 'bmpFile', iconId: 'bmpFile' },
+  cdTrack: { appId: 'cdPlayer', id: 'cdTrack', iconId: 'cdTrack' },
+  helpFile: { appId: 'help', id: 'helpFile', iconId: 'helpFile' },
+  midiFile: { appId: 'briefcase', id: 'midiFile', iconId: 'midiFile' },
+  msDosApp: { appId: 'msDos', id: 'msDosApp', iconId: 'program' },
   notepadDoc: { appId: 'notepad', id: 'notepadDoc', iconId: 'notepadDoc' },
-  videoFile: { appId: 'mediaPlayer', id: 'videoFile', iconId: 'msPaint' },
-  waveFile: { appId: 'mediaPlayer', id: 'waveFile', iconId: 'msPaint' },
+  videoFile: { appId: 'mediaPlayer', id: 'videoFile', iconId: 'videoFile' },
+  waveFile: { appId: 'mediaPlayer', id: 'waveFile', iconId: 'waveFile' },
   wordpadDoc: { appId: 'wordpad', id: 'wordpadDoc', iconId: 'wordpadDoc' },
 };
 
