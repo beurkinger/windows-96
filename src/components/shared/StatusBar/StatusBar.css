@@ -1,0 +1,34 @@
+.statusBar {
+    position: relative;
+    display: flex;
+    height: 21px;
+    padding: 1px;
+}
+
+.spaceLeft, .spaceRight {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    height: 100%;
+    padding: 3px 3px 0 3px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    box-shadow: var(--box-shadow-notification);
+
+}
+
+.spaceLeft {
+    width: 144px;
+    margin-right: 2px;
+}
+
+.spaceRight {
+    flex: 1px;
+}
+
+.handle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

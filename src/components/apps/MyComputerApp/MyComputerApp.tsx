@@ -8,6 +8,7 @@ import Countour from '../../shared/Countour/Countour';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 import MenuBar from '../../shared/MenuBar/MenuBar';
 import Scrollable from '../../shared/Scrollable/Scrollable';
+import StatusBar from '../../shared/StatusBar/StatusBar';
 import WindowContent from '../../shared/WindowContent/WindowContent';
 
 const MyComputerApp: FunctionComponent<AppProps> = ({
@@ -20,13 +21,16 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
       addWindow({ appId: 'myComputer', workingDir: file.fileSystemDir });
     }
     if (file.type === 'file') {
-      console.log(fileTypeList[file.fileTypeId].appId);
       addWindow({
         appId: fileTypeList[file.fileTypeId].appId,
         workingFile: file.fileSystemFile,
       });
     }
   };
+
+  const textLeft = workingDir
+    ? `${Object.keys(workingDir.dir).length} object(s)`
+    : `${Object.keys(filesystem.dir).length} object(s)`;
 
   return (
     <WindowContent
@@ -41,6 +45,7 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
           </Scrollable>
         </Countour>
       }
+      footer={<StatusBar textLeft={textLeft} />}
     />
   );
 };

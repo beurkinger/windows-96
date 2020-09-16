@@ -6,7 +6,7 @@
     font-family: "Pixelated MS Sans Serif", Arial;
     font-size: 11px;
     line-height: 1;
-    box-shadow: inset -1px -1px var(--button-highlight), inset 1px 1px var(--button-shadow);
+    box-shadow: var(--box-shadow-notification);
 }
 
 .statusIcon {
