@@ -2,6 +2,7 @@ import { h, FunctionComponent } from 'preact';
 
 import { AppProps } from '../../../data/appList';
 import fileSystem from '../../../data/filesystem';
+import fileTypeList from '../../../data/fileTypeList';
 import { ShellItem } from '../../../hooks/useFileGridState';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 
@@ -20,8 +21,12 @@ const Desktop: FunctionComponent<Props> = ({
     if (file.type === 'dir') {
       addWindow({ appId: 'myComputer', workingDir: file.fileSystemDir });
     }
-    // if (file.type === 'file') {
-    // }
+    if (file.type === 'file') {
+      addWindow({
+        appId: fileTypeList[file.fileTypeId].appId,
+        workingFile: file.fileSystemFile,
+      });
+    }
   };
   return (
     <div className={style.desktop} style={{ background }}>

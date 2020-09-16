@@ -50,6 +50,7 @@ const WindowsContainer: FunctionComponent = () => {
               window.app.component({
                 addWindow,
                 workingDir: window.workingDir,
+                workingFile: window.workingFile,
               })}
           </Window>
         )

@@ -12,6 +12,7 @@ export type OpenWindow = {
   isMinimized: boolean;
   size: { width: number; height: number };
   workingDir?: FileSystemDir;
+  workingFile?: FileSystemFile;
   zIndex: number;
 };
 
