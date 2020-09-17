@@ -19,12 +19,12 @@
 }
 
 .spaceLeft {
-    width: 144px;
+    min-width: 144px;
     margin-right: 2px;
 }
 
 .spaceRight {
-    flex: 1px;
+    flex: 1;
 }
 
 .handle {

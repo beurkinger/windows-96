@@ -10,24 +10,18 @@ import style from './QuickViewApp.css';
 
 const QuickViewApp: FunctionComponent<AppProps> = ({
   workingFile,
-}: AppProps) => {
-  console.log(workingFile?.content);
-  return (
-    <WindowContent
-      menu={<MenuBar options={['File', 'View', 'Help']} />}
-      body={
-        <Countour>
-          <div
-            className={style.picture}
-            style={{ backgroundImage: `url(${workingFile?.content ?? ''})` }}
-          />
-        </Countour>
-      }
-      footer={
-        <StatusBar textLeft="To edit, click Open File for Editing on the File menu." />
-      }
-    />
-  );
-};
+}: AppProps) => (
+  <WindowContent
+    menu={<MenuBar options={['File', 'View', 'Help']} />}
+    body={
+      <Countour>
+        <img className={style.picture} src={workingFile?.content ?? ''} />
+      </Countour>
+    }
+    footer={
+      <StatusBar textRight="To edit, click Open File for Editing on the File menu." />
+    }
+  />
+);
 
 export default QuickViewApp;

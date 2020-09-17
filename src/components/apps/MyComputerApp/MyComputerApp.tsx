@@ -54,7 +54,7 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
           </Scrollable>
         </Countour>
       }
-      footer={<StatusBar textLeft={textLeft} />}
+      footer={<StatusBar textLeft={textLeft} textRight="" />}
     />
   );
 };
