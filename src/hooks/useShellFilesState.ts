@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { v4 as uuid } from 'uuid';
 
 import { AppId, appList } from '../data/appList';
@@ -7,6 +7,8 @@ import {
   FileSystemApp,
   FileSystemDir,
   FileSystemFile,
+  FileSystemPath,
+  getDirFromPath,
 } from '../data/filesystem';
 import fileTypeList, { FileTypeId } from '../data/fileTypeList';
 import { IconId } from '../data/iconList';
@@ -27,7 +29,7 @@ export interface ShellApp {
 export interface ShellDir {
   id: string;
   iconId: IconId;
-  fileSystemDir: FileSystemDir;
+  path: FileSystemPath;
   hasFocus: boolean;
   hasSoftFocus: boolean;
   name: string;
@@ -60,14 +62,15 @@ const getShellApp = (
 
 const getShellDir = (
   fileSystemDir: FileSystemDir,
+  path: FileSystemPath,
   hasSoftFocus: boolean
 ): ShellItem => ({
   id: uuid(),
   iconId: fileSystemDir.iconId ?? 'folderClosed',
-  fileSystemDir,
   hasFocus: false,
   hasSoftFocus,
   name: fileSystemDir.name,
+  path,
   type: 'dir',
 });
 
@@ -85,36 +88,49 @@ const getShellFile = (
   type: 'file',
 });
 
-const createShellItems = (fileSystemNode: FileSystemDir): ShellItem[] => {
-  const gridFiles = Object.values(fileSystemNode.dir).map((item, i) => {
-    // If App
-    if ('appId' in item) {
-      return getShellApp(item as FileSystemApp, i === 0);
+const createShellItems = (workingDir: FileSystemPath): ShellItem[] => {
+  const fileSystemDir = getDirFromPath(workingDir);
+  const gridFiles = Object.entries(fileSystemDir.dir).map(
+    ([dirKey, item], i) => {
+      const path = [...workingDir, dirKey];
+      // If App
+      if ('appId' in item) {
+        return getShellApp(item as FileSystemApp, i === 0);
+      }
+      // If File
+      if ('fileTypeId' in item) {
+        return getShellFile(item as FileSystemFile, i === 0);
+      }
+      // Else Dir
+      return getShellDir(item as FileSystemDir, path, i === 0);
     }
-    // If File
-    if ('fileTypeId' in item) {
-      return getShellFile(item as FileSystemFile, i === 0);
-    }
-    // Else Dir
-    return getShellDir(item as FileSystemDir, i === 0);
-  });
+  );
+
+  // console.log(workingDir, fileSystemDir);
+
   return gridFiles;
 };
 
 export const useShellFilesState = (
-  fileSystemNode: FileSystemDir
+  workingDir: FileSystemPath
 ): {
   files: ShellItem[];
   focusOnFile: (fileId: string) => void;
   removeFocus: () => void;
 } => {
-  const [files, setFiles] = useState<ShellItem[]>(
-    createShellItems(fileSystemNode)
-  );
+  console.log(workingDir);
+  const [files, setFiles] = useState<ShellItem[]>([]);
+
+  useEffect(() => {
+    setFiles(() => createShellItems(workingDir));
+    return () => {
+      console.log('unmount')
+    }
+  }, []);
 
   const focusOnFile = (fileId: string) => {
-    setFiles(
-      files.map((file) => ({
+    setFiles((f) =>
+      f.map((file) => ({
         ...file,
         hasFocus: file.id === fileId,
         hasSoftFocus: file.id === fileId,
@@ -123,8 +139,8 @@ export const useShellFilesState = (
   };
 
   const removeFocus = () => {
-    setFiles(
-      files.map((file) => ({
+    setFiles((f) =>
+      f.map((file) => ({
         ...file,
         hasFocus: false,
         hasSoftFocus: file.hasFocus,

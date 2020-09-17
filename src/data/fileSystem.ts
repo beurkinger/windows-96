@@ -2,6 +2,8 @@ import { AppId, appList } from './appList';
 import { FileTypeId } from './fileTypeList';
 import { IconId } from './iconList';
 
+export type FileSystemPath = string[];
+
 export type FileSystemItem = FileSystemApp | FileSystemDir | FileSystemFile;
 
 export type FileSystemApp = {
@@ -19,6 +21,38 @@ export type FileSystemFile = {
   fileTypeId: FileTypeId;
   name: string;
 };
+
+export const getDirFromPath = (
+  path: FileSystemPath,
+  currentDirNode: FileSystemDir = fileSystem
+): FileSystemDir => {
+  if (path.length === 0 || !(path[0] in currentDirNode.dir)) {
+    return currentDirNode;
+  }
+
+  const nextNode = currentDirNode.dir[path[0]];
+  const [, ...nextPath] = path;
+
+  if (!('dir' in nextNode)) return currentDirNode;
+
+  return getDirFromPath(nextPath, nextNode);
+};
+
+// export const getFileFromPath = (
+//   path: FileSystemPath,
+//   currentDirNode: FileSystemDir = fileSystem
+// ): FileSystemDir => {
+//   if (path.length === 0 || !(path[0] in currentDirNode.dir)) {
+//     return currentDirNode;
+//   }
+
+//   const nextNode = currentDirNode.dir[path[0]];
+//   const [, ...nextPath] = path;
+
+//   if (!('dir' in nextNode)) return currentDirNode;
+
+//   return getDirFromPath(nextPath, nextNode);
+// };
 
 const fileSystem = {
   name: 'root',

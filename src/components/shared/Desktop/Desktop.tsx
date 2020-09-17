@@ -1,7 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 
 import { AppProps } from '../../../data/appList';
-import fileSystem from '../../../data/filesystem';
 import fileTypeList from '../../../data/fileTypeList';
 import useShellFilesState, {
   ShellItem,
@@ -18,14 +17,16 @@ const Desktop: FunctionComponent<Props> = ({
   addWindow,
   background = 'lightseagreen',
 }: Props) => {
-  const { files, focusOnFile, removeFocus } = useShellFilesState(
-    fileSystem.dir.c.dir.windows.dir.desktop
-  );
+  const { files, focusOnFile, removeFocus } = useShellFilesState([
+    'c',
+    'windows',
+    'desktop',
+  ]);
 
   const handleOnDblClickFile = (file: ShellItem) => {
     if (file.type === 'app') addWindow({ appId: file.appId });
     if (file.type === 'dir') {
-      addWindow({ appId: 'myComputer', workingDir: file.fileSystemDir });
+      addWindow({ appId: 'myComputer', workingDir: file.path });
     }
     if (file.type === 'file') {
       addWindow({

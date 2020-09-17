@@ -46,8 +46,9 @@ const WindowsContainer: FunctionComponent = () => {
             zIndex={window.zIndex}
           >
             {window.app.component &&
-              window.app.component({
+              h(window.app.component, {
                 addWindow,
+                key: window.id,
                 workingDir: window.workingDir,
                 workingFile: window.workingFile,
               })}

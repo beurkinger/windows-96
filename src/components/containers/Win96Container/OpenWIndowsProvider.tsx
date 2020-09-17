@@ -7,7 +7,6 @@ import OpenWindowsContext, {
   ContextType,
   OpenWindow,
 } from '../../../context/OpenWindowsContext';
-import fileTypeList from '../../../data/fileTypeList';
 
 interface Props {
   children: ComponentChildren;
@@ -44,16 +43,8 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   }) => {
     setOpenWindows((windows) => {
       const app = appList[appId];
-      const iconId = workingFile
-        ? fileTypeList[workingFile.fileTypeId].iconId
-        : workingDir && workingDir.iconId
-        ? workingDir.iconId
-        : app.iconId;
-      const title = workingFile
-        ? workingFile.name
-        : workingDir
-        ? workingDir.name
-        : app.name;
+      const iconId = app.iconId;
+      const title = app.name;
       const zIndex = getBiggestZIndex(windows) + 1;
       const existingWindows = windows.map((window) => ({
         ...window,
