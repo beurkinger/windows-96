@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
+import { ShellItem } from '../../../types/ShellItems';
 
-import { ShellItem } from '../../../hooks/useShellFilesState';
 import Icon from '../Icon/Icon';
 
 import style from './FileGrid.css';

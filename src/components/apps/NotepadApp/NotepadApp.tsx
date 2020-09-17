@@ -1,6 +1,7 @@
 import { h, FunctionComponent } from 'preact';
 
 import { AppProps } from '../../../data/appList';
+import { getFileFromPath } from '../../../utils/FileSystemUtils';
 import Countour from '../../shared/Countour/Countour';
 import MenuBar from '../../shared/MenuBar/MenuBar';
 import WindowContent from '../../shared/WindowContent/WindowContent';
@@ -21,7 +22,7 @@ const NotepadApp: FunctionComponent<Props> = ({ workingFile }: Props) => (
           spellcheck={false}
           wrap="off"
         >
-          {workingFile?.content ?? ''}
+          {getFileFromPath(workingFile ?? '')?.content ?? ''}
         </textarea>
       </Countour>
     }

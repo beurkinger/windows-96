@@ -1,10 +1,22 @@
 import { h, FunctionComponent } from 'preact';
 import { useContext } from 'preact/hooks';
 
-import OpenWindowsContext from '../../../context/OpenWindowsContext';
+import { AppId, AppProps } from '../../../data/appList';
+import OpenWindowsContext, {
+  OpenWindow,
+} from '../../../context/OpenWindowsContext';
+import ExplorerApp from '../../apps/ExplorerApp/ExplorerApp';
+import MyComputerApp from '../../apps/MyComputerApp/MyComputerApp';
+import NotepadApp from '../../apps/NotepadApp/NotepadApp';
 import Window from '../../shared/Window/Window';
 
 import style from './WindowsContainer.css';
+
+const components: Partial<{ [key in AppId]: FunctionComponent<AppProps> }> = {
+  explorer: ExplorerApp,
+  myComputer: MyComputerApp,
+  notepad: NotepadApp,
+};
 
 const WindowsContainer: FunctionComponent = () => {
   const {
@@ -17,6 +29,19 @@ const WindowsContainer: FunctionComponent = () => {
     unMaximizeWindow,
     windows,
   } = useContext(OpenWindowsContext);
+
+  const getAppComponent = (window: OpenWindow) => {
+    const component = components[window.app.id];
+    return component
+      ? h(component, {
+          addWindow,
+          key: window.id,
+          workingDir: window.workingDir,
+          workingFile: window.workingFile,
+        })
+      : null;
+  };
+
   return (
     <div className={style.windowsContainer}>
       {windows.map((window, i) =>
@@ -45,13 +70,7 @@ const WindowsContainer: FunctionComponent = () => {
             title={window.title}
             zIndex={window.zIndex}
           >
-            {window.app.component &&
-              h(window.app.component, {
-                addWindow,
-                key: window.id,
-                workingDir: window.workingDir,
-                workingFile: window.workingFile,
-              })}
+            {getAppComponent(window)}
           </Window>
         )
       )}

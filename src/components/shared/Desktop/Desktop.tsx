@@ -1,10 +1,9 @@
 import { h, FunctionComponent } from 'preact';
 
+import { ShellItem } from '../../../types/ShellItems';
 import { AppProps } from '../../../data/appList';
 import fileTypeList from '../../../data/fileTypeList';
-import useShellFilesState, {
-  ShellItem,
-} from '../../../hooks/useShellFilesState';
+import useShellFilesState from '../../../hooks/useShellFilesState';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 
 import style from './Desktop.css';
@@ -29,7 +28,7 @@ const Desktop: FunctionComponent<Props> = ({
     if (file.type === 'file') {
       addWindow({
         appId: fileTypeList[file.fileTypeId].appId,
-        workingFile: file.fileSystemFile,
+        workingFile: file.path,
       });
     }
   };

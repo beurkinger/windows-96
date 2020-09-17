@@ -1,10 +1,9 @@
 import { h, FunctionComponent } from 'preact';
 
+import { ShellItem } from '../../../types/ShellItems';
 import { AppProps } from '../../../data/appList';
 import fileTypeList from '../../../data/fileTypeList';
-import useShellFilesState, {
-  ShellItem,
-} from '../../../hooks/useShellFilesState';
+import useShellFilesState from '../../../hooks/useShellFilesState';
 import Countour from '../../shared/Countour/Countour';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 import MenuBar from '../../shared/MenuBar/MenuBar';
@@ -31,7 +30,7 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
     if (file.type === 'file') {
       addWindow({
         appId: fileTypeList[file.fileTypeId].appId,
-        workingFile: file.fileSystemFile,
+        workingFile: file.path,
       });
     }
   };
