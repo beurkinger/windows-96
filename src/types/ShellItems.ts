@@ -1,37 +1,38 @@
 import { AppId } from '../data/appList';
 import { FileTypeId } from '../data/fileTypeList';
 import { IconId } from '../data/iconList';
+import { FileSystemDir, FileSystemFile } from './FileSystemItems';
 
 export type ShellItemType = 'app' | 'dir' | 'file';
 export type ShellItem = ShellApp | ShellDir | ShellFile;
 
 export interface ShellApp {
-  id: string;
   appId: AppId;
-  iconId: IconId;
   hasFocus: boolean;
   hasSoftFocus: boolean;
+  iconId: IconId;
+  id: string;
   name: string;
   type: 'app';
 }
 
 export interface ShellDir {
-  id: string;
-  iconId: IconId;
-  path: string;
+  fileSystemNode: FileSystemDir;
   hasFocus: boolean;
   hasSoftFocus: boolean;
+  iconId: IconId;
+  id: string;
   name: string;
   type: 'dir';
 }
 
 export interface ShellFile {
-  id: string;
+  fileSystemNode: FileSystemFile;
   fileTypeId: FileTypeId;
   iconId: IconId;
+  id: string;
   hasFocus: boolean;
   hasSoftFocus: boolean;
   name: string;
-  path: string;
   type: 'file';
 }

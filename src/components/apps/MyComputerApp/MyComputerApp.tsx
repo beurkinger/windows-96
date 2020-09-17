@@ -2,6 +2,7 @@ import { h, FunctionComponent } from 'preact';
 
 import { ShellItem } from '../../../types/ShellItems';
 import { AppProps } from '../../../data/appList';
+import fileSystem from '../../../data/fileSystem';
 import fileTypeList from '../../../data/fileTypeList';
 import useShellFilesState from '../../../hooks/useShellFilesState';
 import Countour from '../../shared/Countour/Countour';
@@ -18,19 +19,21 @@ const getSelectionStatusText = (items: ShellItem[]) => {
 
 const MyComputerApp: FunctionComponent<AppProps> = ({
   addWindow,
-  workingDir = '',
+  workingDir,
 }: AppProps) => {
-  const { files, focusOnFile, removeFocus } = useShellFilesState(workingDir);
+  const { files, focusOnFile, removeFocus } = useShellFilesState(
+    workingDir ?? fileSystem
+  );
 
   const handleOnDblClickFile = (file: ShellItem) => {
     if (file.type === 'app') addWindow({ appId: file.appId });
     if (file.type === 'dir') {
-      addWindow({ appId: 'myComputer', workingDir: file.path });
+      addWindow({ appId: 'myComputer', workingDir: file.fileSystemNode });
     }
     if (file.type === 'file') {
       addWindow({
         appId: fileTypeList[file.fileTypeId].appId,
-        workingFile: file.path,
+        workingFile: file.fileSystemNode,
       });
     }
   };

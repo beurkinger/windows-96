@@ -1,13 +1,14 @@
+import { FileSystemDir, FileSystemFile } from '../types/FileSystemItems';
 import { IconId } from './iconList';
 
 export interface AppProps {
   addWindow: (options: {
     appId: AppId;
-    workingDir?: string;
-    workingFile?: string;
+    workingDir?: FileSystemDir;
+    workingFile?: FileSystemFile;
   }) => void;
-  workingDir?: string;
-  workingFile?: string;
+  workingDir?: FileSystemDir;
+  workingFile?: FileSystemFile;
 }
 
 export type App = {

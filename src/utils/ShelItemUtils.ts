@@ -8,7 +8,6 @@ import {
 import { ShellItem } from '../types/ShellItems';
 import { appList } from '../data/appList';
 import fileTypeList from '../data/fileTypeList';
-import { getDirFromPath } from './FileSystemUtils';
 
 const getShellApp = (
   fileSystemApp: FileSystemApp,
@@ -25,51 +24,44 @@ const getShellApp = (
 
 const getShellDir = (
   fileSystemDir: FileSystemDir,
-  path: string,
   hasSoftFocus: boolean
 ): ShellItem => ({
+  fileSystemNode: fileSystemDir,
   id: uuid(),
   iconId: fileSystemDir.iconId ?? 'folderClosed',
   hasFocus: false,
   hasSoftFocus,
   name: fileSystemDir.name,
-  path,
   type: 'dir',
 });
 
 const getShellFile = (
   fileSystemFile: FileSystemFile,
-  path: string,
   hasSoftFocus: boolean
 ): ShellItem => ({
+  fileSystemNode: fileSystemFile,
   fileTypeId: fileSystemFile.fileTypeId,
   id: uuid(),
   iconId: fileTypeList[fileSystemFile.fileTypeId].iconId,
   hasFocus: false,
   hasSoftFocus,
   name: fileSystemFile.name,
-  path,
   type: 'file',
 });
 
-export const getShellItemsFromPath = (workingDir: string): ShellItem[] => {
-  const fileSystemDir = getDirFromPath(workingDir);
-  const gridFiles = Object.entries(fileSystemDir.dir).map(
-    ([dirKey, item], i) => {
-      const path = workingDir.length ? workingDir + '/' + dirKey : dirKey;
-
-      // If App
-      if ('appId' in item) {
-        return getShellApp(item as FileSystemApp, i === 0);
-      }
-      // If File
-      if ('fileTypeId' in item) {
-        return getShellFile(item as FileSystemFile, path, i === 0);
-      }
-      // Else Dir
-      return getShellDir(item as FileSystemDir, path, i === 0);
+export const getShellItems = (fileSystemDir: FileSystemDir): ShellItem[] => {
+  const gridFiles = Object.values(fileSystemDir.dir).map((item, i) => {
+    // If App
+    if ('appId' in item) {
+      return getShellApp(item as FileSystemApp, i === 0);
     }
-  );
+    // If File
+    if ('fileTypeId' in item) {
+      return getShellFile(item as FileSystemFile, i === 0);
+    }
+    // Else Dir
+    return getShellDir(item as FileSystemDir, i === 0);
+  });
 
   return gridFiles;
 };

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'preact/hooks';
+import { FileSystemDir } from '../types/FileSystemItems';
 import { ShellItem } from '../types/ShellItems';
 
-import { getShellItemsFromPath } from '../utils/ShelItemUtils';
+import { getShellItems } from '../utils/ShelItemUtils';
 
 export const useShellFilesState = (
-  workingDir: string
+  workingDir: FileSystemDir
 ): {
   files: ShellItem[];
   focusOnFile: (fileId: string) => void;
@@ -13,7 +14,7 @@ export const useShellFilesState = (
   const [files, setFiles] = useState<ShellItem[]>([]);
 
   useEffect(() => {
-    setFiles(() => getShellItemsFromPath(workingDir));
+    setFiles(() => getShellItems(workingDir));
   }, []);
 
   const focusOnFile = (fileId: string) => {

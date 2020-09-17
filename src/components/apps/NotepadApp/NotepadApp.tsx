@@ -1,16 +1,13 @@
 import { h, FunctionComponent } from 'preact';
 
 import { AppProps } from '../../../data/appList';
-import { getFileFromPath } from '../../../utils/FileSystemUtils';
 import Countour from '../../shared/Countour/Countour';
 import MenuBar from '../../shared/MenuBar/MenuBar';
 import WindowContent from '../../shared/WindowContent/WindowContent';
 
 import style from './NotepadApp.css';
 
-type Props = AppProps;
-
-const NotepadApp: FunctionComponent<Props> = ({ workingFile }: Props) => (
+const NotepadApp: FunctionComponent<AppProps> = ({ workingFile }: AppProps) => (
   <WindowContent
     menu={<MenuBar options={['File', 'Edit', 'Search', 'Help']} />}
     body={
@@ -22,7 +19,7 @@ const NotepadApp: FunctionComponent<Props> = ({ workingFile }: Props) => (
           spellcheck={false}
           wrap="off"
         >
-          {getFileFromPath(workingFile ?? '')?.content ?? ''}
+          {workingFile ? workingFile.content : null}
         </textarea>
       </Countour>
     }
