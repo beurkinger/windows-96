@@ -1,7 +1,7 @@
 import { createContext } from 'preact';
 
 import { AppId, App } from '../data/appList';
-import { FileSystemFile, FileSystemPath } from '../data/filesystem';
+import { FileSystemFile } from '../data/filesystem';
 import { IconId } from '../data/iconList';
 
 export type OpenWindow = {
@@ -14,7 +14,7 @@ export type OpenWindow = {
   isMinimized: boolean;
   size: { width: number; height: number };
   title: string;
-  workingDir?: FileSystemPath;
+  workingDir?: string;
   workingFile?: FileSystemFile;
   zIndex: number;
 };
@@ -22,7 +22,7 @@ export type OpenWindow = {
 export interface ContextType {
   addWindow: (options: {
     appId: AppId;
-    workingDir?: FileSystemPath;
+    workingDir?: string;
     workingFile?: FileSystemFile;
   }) => void;
   closeWindow: (zIndex: number) => void;

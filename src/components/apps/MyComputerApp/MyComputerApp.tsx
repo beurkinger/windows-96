@@ -19,7 +19,7 @@ const getSelectionStatusText = (items: ShellItem[]) => {
 
 const MyComputerApp: FunctionComponent<AppProps> = ({
   addWindow,
-  workingDir = [],
+  workingDir = '',
 }: AppProps) => {
   const { files, focusOnFile, removeFocus } = useShellFilesState(workingDir);
 

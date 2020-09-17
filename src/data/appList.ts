@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'preact';
-import { FileSystemFile, FileSystemPath } from './filesystem';
+import { FileSystemFile } from './filesystem';
 import { IconId } from './iconList';
 import ExplorerApp from '../components/apps/ExplorerApp/ExplorerApp';
 import MyComputerApp from '../components/apps/MyComputerApp/MyComputerApp'; // } //   Props as MyComputerAppProps, // , {
@@ -8,7 +8,7 @@ import NotepadApp from '../components/apps/NotepadApp/NotepadApp';
 
 export interface AppProps {
   addWindow: OpenWindowsContextType['addWindow'];
-  workingDir?: FileSystemPath;
+  workingDir?: string;
   workingFile?: FileSystemFile;
 }
 

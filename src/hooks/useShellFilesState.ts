@@ -7,7 +7,6 @@ import {
   FileSystemApp,
   FileSystemDir,
   FileSystemFile,
-  FileSystemPath,
   getDirFromPath,
 } from '../data/filesystem';
 import fileTypeList, { FileTypeId } from '../data/fileTypeList';
@@ -29,7 +28,7 @@ export interface ShellApp {
 export interface ShellDir {
   id: string;
   iconId: IconId;
-  path: FileSystemPath;
+  path: string;
   hasFocus: boolean;
   hasSoftFocus: boolean;
   name: string;
@@ -62,7 +61,7 @@ const getShellApp = (
 
 const getShellDir = (
   fileSystemDir: FileSystemDir,
-  path: FileSystemPath,
+  path: string,
   hasSoftFocus: boolean
 ): ShellItem => ({
   id: uuid(),
@@ -88,11 +87,11 @@ const getShellFile = (
   type: 'file',
 });
 
-const createShellItems = (workingDir: FileSystemPath): ShellItem[] => {
+const createShellItems = (workingDir: string): ShellItem[] => {
   const fileSystemDir = getDirFromPath(workingDir);
   const gridFiles = Object.entries(fileSystemDir.dir).map(
     ([dirKey, item], i) => {
-      const path = [...workingDir, dirKey];
+      const path = workingDir + '/' + dirKey;
       // If App
       if ('appId' in item) {
         return getShellApp(item as FileSystemApp, i === 0);
@@ -112,7 +111,7 @@ const createShellItems = (workingDir: FileSystemPath): ShellItem[] => {
 };
 
 export const useShellFilesState = (
-  workingDir: FileSystemPath
+  workingDir: string
 ): {
   files: ShellItem[];
   focusOnFile: (fileId: string) => void;

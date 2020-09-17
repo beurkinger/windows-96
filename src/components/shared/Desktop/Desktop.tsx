@@ -17,11 +17,9 @@ const Desktop: FunctionComponent<Props> = ({
   addWindow,
   background = 'lightseagreen',
 }: Props) => {
-  const { files, focusOnFile, removeFocus } = useShellFilesState([
-    'c',
-    'windows',
-    'desktop',
-  ]);
+  const { files, focusOnFile, removeFocus } = useShellFilesState(
+    'c:/windows/desktop'
+  );
 
   const handleOnDblClickFile = (file: ShellItem) => {
     if (file.type === 'app') addWindow({ appId: file.appId });

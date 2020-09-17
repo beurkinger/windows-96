@@ -2,8 +2,6 @@ import { AppId, appList } from './appList';
 import { FileTypeId } from './fileTypeList';
 import { IconId } from './iconList';
 
-export type FileSystemPath = string[];
-
 export type FileSystemItem = FileSystemApp | FileSystemDir | FileSystemFile;
 
 export type FileSystemApp = {
@@ -23,46 +21,54 @@ export type FileSystemFile = {
 };
 
 export const getDirFromPath = (
-  path: FileSystemPath,
+  path: string,
   currentDirNode: FileSystemDir = fileSystem
 ): FileSystemDir => {
-  if (path.length === 0 || !(path[0] in currentDirNode.dir)) {
+  const pathArray = path.split('/');
+  if (pathArray.length === 0 || !(pathArray[0] in currentDirNode.dir)) {
     return currentDirNode;
   }
 
-  const nextNode = currentDirNode.dir[path[0]];
-  const [, ...nextPath] = path;
-
+  const nextNode = currentDirNode.dir[pathArray[0]];
   if (!('dir' in nextNode)) return currentDirNode;
+
+  const [, ...nextPathArray] = pathArray;
+  const nextPath = nextPathArray.join('/');
 
   return getDirFromPath(nextPath, nextNode);
 };
 
-// export const getFileFromPath = (
-//   path: FileSystemPath,
-//   currentDirNode: FileSystemDir = fileSystem
-// ): FileSystemDir => {
-//   if (path.length === 0 || !(path[0] in currentDirNode.dir)) {
-//     return currentDirNode;
-//   }
+export const getFileFromPath = (
+  path: string,
+  currentNode: FileSystemItem = fileSystem
+): FileSystemFile | null => {
+  const pathArray = path.split('/');
+  if (pathArray.length === 0) {
+    return 'fileTypeId' in currentNode ? currentNode : null;
+  }
 
-//   const nextNode = currentDirNode.dir[path[0]];
-//   const [, ...nextPath] = path;
+  if ('dir' in currentNode) return null;
+  const currentDirNode = (currentNode as unknown) as FileSystemDir;
 
-//   if (!('dir' in nextNode)) return currentDirNode;
+  if (!(pathArray[0] in currentDirNode.dir)) return null;
 
-//   return getDirFromPath(nextPath, nextNode);
-// };
+  const nextNode = currentDirNode.dir[pathArray[0]];
+
+  const [, ...nextPathArray] = pathArray;
+  const nextPath = nextPathArray.join('/');
+
+  return getFileFromPath(nextPath, nextNode);
+};
 
 const fileSystem = {
   name: 'root',
   dir: {
-    a: {
+    'a:': {
       name: '3½ Floppy (A:)',
       iconId: 'floppyDrive',
       dir: {},
     },
-    c: {
+    'c:': {
       name: '(C:)',
       iconId: 'hardDrive',
       dir: {
@@ -159,7 +165,7 @@ const fileSystem = {
         },
       },
     },
-    d: {
+    'd:': {
       name: '(D:)',
       iconId: 'cdDrive',
       dir: {},
