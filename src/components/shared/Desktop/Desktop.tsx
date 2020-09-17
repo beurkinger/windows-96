@@ -3,7 +3,7 @@ import { h, FunctionComponent } from 'preact';
 import { AppProps } from '../../../data/appList';
 import fileSystem from '../../../data/filesystem';
 import fileTypeList from '../../../data/fileTypeList';
-import { ShellItem } from '../../../hooks/useFileGridState';
+import { ShellItem } from '../../../hooks/useShellFilesState';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 
 import style from './Desktop.css';

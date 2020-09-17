@@ -3,7 +3,7 @@ import { h, FunctionComponent } from 'preact';
 import { AppProps } from '../../../data/appList';
 import filesystem from '../../../data/filesystem';
 import fileTypeList from '../../../data/fileTypeList';
-import { ShellItem } from '../../../hooks/useFileGridState';
+import { ShellItem } from '../../../hooks/useShellFilesState';
 import Countour from '../../shared/Countour/Countour';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 import MenuBar from '../../shared/MenuBar/MenuBar';

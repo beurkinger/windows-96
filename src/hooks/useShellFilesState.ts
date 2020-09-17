@@ -101,7 +101,7 @@ const createShellItems = (fileSystemNode: FileSystemDir): ShellItem[] => {
   return gridFiles;
 };
 
-export const useShellState = (
+export const useShellFilesState = (
   fileSystemNode: FileSystemDir
 ): {
   files: ShellItem[];
@@ -135,4 +135,4 @@ export const useShellState = (
   return { files, focusOnFile, removeFocus };
 };
 
-export default useShellState;
+export default useShellFilesState;
