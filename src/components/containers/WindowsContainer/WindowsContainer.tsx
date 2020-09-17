@@ -8,6 +8,7 @@ import OpenWindowsContext, {
 import ExplorerApp from '../../apps/ExplorerApp/ExplorerApp';
 import MyComputerApp from '../../apps/MyComputerApp/MyComputerApp';
 import NotepadApp from '../../apps/NotepadApp/NotepadApp';
+import QuickViewApp from '../../apps/QuickViewApp/QuickViewApp';
 import Window from '../../shared/Window/Window';
 
 import style from './WindowsContainer.css';
@@ -16,6 +17,7 @@ const components: Partial<{ [key in AppId]: FunctionComponent<AppProps> }> = {
   explorer: ExplorerApp,
   myComputer: MyComputerApp,
   notepad: NotepadApp,
+  quickView: QuickViewApp,
 };
 
 const WindowsContainer: FunctionComponent = () => {

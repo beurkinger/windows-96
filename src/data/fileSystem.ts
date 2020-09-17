@@ -1,5 +1,7 @@
 import { FileSystemDir } from '../types/FileSystemItems';
 import { appList } from './appList';
+import clouds from '../assets/img/various/clouds.png';
+import forest from '../assets/img/various/forest.png';
 
 const fileSystem = {
   name: 'root',
@@ -97,7 +99,17 @@ const fileSystem = {
               name: 'Temp',
               dir: {},
             },
-            readMe: {
+            clouds: {
+              content: clouds,
+              name: 'Clouds',
+              fileTypeId: 'bmpFile',
+            },
+            forest: {
+              content: forest,
+              name: 'Forest',
+              fileTypeId: 'bmpFile',
+            },
+            readme: {
               content: "Hello I'm a Readme file",
               name: 'Readme',
               fileTypeId: 'notepadDoc',

@@ -21,7 +21,7 @@ export type FileTypeId =
   | 'wordpadDoc';
 
 const fileTypeList: FileTypeList = {
-  bmpFile: { appId: 'msPaint', id: 'bmpFile', iconId: 'bmpFile' },
+  bmpFile: { appId: 'quickView', id: 'bmpFile', iconId: 'bmpFile' },
   cdTrack: { appId: 'cdPlayer', id: 'cdTrack', iconId: 'cdTrack' },
   helpFile: { appId: 'help', id: 'helpFile', iconId: 'helpFile' },
   midiFile: { appId: 'briefcase', id: 'midiFile', iconId: 'midiFile' },

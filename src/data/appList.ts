@@ -48,6 +48,7 @@ export type AppId =
   | 'phoneDialer'
   | 'printers'
   | 'register'
+  | 'quickView'
   | 'run'
   | 'scandisk'
   | 'shutdown'
@@ -184,6 +185,7 @@ export const appList: AppList = {
     iconId: 'printers',
     name: 'Printers',
   },
+  quickView: { id: 'quickView', iconId: 'run', name: 'Quick View' },
   register: {
     id: 'register',
     iconId: 'register',
