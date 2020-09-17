@@ -185,7 +185,7 @@ export const appList: AppList = {
     iconId: 'printers',
     name: 'Printers',
   },
-  quickView: { id: 'quickView', iconId: 'run', name: 'Quick View' },
+  quickView: { id: 'quickView', iconId: 'quickView', name: 'Quick View' },
   register: {
     id: 'register',
     iconId: 'register',

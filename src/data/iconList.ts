@@ -79,6 +79,8 @@ import programs_24 from '../assets/img/icons/programs/programs_24.png';
 import programs_32 from '../assets/img/icons/programs/programs_32.png';
 import register_16 from '../assets/img/icons/register/register_16.png';
 import register_32 from '../assets/img/icons/register/register_32.png';
+import quick_view_16 from '../assets/img/icons/quick_view/quick_view_16.png';
+import quick_view_32 from '../assets/img/icons/quick_view/quick_view_32.png';
 import run_16 from '../assets/img/icons/run/run_16.png';
 import run_24 from '../assets/img/icons/run/run_24.png';
 import run_32 from '../assets/img/icons/run/run_32.png';
@@ -155,6 +157,7 @@ export type IconId =
   | 'printers'
   | 'program'
   | 'programs'
+  | 'quickView'
   | 'register'
   | 'run'
   | 'scandisk'
@@ -212,6 +215,7 @@ export const iconList: IconList = {
   printers: { 16: printers_16, 32: printers_32 },
   program: { 16: program_16, 32: program_32 },
   programs: { 16: programs_16, 24: programs_24, 32: programs_32 },
+  quickView: { 16: quick_view_16, 32: quick_view_32 },
   register: { 16: register_16, 32: register_32 },
   run: { 16: run_16, 24: run_24, 32: run_32 },
   scandisk: { 16: scandisk_16, 32: scandisk_32 },
