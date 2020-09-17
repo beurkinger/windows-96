@@ -20,12 +20,12 @@ const components: Partial<{ [key in AppId]: FunctionComponent<AppProps> }> = {
 
 const WindowsContainer: FunctionComponent = () => {
   const {
-    addWindow,
     closeWindow,
     focusOnWindow,
     maximizeWindow,
     minimizeWindow,
     moveWindow,
+    openApp,
     unMaximizeWindow,
     windows,
   } = useContext(OpenWindowsContext);
@@ -34,8 +34,8 @@ const WindowsContainer: FunctionComponent = () => {
     const component = components[window.app.id];
     return component
       ? h(component, {
-          addWindow,
           key: window.id,
+          openApp,
           workingDir: window.workingDir,
           workingFile: window.workingFile,
         })

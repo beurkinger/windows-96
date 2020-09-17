@@ -13,17 +13,17 @@ import StartMenu from '../StartMenu/StartMenu';
 import style from './Taskbar.css';
 
 interface Props {
-  addWindow: OpenWindowsContextType['addWindow'];
   focusOnWindow: OpenWindowsContextType['focusOnWindow'];
   minimizeWindow: OpenWindowsContextType['minimizeWindow'];
+  openApp: OpenWindowsContextType['openApp'];
   unMinimizeWindow: OpenWindowsContextType['unMinimizeWindow'];
   windows: OpenWindowsContextType['windows'];
 }
 
 const Taskbar: FunctionComponent<Props> = ({
-  addWindow,
   focusOnWindow,
   minimizeWindow,
+  openApp,
   unMinimizeWindow,
   windows,
 }: Props) => {
@@ -37,7 +37,7 @@ const Taskbar: FunctionComponent<Props> = ({
 
   const handleStartMenuSelect = (appId: AppId) => {
     if (appId) {
-      addWindow({ appId: appId });
+      openApp({ appId: appId });
       setIsStartMenuOpen(false);
     }
   };

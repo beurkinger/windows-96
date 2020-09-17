@@ -20,7 +20,7 @@ export type OpenWindow = {
 };
 
 export interface ContextType {
-  addWindow: (options: {
+  openApp: (options: {
     appId: AppId;
     workingDir?: FileSystemDir;
     workingFile?: FileSystemFile;
@@ -36,12 +36,12 @@ export interface ContextType {
 }
 
 const initialValue: ContextType = {
-  addWindow: () => null,
   closeWindow: () => null,
   focusOnWindow: () => null,
   maximizeWindow: () => null,
   minimizeWindow: () => null,
   moveWindow: () => null,
+  openApp: () => null,
   unMaximizeWindow: () => null,
   unMinimizeWindow: () => null,
   windows: [],

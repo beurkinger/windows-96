@@ -6,17 +6,17 @@ import Taskbar from '../../shared/Taskbar/Taskbar';
 
 const TaskbarContainer: FunctionComponent = () => {
   const {
-    addWindow,
     focusOnWindow,
     minimizeWindow,
+    openApp,
     unMinimizeWindow,
     windows,
   } = useContext(OpenWindowsContext);
   return (
     <Taskbar
-      addWindow={addWindow}
       focusOnWindow={focusOnWindow}
       minimizeWindow={minimizeWindow}
+      openApp={openApp}
       unMinimizeWindow={unMinimizeWindow}
       windows={windows}
     />

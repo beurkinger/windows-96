@@ -14,22 +14,22 @@ type Props = AppProps & {
 };
 
 const Desktop: FunctionComponent<Props> = ({
-  addWindow,
   background = 'lightseagreen',
+  openApp,
 }: Props) => {
   const { files, focusOnFile, removeFocus } = useShellFilesState(
     getDirFromPath('c:/windows/desktop')
   );
 
-  const handleOnDblClickFile = (file: ShellItem) => {
-    if (file.type === 'app') addWindow({ appId: file.appId });
-    if (file.type === 'dir') {
-      addWindow({ appId: 'myComputer', workingDir: file.fileSystemNode });
+  const handleOnDblClickFile = (item: ShellItem) => {
+    if (item.type === 'app') openApp({ appId: item.appId });
+    if (item.type === 'dir') {
+      openApp({ appId: 'myComputer', workingDir: item.fileSystemNode });
     }
-    if (file.type === 'file') {
-      addWindow({
-        appId: fileTypeList[file.fileTypeId].appId,
-        workingFile: file.fileSystemNode,
+    if (item.type === 'file') {
+      openApp({
+        appId: fileTypeList[item.fileTypeId].appId,
+        workingFile: item.fileSystemNode,
       });
     }
   };

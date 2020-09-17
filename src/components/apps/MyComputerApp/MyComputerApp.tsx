@@ -18,7 +18,7 @@ const getSelectionStatusText = (items: ShellItem[]) => {
 };
 
 const MyComputerApp: FunctionComponent<AppProps> = ({
-  addWindow,
+  openApp,
   workingDir,
 }: AppProps) => {
   const { files, focusOnFile, removeFocus } = useShellFilesState(
@@ -26,12 +26,12 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
   );
 
   const handleOnDblClickFile = (file: ShellItem) => {
-    if (file.type === 'app') addWindow({ appId: file.appId });
+    if (file.type === 'app') openApp({ appId: file.appId });
     if (file.type === 'dir') {
-      addWindow({ appId: 'myComputer', workingDir: file.fileSystemNode });
+      openApp({ appId: 'myComputer', workingDir: file.fileSystemNode });
     }
     if (file.type === 'file') {
-      addWindow({
+      openApp({
         appId: fileTypeList[file.fileTypeId].appId,
         workingFile: file.fileSystemNode,
       });

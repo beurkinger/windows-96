@@ -2,7 +2,9 @@ import { h, FunctionComponent, ComponentChildren } from 'preact';
 import { useState } from 'preact/hooks';
 import { v4 as uuid } from 'uuid';
 
-import { appList } from '../../../data/appList';
+import { FileSystemDir, FileSystemFile } from '../../../types/FileSystemItems';
+import { App, appList } from '../../../data/appList';
+import { IconId } from '../../../data/iconList';
 import OpenWindowsContext, {
   ContextType,
   OpenWindow,
@@ -36,15 +38,32 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
     );
   };
 
-  const addWindow: ContextType['addWindow'] = ({
+  const getWindowTitle = (
+    app: App,
+    workingDir?: FileSystemDir,
+    workingFile?: FileSystemFile
+  ): string => {
+    if (workingFile && workingFile.name) return `${workingFile.name} - ${app.name}`;
+    if (workingDir && workingDir.name !== 'root') return workingDir.name;
+    return app.name;
+  };
+
+  const getWindowIconId = (app: App, workingDir?: FileSystemDir): IconId => {
+    if (app.id !== 'myComputer') return app.iconId;
+    if (workingDir && workingDir.iconId) return workingDir.iconId;
+    if (workingDir && workingDir.name !== 'root') return 'folderOpen';
+    return app.iconId;
+  };
+
+  const openApp: ContextType['openApp'] = ({
     appId,
     workingDir,
     workingFile,
   }) => {
     setOpenWindows((windows) => {
       const app = appList[appId];
-      const iconId = app.iconId;
-      const title = app.name;
+      const iconId = getWindowIconId(app, workingDir);
+      const title = getWindowTitle(app, workingDir, workingFile);
       const zIndex = getBiggestZIndex(windows) + 1;
       const existingWindows = windows.map((window) => ({
         ...window,
@@ -141,7 +160,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   return (
     <OpenWindowsContext.Provider
       value={{
-        addWindow,
+        openApp,
         closeWindow,
         focusOnWindow,
         maximizeWindow,

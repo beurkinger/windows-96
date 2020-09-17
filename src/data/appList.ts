@@ -2,7 +2,7 @@ import { FileSystemDir, FileSystemFile } from '../types/FileSystemItems';
 import { IconId } from './iconList';
 
 export interface AppProps {
-  addWindow: (options: {
+  openApp: (options: {
     appId: AppId;
     workingDir?: FileSystemDir;
     workingFile?: FileSystemFile;

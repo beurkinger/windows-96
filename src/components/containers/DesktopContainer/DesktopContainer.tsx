@@ -5,8 +5,8 @@ import OpenWindowsContext from '../../../context/OpenWindowsContext';
 import Desktop from '../../shared/Desktop/Desktop';
 
 const DesktopContainer: FunctionComponent = () => {
-  const { addWindow } = useContext(OpenWindowsContext);
-  return <Desktop addWindow={addWindow} />;
+  const { openApp } = useContext(OpenWindowsContext);
+  return <Desktop openApp={openApp} />;
 };
 
 export default DesktopContainer;
