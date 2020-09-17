@@ -46,14 +46,22 @@ const FileGrid: FunctionComponent<Props> = ({
             file.hasSoftFocus ? style.softFocus : ''
           }`}
           key={i + file.id}
-          onClick={(e) => handleOnClickFile(e, file)}
-          onDblClick={(e) => handleOnDblClickFile(e, file)}
           style={{ color: textColor }}
         >
-          <div className={style.fileIcon}>
+          <div
+            className={style.fileIcon}
+            onClick={(e) => handleOnClickFile(e, file)}
+            onDblClick={(e) => handleOnDblClickFile(e, file)}
+          >
             <Icon iconId={file.iconId} size={32} />
           </div>
-          <div className={style.fileLabel}>{file.name}</div>
+          <div
+            className={style.fileLabel}
+            onClick={(e) => handleOnClickFile(e, file)}
+            onDblClick={(e) => handleOnDblClickFile(e, file)}
+          >
+            {file.name}
+          </div>
         </div>
       ))}
     </div>

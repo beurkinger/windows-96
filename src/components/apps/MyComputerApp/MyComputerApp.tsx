@@ -13,6 +13,11 @@ import Scrollable from '../../shared/Scrollable/Scrollable';
 import StatusBar from '../../shared/StatusBar/StatusBar';
 import WindowContent from '../../shared/WindowContent/WindowContent';
 
+const getSelectionStatusText = (items: ShellItem[]) => {
+  if (items.some((item) => item.hasFocus)) return '1 object(s) selected';
+  return `${items.length} object(s)`;
+};
+
 const MyComputerApp: FunctionComponent<AppProps> = ({
   addWindow,
   workingDir,
@@ -34,9 +39,7 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
     }
   };
 
-  const textLeft = workingDir
-    ? `${Object.keys(workingDir.dir).length} object(s)`
-    : `${Object.keys(filesystem.dir).length} object(s)`;
+  const textLeft = getSelectionStatusText(files);
 
   return (
     <WindowContent
