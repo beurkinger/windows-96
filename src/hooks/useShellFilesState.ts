@@ -105,19 +105,19 @@ export const useShellFilesState = (
   fileSystemNode: FileSystemDir
 ): {
   files: ShellItem[];
-  focusOnFile: (fileId: string, fileType: string) => void;
+  focusOnFile: (fileId: string) => void;
   removeFocus: () => void;
 } => {
   const [files, setFiles] = useState<ShellItem[]>(
     createShellItems(fileSystemNode)
   );
 
-  const focusOnFile = (fileId: string, fileType: string) => {
+  const focusOnFile = (fileId: string) => {
     setFiles(
       files.map((file) => ({
         ...file,
-        hasFocus: file.type === fileType && file.id === fileId,
-        hasSoftFocus: file.type === fileType && file.id === fileId,
+        hasFocus: file.id === fileId,
+        hasSoftFocus: file.id === fileId,
       }))
     );
   };

@@ -1,50 +1,43 @@
 import { h, FunctionComponent } from 'preact';
 
-import { FileSystemDir } from '../../../data/filesystem';
-import useShellFilesState, {
-  ShellItem,
-} from '../../../hooks/useShellFilesState';
+import { ShellItem } from '../../../hooks/useShellFilesState';
 import Icon from '../Icon/Icon';
 
 import style from './FileGrid.css';
 
-// For convenianc
 interface Props {
   direction?: 'column' | 'row';
-  fileSystemNode: FileSystemDir;
-  onDblClickFile: (file: ShellItem) => void;
+  files: ShellItem[];
+  onClick: (e: MouseEvent) => void;
+  onClickFile: (file: ShellItem, e: MouseEvent) => void;
+  onDblClickFile: (file: ShellItem, e: MouseEvent) => void;
   textColor?: 'black' | 'white';
 }
 
 const FileGrid: FunctionComponent<Props> = ({
   direction = 'row',
-  fileSystemNode,
-  // initialFiles,
+  files,
+  onClick,
+  onClickFile,
   onDblClickFile,
   textColor = 'black',
 }: Props) => {
-  const { files, focusOnFile, removeFocus } = useShellFilesState(
-    fileSystemNode
-  );
-
-  const handleOnClick = removeFocus;
-
   const handleOnClickFile = (e: MouseEvent, file: ShellItem) => {
     e.preventDefault();
     e.stopPropagation();
-    focusOnFile(file.id, file.type);
+    onClickFile(file, e);
   };
 
   const handleOnDblClickFile = (e: MouseEvent, file: ShellItem) => {
     e.preventDefault();
     e.stopPropagation();
-    onDblClickFile(file);
+    onDblClickFile(file, e);
   };
 
   return (
     <div
       className={style.fileGrid}
-      onClick={handleOnClick}
+      onClick={onClick}
       style={{ flexDirection: direction }}
     >
       {files.map((file, i) => (

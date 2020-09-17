@@ -3,7 +3,9 @@ import { h, FunctionComponent } from 'preact';
 import { AppProps } from '../../../data/appList';
 import filesystem from '../../../data/filesystem';
 import fileTypeList from '../../../data/fileTypeList';
-import { ShellItem } from '../../../hooks/useShellFilesState';
+import useShellFilesState, {
+  ShellItem,
+} from '../../../hooks/useShellFilesState';
 import Countour from '../../shared/Countour/Countour';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 import MenuBar from '../../shared/MenuBar/MenuBar';
@@ -15,6 +17,10 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
   addWindow,
   workingDir,
 }: AppProps) => {
+  const { files, focusOnFile, removeFocus } = useShellFilesState(
+    workingDir ?? filesystem
+  );
+
   const handleOnDblClickFile = (file: ShellItem) => {
     if (file.type === 'app') addWindow({ appId: file.appId });
     if (file.type === 'dir') {
@@ -39,7 +45,9 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
         <Countour>
           <Scrollable>
             <FileGrid
-              fileSystemNode={workingDir ?? filesystem}
+              files={files}
+              onClick={removeFocus}
+              onClickFile={(file) => focusOnFile(file.id)}
               onDblClickFile={handleOnDblClickFile}
             />
           </Scrollable>
