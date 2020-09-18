@@ -43,15 +43,17 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
     workingDir?: FileSystemDir,
     workingFile?: FileSystemFile
   ): string => {
-    if (workingFile && workingFile.name) return `${workingFile.name} - ${app.name}`;
-    if (workingDir && workingDir.name !== 'root') return workingDir.name;
+    if (workingFile && workingFile.name) {
+      return `${workingFile.name} - ${app.name}`;
+    }
+    if (workingDir) return workingDir.name;
     return app.name;
   };
 
   const getWindowIconId = (app: App, workingDir?: FileSystemDir): IconId => {
     if (app.id !== 'myComputer') return app.iconId;
     if (workingDir && workingDir.iconId) return workingDir.iconId;
-    if (workingDir && workingDir.name !== 'root') return 'folderOpen';
+    if (workingDir) return 'folderOpen';
     return app.iconId;
   };
 
