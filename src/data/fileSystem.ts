@@ -124,7 +124,110 @@ const fileSystem = {
       dir: {},
     },
     controlPanel: {
-      appId: 'controlPanel',
+      name: 'Control Panel',
+      iconId: 'controlPanel',
+      dir: {
+        accessibility: {
+          name: 'Accessibility Options',
+          iconId: 'accessibility',
+          dir: {},
+        },
+        addHardware: {
+          name: 'Add New Hardware',
+          iconId: 'addHardware',
+          dir: {},
+        },
+        addRemovePrograms: {
+          name: 'Add/Remove Programs',
+          iconId: 'addRemovePrograms',
+          dir: {},
+        },
+        dateTime: {
+          name: 'Date/Time',
+          iconId: 'dateTime',
+          dir: {},
+        },
+        display: {
+          name: 'Display',
+          iconId: 'display',
+          dir: {},
+        },
+        fonts: {
+          name: 'Fonts',
+          iconId: 'fontsShortcut',
+          dir: {},
+        },
+        internet: {
+          name: 'Internet',
+          iconId: 'internet',
+          dir: {},
+        },
+        joystick: {
+          name: 'Joystick',
+          iconId: 'joystick',
+          dir: {},
+        },
+        keyboard: {
+          name: 'Keyboard',
+          iconId: 'keyboard',
+          dir: {},
+        },
+        mail: {
+          name: 'Mail and Fax',
+          iconId: 'exchange',
+          dir: {},
+        },
+        msMail: {
+          name: 'Microsoft Mail Postoffice',
+          iconId: 'msMail',
+          dir: {},
+        },
+        modems: {
+          name: 'Modems',
+          iconId: 'modems',
+          dir: {},
+        },
+        mouse: {
+          name: 'Mouse',
+          iconId: 'mouse',
+          dir: {},
+        },
+        multimedia: {
+          name: 'Multimedia',
+          iconId: 'multimedia',
+          dir: {},
+        },
+        network: {
+          name: 'Network',
+          iconId: 'network',
+          dir: {},
+        },
+        passwords: {
+          name: 'Passwords',
+          iconId: 'passwords',
+          dir: {},
+        },
+        printers: {
+          name: 'Printers',
+          iconId: 'printersShortcut',
+          dir: {},
+        },
+        regionalSettings: {
+          name: 'Regional Settings',
+          iconId: 'regionalSettings',
+          dir: {},
+        },
+        sounds: {
+          name: 'Sounds',
+          iconId: 'sounds',
+          dir: {},
+        },
+        system: {
+          name: 'System',
+          iconId: 'system',
+          dir: {},
+        },
+      },
     },
     printers: {
       appId: 'printers',
