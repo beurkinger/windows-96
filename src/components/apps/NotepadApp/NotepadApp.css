@@ -1,15 +1,15 @@
 .textarea {
     border: 0;
-    padding: 2px;
+    padding: 4px;
     width: 100%;
     height: 100%;
     box-shadow: none;
     background: white;
     resize: none;
-    font-family: "Pixelated MS Sans Serif", Arial;
+    font-family: var(--font-family-notepad);
     font-weight: bold;
     -webkit-font-smoothing: none;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1;
-    letter-spacing: 1px;
+    letter-spacing: 0px;
 }
