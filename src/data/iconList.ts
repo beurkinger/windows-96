@@ -87,35 +87,34 @@ export type IconUrls = Partial<{ [key in IconSize]: string }>;
 
 export type IconList = { [key in IconId]: IconUrls };
 
-function importAll(r: __WebpackModuleApi.RequireContext) {
-  const cache = {} as IconList;
+function importIcons() {
+  const importedIcons = {} as IconList;
+  const r = require.context('../assets/img/icons', true, /\.png$/);
   r.keys().forEach((key) => {
     const filePath: string = r(key);
     const matches = key.match(/\/(\w*?)\/(\w*?)_(\d*?)\.png/);
     const iconId = matches ? (matches[1] as IconId) : '';
-    const size = matches ? (parseInt(matches[3]) as IconSize) : '';
-    if (iconId && size) {
-      const iconUrls: IconUrls = cache[iconId]
+    const size = matches ? (parseInt(matches[3]) as IconSize) : null;
+    if (iconId && size && iconSizes.includes(size)) {
+      const iconUrls: IconUrls = importedIcons[iconId]
         ? {
-            ...cache[iconId],
+            ...importedIcons[iconId],
             [size]: filePath,
           }
         : {
             [size]: filePath,
           };
-      cache[iconId as IconId] = iconUrls;
+      importedIcons[iconId as IconId] = iconUrls;
     }
   });
   const error = iconIds.some((iconId) => {
-    if (!cache[iconId])
+    if (!importedIcons[iconId])
       console.error(
         `Icon id "${iconId}" doesn't have an associated icon folder.`
       );
-    return !cache[iconId];
+    return !importedIcons[iconId];
   });
   if (error) throw "Some Icon ids don't have an associated icon folder";
-  return cache;
+  return importedIcons;
 }
-export const iconList = importAll(
-  require.context('../assets/img/icons', true, /\.png$/)
-);
+export const iconList = importIcons();
