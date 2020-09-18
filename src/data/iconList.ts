@@ -1,12 +1,3 @@
-export type IconSize = 8 | 16 | 24 | 32;
-export type IconUrls = Partial<{
-  8: string;
-  16: string;
-  24: string;
-  32: string;
-}>;
-export type IconList = { [key in IconId]: IconUrls };
-
 const iconIds = [
   'accessibility',
   'addHardware',
@@ -86,8 +77,13 @@ const iconIds = [
   'wordpad',
   'wordpadDoc',
 ] as const;
-
 export type IconId = typeof iconIds[number];
+
+const iconSizes = [8, 16, 24, 32] as const;
+export type IconSize = typeof iconSizes[number];
+export type IconUrls = Partial<{ [key in IconSize]: string }>;
+
+export type IconList = { [key in IconId]: IconUrls };
 
 function importAll(r: __WebpackModuleApi.RequireContext) {
   const cache = {} as IconList;
