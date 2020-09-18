@@ -6,11 +6,14 @@ import Menu from '../Menu/Menu';
 import style from './StartMenu.css';
 
 interface Props {
-  onSelect: (appId: AppId) => void;
+  onSelect: (appId: AppId, workingDirPath?: string) => void;
 }
 
 const StartMenu: FunctionComponent<Props> = ({ onSelect }: Props) => {
-  const handleOnSelect = (appId: string) => onSelect(appId as AppId);
+  const handleOnSelect = (value: string) => {
+    const [appId, dirPath] = value.split('%%');
+    onSelect(appId as AppId, dirPath);
+  };
   return (
     <div className={style.startMenu}>
       <Menu
@@ -177,8 +180,8 @@ const StartMenu: FunctionComponent<Props> = ({ onSelect }: Props) => {
                   [
                     {
                       label: appList.controlPanel.name,
-                      iconId: appList.controlPanel.iconId,
-                      value: appList.controlPanel.id,
+                      iconId: 'controlPanel',
+                      value: [appList.myComputer.id, 'controlPanel'].join('%%'),
                     },
                     {
                       label: appList.printers.name,

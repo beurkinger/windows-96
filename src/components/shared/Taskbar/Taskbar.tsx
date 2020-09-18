@@ -11,6 +11,7 @@ import NotificationArea from '../NotificationArea/NotificationArea';
 import StartMenu from '../StartMenu/StartMenu';
 
 import style from './Taskbar.css';
+import { getDirFromPath } from '../../../utils/FileSystemUtils';
 
 interface Props {
   focusOnWindow: OpenWindowsContextType['focusOnWindow'];
@@ -35,9 +36,13 @@ const Taskbar: FunctionComponent<Props> = ({
     setIsStartMenuOpen(!isStartMenuOpen);
   };
 
-  const handleStartMenuSelect = (appId: AppId) => {
+  const handleStartMenuSelect = (appId: AppId, workingDirPath?: string) => {
     if (appId) {
-      openApp({ appId: appId });
+      const workingDir = workingDirPath
+        ? getDirFromPath(workingDirPath)
+        : undefined;
+
+      openApp({ appId: appId, workingDir });
       setIsStartMenuOpen(false);
     }
   };
