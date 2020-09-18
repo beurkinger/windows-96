@@ -8,6 +8,7 @@ export type IconUrls = Partial<{
 export type IconList = { [key in IconId]: IconUrls };
 
 const iconIds = [
+  'accessibility',
   'addRemovePrograms',
   'binEmpty',
   'binFull',
@@ -21,7 +22,9 @@ const iconIds = [
   'dateTime',
   'defrag',
   'dialUpNetwork',
+  'display',
   'documents',
+  'fonts_shortcut',
   'hardDrive',
   'helpFile',
   'exchange',
@@ -35,18 +38,26 @@ const iconIds = [
   'fontFile',
   'help',
   'hyperterminal',
+  'internet',
+  'joystick',
+  'keyboard',
   'mediaPlayer',
   'menuArrow',
   'midiFile',
+  'modems',
+  'mouse',
   'msn',
   'msDos',
   'msPaint',
+  'multimedia',
   'music',
   'myComputer',
   'network',
   'notepad',
   'notepadDoc',
+  'passwords',
   'phoneDialer',
+  'power',
   'printers',
   'program',
   'programs',
@@ -94,11 +105,11 @@ function importAll(r: __WebpackModuleApi.RequireContext) {
   const error = iconIds.some((iconId) => {
     if (!cache[iconId])
       console.error(
-        `IconId "${iconId}" doesn't have an associated icon folder.`
+        `Icon id "${iconId}" doesn't have an associated icon folder.`
       );
     return !cache[iconId];
   });
-  if (error) throw "Some IconIds don't have an associated icon folder";
+  if (error) throw "Some Icon ids don't have an associated icon folder";
   return cache;
 }
 export const iconList = importAll(
