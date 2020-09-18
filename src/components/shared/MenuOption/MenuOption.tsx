@@ -1,5 +1,7 @@
 import { h, FunctionComponent } from 'preact';
 
+import { FileSystemDir, FileSystemFile } from '../../../types/FileSystemItems';
+import { AppId } from '../../../data/appList';
 import { IconId } from '../../../data/iconList';
 import Icon from '../Icon/Icon';
 import Menu from '../Menu/Menu';
@@ -11,12 +13,14 @@ export type OptionType = {
   iconId?: IconId;
   label: string;
   subMenu?: { isLarge?: boolean; options: OptionType[][] };
-  value: string;
+  value:
+    | { appId: AppId; workingDir?: FileSystemDir; workingFile?: FileSystemFile }
+    | string;
 };
 
 export type Props = OptionType & {
   isLarge?: boolean;
-  onSelect: (value: string, e: MouseEvent) => void;
+  onSelect: (value: OptionType['value'], e: MouseEvent) => void;
 };
 
 const MenuOption: FunctionComponent<Props> = ({

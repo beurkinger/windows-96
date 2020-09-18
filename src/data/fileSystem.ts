@@ -1,22 +1,22 @@
-import { FileSystemDir } from '../types/FileSystemItems';
 import { appList } from './appList';
 import clouds from '../assets/img/various/clouds.png';
 import forest from '../assets/img/various/forest.png';
 import windowsReadme from './fileSystem/myComputer/c/windows/readme';
+import { FileSystemDir } from '../types/FileSystemItems';
 
-const floppyDriveFs: FileSystemDir = {
+const floppyDriveFs = {
   name: '3½ Floppy (A:)',
   iconId: 'floppyDrive',
   dir: {},
 } as const;
 
-const cdDriveFs: FileSystemDir = {
+export const cdDriveFs = {
   name: '(D:)',
   iconId: 'cdDrive',
   dir: {},
 } as const;
 
-const startMenuFs: FileSystemDir = {
+export const startMenuFs = {
   name: 'Start Menu',
   dir: {
     programs: {
@@ -32,28 +32,16 @@ const startMenuFs: FileSystemDir = {
               iconId: 'programs',
               dir: {
                 cdPlayer: {
-                  name: appList.cdPlayer.name,
-                  iconId: appList.cdPlayer.iconId,
-                  // value: appList.cdPlayer.id,
-                  dir: {},
+                  appId: appList.cdPlayer.id,
                 },
                 soundRecord: {
-                  name: appList.soundRecorder.name,
-                  iconId: appList.soundRecorder.iconId,
-                  // value: appList.soundRecorder.id,
-                  dir: {},
+                  appId: appList.soundRecorder.id,
                 },
                 volumeControl: {
-                  name: appList.volumeControl.name,
-                  iconId: appList.volumeControl.iconId,
-                  // value: appList.volumeControl.id,
-                  dir: {},
+                  appId: appList.volumeControl.id,
                 },
                 mediaPlayer: {
-                  name: appList.mediaPlayer.name,
-                  iconId: appList.mediaPlayer.iconId,
-                  // value: appList.mediaPlayer.id,
-                  dir: {},
+                  appId: appList.mediaPlayer.id,
                 },
               },
             },
@@ -62,60 +50,33 @@ const startMenuFs: FileSystemDir = {
               iconId: 'programs',
               dir: {
                 defrag: {
-                  name: appList.defrag.name,
-                  iconId: appList.defrag.iconId,
-                  // value: appList.defrag.id,
-                  dir: {},
+                  appId: appList.defrag.id,
                 },
                 scandisk: {
-                  name: appList.scandisk.name,
-                  iconId: appList.scandisk.iconId,
-                  // value: appList.scandisk.id,
-                  dir: {},
+                  appId: appList.scandisk.id,
                 },
               },
             },
             calc: {
-              name: appList.calc.name,
-              iconId: appList.calc.iconId,
-              // value: appList.calc.id,
-              dir: {},
+              appId: appList.calc.id,
             },
             hyperterminal: {
-              name: appList.hyperterminal.name,
-              iconId: appList.hyperterminal.iconId,
-              // value: appList.hyperterminal.id,
-              dir: {},
+              appId: appList.hyperterminal.id,
             },
             notepad: {
-              name: appList.notepad.name,
-              iconId: appList.notepad.iconId,
-              // value: appList.notepad.id,
-              dir: {},
+              appId: appList.notepad.id,
             },
             register: {
-              name: appList.register.name,
-              iconId: appList.register.iconId,
-              // value: appList.register.id,
-              dir: {},
+              appId: appList.register.id,
             },
             msPaint: {
-              name: appList.msPaint.name,
-              iconId: appList.msPaint.iconId,
-              // value: appList.msPaint.id,
-              dir: {},
+              appId: appList.msPaint.id,
             },
             phoneDialer: {
-              name: appList.phoneDialer.name,
-              iconId: appList.phoneDialer.iconId,
-              // value: appList.phoneDialer.id,
-              dir: {},
+              appId: appList.phoneDialer.id,
             },
             wordpad: {
-              name: appList.wordpad.name,
-              iconId: appList.wordpad.iconId,
-              // value: appList.wordpad.id,
-              dir: {},
+              appId: appList.wordpad.id,
             },
           },
         },
@@ -125,28 +86,16 @@ const startMenuFs: FileSystemDir = {
           dir: {},
         },
         exchange: {
-          name: appList.exchange.name,
-          iconId: appList.exchange.iconId,
-          // value: appList.exchange.id,
-          dir: {},
+          appId: appList.exchange.id,
         },
         msDos: {
-          name: appList.msDos.name,
-          iconId: appList.msDos.iconId,
-          // value: appList.msDos.id,
-          dir: {},
+          appId: appList.msDos.id,
         },
         msn: {
-          name: appList.msn.name,
-          iconId: appList.msn.iconId,
-          // value: appList.msn.id,
-          dir: {},
+          appId: appList.msn.id,
         },
         explorer: {
-          name: appList.explorer.name,
-          iconId: appList.explorer.iconId,
-          // value: appList.explorer.id,
-          dir: {},
+          appId: appList.explorer.id,
         },
       },
     },
@@ -157,7 +106,8 @@ const startMenuFs: FileSystemDir = {
         readMe: {
           name: 'Readme',
           iconId: 'notepadDoc',
-          dir: {},
+          fileTypeId: 'notepadDoc',
+          content: '',
         },
       },
     },
@@ -166,22 +116,16 @@ const startMenuFs: FileSystemDir = {
       iconId: 'settings',
       dir: {
         controlPanel: {
-          name: appList.controlPanel.name,
-          iconId: appList.controlPanel.iconId,
-          // value: appList.controlPanel.id,
-          dir: {},
+          iconId: 'controlPanel',
+          dirPath: 'controlPanel',
+          name: 'Control Panel',
+          toAppId: 'myComputer',
         },
         printers: {
-          name: appList.printers.name,
-          iconId: appList.printers.iconId,
-          // value: appList.printers.id,
-          dir: {},
+          appId: appList.printers.id,
         },
         taskbar: {
-          name: appList.taskbar.name,
-          iconId: appList.taskbar.iconId,
-          // value: appList.taskbar.id,
-          dir: {},
+          appId: appList.taskbar.id,
         },
       },
     },
@@ -192,38 +136,30 @@ const startMenuFs: FileSystemDir = {
         findFiles: {
           name: 'Files or Folders...',
           iconId: appList.find.iconId,
-          // value: appList.find.id,
+          appId: appList.find.id,
           dir: {},
         },
         findComputers: {
           name: 'Computers...',
           iconId: appList.findComputer.iconId,
-          // value: appList.findComputer.id,
+          appId: appList.findComputer.id,
           dir: {},
         },
       },
     },
     help: {
-      name: appList.help.name,
-      iconId: appList.help.iconId,
-      // value: appList.help.id,
-      dir: {},
+      appId: appList.help.id,
     },
     run: {
-      name: appList.run.name,
-      iconId: appList.run.iconId,
-      // value: appList.run.id,
-      dir: {},
+      appId: appList.run.id,
     },
     shutdown: {
-      name: appList.shutdown.name,
-      iconId: appList.shutdown.iconId,
       appId: appList.shutdown.id,
     },
   },
-};
+} as const;
 
-const hardDriveFs: FileSystemDir = {
+export const hardDriveFs = {
   name: '(C:)',
   iconId: 'hardDrive',
   dir: {
@@ -331,9 +267,9 @@ const hardDriveFs: FileSystemDir = {
       },
     },
   },
-};
+} as const;
 
-const controlPanelFs: FileSystemDir = {
+export const controlPanelFs = {
   name: 'Control Panel',
   iconId: 'controlPanel',
   dir: {
@@ -440,7 +376,7 @@ const controlPanelFs: FileSystemDir = {
   },
 } as const;
 
-const fileSystem = {
+export const fileSystem = {
   name: 'My Computer',
   iconId: appList.myComputer.iconId,
   dir: {
@@ -457,4 +393,6 @@ const fileSystem = {
   },
 } as const;
 
-export default fileSystem as typeof fileSystem;
+const typedFileSystem: FileSystemDir = fileSystem as typeof fileSystem;
+
+export default typedFileSystem;

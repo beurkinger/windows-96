@@ -59,6 +59,8 @@ export const getShellItems = (fileSystemDir: FileSystemDir): ShellItem[] => {
     if ('fileTypeId' in item) {
       return getShellFile(item as FileSystemFile, i === 0);
     }
+    //TODO : need to implement shortcuts :(
+
     // Else Dir
     return getShellDir(item as FileSystemDir, i === 0);
   });

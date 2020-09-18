@@ -7,7 +7,7 @@ import style from './Menu.css';
 interface Props {
   // disabled?: boolean;
   isLarge?: boolean;
-  onSelect: (value: string, e: MouseEvent) => void;
+  onSelect: (value: OptionType['value'], e: MouseEvent) => void;
   options: OptionType[][];
 }
 

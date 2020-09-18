@@ -1,5 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 
+import { FileSystemDir, FileSystemFile } from '../../../types/FileSystemItems';
 import { AppId } from '../../../data/appList';
 import {
   ContextType as OpenWindowsContextType,
@@ -11,7 +12,6 @@ import NotificationArea from '../NotificationArea/NotificationArea';
 import StartMenu from '../StartMenu/StartMenu';
 
 import style from './Taskbar.css';
-import { getDirFromPath } from '../../../utils/FileSystemUtils';
 
 interface Props {
   focusOnWindow: OpenWindowsContextType['focusOnWindow'];
@@ -36,13 +36,13 @@ const Taskbar: FunctionComponent<Props> = ({
     setIsStartMenuOpen(!isStartMenuOpen);
   };
 
-  const handleStartMenuSelect = (appId: AppId, workingDirPath?: string) => {
+  const handleStartMenuSelect = (
+    appId: AppId,
+    workingDir?: FileSystemDir,
+    workingFile?: FileSystemFile
+  ) => {
     if (appId) {
-      const workingDir = workingDirPath
-        ? getDirFromPath(workingDirPath)
-        : undefined;
-
-      openApp({ appId: appId, workingDir });
+      openApp({ appId, workingDir, workingFile });
       setIsStartMenuOpen(false);
     }
   };

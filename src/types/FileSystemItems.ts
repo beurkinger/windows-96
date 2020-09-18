@@ -2,7 +2,11 @@ import { AppId } from '../data/appList';
 import { FileTypeId } from '../data/fileTypeList';
 import { IconId } from '../data/iconList';
 
-export type FileSystemItem = FileSystemApp | FileSystemDir | FileSystemFile;
+export type FileSystemItem =
+  | FileSystemApp
+  | FileSystemDir
+  | FileSystemFile
+  | FileSystemShortcut;
 
 export type FileSystemApp = {
   appId: AppId;
@@ -18,4 +22,12 @@ export type FileSystemFile = {
   content: string;
   fileTypeId: FileTypeId;
   name: string;
+};
+
+export type FileSystemShortcut = {
+  dirPath?: string;
+  filePath?: string;
+  iconId: IconId;
+  name: string;
+  toAppId: AppId;
 };
