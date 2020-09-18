@@ -167,7 +167,7 @@ export const appList: AppList = {
   },
   networkNeighborhood: {
     id: 'networkNeighborhood',
-    iconId: 'network',
+    iconId: 'networkNeighborhood',
     name: 'Network Neighborhood',
   },
   notepad: {
