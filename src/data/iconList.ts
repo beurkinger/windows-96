@@ -1,3 +1,5 @@
+import add_remove_programs_16 from '../assets/img/icons/add_remove_programs/add_remove_programs_16.png';
+import add_remove_programs_32 from '../assets/img/icons/add_remove_programs/add_remove_programs_32.png';
 import bin_empty_16 from '../assets/img/icons/bin_empty/bin_empty_16.png';
 import bin_empty_32 from '../assets/img/icons/bin_empty/bin_empty_32.png';
 import bin_full_16 from '../assets/img/icons/bin_full/bin_full_16.png';
@@ -8,6 +10,8 @@ import briefcase_16 from '../assets/img/icons/briefcase/briefcase_16.png';
 import briefcase_32 from '../assets/img/icons/briefcase/briefcase_32.png';
 import calc_16 from '../assets/img/icons/calc/calc_16.png';
 import calc_32 from '../assets/img/icons/calc/calc_32.png';
+import date_time_16 from '../assets/img/icons/date_time/date_time_16.png';
+import date_time_32 from '../assets/img/icons/date_time/date_time_32.png';
 import cd_drive_16 from '../assets/img/icons/cd_drive/cd_drive_16.png';
 import cd_drive_32 from '../assets/img/icons/cd_drive/cd_drive_32.png';
 import cd_player_16 from '../assets/img/icons/cd_player/cd_player_16.png';
@@ -22,6 +26,8 @@ import dial_up_network_32 from '../assets/img/icons/dial_up_network/dial_up_netw
 import documents_16 from '../assets/img/icons/documents/documents_16.png';
 import documents_24 from '../assets/img/icons/documents/documents_24.png';
 import documents_32 from '../assets/img/icons/documents/documents_32.png';
+import font_file_16 from '../assets/img/icons/font_file/font_file_16.png';
+import font_file_32 from '../assets/img/icons/font_file/font_file_32.png';
 import hard_drive_16 from '../assets/img/icons/hard_drive/hard_drive_16.png';
 import hard_drive_32 from '../assets/img/icons/hard_drive/hard_drive_32.png';
 import help_file_16 from '../assets/img/icons/help_file/help_file_16.png';
@@ -98,6 +104,8 @@ import sound_off_16 from '../assets/img/icons/sound_off/sound_off_16.png';
 import sound_off_32 from '../assets/img/icons/sound_off/sound_off_32.png';
 import taskbar_16 from '../assets/img/icons/taskbar/taskbar_16.png';
 import taskbar_32 from '../assets/img/icons/taskbar/taskbar_32.png';
+import tree_16 from '../assets/img/icons/tree/tree_16.png';
+import tree_32 from '../assets/img/icons/tree/tree_32.png';
 import video_16 from '../assets/img/icons/video/video_16.png';
 import video_32 from '../assets/img/icons/video/video_32.png';
 import video_file_16 from '../assets/img/icons/video_file/video_file_16.png';
@@ -118,6 +126,7 @@ export type IconUrls = { 8: string; 16: string; 24: string; 32: string };
 export type IconList = { [key in IconId]: Partial<IconUrls> };
 
 export type IconId =
+  | 'addRemovePrograms'
   | 'binEmpty'
   | 'binFull'
   | 'bmpFile'
@@ -127,6 +136,7 @@ export type IconId =
   | 'cdPlayer'
   | 'cdTrack'
   | 'controlPanel'
+  | 'dateTime'
   | 'defrag'
   | 'dialUpNetwork'
   | 'documents'
@@ -140,6 +150,7 @@ export type IconId =
   | 'floppyDrive'
   | 'folderOpen'
   | 'folderClosed'
+  | 'fontFile'
   | 'help'
   | 'hyperterminal'
   | 'mediaPlayer'
@@ -166,6 +177,7 @@ export type IconId =
   | 'sound'
   | 'soundOff'
   | 'taskbar'
+  | 'tree'
   | 'video'
   | 'videoFile'
   | 'volume'
@@ -176,6 +188,7 @@ export type IconId =
   | 'wordpadDoc';
 
 export const iconList: IconList = {
+  addRemovePrograms: { 16: add_remove_programs_16, 32: add_remove_programs_32 },
   binEmpty: { 16: bin_empty_16, 32: bin_empty_32 },
   binFull: { 16: bin_full_16, 32: bin_full_32 },
   bmpFile: { 16: bmp_file_16, 32: bmp_file_32 },
@@ -185,6 +198,7 @@ export const iconList: IconList = {
   cdPlayer: { 16: cd_player_16, 32: cd_player_32 },
   cdTrack: { 32: cd_track_32 },
   controlPanel: { 16: control_panel_16, 32: control_panel_32 },
+  dateTime: { 16: date_time_16, 32: date_time_32 },
   defrag: { 16: defrag_16, 32: defrag_32 },
   dialUpNetwork: { 16: dial_up_network_16, 32: dial_up_network_32 },
   hardDrive: { 16: hard_drive_16, 32: hard_drive_32 },
@@ -197,6 +211,7 @@ export const iconList: IconList = {
   floppyDrive: { 16: floppy_drive_16, 32: floppy_drive_32 },
   folderOpen: { 16: folder_open_16, 32: folder_open_32 },
   folderClosed: { 16: folder_closed_16, 32: folder_closed_32 },
+  fontFile: { 16: font_file_16, 32: font_file_32 },
   help: { 16: help_16, 24: help_24, 32: help_32 },
   helpFile: { 16: help_file_16, 32: help_file_32 },
   hyperterminal: { 16: hyperterminal_16, 32: hyperterminal_32 },
@@ -224,6 +239,7 @@ export const iconList: IconList = {
   sound: { 16: sound_16, 32: sound_32 },
   soundOff: { 16: sound_off_16, 32: sound_off_32 },
   taskbar: { 16: taskbar_16, 32: taskbar_32 },
+  tree: { 16: tree_16, 32: tree_32 },
   video: { 16: video_16, 32: video_32 },
   videoFile: { 16: video_file_16, 32: video_file_32 },
   volume: { 16: volume_16, 32: volume_32 },
