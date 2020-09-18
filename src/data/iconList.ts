@@ -10,7 +10,6 @@ export type IconList = { [key in IconId]: IconUrls };
 const iconIds = [
   'addRemovePrograms',
   'binEmpty',
-  'test',
   'binFull',
   'bmpFile',
   'briefcase',
