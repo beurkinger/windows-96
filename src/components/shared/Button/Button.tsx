@@ -8,6 +8,7 @@ import style from './Button.css';
 interface Props {
   disabled?: boolean;
   fontWeight?: 'normal' | 'bold';
+  hasFocus?: boolean;
   iconId?: IconId;
   iconSize?: IconSize;
   isActive?: boolean;
@@ -22,6 +23,7 @@ interface Props {
 const Button: FunctionComponent<Props> = ({
   disabled = false,
   fontWeight = 'normal',
+  hasFocus = false,
   iconId,
   iconSize = 16,
   isActive = false,
@@ -33,9 +35,9 @@ const Button: FunctionComponent<Props> = ({
   type = 'button',
 }: Props) => (
   <button
-    className={`${style.button} ${isActive ? style.active : ''} ${
-      inTaskbar ? style.inTaskbar : ''
-    } ${noOutline ? style.noOutline : ''}`}
+    className={`${style.button} ${hasFocus ? style.focus : ''} ${
+      isActive ? style.active : ''
+    } ${inTaskbar ? style.inTaskbar : ''} ${noOutline ? style.noOutline : ''}`}
     disabled={disabled}
     onClick={onClick}
     type={type}

@@ -8,6 +8,11 @@
     padding: 2px 11px 0 13px;
 }
 
+.button.focus {
+    outline: 1px dotted #000000;
+    outline-offset: -4px;
+}
+
 .button.inTaskbar {
     min-height: 22px;
     height: 22px;
