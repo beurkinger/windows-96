@@ -14,5 +14,5 @@
   width: 21px;
   height: calc(100% - 6px);
   content: '';
-  background: var(--dialog-gray) url('../../../assets//img/various/start-menu-logo.png') no-repeat left bottom;
+  background: var(--dialog-gray) url('../../../assets//img/interface/start-menu-logo.png') no-repeat left bottom;
 }
