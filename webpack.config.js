@@ -66,6 +66,10 @@ module.exports = (_, argv) => {
             },
           ],
         },
+        {
+          test: /\.txt$/,
+          use: 'raw-loader',
+        },
       ],
     },
     plugins: [
