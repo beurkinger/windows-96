@@ -29,12 +29,14 @@
 .taskButtonsWrapper {
     flex: 1 1 auto;
     display: flex;
+    min-width: 100px;;
     padding: 0 2px;
 }
 
 .taskButtonsWrapper button {
     flex: 1 1 0;
     margin-right: 4px;
+    min-width: 20px;
     max-width: 160px;
 }
 
