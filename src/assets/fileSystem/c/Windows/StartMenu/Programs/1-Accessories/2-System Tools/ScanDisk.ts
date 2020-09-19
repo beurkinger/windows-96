@@ -1,5 +1,5 @@
 const infos = {
-  appId: 'scanDisk',
+  appId: 'scandisk',
 };
 
 export default infos;

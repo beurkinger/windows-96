@@ -30,6 +30,6 @@ const fileTypeList: FileTypeList = {
   videoFile: { appId: 'mediaPlayer', id: 'videoFile', iconId: 'videoFile' },
   waveFile: { appId: 'mediaPlayer', id: 'waveFile', iconId: 'waveFile' },
   wordpadDoc: { appId: 'wordpad', id: 'wordpadDoc', iconId: 'wordpadDoc' },
-};
+} as const;
 
 export default fileTypeList;

@@ -3,6 +3,7 @@ import { appList } from '../data/appList';
 import fileTypeList from '../data/fileTypeList';
 import { OptionType } from '../components/shared/MenuOption/MenuOption';
 import { getDirFromPath, getFileFromPath } from './FileSystemUtils';
+import { fileSystem } from '../data/fileSystem';
 
 export const getProgramsMenuOptions = (item: FileSystemItem): OptionType => {
   // If App
@@ -31,9 +32,11 @@ export const getProgramsMenuOptions = (item: FileSystemItem): OptionType => {
       iconId: item.iconId,
       value: {
         appId: item.toAppId,
-        workingDir: item.dirPath ? getDirFromPath(item.dirPath) : undefined,
+        workingDir: item.dirPath
+          ? getDirFromPath(item.dirPath, fileSystem)
+          : undefined,
         workingFile: item.filePath
-          ? getFileFromPath(item.filePath) ?? undefined
+          ? getFileFromPath(item.filePath, fileSystem) ?? undefined
           : undefined,
       },
     };

@@ -1,11 +1,12 @@
 import { h, FunctionComponent } from 'preact';
 
 import { ShellItem } from '../../../types/ShellItems';
-import { AppProps } from '../../../data/appList';
 import fileTypeList from '../../../data/fileTypeList';
+import { fileSystem } from '../../../data/fileSystem';
 import { getDirFromPath } from '../../../utils/FileSystemUtils';
 import useShellFilesState from '../../../hooks/useShellFilesState';
 import FileGrid from '../../shared/FileGrid/FileGrid';
+import { AppProps } from '../../../data/appList';
 
 import style from './Desktop.css';
 
@@ -18,7 +19,7 @@ const Desktop: FunctionComponent<Props> = ({
   openApp,
 }: Props) => {
   const { files, focusOnFile, removeFocus } = useShellFilesState(
-    getDirFromPath('c:/Windows/Desktop')
+    getDirFromPath('c:/Windows/Desktop', fileSystem)
   );
 
   const handleOnDblClickFile = (item: ShellItem) => {

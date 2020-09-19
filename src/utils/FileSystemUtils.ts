@@ -1,22 +1,38 @@
+import { AppId, appList } from '../data/appList';
+import { IconId, iconList } from '../data/iconList';
 import {
+  FileSystemApp,
   FileSystemDir,
   FileSystemFile,
   FileSystemItem,
+  FileSystemShortcut,
 } from '../types/FileSystemItems';
-import fileSystem from '../data/fileSystem';
+import { getFileTypeIdFromFileExtension } from './FileTypeUtils';
 
 export const getDirFromPath = (
   path: string,
-  currentDirNode: FileSystemDir = fileSystem
+  currentDirNode: FileSystemDir
 ): FileSystemDir => {
   const pathArray = path.split('/').filter((p) => p.length);
 
-  if (pathArray.length === 0 || !(pathArray[0] in currentDirNode.dir)) {
+  if (pathArray.length === 0) {
+    return currentDirNode;
+  }
+
+  if (!(pathArray[0] in currentDirNode.dir)) {
+    console.error(
+      `"Folder "${pathArray[0]}" doesn't exist in "${currentDirNode.name}"`
+    );
     return currentDirNode;
   }
 
   const nextNode = currentDirNode.dir[pathArray[0]];
-  if (!('dir' in nextNode)) return currentDirNode;
+  if (!('dir' in nextNode) || !('name' in nextNode)) {
+    console.error(
+      `"Item "${pathArray[0]}" in "${currentDirNode.name}" is not a folder.`
+    );
+    return currentDirNode;
+  }
 
   const [, ...nextPathArray] = pathArray;
   const nextPath = nextPathArray.join('/');
@@ -26,7 +42,7 @@ export const getDirFromPath = (
 
 export const getFileFromPath = (
   path: string,
-  currentNode: FileSystemItem = fileSystem
+  currentNode: FileSystemItem
 ): FileSystemFile | null => {
   const pathArray = path.split('/').filter((p) => p.length);
 
@@ -45,4 +61,137 @@ export const getFileFromPath = (
   const nextPath = nextPathArray.join('/');
 
   return getFileFromPath(nextPath, nextNode);
+};
+
+type ItemContent =
+  | string
+  | {
+      appId?: AppId;
+      dirPath?: string;
+      filePath?: string;
+      iconId?: IconId;
+      name?: string;
+      toAppId?: AppId;
+    };
+
+export const createFs = (
+  r: __WebpackModuleApi.RequireContext
+): FileSystemDir => {
+  const fs: FileSystemDir = {
+    dir: {},
+    name: 'My Computer',
+    iconId: 'myComputer',
+  };
+  r.keys().forEach((key) => {
+    const path = key.substring(2).split('/');
+    const file = r(key);
+    const content =
+      typeof file === 'object' && 'default' in file ? file.default : file ?? '';
+    addItemToFs(path, content, fs);
+  });
+  return fs;
+};
+
+const addItemToFs = (
+  path: string[],
+  content: ItemContent,
+  fsNode = {} as FileSystemDir
+): void => {
+  const pathLength = path.length;
+  let currentFsNode = fsNode;
+  path.forEach((currentPath, i) => {
+    // If end of path and object
+    if (i + 1 === pathLength) {
+      if (content && typeof content === 'object') {
+        // If Dir infos
+        if (currentPath === 'info.ts') {
+          updateFsDirInfos(currentFsNode, content);
+        }
+        // If App
+        if ('appId' in content) {
+          currentFsNode.dir[currentPath] = getFsApp(
+            content as { appId: string }
+          );
+        }
+        // If shortcut
+        if ('toAppId' in content && 'iconId' in content && 'name' in content) {
+          currentFsNode.dir[currentPath] = getFsShortcut(
+            content as {
+              toAppId: string;
+              iconId: string;
+              name: string;
+              filePath?: string;
+              dirPath?: string;
+            }
+          );
+        }
+      }
+      // If file
+      if (typeof content === 'string') {
+        currentFsNode.dir[currentPath] = getFsFile(content, currentPath);
+      }
+      return;
+    }
+
+    // If dir
+    if (!(currentPath in currentFsNode.dir)) {
+      const newDir: FileSystemDir = {
+        dir: {},
+        name: currentPath,
+      };
+      currentFsNode.dir[currentPath] = newDir;
+    }
+    currentFsNode = currentFsNode.dir[currentPath] as FileSystemDir;
+  });
+};
+
+const updateFsDirInfos = (
+  fsDir: FileSystemDir,
+  content: { iconId?: string; name?: string }
+): void => {
+  if (content.iconId && !(content.iconId in iconList)) {
+    console.error(`Icon Id "${content.iconId}" doesn't exist in Icon List`);
+  }
+  fsDir.iconId = (content.iconId ?? fsDir.iconId) as IconId;
+  fsDir.name = content.name ?? fsDir.name;
+};
+
+const getFsApp = (content: { appId?: string }): FileSystemApp => {
+  if (content.appId && !(content.appId in appList)) {
+    console.error(`Icon Id "${content.appId}" doesn't exist in App List`);
+  }
+  return {
+    appId: content.appId as AppId,
+  };
+};
+
+const getFsFile = (content: string, currentPath: string): FileSystemFile => {
+  const [fileName, fileExtension] = currentPath.split('.');
+  return {
+    content,
+    fileTypeId: getFileTypeIdFromFileExtension(fileExtension),
+    name: fileName,
+  };
+};
+
+const getFsShortcut = (content: {
+  toAppId: string;
+  iconId: string;
+  name: string;
+  filePath?: string;
+  dirPath?: string;
+}): FileSystemShortcut => {
+  if (content.iconId && !(content.iconId in appList)) {
+    console.error(`Icon Id "${content.iconId}" doesn't exist in Icon List`);
+  }
+  if (content.toAppId && !(content.toAppId in appList)) {
+    console.error(`App Id "${content.toAppId}" doesn't exist in App List`);
+  }
+  return {
+    dirPath: content.dirPath,
+    filePath: content.filePath,
+    iconId: content.iconId as IconId,
+    name: content.name,
+    toAppId: content.toAppId as AppId,
+  };
 };
