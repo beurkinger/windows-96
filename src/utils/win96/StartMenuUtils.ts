@@ -1,9 +1,9 @@
-import { FileSystemItem } from '../types/FileSystemItems';
-import { appList } from '../data/appList';
-import fileTypeList from '../data/fileTypeList';
-import { OptionType } from '../components/shared/MenuOption/MenuOption';
+import { FileSystemItem } from '../../types/FileSystem';
+import { appList } from '../../data/appList';
+import fileTypeList from '../../data/fileTypeList';
+import { OptionType } from '../../components/shared/MenuOption/MenuOption';
 import { getDirFromPath, getFileFromPath } from './FileSystemUtils';
-import { fileSystem } from '../data/fileSystem';
+import { fileSystem } from '../../data/fileSystem';
 
 export const getProgramsMenuOptions = (item: FileSystemItem): OptionType => {
   // If App

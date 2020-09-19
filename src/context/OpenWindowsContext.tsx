@@ -1,6 +1,6 @@
 import { createContext } from 'preact';
 
-import { FileSystemDir, FileSystemFile } from '../types/FileSystemItems';
+import { FileSystemDir, FileSystemFile } from '../types/FileSystem';
 import { AppId, App } from '../data/appList';
 import { IconId } from '../data/iconList';
 

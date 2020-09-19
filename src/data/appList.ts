@@ -1,4 +1,4 @@
-import { FileSystemDir, FileSystemFile } from '../types/FileSystemItems';
+import { FileSystemDir, FileSystemFile } from '../types/FileSystem';
 import { IconId } from './iconList';
 
 export interface AppProps {

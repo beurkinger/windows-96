@@ -1,4 +1,4 @@
-import { FileTypeId } from '../data/fileTypeList';
+import { FileTypeId } from '../../data/fileTypeList';
 
 export const getFileTypeIdFromFileExtension = (
   fileExtension: string

@@ -1,12 +1,12 @@
-import { AppId, appList } from '../data/appList';
-import { IconId, iconList } from '../data/iconList';
+import { AppId, appList } from '../../data/appList';
+import { IconId, iconList } from '../../data/iconList';
 import {
   FileSystemApp,
   FileSystemDir,
   FileSystemFile,
   FileSystemItem,
   FileSystemShortcut,
-} from '../types/FileSystemItems';
+} from '../../types/FileSystem';
 import { getFileTypeIdFromFileExtension } from './FileTypeUtils';
 
 export const getDirFromPath = (
@@ -63,17 +63,6 @@ export const getFileFromPath = (
   return getFileFromPath(nextPath, nextNode);
 };
 
-type ItemContent =
-  | string
-  | {
-      appId?: AppId;
-      dirPath?: string;
-      filePath?: string;
-      iconId?: IconId;
-      name?: string;
-      toAppId?: AppId;
-    };
-
 export const createFs = (
   r: __WebpackModuleApi.RequireContext
 ): FileSystemDir => {
@@ -94,14 +83,15 @@ export const createFs = (
 
 const addItemToFs = (
   path: string[],
-  content: ItemContent,
+  content: string | Record<string, unknown>,
   fsNode = {} as FileSystemDir
 ): void => {
   const pathLength = path.length;
   let currentFsNode = fsNode;
   path.forEach((currentPath, i) => {
-    // If end of path and object
+    // If end of path
     if (i + 1 === pathLength) {
+      // If content is an object
       if (content && typeof content === 'object') {
         // If Dir infos
         if (currentPath === 'info.ts') {
@@ -113,7 +103,7 @@ const addItemToFs = (
             content as { appId: string }
           );
         }
-        // If shortcut
+        // If Shortcut
         if ('toAppId' in content && 'iconId' in content && 'name' in content) {
           currentFsNode.dir[currentPath] = getFsShortcut(
             content as {
@@ -126,7 +116,7 @@ const addItemToFs = (
           );
         }
       }
-      // If file
+      // If content is a File
       if (typeof content === 'string') {
         currentFsNode.dir[currentPath] = getFsFile(content, currentPath);
       }

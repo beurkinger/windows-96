@@ -1,6 +1,6 @@
 import { appList } from './appList';
-import { FileSystemDir } from '../types/FileSystemItems';
-import { createFs, getDirFromPath } from '../utils/FileSystemUtils';
+import { FileSystemDir } from '../types/FileSystem';
+import { createFs, getDirFromPath } from '../utils/win96/FileSystemUtils';
 
 const floppyDriveFs = createFs(
   require.context('../assets/fileSystem/a', true, /\.(png|ts|txt)$/)

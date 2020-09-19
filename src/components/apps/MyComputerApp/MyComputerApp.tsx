@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 
-import { ShellItem } from '../../../types/ShellItems';
+import { ShellItem } from '../../../types/Shell';
 import { AppProps } from '../../../data/appList';
 import fileSystem from '../../../data/fileSystem';
 import fileTypeList from '../../../data/fileTypeList';

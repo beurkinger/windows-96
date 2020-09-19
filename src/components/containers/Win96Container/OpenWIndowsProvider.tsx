@@ -2,7 +2,7 @@ import { h, FunctionComponent, ComponentChildren } from 'preact';
 import { useState } from 'preact/hooks';
 import { v4 as uuid } from 'uuid';
 
-import { FileSystemDir, FileSystemFile } from '../../../types/FileSystemItems';
+import { FileSystemDir, FileSystemFile } from '../../../types/FileSystem';
 import { App, appList } from '../../../data/appList';
 import { IconId } from '../../../data/iconList';
 import OpenWindowsContext, {

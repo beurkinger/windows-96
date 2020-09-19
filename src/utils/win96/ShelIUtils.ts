@@ -4,18 +4,15 @@ import {
   FileSystemApp,
   FileSystemDir,
   FileSystemFile,
-} from '../types/FileSystemItems';
-import { ShellItem } from '../types/ShellItems';
-import { appList } from '../data/appList';
-import fileTypeList from '../data/fileTypeList';
+} from '../../types/FileSystem';
+import { ShellItem } from '../../types/Shell';
+import { appList } from '../../data/appList';
+import fileTypeList from '../../data/fileTypeList';
 
 const getShellApp = (
   fileSystemApp: FileSystemApp,
   hasSoftFocus: boolean
 ): ShellItem => {
-  if (!(fileSystemApp.appId in appList)) {
-    console.error(` App with id "${fileSystemApp.appId}" doesn't exist.`);
-  }
   return {
     appId: appList[fileSystemApp.appId].id,
     id: uuid(),

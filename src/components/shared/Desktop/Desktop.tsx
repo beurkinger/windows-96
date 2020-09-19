@@ -1,9 +1,9 @@
 import { h, FunctionComponent } from 'preact';
 
-import { ShellItem } from '../../../types/ShellItems';
+import { ShellItem } from '../../../types/Shell';
 import fileTypeList from '../../../data/fileTypeList';
 import { fileSystem } from '../../../data/fileSystem';
-import { getDirFromPath } from '../../../utils/FileSystemUtils';
+import { getDirFromPath } from '../../../utils/win96/FileSystemUtils';
 import useShellFilesState from '../../../hooks/useShellFilesState';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 import { AppProps } from '../../../data/appList';

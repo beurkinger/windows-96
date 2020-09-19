@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact';
-import { ShellItem } from '../../../types/ShellItems';
+import { ShellItem } from '../../../types/Shell';
 
 import Icon from '../Icon/Icon';
 
