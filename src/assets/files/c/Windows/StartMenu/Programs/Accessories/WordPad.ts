@@ -1,5 +1,5 @@
 const infos = {
-  appId: 'wordPad',
+  appId: 'wordpad',
 };
 
 export default infos;

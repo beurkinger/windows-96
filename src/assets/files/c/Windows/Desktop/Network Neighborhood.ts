@@ -1,5 +1,5 @@
 const infos = {
-  appId: 'cdPlayer',
+  appId: 'networkNeighborhood',
 };
 
 export default infos;

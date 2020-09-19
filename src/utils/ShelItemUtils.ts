@@ -12,15 +12,20 @@ import fileTypeList from '../data/fileTypeList';
 const getShellApp = (
   fileSystemApp: FileSystemApp,
   hasSoftFocus: boolean
-): ShellItem => ({
-  appId: appList[fileSystemApp.appId].id,
-  id: uuid(),
-  iconId: appList[fileSystemApp.appId].iconId,
-  hasFocus: false,
-  hasSoftFocus,
-  name: appList[fileSystemApp.appId].name,
-  type: 'app',
-});
+): ShellItem => {
+  if (!(fileSystemApp.appId in appList)) {
+    console.error(` App with id "${fileSystemApp.appId}" doesn't exist.`);
+  }
+  return {
+    appId: appList[fileSystemApp.appId].id,
+    id: uuid(),
+    iconId: appList[fileSystemApp.appId].iconId,
+    hasFocus: false,
+    hasSoftFocus,
+    name: appList[fileSystemApp.appId].name,
+    type: 'app',
+  };
+};
 
 const getShellDir = (
   fileSystemDir: FileSystemDir,

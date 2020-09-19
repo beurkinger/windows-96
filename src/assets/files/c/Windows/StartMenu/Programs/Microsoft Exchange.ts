@@ -1,5 +1,5 @@
 const infos = {
-  appId: 'msExchange',
+  appId: 'exchange',
 };
 
 export default infos;

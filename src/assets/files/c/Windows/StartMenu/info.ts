@@ -1,5 +1,3 @@
-const infos = {
-  iconId: 'programs',
-};
+const infos = {};
 
 export default infos;

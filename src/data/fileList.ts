@@ -23,8 +23,9 @@ function importFiles() {
   return importedFiles;
 }
 
-export const createFs = (): FileSystemDir => {
-  const r = require.context('../assets/files/c', true, /\.(png|ts|txt)$/);
+export const createFs = (
+  r: __WebpackModuleApi.RequireContext
+): FileSystemDir => {
   const fs: FileSystemDir = {
     dir: {},
     name: 'My Computer',
@@ -37,7 +38,6 @@ export const createFs = (): FileSystemDir => {
       typeof file === 'object' && 'default' in file ? file.default : file ?? '';
     addFileToFs(path, content, fs);
   });
-  console.log(fs);
   return fs;
 };
 
@@ -59,43 +59,41 @@ const addFileToFs = (
   let currentFsNode = fsNode;
   path.forEach((currentPath, i) => {
     // If end of path and object
-    if (i + 1 === pathLength && content && typeof content === 'object') {
-      // If Dir infos
-      if (currentPath === 'info.ts') {
-        console.log(content);
-        currentFsNode.iconId = content.iconId ?? currentFsNode.iconId;
-        currentFsNode.name = content.name ?? currentFsNode.name;
-      }
-      // If App
-      if ('appId' in content) {
-        const newApp: FileSystemApp = {
-          appId: content.appId as AppId,
-        };
-        currentFsNode.dir[currentPath] = newApp;
-      }
-      // If shortcut
-      if ('toAppId' in content && 'iconId' in content && 'name' in content) {
-        const newApp: FileSystemShortcut = {
-          dirPath: content.dirPath,
-          filePath: content.filePath,
-          iconId: content.iconId as IconId,
-          name: content.name as string,
-          toAppId: content.toAppId as AppId,
-        };
-        currentFsNode.dir[currentPath] = newApp;
-      }
-      return;
-    }
-
-    // If file
     if (i + 1 === pathLength) {
-      if (typeof content !== 'string') return;
-      const newFile: FileSystemFile = {
-        content,
-        fileTypeId: 'notepadDoc',
-        name: currentPath,
-      };
-      currentFsNode.dir[currentPath] = newFile;
+      if (content && typeof content === 'object') {
+        // If Dir infos
+        if (currentPath === 'info.ts') {
+          currentFsNode.iconId = content.iconId ?? currentFsNode.iconId;
+          currentFsNode.name = content.name ?? currentFsNode.name;
+        }
+        // If App
+        if ('appId' in content) {
+          const newApp: FileSystemApp = {
+            appId: content.appId as AppId,
+          };
+          currentFsNode.dir[currentPath] = newApp;
+        }
+        // If shortcut
+        if ('toAppId' in content && 'iconId' in content && 'name' in content) {
+          const newApp: FileSystemShortcut = {
+            dirPath: content.dirPath,
+            filePath: content.filePath,
+            iconId: content.iconId as IconId,
+            name: content.name as string,
+            toAppId: content.toAppId as AppId,
+          };
+          currentFsNode.dir[currentPath] = newApp;
+        }
+      }
+      // If file
+      if (typeof content === 'string') {
+        const newFile: FileSystemFile = {
+          content,
+          fileTypeId: 'notepadDoc',
+          name: currentPath,
+        };
+        currentFsNode.dir[currentPath] = newFile;
+      }
       return;
     }
 

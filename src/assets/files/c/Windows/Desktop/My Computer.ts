@@ -1,5 +1,5 @@
 const infos = {
-  appId: 'calc',
+  appId: 'myComputer',
 };
 
 export default infos;

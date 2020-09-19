@@ -1,5 +1,5 @@
 const infos = {
-  appId: 'volumeControl',
+  appId: 'briefcase',
 };
 
 export default infos;
