@@ -14,7 +14,7 @@ const getShellApp = (
   hasSoftFocus: boolean
 ): ShellItem => {
   return {
-    appId: appList[fileSystemApp.appId].id,
+    appId: fileSystemApp.appId,
     id: uuid(),
     iconId: appList[fileSystemApp.appId].iconId,
     hasFocus: false,
@@ -28,7 +28,7 @@ const getShellDir = (
   fileSystemDir: FileSystemDir,
   hasSoftFocus: boolean
 ): ShellItem => ({
-  fileSystemNode: fileSystemDir,
+  fileSystemDir,
   id: uuid(),
   iconId: fileSystemDir.iconId ?? 'folderClosed',
   hasFocus: false,
@@ -41,7 +41,7 @@ const getShellFile = (
   fileSystemFile: FileSystemFile,
   hasSoftFocus: boolean
 ): ShellItem => ({
-  fileSystemNode: fileSystemFile,
+  fileSystemFile,
   fileTypeId: fileSystemFile.fileTypeId,
   id: uuid(),
   iconId: fileTypeList[fileSystemFile.fileTypeId].iconId,

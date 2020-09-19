@@ -25,12 +25,12 @@ const Desktop: FunctionComponent<Props> = ({
   const handleOnDblClickFile = (item: ShellItem) => {
     if (item.type === 'app') openApp({ appId: item.appId });
     if (item.type === 'dir') {
-      openApp({ appId: 'myComputer', workingDir: item.fileSystemNode });
+      openApp({ appId: 'myComputer', workingDir: item.fileSystemDir });
     }
     if (item.type === 'file') {
       openApp({
         appId: fileTypeList[item.fileTypeId].appId,
-        workingFile: item.fileSystemNode,
+        workingFile: item.fileSystemFile,
       });
     }
   };

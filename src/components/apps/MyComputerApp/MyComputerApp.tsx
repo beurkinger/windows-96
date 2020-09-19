@@ -5,6 +5,7 @@ import { AppProps } from '../../../data/appList';
 import fileSystem from '../../../data/fileSystem';
 import fileTypeList from '../../../data/fileTypeList';
 import useShellFilesState from '../../../hooks/useShellFilesState';
+
 import Countour from '../../shared/Countour/Countour';
 import FileGrid from '../../shared/FileGrid/FileGrid';
 import MenuBar from '../../shared/MenuBar/MenuBar';
@@ -28,12 +29,12 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
   const handleOnDblClickFile = (file: ShellItem) => {
     if (file.type === 'app') openApp({ appId: file.appId });
     if (file.type === 'dir') {
-      openApp({ appId: 'myComputer', workingDir: file.fileSystemNode });
+      openApp({ appId: 'myComputer', workingDir: file.fileSystemDir });
     }
     if (file.type === 'file') {
       openApp({
         appId: fileTypeList[file.fileTypeId].appId,
-        workingFile: file.fileSystemNode,
+        workingFile: file.fileSystemFile,
       });
     }
   };

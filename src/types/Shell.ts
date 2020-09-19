@@ -17,7 +17,7 @@ export interface ShellApp {
 }
 
 export interface ShellDir {
-  fileSystemNode: FileSystemDir;
+  fileSystemDir: FileSystemDir;
   hasFocus: boolean;
   hasSoftFocus: boolean;
   iconId: IconId;
@@ -27,7 +27,7 @@ export interface ShellDir {
 }
 
 export interface ShellFile {
-  fileSystemNode: FileSystemFile;
+  fileSystemFile: FileSystemFile;
   fileTypeId: FileTypeId;
   iconId: IconId;
   id: string;
