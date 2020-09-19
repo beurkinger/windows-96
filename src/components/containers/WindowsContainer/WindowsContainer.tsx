@@ -5,19 +5,51 @@ import { AppId, AppProps } from '../../../data/appList';
 import OpenWindowsContext, {
   OpenWindow,
 } from '../../../context/OpenWindowsContext';
-import ExplorerApp from '../../apps/ExplorerApp/ExplorerApp';
 import MyComputerApp from '../../apps/MyComputerApp/MyComputerApp';
 import NotepadApp from '../../apps/NotepadApp/NotepadApp';
 import QuickViewApp from '../../apps/QuickViewApp/QuickViewApp';
+import VoidApp from '../../apps/VoidApp/VoidApp';
 import Window from '../../shared/Window/Window';
 
 import style from './WindowsContainer.css';
 
-const components: Partial<{ [key in AppId]: FunctionComponent<AppProps> }> = {
-  explorer: ExplorerApp,
+const components: { [key in AppId]: FunctionComponent<AppProps> } = {
+  binEmpty: VoidApp,
+  binFull: VoidApp,
+  briefcase: VoidApp,
+  calc: VoidApp,
+  cdDrive: VoidApp,
+  cdPlayer: VoidApp,
+  controlPanel: VoidApp,
+  defrag: VoidApp,
+  dialUpNetwork: VoidApp,
+  exchange: VoidApp,
+  explorer: VoidApp,
+  find: VoidApp,
+  findComputer: VoidApp,
+  findMsn: VoidApp,
+  floppyDrive: VoidApp,
+  hardDrive: VoidApp,
+  help: VoidApp,
+  hyperterminal: VoidApp,
+  mediaPlayer: VoidApp,
+  msn: VoidApp,
+  msDos: VoidApp,
+  msPaint: VoidApp,
   myComputer: MyComputerApp,
+  networkNeighborhood: VoidApp,
   notepad: NotepadApp,
+  phoneDialer: VoidApp,
+  printers: VoidApp,
+  register: VoidApp,
   quickView: QuickViewApp,
+  run: VoidApp,
+  scandisk: VoidApp,
+  shutdown: VoidApp,
+  soundRecorder: VoidApp,
+  taskbar: VoidApp,
+  volumeControl: VoidApp,
+  wordpad: VoidApp,
 };
 
 const WindowsContainer: FunctionComponent = () => {

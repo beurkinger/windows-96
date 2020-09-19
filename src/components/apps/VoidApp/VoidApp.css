@@ -1,0 +1,26 @@
+.voidApp {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px 20px 15px;
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    font-size: 11px;;
+    margin-bottom: 10px;
+}
+
+.message img {
+    margin-right: 20px;
+}
+
+.message p {
+    margin-bottom: 10px;
+}
