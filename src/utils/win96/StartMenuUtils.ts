@@ -42,15 +42,22 @@ export const getProgramsMenuOptions = (item: FileSystemItem): OptionType => {
     };
   // Else Dir
   const dirKeys = Object.keys(item.dir);
+  const subMenuOptions =
+    dirKeys.length > 0
+      ? dirKeys
+          .map((dirKey) => getProgramsMenuOptions(item.dir[dirKey]))
+          .sort((a, b) => {
+            if (a.subMenu && !b.subMenu) return -1;
+            if (!a.subMenu && b.subMenu) return 1;
+            return 0;
+          })
+      : [{ label: '(Empty)', value: '' }];
   return {
     label: item.name,
     iconId: item.iconId ?? 'folderClosed',
     value: '',
     subMenu: {
-      options:
-        dirKeys.length > 0
-          ? [dirKeys.map((dirKey) => getProgramsMenuOptions(item.dir[dirKey]))]
-          : [[{ label: '(Empty)', value: '' }]],
+      options: [subMenuOptions],
     },
   };
 };
