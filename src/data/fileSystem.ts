@@ -3,17 +3,17 @@ import { FileSystemDir } from '../types/FileSystem';
 import { createFs, getDirFromPath } from '../utils/win96/FileSystemUtils';
 
 const floppyDriveFs = createFs(
-  require.context('../assets/fileSystem/a', true, /\.(jpg|png|ts|txt)$/)
+  require.context('../assets/fileSystems/a', true, /\.(jpg|png|ts|txt)$/)
 );
 const cdDriveFs = createFs(
-  require.context('../assets/fileSystem/d', true, /\.(jpg|png|ts|txt)$/)
+  require.context('../assets/fileSystems/d', true, /\.(jpg|png|ts|txt)$/)
 );
 const hardDriveFs = createFs(
-  require.context('../assets/fileSystem/c', true, /\.(jpg|png|ts|txt)$/)
+  require.context('../assets/fileSystems/c', true, /\.(jpg|png|ts|txt)$/)
 );
 const controlPanelFs = createFs(
   require.context(
-    '../assets/fileSystem/Control Panel',
+    '../assets/fileSystems/Control Panel',
     true,
     /\.(jpg|png|ts|txt)$/
   )
