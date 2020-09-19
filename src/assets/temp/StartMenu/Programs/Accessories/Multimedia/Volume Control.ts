@@ -1,5 +1,5 @@
 const infos = {
-  iconId: 'programs',
+  appId: 'volumeControl',
 };
 
 export default infos;

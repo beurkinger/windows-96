@@ -1,5 +1,5 @@
 const infos = {
-  iconId: 'programs',
+  appId: 'mediaPlayer',
 };
 
 export default infos;

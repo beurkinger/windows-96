@@ -1,5 +1,5 @@
 const infos = {
-  iconId: 'programs',
+  appId: 'defrag',
 };
 
 export default infos;

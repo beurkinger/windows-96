@@ -1,6 +1,8 @@
 import { appList } from './appList';
-import { fileList } from './fileList';
+import { createFs, fileList } from './fileList';
 import { FileSystemDir } from '../types/FileSystemItems';
+
+const testFs = createFs();
 
 const floppyDriveFs = {
   name: '3½ Floppy (A:)',
@@ -380,6 +382,7 @@ export const fileSystem = {
   dir: {
     'a:': floppyDriveFs,
     'c:': hardDriveFs,
+    'e:': testFs,
     'd:': cdDriveFs,
     controlPanel: controlPanelFs,
     printers: {

@@ -1,5 +1,5 @@
 const infos = {
-  iconId: 'programs',
+  appId: 'explorer',
 };
 
 export default infos;

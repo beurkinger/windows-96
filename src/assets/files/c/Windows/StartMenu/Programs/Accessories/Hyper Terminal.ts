@@ -1,5 +1,5 @@
 const infos = {
-  iconId: 'programs',
+  appId: 'hyperterminal',
 };
 
 export default infos;
