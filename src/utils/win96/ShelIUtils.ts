@@ -51,7 +51,10 @@ const getShellFile = (
   type: 'file',
 });
 
-export const getShellItems = (fileSystemDir: FileSystemDir): ShellItem[] => {
+export const getShellItems = (
+  fileSystemDir: FileSystemDir,
+  sorted = true
+): ShellItem[] => {
   const gridFiles = Object.values(fileSystemDir.dir).map((item, i) => {
     // If App
     if ('appId' in item) {
@@ -66,6 +69,15 @@ export const getShellItems = (fileSystemDir: FileSystemDir): ShellItem[] => {
     // Else Dir
     return getShellDir(item as FileSystemDir, i === 0);
   });
+
+  if (sorted) {
+    const locale = new Intl.Collator('en', { sensitivity: 'base' });
+    gridFiles.sort((a, b) => {
+      if (a.type === 'dir' && b.type !== 'dir') return -1;
+      if (a.type !== 'dir' && b.type === 'dir') return 1;
+      return locale.compare(a.name, b.name);
+    });
+  }
 
   return gridFiles;
 };

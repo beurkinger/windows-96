@@ -23,7 +23,8 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
   workingDir,
 }: AppProps) => {
   const { files, focusOnFile, removeFocus } = useShellFilesState(
-    workingDir ?? fileSystem
+    workingDir ?? fileSystem,
+    !!workingDir
   );
 
   const handleOnDblClickFile = (file: ShellItem) => {

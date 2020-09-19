@@ -5,7 +5,8 @@ import { ShellItem } from '../types/Shell';
 import { getShellItems } from '../utils/win96/ShelIUtils';
 
 export const useShellFilesState = (
-  workingDir: FileSystemDir
+  workingDir: FileSystemDir,
+  sorted = true
 ): {
   files: ShellItem[];
   focusOnFile: (fileId: string) => void;
@@ -14,7 +15,7 @@ export const useShellFilesState = (
   const [files, setFiles] = useState<ShellItem[]>([]);
 
   useEffect(() => {
-    setFiles(() => getShellItems(workingDir));
+    setFiles(() => getShellItems(workingDir, sorted));
   }, []);
 
   const focusOnFile = (fileId: string) => {
