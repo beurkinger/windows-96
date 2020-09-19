@@ -1,7 +1,5 @@
 import { appList } from './appList';
-import clouds from '../assets/img/various/clouds.png';
-import forest from '../assets/img/various/forest.png';
-import windowsReadme from './fileSystem/myComputer/c/windows/readme';
+import { fileList } from './fileList';
 import { FileSystemDir } from '../types/FileSystemItems';
 
 const floppyDriveFs = {
@@ -250,17 +248,17 @@ export const hardDriveFs = {
           dir: {},
         },
         clouds: {
-          content: clouds,
+          content: fileList['c:/windows/clouds.png'],
           name: 'Clouds',
           fileTypeId: 'bmpFile',
         },
         forest: {
-          content: forest,
+          content: fileList['c:/windows/forest.png'],
           name: 'Forest',
           fileTypeId: 'bmpFile',
         },
         readme: {
-          content: windowsReadme,
+          content: fileList['c:/windows/readme.txt'],
           name: 'Readme',
           fileTypeId: 'notepadDoc',
         },

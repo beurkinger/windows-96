@@ -1,4 +1,4 @@
-const text = `--------------------------------------------------------
+--------------------------------------------------------
 Microsoft Windows 96 README for Microsoft Windows
               August 1996
 --------------------------------------------------------
@@ -32,7 +32,7 @@ IF YOU HAVEN'T INSTALLED WINDOWS 96
 Additional setup information is available in Setup.txt. You can view
 Setup.txt using Notepad with Windows 3.1. You can find the file on
 Windows 96 installation disk 1. If you purchased Windows 96 on a CD-
-ROM, you can find Setup.txt in the \\Win96 directory.
+ROM, you can find Setup.txt in the \Win96 directory.
 
 
 LIST OF WINDOWS 96 README FILES
@@ -115,7 +115,7 @@ HOW TO READ README FILES
 ========================
 
 When you install Windows 96, all the readme files are copied to the
-\\Windows directory.
+\Windows directory.
 
 To open a readme file after you install Windows 96:
 1. Click the Start menu.
@@ -132,13 +132,13 @@ If you purchased Windows 96 on floppy disks:
 1. Insert Disk 1 into drive A (or whatever drive you prefer).
 2. At the MS-DOS command prompt, type the following:
 
-a:extract.exe /a /l c:\\windows win96_02.cab filename.txt
+a:extract.exe /a /l c:\windows win96_02.cab filename.txt
 
 For example, if you want to open General.txt, you would type:
 
-a:extract.exe /a /l c:\\windows win96_02.cab general.txt
+a:extract.exe /a /l c:\windows win96_02.cab general.txt
 
-3. Change to the \\Windows directory.
+3. Change to the \Windows directory.
 4. At the command prompt, type the following:
 
 edit filename.txt
@@ -149,11 +149,11 @@ If you purchased Windows 96 on a CD-ROM:
 2. Change to the \Win96 directory on your CD-ROM drive.
 2. At the MS-DOS command prompt, type the following:
 
-extract.exe /a /l c:\\windows win96_02.cab filename.txt
+extract.exe /a /l c:\windows win96_02.cab filename.txt
 
 For example, if you want to open General.txt, you would type:
 
-extract.exe /a /l c:\\windows win96_02.cab general.txt
+extract.exe /a /l c:\windows win96_02.cab general.txt
 
 3. Change to the Windows directory on your C drive.
 4. At the command prompt, type the following:
@@ -208,6 +208,4 @@ Control Panel.
 3. On the Install/Uninstall tab, click Old Windows 3.x/MS-DOS System
 Files, and then click Remove.
 
-You will no longer be able to uninstall Windows 96.`;
-
-export default text;
+You will no longer be able to uninstall Windows 96.
