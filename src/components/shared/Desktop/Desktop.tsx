@@ -19,7 +19,8 @@ const Desktop: FunctionComponent<Props> = ({
   openApp,
 }: Props) => {
   const { files, focusOnFile, removeFocus } = useShellFilesState(
-    getDirFromPath('c:/Windows/Desktop', fileSystem)
+    getDirFromPath('c:/Windows/Desktop', fileSystem),
+    false
   );
 
   const handleOnDblClickFile = (item: ShellItem) => {
