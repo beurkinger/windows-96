@@ -24,7 +24,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
       id: uuid(),
       isMaximized: false,
       isMinimized: false,
-      size: { width: 100, height: 100 },
+      size: { x: 100, y: 100 },
       title: appList.myComputer.name,
       zIndex: 2,
     },
@@ -84,7 +84,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
           hasFocus: true,
           isMinimized: false,
           isMaximized: false,
-          size: { width: 100, height: 100 },
+          size: { x: 100, y: 100 },
           title,
           workingDir,
           workingFile,
@@ -140,6 +140,17 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
     });
   };
 
+  const resizeWindow = (
+    windowIndex: number,
+    size: { x: number; y: number }
+  ) => {
+    setOpenWindows((windows) => {
+      return windows.map((window, i) =>
+        i === windowIndex && !window.isMaximized ? { ...window, size } : window
+      );
+    });
+  };
+
   const unMaximizeWindow = (windowIndex: number) => {
     setOpenWindows((windows) => {
       return windows.map((window, i) =>
@@ -168,6 +179,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
         maximizeWindow,
         minimizeWindow,
         moveWindow,
+        resizeWindow,
         unMaximizeWindow,
         unMinimizeWindow,
         windows: openWindows,

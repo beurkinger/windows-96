@@ -12,7 +12,7 @@ export type OpenWindow = {
   id: string;
   isMaximized: boolean;
   isMinimized: boolean;
-  size: { width: number; height: number };
+  size: { x: number; y: number };
   title: string;
   workingDir?: FileSystemDir;
   workingFile?: FileSystemFile;
@@ -30,6 +30,7 @@ export interface ContextType {
   maximizeWindow: (windowIndex: number) => void;
   minimizeWindow: (windowIndex: number) => void;
   moveWindow: (windowIndex: number, coords: { x: number; y: number }) => void;
+  resizeWindow: (windowIndex: number, coords: { x: number; y: number }) => void;
   unMaximizeWindow: (windowIndex: number) => void;
   unMinimizeWindow: (windowIndex: number) => void;
   windows: OpenWindow[];
@@ -42,6 +43,7 @@ const initialValue: ContextType = {
   minimizeWindow: () => null,
   moveWindow: () => null,
   openApp: () => null,
+  resizeWindow: () => null,
   unMaximizeWindow: () => null,
   unMinimizeWindow: () => null,
   windows: [],

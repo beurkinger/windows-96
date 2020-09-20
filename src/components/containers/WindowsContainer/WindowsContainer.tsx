@@ -60,6 +60,7 @@ const WindowsContainer: FunctionComponent = () => {
     minimizeWindow,
     moveWindow,
     openApp,
+    resizeWindow,
     unMaximizeWindow,
     windows,
   } = useContext(OpenWindowsContext);
@@ -99,6 +100,7 @@ const WindowsContainer: FunctionComponent = () => {
               if (!window.isMaximized) focusOnWindow(i);
             }}
             onMoved={(coords) => moveWindow(i, coords)}
+            onResized={(size) => resizeWindow(i, size)}
             isInactive={!window.hasFocus}
             isMaximized={window.isMaximized}
             title={window.title}
