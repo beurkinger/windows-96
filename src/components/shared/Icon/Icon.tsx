@@ -1,6 +1,8 @@
 import { h, FunctionComponent } from 'preact';
 
-import { IconId, iconList } from '../../../data/iconList';
+import { IconId } from '../../../types/Icon';
+import { iconList } from '../../../data/iconList';
+
 import style from './Icon.css';
 
 interface Props {

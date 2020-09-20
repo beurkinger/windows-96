@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
+import { IconId, IconSize } from '../../../types/Icon';
 
-import { IconId, IconSize } from '../../../data/iconList';
 import Icon from '../Icon/Icon';
 
 import style from './Button.css';

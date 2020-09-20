@@ -3,9 +3,9 @@ import { useState } from 'preact/hooks';
 import { v4 as uuid } from 'uuid';
 
 import { App } from '../../../types/App';
+import { IconId } from '../../../types/Icon';
 import { FileSystemDir, FileSystemFile } from '../../../types/FileSystem';
 import { appList } from '../../../data/appList';
-import { IconId } from '../../../data/iconList';
 import OpenWindowsContext, {
   ContextType,
   OpenWindow,

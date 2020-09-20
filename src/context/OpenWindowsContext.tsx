@@ -1,8 +1,8 @@
 import { createContext } from 'preact';
 
-import { FileSystemDir, FileSystemFile } from '../types/FileSystem';
-import { IconId } from '../data/iconList';
 import { App, AppId } from '../types/App';
+import { FileSystemDir, FileSystemFile } from '../types/FileSystem';
+import { IconId } from '../types/Icon';
 
 export type OpenWindow = {
   app: App;

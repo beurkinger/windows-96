@@ -1,5 +1,5 @@
 import { AppId, appIds } from '../../types/App';
-import { IconId, iconList } from '../../data/iconList';
+import { IconId, iconIds } from '../../types/Icon';
 import {
   FileSystemApp,
   FileSystemDir,
@@ -139,7 +139,7 @@ const updateFsDirInfos = (
   fsDir: FileSystemDir,
   content: { iconId?: string; name?: string }
 ): void => {
-  if (content.iconId && !(content.iconId in iconList)) {
+  if (content.iconId && !(content.iconId in iconIds)) {
     console.error(`Icon Id "${content.iconId}" doesn't exist in Icon List`);
   }
   fsDir.iconId = (content.iconId ?? fsDir.iconId) as IconId;

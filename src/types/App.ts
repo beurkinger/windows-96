@@ -1,25 +1,5 @@
-import { IconId } from '../data/iconList';
 import { FileSystemDir, FileSystemFile } from './FileSystem';
-
-export interface AppProps {
-  openApp: (options: {
-    appId: AppId;
-    workingDir?: FileSystemDir;
-    workingFile?: FileSystemFile;
-  }) => void;
-  workingDir?: FileSystemDir;
-  workingFile?: FileSystemFile;
-}
-
-export type App = {
-  id: AppId;
-  iconId: IconId;
-  isDraggable?: boolean;
-  isResizeable?: boolean;
-  name: string;
-};
-
-export type AppList = { [key in AppId]: App };
+import { IconId } from './Icon';
 
 export const appIds = [
   'binEmpty',
@@ -61,3 +41,23 @@ export const appIds = [
 ] as const;
 
 export type AppId = typeof appIds[number];
+
+export type App = {
+  id: AppId;
+  iconId: IconId;
+  isDraggable?: boolean;
+  isResizeable?: boolean;
+  name: string;
+};
+
+export type AppList = { [key in AppId]: App };
+
+export interface AppProps {
+  openApp: (options: {
+    appId: AppId;
+    workingDir?: FileSystemDir;
+    workingFile?: FileSystemFile;
+  }) => void;
+  workingDir?: FileSystemDir;
+  workingFile?: FileSystemFile;
+}

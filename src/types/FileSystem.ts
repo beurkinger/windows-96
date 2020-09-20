@@ -1,6 +1,6 @@
 import { AppId } from './App';
 import { FileTypeId } from '../data/fileTypeList';
-import { IconId } from '../data/iconList';
+import { IconId } from './Icon';
 
 export type FileSystemItem =
   | FileSystemApp

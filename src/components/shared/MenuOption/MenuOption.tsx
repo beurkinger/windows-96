@@ -2,7 +2,7 @@ import { h, FunctionComponent } from 'preact';
 
 import { AppId } from '../../../types/App';
 import { FileSystemDir, FileSystemFile } from '../../../types/FileSystem';
-import { IconId } from '../../../data/iconList';
+import { IconId } from '../../../types/Icon';
 import Icon from '../Icon/Icon';
 import Menu from '../Menu/Menu';
 
