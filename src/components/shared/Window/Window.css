@@ -1,12 +1,23 @@
 .window {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .windowMain {
     flex: 1 1 auto;
 }
 
-.window, .windowMain {
+.windowMain {
     overflow: hidden;
+}
+
+.handle {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 24px;
+    height: 24px;
+    background: transparent url(../../../assets/img/interface/resize-handle-grip.png) no-repeat 7px 7px;
+    image-rendering: pixelated;
 }

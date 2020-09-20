@@ -8,21 +8,23 @@ import style from './Window.css';
 type Props = TitleBarProps & {
   children: ComponentChildren;
   coords?: { x: number; y: number };
-  height?: string;
+  isDraggable?: boolean;
+  isResizeable?: boolean;
   onMouseDown?: () => void;
   onMoved?: (coords: { x: number; y: number }) => void;
-  width?: string;
+  onResized?: (size: { x: number; y: number }) => void;
+  size?: { x: number; y: number };
   zIndex?: number;
 };
 
 const Window: FunctionComponent<Props> = ({
   coords,
   children = null,
-  height = '300px',
   iconId,
+  isDraggable = true,
   isInactive = false,
   isMaximized = false,
-  onMouseDown,
+  isResizeable = true,
   onClickMinimize,
   onClickMaximize,
   onClickRestore,
@@ -30,12 +32,15 @@ const Window: FunctionComponent<Props> = ({
   onClickClose,
   onDblClickTitleBar,
   onMoved,
+  onMouseDown,
+  onResized,
+  size = { x: 300, y: 300 },
   title,
-  width = '300px',
   zIndex = 0,
 }: Props) => {
   const windowRef = createRef<HTMLDivElement>();
   const titleBarRef = createRef<HTMLDivElement>();
+  const handleRef = createRef<HTMLDivElement>();
 
   const getParentElement = (): HTMLElement | null => {
     return windowRef.current?.parentElement ?? null;
@@ -45,14 +50,31 @@ const Window: FunctionComponent<Props> = ({
     return titleBarRef.current ?? null;
   };
 
+  const getResizeHandleElement = (): HTMLElement | null => {
+    return handleRef.current ?? null;
+  };
+
   const handleOnMoved = (coords: { x: number; y: number }) => {
     if (!isMaximized && onMoved) onMoved(coords);
+  };
+
+  const handleOnResized = (coords: { x: number; y: number }) => {
+    if (!isMaximized && onResized) onResized(coords);
   };
 
   const coordsState = useDragging(getTitleBarElement, {
     getBoundingElt: getParentElement,
     initialCoords: coords,
+    isActive: isDraggable,
     onDragStop: handleOnMoved,
+  });
+
+  const sizeState = useDragging(getResizeHandleElement, {
+    getBoundingElt: getParentElement,
+    initialCoords: size,
+    isActive: isResizeable,
+    minCoordsValue: { x: 200, y: 150 },
+    onDragStop: handleOnResized,
   });
 
   return (
@@ -61,11 +83,11 @@ const Window: FunctionComponent<Props> = ({
       onMouseDown={onMouseDown}
       ref={windowRef}
       style={{
-        height: isMaximized ? '100%' : height,
+        height: isMaximized ? '100%' : `${sizeState.y}px`,
         transform: isMaximized
           ? 'none'
           : `translate3d(${coordsState.x}px, ${coordsState.y}px, 0px)`,
-        width: isMaximized ? '100%' : width,
+        width: isMaximized ? '100%' : `${sizeState.x}px`,
         zIndex,
       }}
     >
@@ -83,6 +105,7 @@ const Window: FunctionComponent<Props> = ({
         title={title}
       />
       <div className={style.windowMain}>{children}</div>
+      <div className={style.handle} ref={handleRef} />
     </div>
   );
 };

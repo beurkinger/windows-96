@@ -23,3 +23,11 @@
     line-height: 130%;
   } */
   
+
+::-webkit-scrollbar-corner {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface);
+}

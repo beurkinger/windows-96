@@ -13,4 +13,7 @@
 .titlebarText {
     flex:1;
     margin-left: 1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

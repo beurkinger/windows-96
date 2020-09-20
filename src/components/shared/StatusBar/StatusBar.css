@@ -26,13 +26,3 @@
 .spaceRight {
     flex: 1;
 }
-
-.handle {
-    position: absolute;
-    right: 1px;
-    bottom: 1px;
-    width: 13px;
-    height: 13px;
-    background: url(../../../assets/img/interface/resize-handle-grip.png);
-    image-rendering: pixelated;
-}

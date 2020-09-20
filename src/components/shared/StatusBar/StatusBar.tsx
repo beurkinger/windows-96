@@ -14,7 +14,6 @@ const StatusBar: FunctionComponent<Props> = ({
   <div className={style.statusBar}>
     {textLeft !== null && <div className={style.spaceLeft}>{textLeft}</div>}
     <div className={style.spaceRight}>{textRight}</div>
-    <div className={style.handle} />
   </div>
 );
 

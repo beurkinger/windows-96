@@ -12,14 +12,23 @@ import { getBounds, getBoundedOffset } from '../utils/BoundingUtils';
 
 export interface Options {
   getBoundingElt?: () => HTMLElement | null;
-  initialCoords?: Coords | null;
+  initialCoords?: Coords;
+  isActive?: boolean;
+  minCoordsValue?: Coords | null;
   onDragStart?: () => void;
   onDragStop?: (coords: Coords) => void;
 }
 
 const useDragging = (
   getHandleElt: () => HTMLElement | null,
-  { getBoundingElt, initialCoords = null, onDragStart, onDragStop }: Options
+  {
+    getBoundingElt,
+    initialCoords = { x: 0, y: 0 },
+    isActive = true,
+    minCoordsValue = null,
+    onDragStart,
+    onDragStop,
+  }: Options
 ): Coords => {
   const originalElementCoords = useRef<Coords>({ x: 0, y: 0 });
   const originalMouseCoords = useRef<Coords>({ x: 0, y: 0 });
@@ -28,9 +37,10 @@ const useDragging = (
   const boundingEltRef = useRef<HTMLElement | null>();
 
   // const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [coords, setCoords] = useState<Coords>(initialCoords || { x: 0, y: 0 });
+  const [coords, setCoords] = useState<Coords>(initialCoords);
 
   useEffect(() => {
+    if (!isActive) return;
     handleEltRef.current = getHandleElt();
     boundingEltRef.current = getBoundingElt ? getBoundingElt() : null;
   });
@@ -38,6 +48,7 @@ const useDragging = (
   useEffect((): (() => void) => {
     addPointerStartEventListeners();
     return () => {
+      if (!isActive) return;
       removePointerStartEventListeners();
       removePointerMoveEventListeners();
       removePointerStopEventListeners();
@@ -100,8 +111,12 @@ const useDragging = (
       const nextX = originalElementCoords.current.x + mouseOffsetX;
       const nextY = originalElementCoords.current.y + mouseOffsetY;
 
-      const bounds = getBounds(handleEltRef.current, boundingEltRef.current);
-      const newCoords = getBoundedOffset(nextX, nextY, bounds);
+      const bounds = getBounds(
+        handleEltRef.current,
+        boundingEltRef.current,
+        minCoordsValue
+      );
+      const newCoords = getBoundedOffset({ x: nextX, y: nextY }, bounds);
 
       setCoords(() => newCoords);
     }
