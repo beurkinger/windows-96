@@ -91,10 +91,19 @@ const WindowsContainer: FunctionComponent = () => {
             isMaximized={window.isMaximized}
             isResizeable={window.app.isResizeable ?? true}
             onClickClose={() => closeWindow(window.id)}
-            onClickMaximize={() => maximizeWindow(window.id)}
+            onClickMaximize={
+              window.app.isResizeable
+                ? () => maximizeWindow(window.id)
+                : undefined
+            }
             onClickMinimize={() => minimizeWindow(window.id)}
-            onClickRestore={() => unMaximizeWindow(window.id)}
+            onClickRestore={
+              window.app.isResizeable
+                ? () => unMaximizeWindow(window.id)
+                : undefined
+            }
             onDblClickTitleBar={() => {
+              if (!window.app.isResizeable) return;
               if (window.isMaximized) {
                 unMaximizeWindow(window.id);
               } else {
@@ -105,7 +114,11 @@ const WindowsContainer: FunctionComponent = () => {
               if (!window.isMaximized) focusOnWindow(window.id);
             }}
             onMoved={(coords) => moveWindow(window.id, coords)}
-            onResized={(size) => resizeWindow(window.id, size)}
+            onResized={(size) =>
+              window.app.isResizeable
+                ? resizeWindow(window.id, size)
+                : undefined
+            }
             size={window.size}
             title={window.title}
             zIndex={window.zIndex}
