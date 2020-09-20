@@ -1,24 +1,4 @@
-import { AppId } from '../types/App';
-import { IconId } from '../types/Icon';
-
-export type FileType<T> = {
-  appId: AppId;
-  id: T;
-  iconId: IconId;
-};
-
-export type FileTypeList = { [key in FileTypeId]: FileType<key> };
-
-export type FileTypeId =
-  | 'bmpFile'
-  | 'cdTrack'
-  | 'helpFile'
-  | 'midiFile'
-  | 'msDosApp'
-  | 'notepadDoc'
-  | 'videoFile'
-  | 'waveFile'
-  | 'wordpadDoc';
+import { FileTypeList } from '../types/FileType';
 
 const fileTypeList: FileTypeList = {
   bmpFile: { appId: 'quickView', id: 'bmpFile', iconId: 'bmpFile' },

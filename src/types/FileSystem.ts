@@ -1,5 +1,5 @@
 import { AppId } from './App';
-import { FileTypeId } from '../data/fileTypeList';
+import { FileTypeId } from './FileType';
 import { IconId } from './Icon';
 
 export type FileSystemItem =

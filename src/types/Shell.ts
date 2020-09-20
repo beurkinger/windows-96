@@ -1,7 +1,7 @@
 import { AppId } from './App';
 import { IconId } from './Icon';
-import { FileTypeId } from '../data/fileTypeList';
 import { FileSystemDir, FileSystemFile } from './FileSystem';
+import { FileTypeId } from './FileType';
 
 export type ShellItemType = 'app' | 'dir' | 'file';
 export type ShellItem = ShellApp | ShellDir | ShellFile;
