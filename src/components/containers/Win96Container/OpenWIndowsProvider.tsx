@@ -109,7 +109,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
     setOpenWindows((windows) => {
       const zIndex = getBiggestZIndex(windows) + 1;
       return windows.map((window) =>
-        window.id !== id
+        window.id === id
           ? { ...window, hasFocus: true, zIndex }
           : { ...window, hasFocus: false }
       );
@@ -119,7 +119,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   const maximizeWindow = (id: string) => {
     setOpenWindows((windows) => {
       return windows.map((window) =>
-        window.id !== id ? { ...window, isMaximized: true } : window
+        window.id === id ? { ...window, isMaximized: true } : window
       );
     });
   };
@@ -127,7 +127,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   const minimizeWindow = (id: string) => {
     setOpenWindows((windows) => {
       return windows.map((window) =>
-        window.id !== id
+        window.id === id
           ? { ...window, hasFocus: false, isMinimized: true }
           : window
       );
@@ -137,7 +137,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   const moveWindow = (id: string, coords: { x: number; y: number }) => {
     setOpenWindows((windows) => {
       return windows.map((window) =>
-        window.id !== id && !window.isMaximized ? { ...window, coords } : window
+        window.id === id && !window.isMaximized ? { ...window, coords } : window
       );
     });
   };
@@ -145,7 +145,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   const resizeWindow = (id: string, size: { x: number; y: number }) => {
     setOpenWindows((windows) => {
       return windows.map((window) =>
-        window.id !== id && !window.isMaximized ? { ...window, size } : window
+        window.id === id && !window.isMaximized ? { ...window, size } : window
       );
     });
   };
@@ -153,7 +153,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   const unMaximizeWindow = (id: string) => {
     setOpenWindows((windows) => {
       return windows.map((window) =>
-        window.id !== id ? { ...window, isMaximized: false } : window
+        window.id === id ? { ...window, isMaximized: false } : window
       );
     });
   };
@@ -162,7 +162,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
     setOpenWindows((windows) => {
       const zIndex = getBiggestZIndex(windows) + 1;
       return windows.map((window) =>
-        window.id !== id
+        window.id === id
           ? { ...window, hasFocus: true, isMinimized: false, zIndex }
           : { ...window, hasFocus: false }
       );
