@@ -7,8 +7,8 @@ import { IconId } from '../../../types/Icon';
 import { FileSystemDir, FileSystemFile } from '../../../types/FileSystem';
 import { appList } from '../../../data/appList';
 import OpenWindowsContext, {
-  ContextType,
   OpenWindow,
+  OpenWindowsContextType,
 } from '../../../context/OpenWindowsContext';
 
 interface Props {
@@ -60,7 +60,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
     return app.iconId;
   };
 
-  const openApp: ContextType['openApp'] = ({
+  const openApp: OpenWindowsContextType['openApp'] = ({
     appId,
     isDraggable = true,
     isResizeable = true,
@@ -101,76 +101,68 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
     });
   };
 
-  const closeWindow: ContextType['closeWindow'] = (windowIndex) => {
-    setOpenWindows((windows) => windows.filter((_, i) => i !== windowIndex));
+  const closeWindow = (id: string) => {
+    setOpenWindows((windows) => windows.filter((window) => window.id !== id));
   };
 
-  const focusOnWindow = (windowIndex: number) => {
+  const focusOnWindow = (id: string) => {
     setOpenWindows((windows) => {
       const zIndex = getBiggestZIndex(windows) + 1;
-      return windows.map((window, i) =>
-        i === windowIndex
+      return windows.map((window) =>
+        window.id !== id
           ? { ...window, hasFocus: true, zIndex }
           : { ...window, hasFocus: false }
       );
     });
   };
 
-  const maximizeWindow = (windowIndex: number) => {
+  const maximizeWindow = (id: string) => {
     setOpenWindows((windows) => {
-      return windows.map((window, i) =>
-        i === windowIndex ? { ...window, isMaximized: true } : window
+      return windows.map((window) =>
+        window.id !== id ? { ...window, isMaximized: true } : window
       );
     });
   };
 
-  const minimizeWindow = (windowIndex: number) => {
+  const minimizeWindow = (id: string) => {
     setOpenWindows((windows) => {
-      return windows.map((window, i) =>
-        i === windowIndex
+      return windows.map((window) =>
+        window.id !== id
           ? { ...window, hasFocus: false, isMinimized: true }
           : window
       );
     });
   };
 
-  const moveWindow = (
-    windowIndex: number,
-    coords: { x: number; y: number }
-  ) => {
+  const moveWindow = (id: string, coords: { x: number; y: number }) => {
     setOpenWindows((windows) => {
-      return windows.map((window, i) =>
-        i === windowIndex && !window.isMaximized
-          ? { ...window, coords }
-          : window
+      return windows.map((window) =>
+        window.id !== id && !window.isMaximized ? { ...window, coords } : window
       );
     });
   };
 
-  const resizeWindow = (
-    windowIndex: number,
-    size: { x: number; y: number }
-  ) => {
+  const resizeWindow = (id: string, size: { x: number; y: number }) => {
     setOpenWindows((windows) => {
-      return windows.map((window, i) =>
-        i === windowIndex && !window.isMaximized ? { ...window, size } : window
+      return windows.map((window) =>
+        window.id !== id && !window.isMaximized ? { ...window, size } : window
       );
     });
   };
 
-  const unMaximizeWindow = (windowIndex: number) => {
+  const unMaximizeWindow = (id: string) => {
     setOpenWindows((windows) => {
-      return windows.map((window, i) =>
-        i === windowIndex ? { ...window, isMaximized: false } : window
+      return windows.map((window) =>
+        window.id !== id ? { ...window, isMaximized: false } : window
       );
     });
   };
 
-  const unMinimizeWindow = (windowIndex: number) => {
+  const unMinimizeWindow = (id: string) => {
     setOpenWindows((windows) => {
       const zIndex = getBiggestZIndex(windows) + 1;
-      return windows.map((window, i) =>
-        i === windowIndex
+      return windows.map((window) =>
+        window.id !== id
           ? { ...window, hasFocus: true, isMinimized: false, zIndex }
           : { ...window, hasFocus: false }
       );

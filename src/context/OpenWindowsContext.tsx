@@ -21,7 +21,7 @@ export type OpenWindow = {
   zIndex: number;
 };
 
-export interface ContextType {
+export interface OpenWindowsContextType {
   openApp: (options: {
     appId: AppId;
     isDraggable?: boolean;
@@ -29,18 +29,18 @@ export interface ContextType {
     workingDir?: FileSystemDir;
     workingFile?: FileSystemFile;
   }) => void;
-  closeWindow: (zIndex: number) => void;
-  focusOnWindow: (windowIndex: number) => void;
-  maximizeWindow: (windowIndex: number) => void;
-  minimizeWindow: (windowIndex: number) => void;
-  moveWindow: (windowIndex: number, coords: { x: number; y: number }) => void;
-  resizeWindow: (windowIndex: number, coords: { x: number; y: number }) => void;
-  unMaximizeWindow: (windowIndex: number) => void;
-  unMinimizeWindow: (windowIndex: number) => void;
+  closeWindow: (id: string) => void;
+  focusOnWindow: (id: string) => void;
+  maximizeWindow: (id: string) => void;
+  minimizeWindow: (id: string) => void;
+  moveWindow: (id: string, coords: { x: number; y: number }) => void;
+  resizeWindow: (id: string, coords: { x: number; y: number }) => void;
+  unMaximizeWindow: (id: string) => void;
+  unMinimizeWindow: (id: string) => void;
   windows: OpenWindow[];
 }
 
-const initialValue: ContextType = {
+const initialValue: OpenWindowsContextType = {
   closeWindow: () => null,
   focusOnWindow: () => null,
   maximizeWindow: () => null,
@@ -53,6 +53,6 @@ const initialValue: ContextType = {
   windows: [],
 };
 
-const OpenWindowsContext = createContext<ContextType>(initialValue);
+const OpenWindowsContext = createContext<OpenWindowsContextType>(initialValue);
 
 export default OpenWindowsContext;

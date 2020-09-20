@@ -69,6 +69,7 @@ const WindowsContainer: FunctionComponent = () => {
     const component = components[window.app.id];
     return component
       ? h(component, {
+          closeWindow: () => closeWindow(window.id),
           key: window.id,
           openApp,
           workingDir: window.workingDir,
@@ -79,30 +80,32 @@ const WindowsContainer: FunctionComponent = () => {
 
   return (
     <div className={style.windowsContainer}>
-      {windows.map((window, i) =>
+      {windows.map((window) =>
         window.isMinimized ? null : (
           <Window
             coords={window.coords}
             iconId={window.iconId}
             key={window.id}
-            onClickClose={() => closeWindow(i)}
-            onClickMaximize={() => maximizeWindow(i)}
-            onClickMinimize={() => minimizeWindow(i)}
-            onClickRestore={() => unMaximizeWindow(i)}
+            isDraggable={window.app.isDraggable ?? true}
+            isInactive={!window.hasFocus}
+            isMaximized={window.isMaximized}
+            isResizeable={window.app.isResizeable ?? true}
+            onClickClose={() => closeWindow(window.id)}
+            onClickMaximize={() => maximizeWindow(window.id)}
+            onClickMinimize={() => minimizeWindow(window.id)}
+            onClickRestore={() => unMaximizeWindow(window.id)}
             onDblClickTitleBar={() => {
               if (window.isMaximized) {
-                unMaximizeWindow(i);
+                unMaximizeWindow(window.id);
               } else {
-                maximizeWindow(i);
+                maximizeWindow(window.id);
               }
             }}
             onMouseDown={() => {
-              if (!window.isMaximized) focusOnWindow(i);
+              if (!window.isMaximized) focusOnWindow(window.id);
             }}
-            onMoved={(coords) => moveWindow(i, coords)}
-            onResized={(size) => resizeWindow(i, size)}
-            isInactive={!window.hasFocus}
-            isMaximized={window.isMaximized}
+            onMoved={(coords) => moveWindow(window.id, coords)}
+            onResized={(size) => resizeWindow(window.id, size)}
             title={window.title}
             zIndex={window.zIndex}
           >

@@ -2,8 +2,8 @@ import { h, FunctionComponent } from 'preact';
 
 import { FileSystemDir, FileSystemFile } from '../../../types/FileSystem';
 import {
-  ContextType as OpenWindowsContextType,
   OpenWindow,
+  OpenWindowsContextType,
 } from '../../../context/OpenWindowsContext';
 import useDocumentClickToggle from '../../../hooks/useDocumentClickToggle';
 import Button from '../Button/Button';
@@ -47,13 +47,13 @@ const Taskbar: FunctionComponent<Props> = ({
     }
   };
 
-  const handleTaskButtonClick = (window: OpenWindow, i: number) => {
+  const handleTaskButtonClick = (window: OpenWindow) => {
     if (window.isMinimized) {
-      unMinimizeWindow(i);
+      unMinimizeWindow(window.id);
     } else if (!window.hasFocus) {
-      focusOnWindow(i);
+      focusOnWindow(window.id);
     } else if (window.hasFocus) {
-      minimizeWindow(i);
+      minimizeWindow(window.id);
     }
   };
 
@@ -73,7 +73,7 @@ const Taskbar: FunctionComponent<Props> = ({
         />
       </div>
       <div className={style.taskButtonsWrapper}>
-        {windows.map((window, i) => (
+        {windows.map((window) => (
           <Button
             iconId={window.iconId}
             key={window.id}
@@ -81,7 +81,7 @@ const Taskbar: FunctionComponent<Props> = ({
             inTaskbar
             isActive={window.hasFocus}
             noOutline
-            onClick={() => handleTaskButtonClick(window, i)}
+            onClick={() => handleTaskButtonClick(window)}
             textAlign="left"
           />
         ))}

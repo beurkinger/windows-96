@@ -1,5 +1,6 @@
 import { FileSystemDir, FileSystemFile } from './FileSystem';
 import { IconId } from './Icon';
+import { OpenWindowsContextType } from '../context/OpenWindowsContext';
 
 export const appIds = [
   'binEmpty',
@@ -53,11 +54,8 @@ export type App = {
 export type AppList = { [key in AppId]: App };
 
 export interface AppProps {
-  openApp: (options: {
-    appId: AppId;
-    workingDir?: FileSystemDir;
-    workingFile?: FileSystemFile;
-  }) => void;
+  closeWindow: () => void;
+  openApp: OpenWindowsContextType['openApp'];
   workingDir?: FileSystemDir;
   workingFile?: FileSystemFile;
 }
