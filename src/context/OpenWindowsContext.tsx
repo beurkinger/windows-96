@@ -10,8 +10,10 @@ export type OpenWindow = {
   hasFocus: boolean;
   iconId: IconId;
   id: string;
+  isDraggable: boolean;
   isMaximized: boolean;
   isMinimized: boolean;
+  isResizeable: boolean;
   size: { x: number; y: number };
   title: string;
   workingDir?: FileSystemDir;
@@ -22,6 +24,8 @@ export type OpenWindow = {
 export interface ContextType {
   openApp: (options: {
     appId: AppId;
+    isDraggable?: boolean;
+    isResizeable?: boolean;
     workingDir?: FileSystemDir;
     workingFile?: FileSystemFile;
   }) => void;

@@ -22,8 +22,10 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
       hasFocus: false,
       iconId: appList.myComputer.iconId,
       id: uuid(),
+      isDraggable: true,
       isMaximized: false,
       isMinimized: false,
+      isResizeable: true,
       size: { x: 100, y: 100 },
       title: appList.myComputer.name,
       zIndex: 2,
@@ -59,6 +61,8 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
 
   const openApp: ContextType['openApp'] = ({
     appId,
+    isDraggable = true,
+    isResizeable = true,
     workingDir,
     workingFile,
   }) => {
@@ -82,8 +86,10 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
             y: 50 + Math.round(Math.random() * 200),
           },
           hasFocus: true,
+          isDraggable,
           isMinimized: false,
           isMaximized: false,
+          isResizeable,
           size: { x: 100, y: 100 },
           title,
           workingDir,
