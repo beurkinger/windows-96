@@ -1,8 +1,8 @@
 import { h, FunctionComponent } from 'preact';
 
-import { AppId } from '../../../data/appList';
-import { startMenuFs } from '../../../data/fileSystem';
+import { AppId } from '../../../types/App';
 import { FileSystemDir, FileSystemFile } from '../../../types/FileSystem';
+import { startMenuFs } from '../../../data/fileSystem';
 import { getProgramsMenuOptions } from '../../../utils/win96/StartMenuUtils';
 import Menu from '../Menu/Menu';
 

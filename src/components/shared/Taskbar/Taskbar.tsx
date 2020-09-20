@@ -1,7 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 
 import { FileSystemDir, FileSystemFile } from '../../../types/FileSystem';
-import { AppId } from '../../../data/appList';
 import {
   ContextType as OpenWindowsContextType,
   OpenWindow,
@@ -12,6 +11,7 @@ import NotificationArea from '../NotificationArea/NotificationArea';
 import StartMenu from '../StartMenu/StartMenu';
 
 import style from './Taskbar.css';
+import { AppId } from '../../../types/App';
 
 interface Props {
   focusOnWindow: OpenWindowsContextType['focusOnWindow'];

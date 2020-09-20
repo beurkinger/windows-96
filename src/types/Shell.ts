@@ -1,4 +1,4 @@
-import { AppId } from '../data/appList';
+import { AppId } from './App';
 import { FileTypeId } from '../data/fileTypeList';
 import { IconId } from '../data/iconList';
 import { FileSystemDir, FileSystemFile } from './FileSystem';

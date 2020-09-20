@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
+import { AppProps } from '../../../types/App';
 
-import { AppProps } from '../../../data/appList';
 import Countour from '../../shared/Countour/Countour';
 import MenuBar from '../../shared/MenuBar/MenuBar';
 import StatusBar from '../../shared/StatusBar/StatusBar';

@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact';
 import { useContext } from 'preact/hooks';
 
-import { AppId, AppProps } from '../../../data/appList';
+import { AppId, AppProps } from '../../../types/App';
 import OpenWindowsContext, {
   OpenWindow,
 } from '../../../context/OpenWindowsContext';

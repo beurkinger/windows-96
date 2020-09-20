@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 
-import { AppProps } from '../../../data/appList';
+import { AppProps } from '../../../types/App';
 import Button from '../../shared/Button/Button';
 import Icon from '../../shared/Icon/Icon';
 import WindowContent from '../../shared/WindowContent/WindowContent';

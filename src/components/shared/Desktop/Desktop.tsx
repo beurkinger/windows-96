@@ -1,12 +1,12 @@
 import { h, FunctionComponent } from 'preact';
 
+import { AppProps } from '../../../types/App';
 import { ShellItem } from '../../../types/Shell';
 import fileTypeList from '../../../data/fileTypeList';
 import { fileSystem } from '../../../data/fileSystem';
 import { getDirFromPath } from '../../../utils/win96/FileSystemUtils';
 import useShellFilesState from '../../../hooks/useShellFilesState';
 import FileGrid from '../../shared/FileGrid/FileGrid';
-import { AppProps } from '../../../data/appList';
 
 import style from './Desktop.css';
 

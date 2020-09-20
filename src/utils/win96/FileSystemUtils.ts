@@ -1,4 +1,4 @@
-import { AppId, appList } from '../../data/appList';
+import { AppId, appIds } from '../../types/App';
 import { IconId, iconList } from '../../data/iconList';
 import {
   FileSystemApp,
@@ -147,7 +147,7 @@ const updateFsDirInfos = (
 };
 
 const getFsApp = (content: { appId?: string }): FileSystemApp => {
-  if (content.appId && !(content.appId in appList)) {
+  if (content.appId && !(content.appId in appIds)) {
     console.error(`Icon Id "${content.appId}" doesn't exist in App List`);
   }
   return {
@@ -171,10 +171,10 @@ const getFsShortcut = (content: {
   filePath?: string;
   dirPath?: string;
 }): FileSystemShortcut => {
-  if (content.iconId && !(content.iconId in appList)) {
+  if (content.iconId && !(content.iconId in appIds)) {
     console.error(`Icon Id "${content.iconId}" doesn't exist in Icon List`);
   }
-  if (content.toAppId && !(content.toAppId in appList)) {
+  if (content.toAppId && !(content.toAppId in appIds)) {
     console.error(`App Id "${content.toAppId}" doesn't exist in App List`);
   }
   return {

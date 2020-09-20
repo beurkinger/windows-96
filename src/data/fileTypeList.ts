@@ -1,4 +1,4 @@
-import { AppId } from './appList';
+import { AppId } from '../types/App';
 import { IconId } from './iconList';
 
 export type FileType<T> = {
