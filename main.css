@@ -353,18 +353,6 @@
 .r2im6Nj60ujKItqHZpQTY {
     flex: 1;
 }
-
-._3dJMreWqkmUsG1m56W2Y0r {
-    position: absolute;
-    right: 1px;
-    bottom: 1px;
-    width: 13px;
-    height: 13px;
-    background: url(/windows-96/assets/resize-handle-grip.png);
-    -ms-interpolation-mode: nearest-neighbor;
-        image-rendering: -moz-crisp-edges;
-        image-rendering: pixelated;
-}
 .HSrY7Im342of-3Wbml-9q {
     display: flex;
     flex-direction: column;
@@ -407,6 +395,7 @@
     font-size: 13px;
     line-height: 1;
     letter-spacing: 0px;
+    overflow: scroll;
 }
 ._3o1YnC04ujUbhrIwt8kPm3 {
     display: block;
@@ -476,19 +465,35 @@ image-rendering: pixelated; */
 ._2fZHPrjQgP-UHP4EddJ0Ys {
     flex:1;
     margin-left: 1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 ._3dLUQsS1BA7dsnseS8Tgel {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 ._1PBIMwYJPtaBZkyl1C1QfJ {
     flex: 1 1 auto;
 }
 
-._3dLUQsS1BA7dsnseS8Tgel, ._1PBIMwYJPtaBZkyl1C1QfJ {
+._1PBIMwYJPtaBZkyl1C1QfJ {
     overflow: hidden;
+}
+
+._3E0U-GgZEfNbh5w3MtHjdP {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 24px;
+    height: 24px;
+    background: transparent url(/windows-96/assets/resize-handle-grip.png) no-repeat 7px 7px;
+    -ms-interpolation-mode: nearest-neighbor;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: pixelated;
 }
 ._3uhBtFQUopUHlHR9Tws1hX {
   z-index: 0;
@@ -618,3 +623,14 @@ image-rendering: pixelated; */
     line-height: 130%;
   } */
   
+
+::-webkit-scrollbar-corner {
+  background: #c0c0c0;
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  background: var(--surface);
+}
+
