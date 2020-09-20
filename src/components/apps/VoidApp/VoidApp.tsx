@@ -7,7 +7,7 @@ import WindowContent from '../../shared/WindowContent/WindowContent';
 
 import style from './VoidApp.css';
 
-const VoidApp: FunctionComponent<AppProps> = () => {
+const VoidApp: FunctionComponent<AppProps> = ({ closeWindow }: AppProps) => {
   return (
     <WindowContent
       body={
@@ -25,7 +25,7 @@ const VoidApp: FunctionComponent<AppProps> = () => {
               <p>Thanks for you understanding.</p>
             </div>
           </div>
-          <Button hasFocus label={'Understood'} onClick={() => null} />
+          <Button hasFocus label={'Understood'} onClick={closeWindow} />
         </div>
       }
     />

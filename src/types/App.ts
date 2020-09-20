@@ -49,6 +49,7 @@ export type App = {
   isDraggable?: boolean;
   isResizeable?: boolean;
   name: string;
+  size?: { width: number; height: number };
 };
 
 export type AppList = { [key in AppId]: App };

@@ -106,6 +106,7 @@ const WindowsContainer: FunctionComponent = () => {
             }}
             onMoved={(coords) => moveWindow(window.id, coords)}
             onResized={(size) => resizeWindow(window.id, size)}
+            size={window.size}
             title={window.title}
             zIndex={window.zIndex}
           >
