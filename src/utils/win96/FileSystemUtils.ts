@@ -139,7 +139,7 @@ const updateFsDirInfos = (
   fsDir: FileSystemDir,
   content: { iconId?: string; name?: string }
 ): void => {
-  if (content.iconId && !(content.iconId in iconIds)) {
+  if (content.iconId && !iconIds.includes(content.iconId as IconId)) {
     console.error(`Icon Id "${content.iconId}" doesn't exist in Icon List`);
   }
   fsDir.iconId = (content.iconId ?? fsDir.iconId) as IconId;
@@ -147,7 +147,7 @@ const updateFsDirInfos = (
 };
 
 const getFsApp = (content: { appId?: string }): FileSystemApp => {
-  if (content.appId && !(content.appId in appIds)) {
+  if (content.appId && !appIds.includes(content.appId as AppId)) {
     console.error(`Icon Id "${content.appId}" doesn't exist in App List`);
   }
   return {
@@ -171,10 +171,10 @@ const getFsShortcut = (content: {
   filePath?: string;
   dirPath?: string;
 }): FileSystemShortcut => {
-  if (content.iconId && !(content.iconId in appIds)) {
+  if (content.iconId && !iconIds.includes(content.iconId as IconId)) {
     console.error(`Icon Id "${content.iconId}" doesn't exist in Icon List`);
   }
-  if (content.toAppId && !(content.toAppId in appIds)) {
+  if (content.toAppId && !appIds.includes(content.toAppId as AppId)) {
     console.error(`App Id "${content.toAppId}" doesn't exist in App List`);
   }
   return {
