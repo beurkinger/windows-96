@@ -87,9 +87,9 @@ export const fileSystem = {
   name: 'My Computer',
   iconId: appList.myComputer.iconId,
   dir: {
-    'a:': floppyDriveFs,
-    'c:': hardDriveFs,
-    'd:': cdDriveFs,
+    'A:': floppyDriveFs,
+    'C:': hardDriveFs,
+    'D:': cdDriveFs,
     controlPanel: controlPanelFs,
     printers: {
       appId: 'printers',
