@@ -8,6 +8,7 @@ import OpenWindowsContext, {
 import MyComputerApp from '../../apps/MyComputerApp/MyComputerApp';
 import NotepadApp from '../../apps/NotepadApp/NotepadApp';
 import QuickViewApp from '../../apps/QuickViewApp/QuickViewApp';
+import TimerApp from '../../apps/TimerApp/TimerApp';
 import VoidApp from '../../apps/VoidApp/VoidApp';
 import Window from '../../shared/Window/Window';
 
@@ -43,6 +44,7 @@ const components: { [key in AppId]: FunctionComponent<AppProps> } = {
   shutdown: VoidApp,
   soundRecorder: VoidApp,
   taskbar: VoidApp,
+  timer: TimerApp,
   volumeControl: VoidApp,
   wordpad: VoidApp,
 };

@@ -19,7 +19,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([
     {
       app: appList.myComputer,
-      coords: { x: 150, y: 150 },
+      coords: { x: 50, y: 50 },
       hasFocus: false,
       iconId: appList.myComputer.iconId,
       id: uuid(),
@@ -30,6 +30,20 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
       size: { x: 300, y: 300 },
       title: appList.myComputer.name,
       zIndex: 2,
+    },
+    {
+      app: appList.timer,
+      coords: { x: 150, y: 150 },
+      hasFocus: false,
+      iconId: appList.timer.iconId,
+      id: uuid(),
+      isDraggable: true,
+      isMaximized: false,
+      isMinimized: false,
+      isResizeable: false,
+      size: { x: 300, y: 300 },
+      title: appList.timer.name,
+      zIndex: 3,
     },
   ]);
 

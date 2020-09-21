@@ -32,6 +32,7 @@ export const appIds = [
   'shutdown',
   'soundRecorder',
   'taskbar',
+  'timer',
   'volumeControl',
   'wordpad',
 ] as const;

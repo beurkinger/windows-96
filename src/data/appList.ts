@@ -200,6 +200,13 @@ export const appList: AppList = {
     name: 'Taskbar...',
     size: { width: 400, height: 177 },
   },
+  timer: {
+    id: 'timer',
+    iconId: 'help',
+    isResizeable: false,
+    name: '!!!',
+    size: { width: 400, height: 177 },
+  },
   volumeControl: {
     id: 'volumeControl',
     iconId: 'volume',
