@@ -8,8 +8,9 @@
     resize: none;
     font-family: var(--font-family-notepad);
     font-weight: bold;
-    -webkit-font-smoothing: none;
-    font-size: 13px;
+    /* -webkit-font-smoothing: none; */
+    /* font-size: 13px; */
+    font-size: 16px;
     line-height: 1;
     letter-spacing: 0px;
     overflow: scroll;

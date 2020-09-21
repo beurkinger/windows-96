@@ -1,13 +1,13 @@
 @font-face {
-    font-family: "RobotoMono";
-    src: url("../assets/fonts/RobotoMonoMedium.woff") format("woff");
+    font-family: "FixedSysExcelsior";
+    src: url("../assets/fonts/FSEX301.woff") format("woff");
     font-weight: bold;
     font-style: normal;
 }
 
 :root {
     /* Custom */
-    --font-family-notepad: RobotoMono, monospace;
+    --font-family-notepad: FixedSysExcelsior, monospace;
     --box-shadow-notification: inset -1px -1px var(--button-highlight), inset 1px 1px var(--button-shadow);
     /* from Win98.css */
 
