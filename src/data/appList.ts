@@ -29,25 +29,11 @@ export const appList: AppList = {
     name: 'Calculator',
     size: { width: 400, height: 177 },
   },
-  cdDrive: {
-    id: 'cdDrive',
-    iconId: 'cdDrive',
-    isResizeable: false,
-    name: '(D:)',
-    size: { width: 400, height: 177 },
-  },
   cdPlayer: {
     id: 'cdPlayer',
     iconId: 'cdPlayer',
     isResizeable: false,
     name: 'CD Player',
-    size: { width: 400, height: 177 },
-  },
-  controlPanel: {
-    id: 'controlPanel',
-    iconId: 'controlPanel',
-    isResizeable: false,
-    name: 'Control Panel',
     size: { width: 400, height: 177 },
   },
   defrag: {
@@ -97,20 +83,6 @@ export const appList: AppList = {
     iconId: 'findMsn',
     isResizeable: false,
     name: 'Find on The Microsoft Network',
-    size: { width: 400, height: 177 },
-  },
-  floppyDrive: {
-    id: 'floppyDrive',
-    iconId: 'floppyDrive',
-    isResizeable: false,
-    name: '3½ Floppy (A:)',
-    size: { width: 400, height: 177 },
-  },
-  hardDrive: {
-    id: 'hardDrive',
-    iconId: 'hardDrive',
-    isResizeable: false,
-    name: '(C:)',
     size: { width: 400, height: 177 },
   },
   help: {
@@ -178,13 +150,6 @@ export const appList: AppList = {
     iconId: 'phoneDialer',
     isResizeable: false,
     name: 'Phone Dialer',
-    size: { width: 400, height: 177 },
-  },
-  printers: {
-    id: 'printers',
-    iconId: 'printers',
-    isResizeable: false,
-    name: 'Printers',
     size: { width: 400, height: 177 },
   },
   quickView: {

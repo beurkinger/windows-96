@@ -46,7 +46,9 @@ export const startMenuFs = {
           toAppId: 'myComputer',
         },
         printers: {
-          appId: appList.printers.id,
+          name: 'Printers',
+          iconId: 'printers',
+          dir: {},
         },
         taskbar: {
           appId: appList.taskbar.id,
@@ -92,7 +94,9 @@ export const fileSystem = {
     'D:': cdDriveFs,
     controlPanel: controlPanelFs,
     printers: {
-      appId: 'printers',
+      name: 'Printers',
+      iconId: 'printers',
+      dir: {},
     },
     dialUpNetwork: {
       appId: 'dialUpNetwork',
