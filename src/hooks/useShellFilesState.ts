@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { FileSystemDir } from '../types/FileSystem';
 import { ShellItem } from '../types/Shell';
-
-import { getShellItems } from '../utils/win96/ShelIUtils';
+import { getShellItems } from '../utils/win96/ShellUtils';
 
 export const useShellFilesState = (
   workingDir: FileSystemDir,
