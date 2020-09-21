@@ -24,8 +24,6 @@ export type OpenWindow = {
 export interface OpenWindowsContextType {
   openApp: (options: {
     appId: AppId;
-    isDraggable?: boolean;
-    isResizeable?: boolean;
     workingDir?: FileSystemDir;
     workingFile?: FileSystemFile;
   }) => void;

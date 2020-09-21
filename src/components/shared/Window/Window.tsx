@@ -65,14 +65,14 @@ const Window: FunctionComponent<Props> = ({
   const coordsState = useDragging(getTitleBarElement, {
     getBoundingElt: getParentElement,
     initialCoords: coords,
-    isActive: isDraggable,
+    isEnabled: isDraggable,
     onDragStop: handleOnMoved,
   });
 
   const sizeState = useDragging(getResizeHandleElement, {
     getBoundingElt: getParentElement,
     initialCoords: size,
-    isActive: isResizeable,
+    isEnabled: isResizeable,
     minCoordsValue: { x: 200, y: 150 },
     onDragStop: handleOnResized,
   });
@@ -105,7 +105,11 @@ const Window: FunctionComponent<Props> = ({
         title={title}
       />
       <div className={style.windowMain}>{children}</div>
-      <div className={style.handle} ref={handleRef} />
+      <div
+        className={style.handle}
+        ref={handleRef}
+        style={{ visibility: isResizeable ? 'visible' : 'hidden' }}
+      />
     </div>
   );
 };

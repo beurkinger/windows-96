@@ -47,7 +47,7 @@ const TitleBar: FunctionComponent<Props> = ({
       {!isMaximized && (
         <button
           aria-label="Maximize"
-          disabled={!!onClickMaximize}
+          disabled={!onClickMaximize}
           onClick={onClickMaximize}
         />
       )}

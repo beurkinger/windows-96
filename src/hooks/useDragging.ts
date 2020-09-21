@@ -13,7 +13,7 @@ import { getBounds, getBoundedOffset } from '../utils/BoundingUtils';
 export interface Options {
   getBoundingElt?: () => HTMLElement | null;
   initialCoords?: Coords;
-  isActive?: boolean;
+  isEnabled?: boolean;
   minCoordsValue?: Coords | null;
   onDragStart?: () => void;
   onDragStop?: (coords: Coords) => void;
@@ -24,7 +24,7 @@ const useDragging = (
   {
     getBoundingElt,
     initialCoords = { x: 0, y: 0 },
-    isActive = true,
+    isEnabled = true,
     minCoordsValue = null,
     onDragStart,
     onDragStop,
@@ -40,7 +40,7 @@ const useDragging = (
   const [coords, setCoords] = useState<Coords>(initialCoords);
 
   useEffect(() => {
-    if (!isActive) return;
+    if (!isEnabled) return;
     handleEltRef.current = getHandleElt();
     boundingEltRef.current = getBoundingElt ? getBoundingElt() : null;
   });
@@ -48,7 +48,7 @@ const useDragging = (
   useEffect((): (() => void) => {
     addPointerStartEventListeners();
     return () => {
-      if (!isActive) return;
+      if (!isEnabled) return;
       removePointerStartEventListeners();
       removePointerMoveEventListeners();
       removePointerStopEventListeners();
