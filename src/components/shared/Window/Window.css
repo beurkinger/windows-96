@@ -21,3 +21,7 @@
     background: transparent url(../../../assets/img/interface/resize-handle-grip.png) no-repeat 7px 7px;
     image-rendering: pixelated;
 }
+
+.handle:hover {
+    cursor: nwse-resize;
+}
