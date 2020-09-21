@@ -33,7 +33,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
     },
     {
       app: appList.timer,
-      coords: { x: 150, y: 150 },
+      coords: { x: 350, y: 150 },
       hasFocus: false,
       iconId: appList.timer.iconId,
       id: uuid(),
@@ -41,7 +41,7 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
       isMaximized: false,
       isMinimized: false,
       isResizeable: false,
-      size: { x: 300, y: 300 },
+      size: { x: 350, y: 150 },
       title: appList.timer.name,
       zIndex: 3,
     },

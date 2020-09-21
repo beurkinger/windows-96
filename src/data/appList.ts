@@ -205,7 +205,7 @@ export const appList: AppList = {
     iconId: 'help',
     isResizeable: false,
     name: '!!!',
-    size: { width: 400, height: 177 },
+    size: { width: 350, height: 150 },
   },
   volumeControl: {
     id: 'volumeControl',

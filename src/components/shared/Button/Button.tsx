@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact';
+import { h, FunctionComponent, ComponentChildren } from 'preact';
 import { IconId, IconSize } from '../../../types/Icon';
 
 import Icon from '../Icon/Icon';
@@ -13,7 +13,7 @@ interface Props {
   iconSize?: IconSize;
   isActive?: boolean;
   inTaskbar?: boolean;
-  label?: string;
+  label?: ComponentChildren;
   noOutline?: boolean;
   onClick: (e: MouseEvent) => void;
   textAlign?: 'left' | 'right' | 'center';
