@@ -3,10 +3,17 @@
     align-items: center;
 }
 
-.button.active {
+.button:not(:disabled):active,
+.button.active
+ {
     box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
-    padding: 2px 11px 0 13px;
-}
+    padding: 0 12px; /* initial padding */
+  }
+
+.button:not(:disabled):active > *,
+.button.active > * {
+    transform: translate3d(1px, 1px, 0);
+  }
 
 .button.focus {
     outline: 1px dotted #000000;
@@ -32,8 +39,13 @@
 
 .button.inTaskbar:not(:disabled):active,
 .button.inTaskbar.active {
-    padding: 1px 4px 0;
+    padding: 0 4px 0;
 }
+
+.button.inTaskbar:not(:disabled):active > *,
+.button.inTaskbar.active > * {
+    transform: translate3d(1px, 1px, 0);
+  }
 
 .button.noOutline:focus {
     outline: 0;
