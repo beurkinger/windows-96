@@ -44,7 +44,7 @@ const TimerApp: FunctionComponent<AppProps> = () => {
 
   useInterval(() => {
     setCountdown(getCurrentCountdown(TARGET_MS));
-  }, 100);
+  }, 15);
 
   useInterval(() => {
     setSmileyIndex((currentSmileyIndex) => {
@@ -60,10 +60,6 @@ const TimerApp: FunctionComponent<AppProps> = () => {
           <div className={style.timerAppContent}>
             <Bump size="medium" type="inner">
               <div className={style.timers}>
-                <Button
-                  label={<img src={SMILEY_SRC[smileyIndex]} />}
-                  onClick={() => null}
-                />
                 <Bump size="small" type="inner">
                   <div className={style.timer}>
                     <TimerNumber i={parseInt(countdown['h'][0])} />
@@ -71,6 +67,10 @@ const TimerApp: FunctionComponent<AppProps> = () => {
                     <TimerNumber i={parseInt(countdown['h'][2])} />
                   </div>
                 </Bump>
+                <Button
+                  label={<img src={SMILEY_SRC[smileyIndex]} />}
+                  onClick={() => null}
+                />
                 <Bump size="small" type="inner">
                   <div className={style.timer}>
                     <TimerNumber i={parseInt(countdown['m'][0])} />
@@ -78,6 +78,10 @@ const TimerApp: FunctionComponent<AppProps> = () => {
                     <TimerNumber i={parseInt(countdown['m'][2])} />
                   </div>
                 </Bump>
+                <Button
+                  label={<img src={SMILEY_SRC[smileyIndex]} />}
+                  onClick={() => null}
+                />
                 <Bump size="small" type="inner">
                   <div className={style.timer}>
                     <TimerNumber i={parseInt(countdown['s'][0])} />
@@ -85,10 +89,6 @@ const TimerApp: FunctionComponent<AppProps> = () => {
                     <TimerNumber i={parseInt(countdown['s'][2])} />
                   </div>
                 </Bump>
-                <Button
-                  label={<img src={SMILEY_SRC[smileyIndex]} />}
-                  onClick={() => null}
-                />
               </div>
             </Bump>
           </div>
