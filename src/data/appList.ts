@@ -204,8 +204,8 @@ export const appList: AppList = {
     id: 'timer',
     iconId: 'help',
     isResizeable: false,
-    name: '!!!',
-    size: { width: 350, height: 150 },
+    name: 'Time Flies',
+    size: { width: 231, height: 83 },
   },
   volumeControl: {
     id: 'volumeControl',

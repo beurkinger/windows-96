@@ -21,11 +21,13 @@
     height: 23px;
 }
 
-
-.timerAppContent button {
+.timerAppContent button,
+.timerAppContent button:not(:disabled):active,
+.timerAppContent button.active
+ {
     min-width: auto;
     padding: 0 4px 0 3px;
-}
+  }
 
 .timerAppContent button img {
     width: 18px;

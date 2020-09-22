@@ -41,7 +41,10 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
       isMaximized: false,
       isMinimized: false,
       isResizeable: false,
-      size: { x: 350, y: 150 },
+      size: {
+        x: appList.timer.size?.width ?? 350,
+        y: appList.timer.size?.height ?? 350,
+      },
       title: appList.timer.name,
       zIndex: 3,
     },
