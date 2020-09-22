@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/beurkinger/preact-starter-kit#readme",
   "dependencies": {
-    "98.css": "^0.1.16",
     "@types/uuid": "^8.3.0",
     "@types/webpack-env": "^1.15.3",
     "preact": "^10.4.4",

@@ -44,16 +44,6 @@ module.exports = (_, argv) => {
             'postcss-loader',
           ],
         },
-        // Support for compiled CSS from node_modules
-        {
-          test: /\.css$/,
-          include: /node_modules/,
-          exclude: /src/,
-          use: [
-            { loader: MiniCssExtractPlugin.loader },
-            { loader: 'css-loader' },
-          ],
-        },
         {
           test: /\.(woff(2)?|ttf|eot|svg|png|jpg|svg)$/,
           use: [
