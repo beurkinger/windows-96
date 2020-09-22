@@ -202,9 +202,9 @@ export const appList: AppList = {
   },
   timer: {
     id: 'timer',
-    iconId: 'help',
+    iconId: 'program',
     isResizeable: false,
-    name: 'Time Flies',
+    name: 'cfb4-42b7-a723',
     size: { width: 231, height: 83 },
   },
   volumeControl: {

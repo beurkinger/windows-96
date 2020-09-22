@@ -31,23 +31,6 @@ const OpenWindowsProvider: FunctionComponent<Props> = ({ children }: Props) => {
       title: appList.myComputer.name,
       zIndex: 2,
     },
-    {
-      app: appList.timer,
-      coords: { x: 350, y: 150 },
-      hasFocus: false,
-      iconId: appList.timer.iconId,
-      id: uuid(),
-      isDraggable: true,
-      isMaximized: false,
-      isMinimized: false,
-      isResizeable: false,
-      size: {
-        x: appList.timer.size?.width ?? 350,
-        y: appList.timer.size?.height ?? 350,
-      },
-      title: appList.timer.name,
-      zIndex: 3,
-    },
   ]);
 
   const getBiggestZIndex = (windows: OpenWindow[]): number => {
