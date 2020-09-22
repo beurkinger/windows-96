@@ -32,7 +32,7 @@ const Slider: FunctionComponent<Props> = ({
   value,
 }: Props) => {
   const setVerticality = (input: ComponentChild) => {
-    return isVertical ? <div className="is-vertical">{input}</div> : input;
+    return isVertical ? <div className={style.isVertical}>{input}</div> : input;
   };
 
   return (
@@ -41,9 +41,7 @@ const Slider: FunctionComponent<Props> = ({
       {labelMin && <label htmlFor={id}>{labelMin}</label>}
       {setVerticality(
         <input
-          className={`${style.slider} ${
-            hasBoxIndicator ? 'has-box-indicator' : ''
-          }`}
+          className={`${style.slider} ${hasBoxIndicator ? style.hasBoxIndicator : ''}`}
           disabled={disabled}
           id={id}
           max={max}

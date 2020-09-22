@@ -3,7 +3,7 @@
     align-items: center;
     height: 22px;
     padding: 2px;
-    font-family: "Pixelated MS Sans Serif", Arial;
+    font-family: var(--font-family-ui), sans-serif;
     font-size: 11px;
     line-height: 1;
     box-shadow: var(--box-shadow-notification);

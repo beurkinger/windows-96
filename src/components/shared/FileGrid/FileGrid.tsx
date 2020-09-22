@@ -11,7 +11,7 @@ interface Props {
   onClick: (e: MouseEvent) => void;
   onClickFile: (file: ShellItem, e: MouseEvent) => void;
   onDblClickFile: (file: ShellItem, e: MouseEvent) => void;
-  textColor?: 'black' | 'white';
+  textColor?: 'inherit' | 'white';
 }
 
 const FileGrid: FunctionComponent<Props> = ({
@@ -20,7 +20,7 @@ const FileGrid: FunctionComponent<Props> = ({
   onClick,
   onClickFile,
   onDblClickFile,
-  textColor = 'black',
+  textColor = 'inherit',
 }: Props) => {
   const handleOnClickFile = (e: MouseEvent, file: ShellItem) => {
     e.preventDefault();

@@ -15,7 +15,7 @@ interface Props {
   inTaskbar?: boolean;
   label?: ComponentChildren;
   noOutline?: boolean;
-  onClick: (e: MouseEvent) => void;
+  onClick?: (e: MouseEvent) => void;
   textAlign?: 'left' | 'right' | 'center';
   type?: 'button' | 'reset' | 'submit';
 }

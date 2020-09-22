@@ -4,8 +4,7 @@
     box-shadow: var(--border-window-outer), var(--border-window-inner);
     background: var(--surface);
     padding: 3px;
-    font-family: "Pixelated MS Sans Serif", Arial;
-    /* -webkit-font-smoothing: none; */
+    font-family: var(--font-family-ui), sans-serif;
     font-size: 11px;
     line-height: 1;
     overflow: visible;

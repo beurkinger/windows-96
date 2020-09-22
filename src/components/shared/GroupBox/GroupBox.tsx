@@ -8,8 +8,8 @@ interface Props {
 }
 
 const GroupBox: FunctionComponent<Props> = ({ legend = '' }: Props) => (
-  <fieldset className={style.groupbox}>
-    {legend && <legend>{legend}</legend>}
+  <fieldset className={style.groupBox}>
+    {legend && <legend className={style.legend}>{legend}</legend>}
   </fieldset>
 );
 

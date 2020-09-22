@@ -6,7 +6,7 @@
     box-shadow: none;
     background: white;
     resize: none;
-    font-family: var(--font-family-notepad);
+    font-family: var(--font-family-sys);
     font-weight: bold;
     /* -webkit-font-smoothing: none; */
     /* font-size: 13px; */

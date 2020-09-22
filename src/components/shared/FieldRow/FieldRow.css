@@ -1,1 +1,21 @@
-.fieldrow {}
+.fieldRow {
+    display: flex;
+    align-items: center;
+  }
+  
+  [class^="fieldRow"] + [class^="fieldRow"] {
+    margin-top: var(--grouped-element-spacing);
+  }
+  
+  .fieldRow > * + * {
+    margin-left: var(--grouped-element-spacing);
+  }
+  
+  .fieldRowStacked {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .fieldRowStacked * + * {
+    margin-top: var(--grouped-element-spacing);
+  }

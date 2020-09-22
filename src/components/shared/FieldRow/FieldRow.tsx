@@ -11,11 +11,7 @@ const FieldRow: FunctionComponent<Props> = ({
   children = null,
   stacked = false,
 }: Props) => (
-  <div
-    className={`${style.fieldrow} ${
-      stacked ? 'field-row' : 'field-row-stacked'
-    }`}
-  >
+  <div className={stacked ? style.fieldRow : style.fieldRowStacked}>
     {children}
   </div>
 );

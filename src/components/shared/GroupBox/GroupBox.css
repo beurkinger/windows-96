@@ -1,1 +1,12 @@
-.groupbox {}
+fieldset.groupBox {
+    border: none;
+    box-shadow: var(--border-sunken-outer), var(--border-raised-inner);
+    padding: calc(2 * var(--border-width) + var(--element-spacing));
+    padding-block-start: var(--element-spacing);
+    margin: 0;
+
+}
+
+legend.legend {
+    background: var(--surface);
+}

@@ -2,7 +2,10 @@
     display: flex;
     flex-direction: column;
     position: relative;
-}
+    padding: 3px;
+    background: var(--surface);
+    box-shadow: var(--border-window-outer), var(--border-window-inner);
+  }
 
 .windowMain {
     flex: 1 1 auto;

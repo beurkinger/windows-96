@@ -1,19 +1,86 @@
-.titlebar {
-    justify-content: flex-start !important;
-    margin: 1px !important;
-    height: 18px;
-    padding: 1px 2px !important;
-    user-select: none;
+.titleBar {
+  display: flex;
+  justify-content: flex-start !important;
+  align-items: center;
+  margin: 1px !important;
+  height: 18px;
+  padding: 1px 2px !important;
+  background: var(--dialog-blue);
+  user-select: none;
 }
 
-.titlebarIcon {
-    margin-right: 2px;
+.titleBar.inactive {
+  background: linear-gradient( 90deg, var(--dialog-gray), var(--dialog-gray-light));
 }
 
-.titlebarText {
-    flex:1;
-    margin-left: 1px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+.titleBarText {
+  flex: 1;
+  margin: 0 24px 0 1px;
+  color: white;
+  letter-spacing: 0;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.titleBarIcon {
+  margin-right: 2px;
+}
+
+.titleBarControls {
+  display: flex;
+}
+
+.titleBarControls button {
+  padding: 0;
+  display: block;
+  min-width: 16px;
+  min-height: 14px;
+}
+
+.titleBarControls button:active {
+  padding: 0;
+}
+
+.titleBarControls button:focus {
+  outline: none;
+}
+
+.titleBarControls button:last-child {
+  margin-left: 2px;
+}
+
+.titleBarControls button {
+  position: relative;
+}
+
+.titleBarControls button img {
+  display: block;
+  position: absolute;
+}
+
+.minimize {
+  bottom: 3px;
+  left: 4px;
+}
+
+.maximize {
+  top: 2px;
+  left: 3px;
+}
+
+.restore {
+  top: 2px;
+  left: 3px;
+}
+
+.help {
+  top: 2px;
+  left: 5px;
+}
+
+.close {
+  top: 3px;
+  left: 4px;
 }

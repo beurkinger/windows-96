@@ -25,8 +25,7 @@
 .fileLabel {
   max-height: 30px;
   padding: 2px 3px 2px 3px;
-  font-family: "Pixelated MS Sans Serif", Arial;
-  /* -webkit-font-smoothing: none; */
+  font-family: var(--font-family-ui), sans-serif;
   font-size: 11px;
   line-height: 13px;
   text-align: center;

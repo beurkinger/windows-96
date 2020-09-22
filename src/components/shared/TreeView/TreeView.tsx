@@ -25,7 +25,7 @@ const TreeView: FunctionComponent<Props> = ({
   };
 
   return setExpandability(
-    <ul className={`${style.TreeView} tree-view`}>
+    <ul className={`${style.treeView}`}>
       {items.map((item, i) => (
         <li key={i}>{item}</li>
       ))}
