@@ -1,0 +1,16 @@
+.timerNumber {
+    position: relative;
+    width: 13px;
+    height: 23px;
+    background: black;
+}
+
+.timerNumber img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 13px;
+    height: 23px;
+    image-rendering: pixelated;
+}
