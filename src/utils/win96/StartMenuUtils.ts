@@ -6,17 +6,14 @@ import { getDirFromPath, getFileFromPath } from './FileSystemUtils';
 import { fileSystem } from '../../data/fileSystem';
 
 export const getProgramsMenuOptions = (item: FileSystemItem): OptionType => {
-  // If App
-  if ('appId' in item) {
+  if (item.type === 'app') {
     return {
       label: appList[item.appId].name,
       iconId: appList[item.appId].iconId,
       value: { appId: appList[item.appId].id },
     };
   }
-  // If File
-  // Right now we simply open the associated app...
-  if ('fileTypeId' in item)
+  if (item.type === 'file')
     return {
       label: item.name,
       iconId: appList[fileTypeList[item.fileTypeId].appId].iconId,
@@ -25,8 +22,7 @@ export const getProgramsMenuOptions = (item: FileSystemItem): OptionType => {
         workingFile: item,
       },
     };
-
-  if ('toAppId' in item)
+  if (item.type === 'shortcut')
     return {
       label: item.name,
       iconId: item.iconId,
