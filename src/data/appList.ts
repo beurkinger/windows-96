@@ -30,9 +30,7 @@ export const appList: AppList = {
   dialUpNetwork: {
     id: 'dialUpNetwork',
     iconId: 'dialUpNetwork',
-    isResizeable: false,
     name: 'Dial-Up Networking',
-    size: { width: 400, height: 177 },
   },
   exchange: {
     id: 'exchange',

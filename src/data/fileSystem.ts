@@ -42,6 +42,13 @@ export const networkNeighborhoodFs = createFs(
 export const printersFs = createFs(
   require.context('../assets/fileSystems/Printers', true, /\.(jpg|png|ts|txt)$/)
 );
+export const dialUpNetworkFs = createFs(
+  require.context(
+    '../assets/fileSystems/Dial-Up Networking',
+    true,
+    /\.(jpg|png|ts|txt)$/
+  )
+);
 export const startMenuFs = {
   name: 'Start Menu',
   type: 'dir',

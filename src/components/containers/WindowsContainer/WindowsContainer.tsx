@@ -5,6 +5,7 @@ import { AppId, AppProps } from '../../../types/App';
 import OpenWindowsContext, {
   OpenWindow,
 } from '../../../context/OpenWindowsContext';
+import DialUpNetworkApp from '../../apps/DialUpNetworkApp/DialUpNetworkApp';
 import MyBriefcaseApp from '../../apps/MyBriefcaseApp/MyBriefcaseApp';
 import MyComputerApp from '../../apps/MyComputerApp/MyComputerApp';
 import NetworkNeighborhoodApp from '../../apps/NetworkNeighborhoodApp/NetworkNeighborhoodApp';
@@ -23,7 +24,7 @@ const components: { [key in AppId]: FunctionComponent<AppProps> } = {
   calc: VoidApp,
   cdPlayer: VoidApp,
   defrag: VoidApp,
-  dialUpNetwork: VoidApp,
+  dialUpNetwork: DialUpNetworkApp,
   exchange: VoidApp,
   explorer: VoidApp,
   find: VoidApp,
