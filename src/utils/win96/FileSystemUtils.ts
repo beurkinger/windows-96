@@ -124,7 +124,7 @@ const addItemToFs = (
       if (
         extension === 'ts' &&
         type === 'ink' &&
-        isContentValid(content, currentPath, ['toAppid', 'iconId', 'name'])
+        isContentValid(content, currentPath, ['toAppId', 'iconId', 'name'])
       ) {
         currentFsNode.dir[currentPath] = getFsShortcut(
           content as {
