@@ -1,0 +1,138 @@
+      ------------------------------------------------------------
+               README for Microsoft Personal Web Server (PWS)
+                               August l996            
+     ------------------------------------------------------------
+
+                (c) Copyright Microsoft Corporation, 1996
+
+
+This document provides complementary or late-breaking information to
+supplement the documentation.
+
+
+------------------------
+HOW TO USE THIS DOCUMENT
+------------------------
+
+To view Pws.txt on screen in Notepad, maximize the Notepad window.
+
+To print Pws.txt, open it in Notepad or another word processor, 
+then use the Print command on the File menu.
+
+
+CONTENTS
+========
+
+MICROSOFT PERSONAL WEB SERVER OVERVIEW
+
+PWS INSTALLATION
+
+PWS ADMINISTRATION
+
+PWS SECURITY SYSTEM
+  Pass-Through Security
+  Share-Level Security
+  Local-User Security
+
+KNOWN ISSUES
+
+
+MICROSOFT PERSONAL WEB SERVER OVERVIEW
+======================================
+
+Welcome to the Microsoft Personal Web Server (PWS).
+
+Microsoft Personal Web Server is a network file and application server 
+that transmits information in HyperText Markup Language (HTML) pages 
+using the HyperText Transport Protocol (HTTP). It provides most of 
+the functionality of Microsoft Internet Information Server, including 
+the ability to do the following: 
+
+- Publish Web pages on the Internet or over a LAN on an intranet.
+- Transmit or receive files using the FTP service.
+
+Microsoft Personal Web Server for Windows 95 is an easy-to-use and 
+easy-to-manage Web server that supports the following features: 
+
+- HTTP service
+- FTP service
+- ISAPI and CGI scripts 
+- ODBC32 data source and HTTP links to ODBC (HTTPODBC) 
+- Pass-through security to NT and Novell NetWare
+- Local-user security if Microsoft File and Print Sharing is not 
+  installed
+- Security Socket Layer
+- Remote administration (Web-based application)
+
+For more information, please refer to the on-line documentation.
+
+
+PWS INSTALLATION
+================
+
+To install the Personal Web Server, go to Network in the Control 
+Panel and press Add, select Service, press Add, select Microsoft
+from the Manufacturers column, double click on Personal Web
+Server, and press OK on the network control panel.
+
+By default your home page is C:\Webshare\WWWroot\DEFAULT.HTM.  You
+can edit this file to fit your needs.
+
+
+PWS ADMINISTRATION
+==================
+
+PWS can be administered remotely by any client running an Internet 
+browser such as Microsoft Internet Explorer or Netscape Navigator. 
+To access the Web-based application, you can:
+
+- Open Control Panel, double-click the Personal Web Server icon, 
+  click the Administration tab, and then click the Web Admin button.
+
+  -or- 
+
+- Right-click the Personal Web Server icon on the taskbar, and then 
+  click Administer.
+
+
+PWS SECURITY SYSTEM
+===================
+
+Access controls are set to directories only, as for the Windows 95 
+File and Print Sharing for Microsoft network or NetWare network 
+using user-level security.
+
+Pass-Through Security
+---------------------
+- If your computer is set up for user-level access control over a 
+  network, then the names you add to the user list for Personal Web 
+  Server on your computer must also be in the user list for the NT 
+  domain, NetWare server 3.x, and NetWare 4.x using Bindery emulation. 
+  For more information, see your Windows 95 documentation.
+
+- Like Microsoft Internet Information Server (IIS), PWS uses a secured 
+  client authentication based on Windows NT security protocol. 
+
+Share-Level Security
+--------------------
+- If your computer is set up to use share-level security, you cannot 
+  use a user list to restrict access to your Web page. 
+
+Local-User Security
+------------------- 
+- If Windows 95 is not configured to support File and Print Sharing 
+  for Microsoft network or NetWare network, PWS will use a local user 
+  database to manage user-level security for your Web server virtual 
+  roots and their subdirectories.
+
+- Managing users is possible through the Web-based application.
+
+
+KNOWN ISSUE
+===========
+
+- If you are using PWS with local-user security, the Windows 95 
+  Dial-Up Networking server and the Remote Registry service do
+  not work.  To disable local-user security go to Network in the
+  Control Panel, highlight the Personal Web Server, press 
+  Properties, and change the value of Use Local Security to FALSE. 

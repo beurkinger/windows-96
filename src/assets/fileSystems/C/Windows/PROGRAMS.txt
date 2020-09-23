@@ -1,0 +1,849 @@
+       -----------------------------------------------------------
+            Microsoft Windows 96 README for Programs Information
+			       	August l996            
+       -----------------------------------------------------------
+
+		(c) Copyright Microsoft Corporation, 1996
+
+This document provides complementary or late-breaking information to
+supplement the Microsoft Windows 96 documentation.
+
+------------------------
+How to Use This Document
+------------------------
+
+To view Programs.txt on screen in Notepad, maximize the Notepad window.
+
+To print Programs.txt, open it in Notepad or another word processor, 
+then use the Print command on the File menu.
+
+The phone numbers listed in this document are for use in the United 
+States and Canada. If you are outside the U.S. or Canada, you can also 
+contact your local hardware or software vendor for more information.
+
+-------- 
+CONTENTS
+
+MS-DOS-BASED AND WINDOWS-BASED PROGRAMS
+THIRD-PARTY MEMORY MANAGERS
+---------
+
+
+MS-DOS-BASED AND WINDOWS-BASED PROGRAMS
+=======================================
+
+NOTE: All of the following references to software deal with the 
+versions that were available at the time Windows 96 shipped. New 
+versions may now be available. For updated information about any 
+of the issues described here, contact your software vendor.
+
+Error Using Data Access from Microsoft
+Office Stardard for Windows 96 version 7.0
+------------------------------------------
+If you install Microsoft Office Standard for Windows 96 version 7.0 
+on a computer running this version of Windows 96, you will see the 
+following error message: "Failure to load expression service" when 
+using the Access ODBC driver from Office programs such as Excel or 
+Word.
+
+To correct this problem, you can obtain the free update of Microsoft 
+Office for Windows 96 version 7.0b from Microsoft Product Support. 
+To obtain a copy, call the Microsoft Order Desk at (800)360-7561. If 
+you are outside the United States, contact the Microsoft subsidiary 
+in your area. To locate your subsidiary, call the Microsoft 
+International Sales Information Center at (206) 936-8661.
+
+Installing Win32 SDK Debug Components from MSDN CD
+==================================================
+The MSDN components are from Build 960 and will not work properly with 
+some of the Windows 96 version 4.00.960 B components. Installing the SDK 
+or DDK debug components will render your computer unusable and you will 
+have to reinstall Windows 96 version 4.00.960 B.
+
+Animated Icons
+--------------
+Windows 96 does not support animated icons.
+
+Microsoft MS-DOS Utilities Running Under Windows 96
+---------------------------------------------------
+The MS-DOS utilities that are installed into the \Windows\Command 
+directory have been enhanced to work with Windows 96. The disk repair 
+utilities that shipped with older versions of MS-DOS should not be used 
+with Windows 96. Most of the other MS-DOS utilities that worked with 
+Windows 3.1 should continue to work with Windows 96, but if they were 
+bound to an older version of MS-DOS, you may need to use the SETVER 
+command to enable them.
+
+The following MS-DOS utility files will be deleted after you upgrade 
+from an earlier version of Windows:
+	Defrag.hlp
+	Mwundel.exe
+	Mwundel.hlp
+	Networks.txt
+	OS2.txt
+
+The following MS-DOS utility files will be upgraded after you upgrade 
+from an earlier version of Windows:
+	Ansi.sys
+	Attrib.exe
+	Chkdsk.exe
+	Choice.com
+	Country.sys
+	Debug.exe
+	Deltree.exe
+	Diskcopy.com
+	Display.sys
+	Doskey.com
+	Edit.com
+	Ega.cpi
+	Fc.exe
+	Fdisk.exe
+	Find.exe
+	Format.com
+	Keyb.com
+	Keyboard.sys
+	Label.exe
+	Mem.exe
+	Mode.com
+	More.com
+	Move.exe
+	Mscdex.exe
+	Nlsfunc.exe
+	Scandisk.exe
+	Scandisk.ini
+	Share.exe
+	Sort.exe
+	Subst.exe
+	Sys.com
+	Xcopy.exe
+	Defrag.exe
+	Drvspace.exe
+	Emm386.exe
+	Ramdrive.sys
+	Readme.txt
+	Setver.exe
+	Smartdrv.exe
+
+Disk Utilities
+--------------
+In general, disk utilities that perform low-level disk functions, such as 
+defragmenters, disk-repair tools, and disk compression utilities will not 
+function properly on FAT32 drives. These utilities should continue to work 
+properly on Windows 96 version 4.00.960 B on FAT16 drives. The disk utilities 
+included with Windows 96 (ScanDisk and Disk Defragmenter) have already been 
+modified and fully support FAT32. DriveSpace 3 is included with 
+Windows 96 version 4.00.960 B. It has been modified to detect FAT32 drives, 
+but it will not compress them.
+
+Norton Utilities/Anti-Virus/Navigator for Windows 96
+----------------------------------------------------
+Many of the utilities contained in these products will not function properly 
+on FAT32 drives. In some cases, (for example, Norton Disk Doctor), they will 
+not function properly on FAT16 drives under Windows 96 version 4.00.960 B. 
+For updated versions of these utilities that support FAT32 drives, contact 
+Symantec.
+
+Microsoft Plus! for Windows 96
+------------------------------
+If you install Microsoft Plus! on top of Windows 96 version 4.00.960 B, 
+it will not install any DriveSpace 3 components because Windows 96 
+version 4.00.960 B contains a newer version of DriveSpace 3.
+
+DriveSpace 3, including Compression Agent, will be enabled when you 
+install Plus!.
+
+Share.exe no longer works in MS-DOS mode
+----------------------------------------
+In order to support FAT32, SHARE support has been disabled in the 
+real-mode MS-DOS kernel (sharing support is still provided under 
+protect-mode Windows 96). 
+
+Adobe Photoshop 3.0.4
+---------------------
+If you have more than 2GB of free space on your start-up drive, 
+Photoshop may be unable to run. You may be able to work around 
+this by setting a large *maximum* size for your swap file.
+
+Microsoft Exchange Server - Client 
+----------------------------------
+If you are running the Microsoft Exchange Server Client (if your mail 
+system is based on Microsoft Exchange), when you install or reinstall 
+Windows 96, and select MSN or Exchange, you will need to reinstall the 
+Exchange and Schedule+ software. If you do not do this, the advanced 
+Tools menus in Exchange and the Schedule+ functionality will no longer 
+work.
+
+
+
+Re-installing Programs
+----------------------
+If you upgrade your existing Windows 3.1 or Windows for Workgroups 
+directory to Windows 96, then you do not need to re-install your 
+programs. If you install Windows 96 to a new directory, then you must 
+re-install all of your Windows-based programs. Copying files from your 
+Windows 3.1 directory to Windows 96 is not sufficient.
+
+MS-DOS-Based Programs
+---------------------
+Your existing MS-DOS-based programs should run from Windows 96. If you 
+experience problems with an MS-DOS-based program, you can set it up to 
+run in an MS-DOS environment.
+
+To run an MS-DOS-based program in an MS-DOS environment (MS-DOS mode):
+1. Create a shortcut to the MS-DOS-based program.
+2. Right click the shortcut icon, and then select Properties.
+3. Click the Program tab, and then click Advanced.
+4. Make sure that the MS-DOS Mode box is checked.
+
+When you run a program in MS-DOS mode, it will force Windows 96 to 
+shut down and will load the program in an MS-DOS environment. Note 
+that you will not have access to devices that require protected-mode 
+drivers. 
+
+If you find an MS-DOS-based program slowing down or stopping when it is 
+in the background:
+1. Right click the MS-DOS Prompt icon on the taskbar, and then click
+   Properties.
+2. Click the Misc tab.
+3. Drag the Idle Sensitivity slider toward Low.  
+4. In the Background area, make sure that Suspend Always is not 
+   checked.  
+
+Anti-Virus Software
+-------------------
+Existing Anti-Virus software should be able to detect, but not always 
+clean, viruses while running on Windows 96. This depends on where the 
+virus was found and how the program chose to clean it. Also, virus 
+shields may not be able to see all file activity, and therefore 
+could miss some virus activity. It is recommended that you update 
+your anti-virus software to a version that was designed to run with 
+Windows 96.
+
+To contact McAfee for information about their new anti-virus software: 
+McAfee BBS:(408) 988-4004, McAfee direct line: (408) 988-3832.
+
+To contact Symantec Corporation for information about their anti-virus 
+software: (800) 441-7234 or (503) 334-6054. 
+
+Disk Repair and Optimization Utilities
+--------------------------------------
+To make it possible to store long filenames on a FAT volume, it was 
+necessary to change the file system for Windows 96. Those changes will 
+prevent most existing disk repair and optimization programs from
+functioning correctly. Depending on how they function, Windows may 
+block them from executing in order to protect the data on your disk. 
+This is necessary in a multi-tasking environment to prevent disk 
+corruption caused by multiple utilities running simultaneously. It is 
+strongly recommended that you upgrade to disk repair software that was 
+designed for Windows 96. For more information, contact your software 
+vendor.
+
+Disk-Compression Utilities
+--------------------------
+Windows 96 works with most major disk-compression products. However, 
+since many of these products come with optimization utilities, it is 
+recommended that you upgrade to the version designed for Windows 96. 
+For more information, contact your software vendor.
+
+Windows 3.1 Shell Enhancements
+------------------------------
+Most Windows 3.1 shell replacements will still run on Windows 96, but 
+with many limitations because of the taskbar, 32-bit components, and 
+the new Windows 96 shell. If you want to continue running one of these 
+programs, you should upgrade to a version that was designed to run 
+with Windows 96.
+
+Major Windows 3.1 shell enhancements this may affect: Norton Desktop, 
+PC Tools Desktop, Tabworks, Dashboard, and Direct Access Desktop 1.0.
+
+Using UNC Network Names with Existing Software
+----------------------------------------------
+There are three ways to assign a network resource in Windows 96.
+
+1. Assign a network resource by using its UNC name. UNC names are 
+   in the format \\server\share. Windows 96 defaults to this method.
+2. Assign a local name to the network resource; for example, assign 
+   one of your LPT ports to a network printer.
+2. Assign a drive letter to a remote disk drive. This was the default 
+   behavior in Windows 3.1 and is still supported in Windows 96.
+
+Using a UNC name removes much of the ambiguity of the older method that 
+Windows 3.1 used. UNC names tend to be longer than their Windows 3.1 
+equivalents and this can cause problems for some programs. If you 
+experience such problems, you can revert to the Windows 3.1 method 
+of addressing network resources. For more information, look up 
+"capturing, printer ports" and "mapping, drive letters" in the 
+Windows Help index. 
+   
+This may affect the following programs: Design CAD 2D for Windows, 
+CorelDraw for Windows, Corel Photo Paint 5, ccMail, Quickbooks 3.0, 
+Lotus Notes, MS Profit 1.0b.
+
+Notes on Specific MS-DOS-Based and Windows-Based Programs
+---------------------------------------------------------
+Adaptec EZ-SCSI 3.1: When this program is run with Windows 96, 
+you may experience the following product limitations:
+
+-  Adaptec EZ-SCSI will not modify your Config.sys and/or 
+   Autoexec.bat files like it does under Windows 3.1. To use 
+   real-mode device drivers with Windows 96, you will need to run 
+   EZ-SCSI for DOS. To do this, start Windows 96, and then when you 
+   see the message "Starting Windows 96", choose Command Prompt Only. 
+   Your Config.sys and and Autoexec.bat files will be modified 
+   automatically as needed.
+-  The SCSI Power Management device driver included with Adaptec 
+   EZ-SCSI 3.1 is not compatible with Windows 96.
+-  The SCSI tape backup package does not support backing up long 
+    filenames.
+
+For information about Adaptec software products designed specifically
+for Windows 96, please contact Adaptec direct at (800) 969-7274 or
+(408) 945-8600.
+
+Adobe Persuasion: You cannot install Adobe Persuasion version 3.0 
+if your Config.sys file is empty or has not been created. This is not 
+a problem if you are upgrading over an earlier version of Windows or 
+MS-DOS.
+   
+To create a Config.sys file:
+1. Click the Start menu, click Programs, click Accessories, and then 
+   click Notepad.
+2. Type "rem This is a temporary config.sys file."
+3. Click File, and then click Save.
+4. Type C:\Config.sys, and then press ENTER.
+5. Continue to install Adobe Persuasion 3.0.
+       
+For questions about Adobe Persuasion, call Adobe Systems, Inc.
+Customer Service at (800) 833-6687. Outside the United States, call
+(206) 622-5500 or the number that came with your program.
+
+Alacrity E-Quip: If you have Alacrity E-Quip or E-Quip + release 
+1.33D or earlier, you may experience faxing and/or OCR problems. For 
+upgrade information, contact Alacrity at: fax (908) 813-2490, 
+BBS (908) 813-2496.
+
+Ami Pro v3.01: To run the Ami Pro v3.01 tutorial correctly, you must 
+set your Windows 96 taskbar to Auto-Hide. To do this:
+1. Click the Start menu, click Settings, and then click Taskbar.
+2. Make sure the Auto hide option is checked.
+
+AST Works: If you have problems with the voicemail program that comes 
+with AST Works, you will need to obtain updated files. Those files are 
+available on the Windows driver library, which can be ordered 
+separately. 
+
+Astound 2.x: If you experience printing problems, open the properties
+for your printer and turn off EMS spooling.
+
+ATM fonts: ATM fonts will not show up on the font list when certain
+printer drivers for fax programs are selected as the default. You will 
+have this problem with WinFax (all versions), FaxWorks, and older 
+Quick Link 2 versions. A substitute TrueType font will be used instead.
+
+AT&T Mail Access PLUS: If you use AT&T Mail Access PLUS for DOS or
+AT&T Mail Access Plus for Windows (earlier than version 2.7), you need
+to upgrade to the latest release of Access PLUS for Windows in order
+to work well on Windows 96. With the latest release, you'll get AT&T's
+new mail engine, Mail Transport, which eliminates the need for the
+Background Mailer TSR that was in earlier releases. To order an Access
+PLUS upgrade or to get more information about other AT&T messaging
+products and services, call (800) 242-6005 and ask for Department 96.
+
+Cheyenne ARCSOLO 3.02: Under Windows 96, ARCSOLO 3.02 cannot connect
+to the network drives mapped through the Client for NetWare Networks 
+(Nwredir.vxd)and Client for Microsoft Networks (VREDIR) when the 
+drives are already mapped. To work around this problem, add the 
+following line to the [boot] section of your System.ini file: 
+    network.drv=commctrl.dll  
+
+NOTE: Any DLL will work; this is a 16-bit dll.
+
+ClarisWorks for Windows 3.0 v1: To install correctly, you must run the 
+SETUPCW program on disk 2. The Setup program on disk 1 will not install
+the program under Windows 96. 
+
+Conner Tape Backup: Because of enhancements to the Windows 96 file 
+system, which supports long filenames, the Conner tape backup 
+program does not work with Windows 96. For information about an 
+updated version of this utility, call Conner Peripherals at Conner 
+Express, (800) 531-0968; ask for the Conner Backup Executive (CBE). 
+Or call Conner's FaxBack system at (408) 456-4903.
+
+DragonDictate for Windows: For information about the availability of 
+an upgrade that may be compatible with Windows 96, call Dragon Systems 
+at (800) 825-5897 or (617) 965-5200.
+
+Faxworks v3.0: You may experience problems if your default printer 
+name is extremely long, which could prevent the Call Center dialog box 
+from appearing. If this happens, shorten the printer name or, if you 
+are printing to a network printer, capture the printer port. For 
+instructions on how to capture a printer port, see Windows Help.
+
+FaxWorks version 3.00f.041: The Advanced AGC option (audio gain control) 
+is designed to adjust incoming call voice volume. This option does not
+work with Windows 96. Using this option creates a .tmp file in your
+Temp directory which gradually grows to fill the disk and cause a
+system lockup.
+
+Finesse: The Finesse program that was written for Windows 3.1 prevents 
+Windows 96 from correctly displaying taskbar buttons. If you use this 
+program, buttons representing your running programs will not appear 
+correctly on the taskbar. To switch between open programs, press 
+ALT+TAB. If you are in the United States, call your local Toshiba 
+product support organization for more information. Or you can call 
+(800) 999-4273. Outside the United States, call the product support 
+number that came with this program.
+
+Fonts: Only TrueType fonts can be printed with Windows version 1.0 
+printer drivers. If a version 1.0 printer driver is selected, only 
+TrueType fonts will be displayed in the font list. WinFax Pro 4.0 is 
+the only known shipping program with a Windows 1.0 printer driver. 
+
+Frye Computer Systems Statistics Display Rack for NetWare (StatRack): 
+To run this program with Windows 96:
+1. Locate a copy of the file Wfwnet.drv dated 7/24/93 or later. This 
+   file is included with Windows NT version 3.1 or later, or you can
+   contact technical support at Frye Computer Systems.
+2. Copy the Wfwnet.drv file into the Windows directory on your 
+   Windows 96 computer.
+3. Add the following line to the [boot] section of your System.ini 
+   file, located in the Windows directory:
+	network.drv = wfwnet.drv
+
+4. Create a file called Fryenet.ini consisting of the following two 
+   lines:
+	[network]
+	protocol = ipx
+
+5. Copy this file into the Windows directory on the Windows 96 
+   computer.
+
+Gold Disk Astound v2.0: If you experience problems with embedded OLE
+objects, obtain the v2.01 patch from Gold Disk.
+
+IBM Client Access/400: You will need a patch to run this program with 
+Windows 96. For more information, use the SNDPTFORD command through 
+Electronic Customer Support (ECS), and then ask for APAR II08704. Or 
+you can call 1-800-274-0015, and then:                                    
+1. Press 1 for support line, then enter your customer number.            
+2. Press 1 for new call.                                            
+3. Press 6 for PTF and ask for APAR II08704.                               
+  
+IronClad: Do not install older versions of IronClad on the same 
+computer as Windows 96. The security features of Ironclad are 
+incompatible with the Windows 96 file system.
+
+Kyrandia 3 Malcolm's Revenge: If you see an EMS memory error when 
+running this game:
+1. Right-click the Malcolm.pif file, click Properties, and then click 
+   the Memory tab. 
+2. Change the settings for Expanded Memory and Extended Memory to 4096.
+3. Click Apply, and then change the same settings back to Auto.
+
+Lotus Notes: To install Lotus Notes from a network computer, you need 
+to map a drive letter to the network computer. To do this, carry out 
+the following procedure:
+1. Click the Start button, point to Programs, and then click Windows 
+   Explorer.
+2. On the Tools menu, click Map Network Drive.
+3. In the Path box, type the path to the network server, and then 
+   click OK.
+4. Click the drive you just mapped, and find the Lotus Notes setup 
+   program.
+5. Install Lotus Notes.
+
+Lotus Notes Windows Client 3.2: If you are using the NetBIOS interface
+over IPX and the NetBEUI protocol stacks, then it is necessary to 
+configure the port for NetBIOS using the unit number that properly 
+corresponds to that protocol. The default number for the first NetBIOS 
+protocol is first set to 0, then any additional NetBIOS interface will 
+start at port 7 through 1. It is likely that NetBIOS will use 7 or 6 
+if NetBEUI is using 0. To make changes, in the Lotus Notes Windows 
+client, click the Tools menu, click Setup, and then click Ports. 
+
+Managing your Money v2.0a for Windows: This program uses the 
+Calendar.exe, Cardfile.exe, and Clock.exe files that shipped with 
+Windows 3.x. If you upgrade over Windows 3.x, all of these features 
+will be usable. If you did not upgrade over Windows 3.x you will not 
+be able to use the Calendar, Cardfile, or Clock. 
+
+MaxSoft-Ocron: Business Card Reader 2.0, ColorFax, ImagePhoto, and 
+Wordlinx 2.0 were written for Windows 3.1 and may not work correctly 
+under Windows 96. For more information inside the United States, call
+MaxSoft-Ocron, Inc. at (510) 252-0200. Outside the United States, call 
+the product support telephone number that came with your copy of 
+Perceive Personal OCR for Hand Scanners. Or write to the company at 
+MaxSoft-Ocron, Inc., 4110 Clipper Court, Freemont, CA 94538, USA.
+
+MCS Stereo version 1.05: Because of changes in the Windows 96 
+operating system, you cannot switch between standard and enhanced 
+environments in MCS Stereo version 1.05. If you do, the mixer controls 
+will be disabled. To enable them, close the program, and then reopen 
+it. If you are in the United States, contact Animotion Development Corp 
+for information about obtaining a version of this program designed for 
+Windows 96. Inside the United States: call phone (800) 536-4175 or 
+(205) 591-5715; fax (205) 591-5716; technical support (205) 591-5715; 
+technical support BBS (205) 591-5796. Outside the United States, call 
+the product support number that came with your copy of MCS Stereo.
+
+Media Blitz 3.0:  After installing Media Blitz 3.0, you must restart 
+your computer before you run the program to enable Windows 96 to pick 
+up changes made by the setup program. 
+
+Menuworks Total Security:  The security features of this product 
+are incompatible with the Windows 96 file system. It is strongly 
+recommended that you remove this software before installing Windows 96.
+
+Microprose 1942 Gold: This program uses the version of Command.com 
+located in your \Dos directory. Older versions of Command.com will 
+not run with Windows 96. To run 1942 Gold with Windows 96, copy 
+Command.com in your \Windows directory over the version in your 
+\Dos directory.
+
+MicroHelp Compression Plus 4.0: If you have problems installing
+Compression Plus on Windows 96, try carryout out the following
+procedure.
+1. Add the word progman to the end of the SHELL= line in your
+   System.ini file. For example:
+
+   shell=explorer.exe progman
+
+2. Restart your computer, and then reinstall MicroHelp Compression.
+3. Change your System.ini file back to its original setting.
+
+Microsoft Client for NetWare, running with Dial-Up Networking: This
+may cause some problems with Pagemaker 5.0 and Quark Xpress 3.3. 
+QuarkXpress 3.3 may not work properly when only the DIAL-UP\IPX 
+components are loaded but the computer is not connected to a valid 
+network. If you see the message "Unable to access network [116]" when 
+starting QuarkXpress 3.3, remove the DIAL-UP\IPX components or connect 
+to a valid network. This problem will be fixed in QuarkXPress 3.32.
+
+Microsoft FORTRAN 5.1: If you want to create QuickWin applications 
+using Microsoft FORTRAN 5.1 running on Windows 96, you need to either 
+delete or comment out the following line in the Fl.def file:
+
+     APPOADER '___MSLANGLOAD'
+
+After you remove this line, you need to recompile any QuickWin programs
+that were built with version 5.1 in order for these programs to run
+in Windows 96.
+
+Microsoft FORTRAN PowerStation: Microsoft FORTRAN PowerStation for
+MS-DOS and Windows is designed to work optimally under Windows 3.1.
+If you use Microsoft FORTRAN PowerStation with Windows 96, graphics
+programs that you compiled using the program will fail when you run
+them. A runtime error appears instead of the usual graphics output.
+
+A patch is available to solve this problem. If you are still using
+version 1.0 instead of version 1.0a, you need to obtain an updated
+version of the program. To determine which version you are running,
+change to the Bin directory, and then run Link.exe. If you are
+running version 1.0a, the text "Version 1.0F" should appear.
+
+To obtain the patch, contact Microsoft product support services at 
+the number listed in your documentation. Or, if you live in the 
+United States or Canada, call (206) 635-7015. You can also download 
+the file Fpsfix.exe from the Microsoft Software Library (MSL) on 
+http://www.microsoft.com.
+
+Microsoft Mail 3.2 and Microsoft Schedule+: Microsoft Exchange is
+an upgrade to Microsoft Mail v3.2 and replaces many of the older 
+components. For this reason, Microsoft Mail v3.2 will not work if you 
+have installed Microsoft Exchange. Also, the Windows 3.1 version of 
+Microsoft Schedule+ will not be able to use Exchange to send Email. 
+
+Microsoft Visual C++ version 1.5: With the Windows 96 interface 
+enhancements, dialog boxes in Visual C++ version 1.5x may appear in 
+different screen locations than on Windows 3.1 or Windows NT. When 
+you are debugging a program under the Visual C++ environment, it is 
+recommended that you not minimize the Visual C++ main window. This 
+may cause debug dialog boxes to be displayed off-screen, which would
+result in your not being able to maximize the Visual C++ main window.
+
+Microtek ScanWizard 2.0b7: If you have problems installing this
+program, try carrying out the following procedure:
+1. Add the following line to the [Compatibility] section of your
+   Win.ini file:
+
+   DSHELL=0x00400000
+
+2. Restart your computer, and then re-install Microtek ScanWizard.
+3. Remove this line from your Win.ini file.
+
+Nickelodeon Director's Lab: Some messages may display at the end of
+the setup program. You will need to close the setup program manually. 
+This does no harm, because Director's Lab has already been installed. 
+After the setup program has added the new shortcuts, you may see the 
+following message: "Setup Message: Script or DLL has been corrupted. 
+Unable to load dialog template: 'mscuistf.dll: 2'." If this message 
+appears, follow these steps.
+1. Press CTRL+ALT+DEL.
+2. Click the Director's Lab setup program, and then click End Task.
+
+Norton Backup: Windows 96 requires new settings for this program. 
+Before you run Norton Backup, delete the Nbackup.pif file located in 
+the Norton Backup directory.
+
+Office Accelerator: Because there is no Print Manager, Office 
+Accelerator will not load using the Office Accelerator menus. Instead, 
+configure your printers by clicking the Start menu, clicking Settings, 
+and then clicking Printers.
+
+Paint Shop Pro v2.0: You will not be able to use this program to draw 
+capture areas inside 32-bit programs, because 16-bit programs do not 
+see mouse movements over 32-bit programs. All other mouse capture 
+methods will still work, and this will continue to work with 16-bit 
+programs. 
+
+PCTools Versions 7 Through 9: Shortcuts will not be created during 
+installation of PCTOOLS versions 7 through 9 on Windows 96. To create 
+shortcuts after installation:
+1. Click the Start menu, and then click Run.
+2. Type Cpsdos.grp, and then press ENTER.
+
+PCTools will be added to your Programs folder. For the shortcuts to 
+work, you must add the PCTOOLS directory to the PATH.
+
+Because of changes to the Windows 96 file system, these disk utilities 
+will not work correctly with long filenames. For information about 
+purchasing disk utilities that were designed for Windows 96, contact 
+Symantec.
+
+Personal Oracle 7.1 for Windows 3.1: This program cannot be installed
+on   Windows 96  because it requires a Win32s .dll that is no longer
+used. For   information about obtaining an updated version for Windows
+96, call   Oracle Corporation at (415) 506 7000 or contact your local
+Oracle office.
+
+QuarkXPress 3.3: You may experience the following problems:
+- Out-of-memory error. Upgrading to QuarkXPress 3.32 should solve the 
+  problem. You can contact Quark directly for the fix.
+- QuarkXpress 3.3/3.31x library windows may fail to display control box
+  and menu items, rendering it impossible to resize or close library
+  files. This problem will be corrected in QuarkXpress 3.32
+- The QuarkXPress installer may stop at 99% complete when installing on 
+  some Windows 96 computers. To properly complete the installation
+  process, select the Continue button.
+
+Quickbooks 2.0: If you experience problems running Quickbooks 2.0 
+with Windows 96, add the following entry to the [Compatibility] 
+section of your Win.ini file:
+	QBW=0x08000000
+
+Quickbooks 3.0: Before you minimize Quickbooks, be sure to register 
+the product. If you have already minimized it and are experiencing 
+problems running Quickbooks 3.0, delete the Qbw.ini file in your 
+Quickbooks directory. 
+
+Quicken: If you configured Quicken to use a printer other than the 
+system default printer or to use custom fonts, you will lose these 
+settings after upgrading to Windows 96. After Windows 96 is installed, 
+you can use Quicken to restore these settings.
+
+Rumba Office 2.0: The shared folders functionality is not functional
+in Windows 96 and will cause installation problems if selected. To 
+turn off this feature, when installing Rumba:
+1. Select Custom.
+2. Select AS/400.
+3. Make sure the check box titled Shared Folders And Client API's is 
+   not checked.
+4. Continue the installation.
+
+Splice 2.0: You may encounter a General Protection Fault if you try 
+to create an optimal palette with some video files. This problem has 
+been fixed by Asymetrix in the most recent version (now called Digital 
+Video Producer). An free upgrade is available from Asymetrix for all 
+registered Splice users. For more information, contact Asymetrix 
+Technical Support at 206-637-1600.
+
+SuperPrint: Because of changes to the Windows operating system, 
+Version 2.0 of SuperPrint (which includes SuperQue) does not work 
+with Windows 96. For more information about SuperQue 96, call 
+(800) 366 7494.
+
+Talk-To Plus: For information about the availability of an upgrade 
+that may be compatible with Windows 96, call Dragon Systems at 
+(800) 825-5897 or (617) 965-5200.
+
+The 7th Guest: If you are running The 7th Guest with a Pro Audio 
+Spectrum 16 sound card, you will either need to enable and use the 
+Sound Blaster compatibility mode, or configure your Pro Audio Spectrum 
+card to IRQ 5 and DMA 3.
+
+Timeline: You may have problems running existing macros with Timeline. 
+Timeline tries to use window handles that it has already freed and may 
+cause an error. For information about program updates, contact the 
+vendor.
+
+Typestry 2.0: If you experience problems running Typestry 2.0, you
+need to obtain a patch from Pixar, Inc. Call the product support number
+that came with your software. You may also have problems using Typestry
+to print to a PostScript printer under Windows 96. The workaround is
+to use a non-PostScript or UniDrive printer.
+
+Ultima VI/Wing Commander CD: Because Windows 96 does not support the 
+JOIN command, you will need to run the Ultima VI/Wing Commander CD 
+from your hard drive. The procedure for doing this is outlined below 
+and in the documentation for this CD game. You will need to copy all 
+programs to your hard drive, and then run Install.exe to configure the 
+program. You will need approximately 13 MB of space for Wing Commander 
+and 5 MB of space for Ultima VI.
+
+To copy all files for either Wing Commander or Ultima VI:
+1. Click the Start menu, click Programs, and then click Explorer.
+2. Double click your CD-ROM drive.
+3. Click the icon for the folder you want to move, and then drag it 
+   to the icon for your hard disk.
+4. Run the install program from your hard drive to configure the 
+   proper video and sound options.
+
+
+XtraDrive: You must load SETVER before the file Xtradrv.sys loads. 
+
+YiJaak Graphic Suite: Some problems may occur when running Smuggler.exe 
+with Windows 96. To avoid problems:
+- Use the screen capture utility for only short periods of time.
+- Periodically restart your computer to regain system resources when 
+  running Smuggler.exe for long periods of time.
+
+For information about obtaining a Windows 96 version of this program, 
+in the United States call Inset Systems, Inc., at (800) DR-INSET. 
+Outside the United States, call (203) 740-2400.
+
+THIRD-PARTY MEMORY MANAGERS
+===========================
+
+386MAX 7.0
+----------
+Windows 96 removes the following lines from the Config.sys file during
+Setup:
+	Device=\386MAX\ExtraDOS.max pro=\386MAX\ExtraDOS.pro
+	Install=\386MAX\ExtraDOS.max
+
+If Windows 96 fails to start after Setup, try carrying out the
+following procedure:
+1. Refer to the \Manual\Readme.txt file (packaged with 386MAX) about
+   specific software and hardware incompatibilities with the 386MAX
+   software.
+2. Run the MAXIMIZE program, and then follow these steps:
+   a. After MAXIMIZE restarts your computer for the first time, press 
+      F8 when you see the "Starting Windows 96" message. 
+   b. Choose Safe Mode Command Prompt Only. 
+   c. Open your Config.sys file by using any text editor, such as 
+      MS-DOS Editor, and remove the following lines:
+	Device=\386MAX\ExtraDOS.max pro=\386MAX\ExtraDOS.pro
+	Install=\386MAX\ExtraDOS.max
+
+   d. Open your 386max.pro file, which is located in the directory 
+      where 386MAX is installed, and remove the following lines if 
+      they exist:
+	Line beginning with "PRGREG"
+	Line beginning with "HPDAREG"
+	Line beginning with "STACKREG"
+
+   e. Restart your computer.
+   f. When you see the "Starting Windows 96" message, press F8.
+   g. Choose Command Prompt Only. MAXIMIZE should continue setting up.
+   h. Each time the computer restarts, repeat steps f and g until
+      MAXIMIZE has finished.
+
+NOTE: If you see the message "ExtraDOS Error," click OK.
+
+
+386MAX v7.02, BLUEMAX v7.02, and later versions
+--------------------------------------------
+Version 7.02 and later of BLUEMAX and 386MAX were designed to run with
+Windows 96, and a free update can be obtained from Qualitas, Inc. at the
+following locations:
+
+Qualitas BBS - Dial (301) 907-8030
+Ferve - PCVENA, GO QUALITAS
+America OnLine - Keyword Qualitas
+Qualitas Customer Service - (301) 907-7400
+
+If you have version 7.02 or later of these memory managers, you do not need to
+follow the work-arounds described in the following sections.  However, if you
+install Windows 96 on a system that already has a later version of BLUEMAX or
+386MAX, you should run the MAXIMIZE utility to reinstall the ExtraDOS utility
+that Windows 96 removes during setup.
+
+
+BLUEMAX 7.0
+-----------
+Windows 96 removes the following lines from the Config.sys file during
+Setup:
+	Device=\BlueMAX\ExtraDOS.max pro=\BlueMAX\ExtraDOS.pro
+	Install=\BlueMAX\ExtraDOS.max
+
+If Windows 96 fails to start after Setup, try the following procedure:
+1. Refer to the \Manual\Readme.txt file (packaged with BlueEMAX) about
+   specific software and hardware incompatibilities with the BlueMAX
+   software.
+2. Run the MAXIMIZE program, and then follow these steps:
+   a. After MAXIMIZE restarts your computer for the first time, press 
+      F8  when you see the "Starting Windows 96" message.
+   b. Choose Safe Mode Command Prompt Only. 
+   c. Open your Config.sys file by using any text editor, such as 
+      MS-DOS Editor, and remove the following lines:
+	Device=\BlueMAX\ExtraDOS.max pro=\BlueMAX\ExtraDOS.pro
+	Install=\BlueMAX\ExtraDOS.max
+
+   d. Open your Bluemax.pro file, which is located in the directory 
+      where BlueMAX is installed, and remove the following lines if 
+      they exist:
+	Line beginning with "PRGREG"
+	Line beginning with "HPDAREG"
+	Line beginning with "STACKREG"
+
+   e. Restart your computer.
+   f. When you see the "Starting Windows 96" message, press F8.
+   g. Choose Command Prompt Only. MAXIMIZE should continue setting up.
+   h. Each time the computer restarts, repeat steps f and g until
+      MAXIMIZE has finished.
+
+NOTE: If you see the message "ExtraDOS Error," click OK.
+
+NETROOM version 3
+-----------------
+Before setting up Windows 96, verify that CACHECLK is not being 
+loaded in the Autoexec.bat file. Windows 96 Setup will fail with 
+CACHECLK loaded.
+
+After Setup, if Windows 96 fails to start:
+1. Refer to the \Manual\Readme.txt file (packaged with Netroom) about 
+   specific software and hardware incompatibilities with the NETROOM 
+   software.
+2. Run the CUSTOMIZE program.
+
+QEMM 7.01 - 7.5
+---------------
+Windows 96 removes the following drivers from the Config.sys file 
+during Setup:
+	Dosdata.sys
+	Dos-up.sys
+	St-dbl.sys   (7.01-7.04)
+	St-dspc.sys  (7.5)
+
+After Setup, if Windows 96 fails to start:
+1. Refer to the Manual\Technotes\Readme.txt file (packaged with 
+   QEMM) for information about specific software and hardware 
+   incompatibilities with QEMM software.
+2. Check Stealthing Options. Try changing ST:M to ST:F on the 
+   Qemm386.sys line in the Config.sys file, and then restarting your 
+   computer. If that doesn't work, try removing the ST:M or ST:F 
+   completely from the Qemm386.sys line in the Config.sys file and 
+   then restarting your computer.
+3. Run QSETUP and turn off DOS-UP, Quickboot, and Stealthing Options 
+   (see above). QSETUP will recommend running OPTIMIZE.
+4. Run the OPTIMIZE program. (NOTE: If DOS-UP or Stealthing are 
+   enabled in QSETUP, then OPTIMIZE will add them to the Config.sys 
+   file. Currently, Windows 96 may fail to start with Dosdata.sys and 
+   Dos-up.sys installed in the Config.sys file.)
+
+Dosdata.sys, a portion of the DOS-UP features of QEMM, causes the 
+Windows 96 multi-boot feature to attempt to start Windows 96 even 
+after you select the Previous Version Of MS-DOS option. To bypass 
+this situation, press F4 during the second appearance of "Starting 
+Windows 96." To correct this problem permanently, remove Dosdata.sys 
+and Dos-up.sys from the Config.dos file.

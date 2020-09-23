@@ -1,0 +1,876 @@
+        -----------------------------------------------------------
+                      Microsoft Windows 96 README
+             for Infrared Communications Driver, Version 2.0
+                                 August 1996            
+        ------------------------------------------------------------
+
+              (c) Copyright Microsoft Corporation, 1996
+
+
+This document provides complementary or late-breaking information to
+supplement any other existing documentation.
+
+
+------------------------
+HOW TO USE THIS DOCUMENT
+------------------------
+
+To view Infrared.txt on screen in WordPad, maximize the WordPad  
+window.
+
+To print Infrared.txt, open it in WordPad or another word processor, 
+and then use the Print command on the File menu.
+
+
+CONTENTS
+========
+
+OVERVIEW OF THE INFRARED COMMUNICATIONS DRIVER, VERSION 2.0
+USING THE INFRARED COMMUNICATIONS DRIVER
+  Notebook Computers
+  Infrared Adapters
+  Programs
+  Printers
+  IrLan Access Points
+TROUBLESHOOTING
+  General Tips
+  Troubleshooting Tips for Using IrLan Access Point Devices
+  Troubleshooting Tips for Using Specific Programs Over IR Links
+  Troubleshooting Tip for Developing an IrDA Standard IrComm 
+    Component for an IR Communications Driver
+  Troubleshooting Tips for Specific Infrared Hardware
+INSTALLING AND USING THE IR COMMUNICATIONS DRIVER
+  Step 1. Installing the IR Communications Driver
+  Step 2. Validating the IR Communications Driver Installation
+  Step 3. Running Other IR-Capable Programs
+  An Optional Step: Removing the IR Communications Driver
+  Notes on Running Direct Cable Connection Over an IR Link                       
+  Preparing to Use DCC
+IR COMMUNICATIONS DRIVER COMPONENTS
+IR ADAPTER MANUFACTURER NAMES AND ADDRESSES
+ 
+
+OVERVIEW OF THE INFRARED COMMUNICATIONS DRIVER, VERSION 2.0
+===========================================================
+
+The Infrared Communications Driver, version 2.0, is an optional 
+component of the Windows 96 operating system. The Infrared 
+Communications Driver supports hardware devices that enable 
+networking and communications over infrared media. The hardware 
+device can be either an infrared port built into the platform or 
+an infrared adapter connected to one of the platform's serial or 
+parallel ports.
+
+Users might want to install the infrared (IR) hardware device 
+and version 2.0 of the Infrared Communications Driver for the 
+following reasons:
+
+- They can use wireless infrared links instead of serial and 
+  parallel cables. For example, files can be exchanged wirelessly 
+  between two computers that have an IR device and the version 2.0 
+  driver installed, instead of using a serial or parallel cable.
+
+- Files can also be printed wirelessly on IR-capable printers.
+
+- If the user has an IR-capable LAN access point product connected 
+  to the network, wireless IR links can be used instead of LAN 
+  cabling. For a list of LAN access point products the version 2.0 
+  IR driver has been tested with, see "Using the IR Communications 
+  Driver." 
+
+- The version 2.0 IR communications driver supports IR communications 
+  links running at speeds up to 115.2 kbps. 
+
+
+USING THE INFRARED COMMUNICATIONS DRIVER
+========================================
+
+The following sections list the hardware and software components on 
+which version 2.0 of the Infrared Communications Driver has been 
+tested.
+
+Notebook Computers
+------------------
+This product has been successfully tested on the following Windows 96 
+notebook computers that have built-in IR ports:
+
+     Gateway(R) 2000 Liberty
+     HP(R)Omnibook(TM)600CT
+     HP Omnibook 4000C
+     IBM(R) ThinkPad(R) 701C (Butterfly)
+     Sharp(R) PC 3050
+     TI(R) TravelMate(TM) 5000
+
+Some testing was also done on these Windows 96 notebook computers:
+
+     Digital(R) HiNote Ultra CT475
+     TI(R) TravelMate(TM) 5000
+
+Infrared Adapters
+-----------------
+This product has been successfully tested on Windows 96 platforms 
+with the following IR adapters connected to serial ports:
+
+     ACTiSYS ACT-200L Infrared Wireless Interface
+     ACTiSYS ACT-220L Infrared Wireless Interface
+     Adaptec(TM) AIRport APA-9320 External Infrared Adapter 
+       (also called the Adaptec AIRport 2000)
+     AMP PhasIR Serial Adapter 
+     Extended Systems JetEye PC Infrared PC Interface (ESI-9680)
+     Parallax IR Adapter LiteLink PRA9600A
+
+To obtain any of the IR adapters listed above, contact the adapter
+manufacturer. For the addresses of these manufacturers, see "IR Adapter 
+Manufacturer Names and Addresses" at the end of this document.
+
+Programs
+--------
+The following programs have been run successfully over an IR 
+communications link using the IR communications driver and the 
+hardware listed above:
+
+- Windows 96 Direct Cable Connection (DCC)
+- Various Windows communications programs, including HyperTerminal 
+  and DynaComm.
+
+Because the IR link simulates a serial communications link, some 
+communications programs might not perform as expected after they 
+connect over the IR link. For more information, see "Troubleshooting." 
+For instructions on running DCC over an IR link, see "Notes on Running 
+Direct Cable Connection Over an IR Link" later in this document.
+
+Printers
+--------
+Numerous Windows 96 programs have successfully printed over an IR 
+link to an HP Laserjet 5P or 5MP printer, which have built-in IR 
+ports. Numerous Windows 96 programs have also printed successfully 
+over an IR link to other printers with an Extended Systems JetEye 
+Infrared Printer Port ESI-9680 infrared adapter connected to the 
+printer parallel port.
+
+IrLan Access Points
+-------------------
+Local area network access over an IR link has been tested with the 
+following IrLan access point devices:
+
+- Extended Systems ESI-9910 JetEye Net Plus
+- Hewlett-Packard NetBeam IR Infrared LAN Adapter
+
+
+TROUBLESHOOTING
+===============
+
+General Tips
+------------
+- You must remove any previously installed version of the 
+  IR communications driver every time the driver is installed. 
+  For instructions on removing the IR communications driver, 
+  see "An Optional Step: Removing the IR Communications Driver."
+
+- If you change the IR adapter model that is connected to the 
+  computer, you must remove the installed IR communications driver 
+  and reinstall it, specifying the new IR adapter type. 
+
+- If you select the wrong physical COM port during installation of 
+  the IR communications driver, the IR device will be unable to 
+  discover another IR device within range. If this happens, try 
+  the following steps:
+
+  1. Put an actively searching IR device close to the computer's IR 
+     device.
+
+  2. Click the Infrared Monitor Options tab, and then choose a 
+     different communications port (for example, COM1 instead of COM2).
+
+  3. Continue selecting different COM ports in this way until the IR 
+     device on the computer discovers the nearby IR device.
+
+     Note that the alternatives displayed in the IrMon Options tab are 
+     always based on the internal wiring of the computer platform:
+
+     - COM1 always means a COM port wired to IRQ 4 and I/O address 
+       range 0x3F8 to 0x3FF.
+     - COM2 always means wired to IRQ 3 and 0x2F8 to 0x2FF.
+     - Physical COM3 always means IRQ 4 and 0x3E8 and 0x3EF.
+     - Physical COM4 always means IRQ5 and 0x2E8 and 0x2EF. 
+     
+- To get two IR devices to discover each other, you may have to 
+  realign the IR devices so they point right at each other, move 
+  them closer together, and/or change the batteries in an IR adapter 
+  or plug the AC power into an IR adapter. The devices must be three 
+  feet or less apart, and the angle of the cone of IR transmission 
+  is 30 degrees. Some devices work best if kept at least six inches 
+  apart. If an IR adapter is attached to a COM port that is using an 
+  8250 UART instead of a 16550 UART, or if an IR adapter is connected 
+  to a relatively slow computer (such as a 386 running at 20 MHz), 
+  you might need to use the Limit Connection Speed To option in the 
+  Infrared Monitor Options tab to limit the connection speed to 19.2 
+  kbps. After establishing a successful IR connection at this speed, 
+  you can use the Limit Connection Speed To option to experiment 
+  with establishing a connection at a higher speed on that computer.
+
+- If you change the port the IR adapter is attached to while IR 
+  communications are in progress, the IR connection is lost without 
+  prompting you to verify that it is OK to disconnect.
+
+- Communication over a virtual COM port link between two computers 
+  might not be reliable if a printer's IR adapter is also within range. 
+  You should move the printer's IR adapter out of range.
+
+- You should not suspend a Windows 96 computer while an IR connection 
+  is established. Wait until the IR link is disconnected or force a 
+  disconnection before putting the computer in suspend mode. For 
+  example, if an IrLan connection is established on a laptop computer, 
+  you must always move the laptop out of range of the IrLan access point 
+  before suspending the system or closing the laptop lid. Otherwise, the 
+  connection remains active and over time can drain the battery.
+
+- Connecting and disconnecting over a low-speed IR link or over a poor-
+  quality link can take a long period of time (a few seconds), during 
+  which the screen will appear to be frozen. To work around this, 
+  use a higher speed connection and/or take steps to improve the 
+  quality of the connection by, for example, realigning the IR devices 
+  so they point right at each other, moving the devices closer together, 
+  changing the batteries in an IR adapter, or plugging the AC power into 
+  an IR adapter.
+
+Troubleshooting Tips for Using IrLan Access Point Devices
+---------------------------------------------------------
+- Do not assume that because an IR device on a PC communicates with 
+  an IR device on another PC at 115.2 kbps that the IR device will 
+  also communicate with an IrLan access point device at that speed. 
+  For example, suppose a user has two PC-based IR devices that have 
+  negotiated a link speed of 115.2 kbps. Then if the user points 
+  one of the devices at an IrLan access point device, these two 
+  devices can negotiate a link speed of 115.2 kbps but no subsequent 
+  communication takes place (the PC has no access to the network 
+  through the IR link). No error message is displayed in this case.
+
+- Extended Systems ESI-9910 JetEye Net Plus users utilizing NETBEUI 
+  may receive an error message when copying large files (for example, 
+  5 MB files) to a network drive. If this happens, call Extended 
+  Systems, Inc. product support for NETBEUI configuration changes. 
+  For Extended Systems, Inc. contact information, see the topic "IR 
+  Adapter Manufacturer Names and Addresses."
+
+- If there is a problem establishing an IR link to an IrLan access 
+  point device when the network is also connected to a network 
+  interface card in the computer, try disconnecting the LAN from 
+  the network interface card. Restart the computer and make sure 
+  the computer IR device and the LAN access point IR port are within 
+  range. Then use the Infrared icon in the Control Panel to activate 
+  the IR link between the computer and the LAN access point device.
+
+- The IPX protocol may not communicate over an IrLan access point. 
+  This can be caused by the Dial-Up Adapter becoming the primary IPX 
+  adapter and no other adapter, such as the IrLan adapter, can take 
+  over. To work around this problem, create a profile that does not 
+  contain the dial-up adapter and use it when accessing the net 
+  through IrLan.
+
+- During a file copy to a NetWare server running burst mode, if the 
+  IR connection between the computer and the IrLan access point is 
+  disconnected (for example, the IR beam is blocked), the file 
+  transfer cannot recover and the computer screen will stay the same 
+  indefinitely. If this happens often, turn off burst mode to enable 
+  recovery from a disconnection. There will be performance degradation 
+  with burst mode off.
+
+- Using the virtual parallel port connection to an Extended Systems 
+  ESI-9910 JetEye Net Plus IrLan access point to send data to a printer 
+  might result in a program fault. To work around this problem, use the 
+  virtual serial port on the IrLan access point to reach the printer.
+
+Troubleshooting Tips for Using Specific Programs Over IR Links
+--------------------------------------------------------------
+- If the Windows 96 program HyperTerminal is used to transfer files, 
+  there might be trouble doing file transfers successfully over an IR 
+  link. If the Zmodem protocol fails with a link speed of 115.2 kbps, 
+  use the IR Monitor Limit Connection Speed To tab to limit the link 
+  speed to 19.2 kbps and then retry the Zmodem file transfer. 
+
+- When the Windows 96 program Direct Cable Connection (DCC) is run to 
+  establish the connection between the host and guest computers, the 
+  guest computer might display the message "Direct Cable Connection 
+  was unable to display shared folders of the host computer" and 
+  prompt the user to enter the computer name of the host computer. 
+  A convenient way to find the computer name of the host computer 
+  is on the Status tab of the Infrared Monitor interface screen.
+
+- When the Windows 96 program Direct Cable Connection (DCC) is run 
+  to establish an IR connection between the host and guest computers, 
+  DCC prompts you to select a communications port (this procedure is 
+  described in the topic "Establishing and Using the DCC IR Link 
+  Between Host and Guest"). Selecting the virtual Infrared port in 
+  this step will fail (DCC announces the virtual port is not available) 
+  in the rare case that you have suspended the Windows 96 operating 
+  system before invoking DCC in a session. To begin a new session, 
+  restart Windows 96, and DCC will work over an IR link.
+
+Troubleshooting Tip for Developing an IrDA Standard IrCOMM 
+Component for an IR Communications Driver
+-----------------------------------------------------------
+- The IrCOMM implementation in the IR communications driver that 
+  runs on Windows 96 supports full emulation of 9-wire connections, 
+  but does not support emulation of 3-wire cooked connections. A 
+  specific example of this is the inability to print over an IR 
+  virtual COM port from the MS-DOS prompt, which uses a 3-wire 
+  cooked connection. IrDA drivers developed for platforms designed 
+  to communicate with Windows 96 platforms over IR links must 
+  implement full emulation of 9-wire connections (as specified 
+  in the IrDA IrCOMM specification). For example, a pair of 
+  handheld computer platforms might communicate with each other 
+  over IR links using 3-wire cooked emulation. However, if you 
+  also expect to use one of the handhelds to communicate with a 
+  Windows 96 computer, then the handheld IR driver must implement 
+  9-wire connections. 
+
+Troubleshooting Tips for Specific Infrared Hardware
+---------------------------------------------------
+- The Adaptec AIRport 2000 infrared adapter can be powered in three 
+  ways: by the serial port, by installed AA batteries, or by an 
+  external power supply. In some cases, the serial port might not 
+  provide sufficient power for the operation of the adapter. This 
+  can cause reduced operating range and/or a failure to find another 
+  IR device which is nearby and aligned correctly. If such a problem 
+  is suspected, connect an AC adapter or add four AA batteries to the 
+  battery compartment in the infrared adapter. This will assure 
+  sufficient power. In some instances, you might need to separate 
+  the adapter by at least six inches from the other IR device.
+
+- If an ActiSys 220L IR adapter is attached to a computer and used 
+  to print to a printer that is using an Extended Systems ESI-9680 
+  printer IR adapter, or for printing to an HP DeskJet 340, you must 
+  use the Options tab in the Infrared Monitor properties to limit the 
+  connection speed to 19.2 kbps in order to print successfully. If the 
+  IR devices are allowed to automatically negotiate the connection 
+  speed without setting this limit, they will negotiate a higher 
+  connection speed and a program will be unable to print.
+
+- The TI TravelMate 5000 might communicate over an IR link only at 
+  very low speeds (9600 bps).
+
+- The Sharp PC 3050 might communicate over an IR link only at speeds 
+  between 9600 bps and 19.2 kbps.
+
+- For the HP Omnibook 4000C or an HP Omnibook 600CT, which have 
+  built-in infrared ports, you must install a special echo-canceling 
+  serial driver in addition to the components that make up the IR 
+  communications driver. The echo-canceling driver, and instructions 
+  on how to install it, are available from Hewlett-Packard. 
+
+
+INSTALLING AND USING THE IR COMMUNICATIONS DRIVER
+=================================================
+
+The following three-step process is recommended:
+
+1. Install the Windows 96 IR Communications Driver.
+2. Validate the installation by printing over the IR link, using a 
+   program to transfer data over the IR link, and/or using a local 
+   area network (LAN) over the IR link.
+3. Start using the IR link on a daily basis.
+
+After you install the driver, it can be removed at any time (for 
+more information, see "An Optional Step: Removing the IR Communications 
+Driver").
+
+Procedures for carrying out each of the recommended steps, including 
+the driver removal step, are presented in detail below.
+
+Step 1: Installing the IR Communications Driver
+-----------------------------------------------
+NOTE:
+If any version of the IR communications driver has been installed 
+on your computer before, you must remove it before carrying out 
+the following steps. To check whether an IR communications driver 
+is currently installed on your computer, open Control Panel. If 
+Control Panel displays an Infrared icon, there is a previously 
+installed version of the IR communications driver on your computer.
+
+For a procedure you can use to remove a previously installed 
+version of the driver, see "An Optional Step: Removing the 
+IR Communications Driver" later in this document.
+
+To install the IR communications driver, carry out the following 
+procedure:
+
+1. In Control Panel, double-click the Add New Hardware icon, and 
+   then click Next.
+
+2. When the Add New Hardware wizard prompts you "Do you want Windows 
+   to search for your new hardware?", click No, and then click Next.
+
+3. In the list of hardware types, click Infrared, and then click 
+   Next.
+
+4. When the Add Infrared Device Wizard prompts you to choose a 
+   manufacturer's name for the IR device:
+
+   - If the computer has a built-in device, choose Standard Infrared 
+     Devices)
+   - If an IR adapter is attached to the computer, choose the name 
+     of the manufacturer and the model of the adapter.
+
+   Then click Next.
+
+5. When the Add Infrared Device Wizard prompts you to choose the 
+   communications port that the IR device is physically connected to, 
+   click the port in the list. If you are uncertain which physical 
+   communications port the IR device is using, select the first COM 
+   port in the list (for example, COM1). Then click Next.
+
+6. When the Add Infrared Device Wizard prompts you to select the 
+   virtual COM and LPT ports, accept the default values by clicking 
+   Next. After the wizard copies the IR communications driver files 
+   to the hard disk, watch for the wizard to display two New Hardware 
+   Found messages.
+
+7. When you are prompted by the Add Infrared Device Wizard, click 
+   Finish to complete the IR device installation. If the wizard did 
+   not display New Hardware Found messages as it carried out step 4, 
+   then restart the computer. (If the New Hardware Found messages were 
+   displayed, there is no need to restart the computer).
+
+8. Activate the IR device by double-clicking the Infrared icon in 
+   Control Panel. If there is no Infrared icon in Control Panel, then 
+   either click the View menu and then click Refresh, or press F5 to 
+   make the Infrared icon appear.
+
+For general information about how to use the Infrared Monitor, click 
+the Help button in the lower-right corner of the Infrared Monitor 
+screen. For information about specific items in a dialog box, such as 
+check boxes, right-click the item, and then click the "What's this?" 
+command.
+
+The Options tab of the Infrared Monitor interface contains the 
+following two particularly useful items:
+
+- The Enable Infrared Communication On check box, which enables and 
+  disables the IR device.
+
+- The Limit Connection Speed To option, which limits the link speed 
+  the IR device can negotiate. 
+
+   The Limit Connection Speed To option might be used if an adapter 
+   is attached to a COM port that is using an 8250 UART instead of a 
+   16550 UART, or if an adapter is connected to a relatively slow 
+   computer (such as a 386 running at 20 MHz). In these cases, this 
+   option can be used to limit the connection speed to 19.2 kbps.
+
+Step 2: Validating the IR Communications Driver Installation
+------------------------------------------------------------
+You can use any of the following methods to validate the IR 
+communications driver installation:
+
+- Print from a program over an IR link to the printer (if an IR-capable 
+  printer is available),
+
+- Exchange data between two IR-capable computers over an IR link, using 
+  a communications program.
+
+- View the computer's Network Neighborhood over an IR link (if an IrLan 
+  access point device is available).
+
+Printing to an IR-Capable Printer:
+
+To test the printing capability of a Windows 96 program over an IR link 
+to an IrDA-compliant printer, carry out the following steps:
+
+- Make sure the IR communications driver is installed on the computer.
+- Make sure the printer driver for the IR-capable printer is installed 
+  on the computer.
+- Try the Print option in a program.
+
+Printers without built-in IR ports can be made IR-capable by connecting 
+an IR adapter made for printers into the printer's parallel port. An 
+example of an IR adapter for printers is the Extended Systems JetEye 
+Infrared Printer Port ESI-9680. If a parallel cable is also used to 
+connect the computer to the IR printer adapter, you can use either the 
+IR link or the parallel cable to print. The IR link is used when you 
+select the virtual parallel port; the cable is used when you select the 
+physical parallel port.
+
+To validate the IR link to the printer, make sure the correct printer 
+driver is installed for the IR-capable printer. (Most printers with 
+built-in IR ports are Plug and Play devices, which are installed 
+automatically.) Then use a program to print over the IR link.
+
+If the program prints on an IR-capable printer, the IR driver 
+installation is validated. If there is trouble printing, see 
+"Troubleshooting" for more information.
+
+Exchanging Data Between Two Computers:
+
+To validate a link between two computers running Windows 96, install 
+the IR communications driver on both computers. To do this, carry out 
+the procedure in "Step 1. Installing the IR Communications Driver" 
+earlier in this document.
+
+Note that the IR devices on the two computers do not have to be made 
+by the same manufacturer as long as both devices are IrDA-compliant. 
+For example, the IR link will work with a JetEye PC Infrared PC 
+Interface (ESI-9680) attached to one desktop computer and an Adaptec 
+AIRport APA-9320 External Infrared Adapter attached to the other 
+desktop computer.
+
+One way to validate an IR link is to run HyperTerminal on both 
+computers and send characters from the keyboard of each computer 
+over the IR link. HyperTerminal is installed on a Windows 96 computer 
+as part of the typical installation recommended for most computers. 
+To validate the IR driver installation of the IR driver on both 
+computers, carry out the following procedure.
+
+1. On both computers, click the Start button, point to Settings, 
+   and then click Control Panel. Double-click the Infrared icon. 
+
+2. Move the IR devices within three feet of each other, and make 
+   sure they're pointing at each other. When the two IR devices 
+   discover each other, the message "Available infrared devices 
+   in range" appears on the Status tab of the Infrared Monitor 
+   interface screen. Make sure Infrared Monitor reports both IR 
+   devices have the appropriate infrared device within range before 
+   proceeding. It might be necessary to realign the IR devices so 
+   they point right at each other, move them closer together, and/or 
+   change the batteries in an IR adapter or plug the AC power into 
+   an IR adapter. For more information, see "Troubleshooting" 
+   earlier in the document.
+
+3. On one of the computers, click the Options tab in the Infrared 
+   Monitor interface and find the information that starts with 
+   "Providing application support on ...". Write down the name of 
+   the COM port found there. This is the name of the virtual serial 
+   port that the IR link is using. The name of this virtual serial 
+   port might be COM4 or COM5, and it will differ from the name of 
+   the physical communications port the IR device is running on 
+   (which is typically named COM1 or COM2).
+
+4. Run HyperTerminal on the computer with the virtual serial port 
+   name by clicking the Start button, pointing to Programs, pointing 
+   to Accessories, and then clicking the HyperTerminal folder. In the 
+   window that appears, double-click the Hypertrm.exe icon.
+
+5. In the Connection Description dialog box, type a descriptive name 
+   (such as "Direct IR") for the new connection, and then click OK.
+
+6. In the Phone Number dialog box, use the Connect Using drop-down list 
+   to click the "Direct to Comx" entry, where x is the number of the 
+   virtual COM port written down in step 2. Then click OK. It is now 
+   possible to start using HyperTerminal on one of the computers.
+
+7. Repeat steps 2 through 5 for the other computer.
+
+8. In HyperTerminal on either computer, type any characters at the 
+   keyboard. If the typed characters appear in the HyperTerminal window 
+   on the other computer, then it is confirmed that the IR link works 
+   in that direction. Repeat this step on the other computer. If the 
+   IR link works in both directions using HyperTerminal, the IR 
+   communications driver has been successfully installed on both 
+   computers.
+
+   NOTE:
+   When you type characters in HyperTerminal, status changes are 
+   displayed in the Status tab of the Infrared Monitor interface.
+
+9. Disconnect the HyperTerminal direct IR connection by exiting 
+   HyperTerminal on both computers. When you are prompted to save 
+   the session, click Yes. This saves the direct IR connection 
+   setup information as an icon in the HyperTerminal main folder, 
+   enabling you to double-click this icon to restart one side of 
+   the HyperTerminal direct IR connection.
+
+Viewing Network Neighborhood Over an IR Link:
+
+The version 2.0 IR communications driver enables a computer with 
+an IR device either a built-in device or an adapter) to connect to 
+a local area network LAN) through an IrLan access point device acting 
+as the network adapter for the computer. An IrLan access point device 
+is hardware that supports both a LAN network interface controller 
+(NIC) and an infrared transceiver. Local area network access over 
+an IR link has been tested with the following IrLan access point 
+devices: the Extended Systems ESI-9910 JetEye Net Plus and the 
+Hewlett-Packard NetBeam IR Infrared LAN Adapter. 
+
+To test a computer's ability to use a local area network (LAN) 
+over an IR link, first install the IR communications driver on 
+the computer. Then carry out the following steps:
+
+1. Run IR Monitor.
+
+2. Turn on the IrLan access point device, such as the Extended 
+   Systems ESI-9910 JetEye Net Plus, and place the infrared 
+   receiver/transmitter of the IrLan access point device within 
+   range of the computer's infrared device.
+
+3. When the computer infrared device and the IrLan access point 
+   infrared device discover each other, the Infrared Monitor 
+   interface indicates "Infrared communication in progress."
+
+4. When the Infrared Monitor interface shows that the IR link 
+   has been established, click the Network Neighborhood icon to 
+   display the icons of the remote computers that can be accessed 
+   through the IrLan access point device. There can be a delay of 
+   some seconds before the remote computer icons are displayed. 
+
+If you have trouble accessing the LAN, see "Troubleshooting" for 
+more information.
+
+Step 3. Running Other IR-Capable Programs
+---------------------------------------------
+Most programs that can communicate over a null modem cable that 
+connects serial ports on two Windows 96 computers should also be 
+able to communicate over an IR link. The procedure for setting up 
+and using the IR link with these other communicating programs will 
+probably be similar to the procedure used in "Exchanging Data Between 
+Two Computers," which uses HyperTerminal to validate the installation 
+of the IR communications driver. The procedure for running the 
+Windows 96 Direct Cable Connection is provided in detail in "Notes 
+on Running Direct Cable Connection Over an IR Link."
+
+An Optional Step: Removing the IR Communications Driver
+-------------------------------------------------------
+The IR communications driver can be removed either by using Add/Remove 
+Programs in Control Panel or by using the Device Manager. Both methods 
+are documented in this file, but using Add/Remove Programs is the 
+preferred method.
+
+To remove the IR communications driver by using Control Panel:
+
+1. Click the Start button, point to Settings, and then click Control 
+   Panel.
+2. Double-click the Add/Remove Programs icon.
+3. Click Infrared Support for Windows 96, and then click Add/Remove.
+4. When you are prompted to do so, restart your computer.
+
+To remove the IR communications driver by using Device Manager:
+
+1. Right-click the My Computer icon, click Properties, and then click 
+   the Device Manager tab.
+2. Make sure that View Devices By Type is selected, then click the 
+   plus sign at the left of the Infrared device class label.
+3. Click the infrared device name, and then click Remove.
+4. When you are prompted to do so, click OK to confirm the device 
+   removal.
+
+After Device Manager successfully removes the infrared device 
+installation information from the computer, the Infrared device 
+class label disappears from the System Properties dialog box.
+
+NOTE:
+The Infrared Monitor icon might still be displayed in the Windows 96 
+toolbar, even after the infrared device is removed. You can ignore it; 
+the Infrared Monitor cannot be used to establish an IR link after the 
+infrared device is removed.
+
+Notes on Running Direct Cable Connection Over an IR Link
+--------------------------------------------------------
+With Direct Cable Connection (DCC), a direct serial or parallel 
+cable connection can be established between two computers to share 
+the resources of the computer designated as the host. DCC can also 
+be used over an IR link connecting the host and a guest computer. 
+If the host is connected to a LAN, the host can also be used as a 
+gateway to the LAN for the guest. 
+
+Preparing to Use DCC:
+
+The computer that contains the folder to be shared is the host, 
+and the other computer is the guest. To share a folder on the 
+host, granting access rights to anyone using the guest computer, 
+carry out the following procedure.
+
+NOTE:
+The following procedure is just one of many that could be used 
+to share files in a folder on the host computer. For example, 
+there is user-level access control as well as share-level access 
+control. The following procedure is one of the simplest access 
+control procedures, which is all that is needed to get started 
+using DCC. To get information about all the ways files, folders, 
+and printers can be shared, use the Windows 96 Help.
+
+1. Double-click the My Computer icon.
+2. Double-click the icon for the drive that contains the folder you 
+   want to share (for example, double-click the icon for the C drive).
+3. Right-click the icon for the folder you want to share, and then 
+   click Properties.
+4. Click the Sharing tab, and then click Shared As.
+5. Enter a share name, enter a comment, and then add user access 
+   rights (Full or Read-Only).
+
+   The folder icon now changes to a folder held in a hand, 
+   indicating that this folder is now a shared resource.
+
+Making Sure DCC Is Installed on Both Computers:
+
+DCC is not installed with the typical Windows 96 installation 
+recommended for most computers. Check whether DCC is installed 
+on both of the two computers that will be using the IR link. To 
+do this, click the Start button, point to Programs, and then point 
+to Accessories. Direct Cable Connection appears on this menu if it 
+is installed.
+
+If DCC is installed on both the host computer and the guest computer, 
+then skip the next step.
+
+An Optional Step: Installing DCC:
+
+Before establishing a DCC connection, DCC must be installed on both 
+the host computer and the guest computer. Carry out the following 
+procedure on each computer that does not have DCC already installed.
+
+1. Click the Start button, point to Settings, and then click Control 
+   Panel.
+2. Double-click the Add/Remove Programs icon, and then click the 
+   Windows Setup tab.
+3. Click Communications, and then click the Details button.
+4. Make sure that the Direct Cable Connection check box is selected, 
+   and then click OK.
+
+Establishing and Using the DCC IR Link Between Host and Guest:
+
+To run DCC over an IR link, carry out the following procedure:
+
+1. Make sure the IR communications driver is properly installed and 
+   the IR devices are enabled by carrying out the procedures in 
+   "Step 1. Installing the IR Communications Driver" and "Step 2. 
+   Validating the IR Communications Driver Installation" earlier 
+   in this document.
+
+   NOTE:
+   To increase the likelihood of success with DCC over an IR link, 
+   use the Limit Connection Speed To option on the Infrared Monitor 
+   Options tab to limit the IR connection speed to 9600 bps for the 
+   first test of DCC over the IR link (and then increase the speed 
+   later).
+
+2. On the host computer, click the Start button, point to Accessories, 
+   and then click Direct Cable  Connection.
+
+3. Follow the steps in the Direct Cable Connection Wizard to set up 
+   the host computer.
+
+   When the wizard prompts you for it, select the Host option. 
+
+   When the wizard prompts you to choose a port, use the same 
+   virtual port used in the procedure "Step 2. Validating the 
+   IR Communications Driver Installation" earlier in this document. 
+
+   The wizard also offers password protection. It is not necessary 
+   to establish password protection on the host computer for this 
+   test of the IR link. When you have finished the wizard, click the 
+   Finish button. DCC starts running on the IR link and displays the 
+   following message: "Status: Waiting to connect via Serial cable on 
+   Comx," where Comx is the name of the virtual port the IR link is 
+   using.
+
+4. Repeat steps 2 and 3 for the guest computer, except select the 
+   Guest option instead of the Host option. When you have finished 
+   the wizard, click the Finish button.
+
+   The DCC connection is automatically made over the IR link, and all 
+   the shared folders on the host computer are displayed on the guest 
+   computer's screen.
+
+If you are working on the guest computer, and you want to copy a shared 
+folder from the host computer to the guest computer, select the folder's 
+icon in the window that displays all the shared folders that are on the 
+host computer, and drag the icon to the desktop.
+
+To work on a shared folder on the host computer without copying it to 
+the guest computer, double-click the folder in the display on the guest 
+computer. Note that if the host computer is connected to a network, the 
+guest computer can reach shared resources on the network through the DCC 
+connection to the host.
+
+
+IR COMMUNICATIONS DRIVER COMPONENTS
+-----------------------------------
+
+The following files make up the IR communications driver:
+
+Filename        Description
+--------        -----------
+ACT200L.VXD	    Support for the ACTiSYS ACT-IR200L IR adapter
+ACT220L.VXD	    Support for the ACTiSYS ACT-IR220L IR adapter
+ADAPTEC.VXD	    Support for Adaptec IR adapter
+CRYSTAL.VXD	    Support for AMP PhasIR Serial Adapter
+ESI.VXD         Support for Extended Systems JetEye PC Infrared 
+                  Interface (ESI9680)
+INFRARED.CPL    Infrared device in the Windows 96 Control Panel
+INFRARED.DLL    Infrared device class installer
+INFRARED.INF    IR device information file for Windows 96 Setup
+INFRARED.HLP    On-line help topics for Infrared Monitor
+IRCOMM.VXD      Top layer of IR communications for Windows 96
+IRDALAN.INF     IrLan device information file for Windows 96 Setup
+IRDALAN.SYS     IrLan driver
+IRENUM.VXD      Enumerator for the "IR bus"
+IRLAMP.VXD      IrDA protocol, middle layer of IR communications 
+                  for Windows 96
+IRLAPFRM.VXD    Generic infrared framer, lower layer of IR 
+                  communications for Windows 96
+IRMON.EXE       Infrared Monitor
+IRMONHLP.EXE    IR Monitor on-line help utility	
+IR_BEGIN.WAV    Sound for Infrared Monitor user interface
+IR_END.WAV      Sound for Infrared Monitor user interface
+IR_INTER.WAV    Sound for Infrared Monitor user interface
+MSPORTS.INF     IR port information file for Windows 96 Setup
+PARALLAX.VXD    Support for Parallax IR Adapter, LiteLink PRA9600A
+W_IR.CNT        Table of contents for Infrared Monitor on-line help
+
+The documentation files supplied with the IR device driver are:
+
+Filename        Description
+--------        -----------         
+Infrared.txt    This document.
+
+
+IR ADAPTER MANUFACTURER NAMES AND ADDRESSES
+-------------------------------------------
+
+The following manufacturers supply IR adapters that have been tested 
+successfully with the Windows 96 IR Communications driver:
+
+ActiSys, Inc.
+1507 Fulton Place
+Fremont CA 94539
+Tel: (510) 490-8024
+Fax: (510) 623-7268
+E-mail: corp@actisys.com
+
+Adaptec, Inc.
+691 South Milpitas Blvd,
+Milpitas CA 96035
+Tel: 1 (800) 969-7274
+Fax: 1 (408) 967-7223
+
+AMP Product Information Center
+AMP Incorporated
+Harrisburg PA 17105
+Tel: 1 (800) 522-6752
+
+Extended Systems, Inc.
+5777 North Meeker Ave
+Boise ID 83704-1520
+Tel: (208) 322-7575
+Fax: (208) 377-1906
+
+The Parallax IR adapter distributor in North America is:
+
+TSC Electronics
+1610 Lockness Place
+Torrance CA 90501
+Tel: (310) 534-2738
+Fax: (310) 534-3216
+E-mail: dtsaitsc@aol.com
+Contact: Daniel Tsai
+
+The Parallax IR adapter distributor outside North America is:
+
+Parallax Research
+201 Innovation Centre
+NTU
+Nanyang Drive
+Singapore 639798
+Republic of Singapore
+Tel: +65 793-0855
+Fax: +65 793-0775
+E-mail: parallax@technet.sg

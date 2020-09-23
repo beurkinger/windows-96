@@ -1,0 +1,181 @@
+       -----------------------------------------------------------
+                       Microsoft Windows 96 README
+                     for Inbox and Windows Messaging
+                                August 1996            
+       -----------------------------------------------------------
+
+              (c) Copyright Microsoft Corporation, 1996
+
+
+This document provides complementary or late-breaking information to 
+supplement the Microsoft Windows 96 documentation.
+
+------------------------
+How to Use This Document
+------------------------
+
+To view Exchange.txt on screen in Notepad, maximize the Notepad 
+window.
+
+To print Exchange.txt, open it in Notepad or another word processor, 
+and then use the Print command on the File menu. 
+
+-------- 
+CONTENTS
+--------
+
+WHAT IS WINDOWS MESSAGING? 
+MINIMUM HARDWARE REQUIREMENTS 
+INSTALLATION
+USING WINDOWS MESSAGING WITH MICROSOFT SCHEDULE+ 1.0
+USING WINDOWS MESSAGING WITH MICROSOFT MAIL
+USING WINDOWS MESSAGING WITH THE COMPUSERVE SERVICE(SM)
+UPGRADING A PREVIOUS INSTALLATION OF WINDOWS 96
+TROUBLESHOOTING TIPS 
+
+
+WHAT IS WINDOWS MESSAGING? 
+===========================
+
+Windows Messaging enables you to send and receive e-mail, faxes, 
+and documents in messages. Information services that can be used 
+with Windows 96 include Microsoft Mail, Microsoft Fax, and the 
+Microsoft Network. Also, a Microsoft Mail postoffice is included 
+in this version of Windows 96. 
+
+
+MINIMUM HARDWARE REQUIREMENTS 
+=============================
+
+Windows Messaging runs on a minimum of 6 megabytes (MB) of RAM, 
+and 10 MB of hard disk space (for the swapfile). However, it is 
+recommended that you have at least 8 MB of RAM for good 
+performance.
+
+
+INSTALLATION
+============
+
+To install Windows Messaging during Windows 96 Setup, choose the 
+information services that you would like to use with Windows 
+Messaging.
+
+You can also install Windows Messaging after you have completed 
+installation of Windows 96 by double-clicking the Inbox icon 
+on your desktop and then choosing the information services that 
+you would like to use with Windows Messaging. 
+
+If you have removed the Inbox from the desktop, you can install 
+Windows Messaging by using Add/Remove Programs in Control Panel.  
+You must shut down and restart Windows 96 after doing this. 
+
+When you install Windows 96 or use Windows Messaging for the 
+first time, the Windows Messaging Setup Wizard will be run. The 
+Wizard is also run each time you add a new profile using the Mail 
+And Fax icon in Control Panel. 
+
+
+USING WINDOWS MESSAGING WITH MICROSOFT SCHEDULE+ 1.0
+=====================================================
+
+Windows Messaging is designed to work with Microsoft Schedule+ 
+7.0. When Windows Messaging is installed, it will partially 
+disable Microsoft Schedule+ 1.0. You will still be able to use 
+Microsoft Schedule+ 1.0 in standalone mode, but you will not be 
+able to send or receive meeting requests. You will see an error 
+message when starting Microsoft Schedule+ 1.0 that notifies you 
+that the mail spooler cannot be started. Click Yes to continue, 
+and Microsoft Schedule+ 1.0 will continue. 
+
+Microsoft Schedule+ is disabled by changing Mailspl.exe to 
+Mailspl.bak and by putting a StartupOffline=1 line into 
+Schdplus.ini. 
+
+NOTE:  There is no message warning you that these changes are 
+made. 
+
+
+USING WINDOWS MESSAGING WITH MICROSOFT MAIL
+============================================
+
+Windows Messaging is designed to replace the Microsoft Mail 
+program that comes with Windows for Workgroups and Microsoft 
+Mail version 3.x. After installing Windows Messaging you will 
+no longer be able to run the older Microsoft Mail program, 
+but you will be able to use Windows Messaging to send and 
+receive messages. 
+
+
+USING WINDOWS MESSAGING WITH THE COMPUSERVE SERVICE(SM)
+========================================================
+
+The setup program for the CompuServe Service(sm) for 
+Windows Messaging is available on the Windows 96 CD in 
+the \Drivers\Exchange\Compusrv directory.  The files will 
+also be available on CompuServe in the "cissoft" forum. 
+For more information, see the Cisnotes.rtf file in the 
+\Drivers\Exchange\Compusrv directory of the Windows 96 CD.
+
+
+UPGRADING A PREVIOUS INSTALLATION OF WINDOWS 96
+===============================================
+
+You can install Windows Messaging with Windows 96 over an 
+existing Windows 96 setup. When you upgrade, you may lose some 
+of your Windows Messaging preferences. 
+
+There is NO interoperability between the final release and the 
+beta releases. You cannot send or receive messages to or from 
+mismatched Windows 96 releases. Upgrade all Windows Messaging 
+users simultaneously to the released version of Windows Messaging. 
+
+
+
+TROUBLESHOOTING TIPS 
+====================
+
+If you experience problems connecting to your Microsoft Mail 
+postoffice, please ensure you have network access to your postoffice. 
+You can also get diagnostic details about the reason for failures by 
+clicking the Tools menu, clicking Microsoft Mail Tools, and then 
+clicking View Session Log. 
+
+If you experience a problem composing or reading a message that 
+produces an error saying "Can't launch form," then the forms file 
+may be corrupt. To correct this problem, quit Windows Messaging, 
+and then go to your {Windows}\Forms directory and delete Frmcache.dat.  
+From {Windows}\Forms, copy the file Frmcache.bak to Frmcache.dat, 
+and restart Windows Messaging. 
+
+Some Microsoft Mail 3.x extensions are not compatible with 
+Windows Messaging--for example, WinRules and Conference+.  
+Windows Messaging automatically disables some of these 
+extensions to prevent system problems. If a Microsoft Mail 3.x 
+extension is causing a problem, it can be disabled by placing a 
+';' in front of the corresponding line in Msmail.ini.  Contact 
+the product vendors for further information. 
+
+If you experience a problem where messages are stuck in the Outbox, 
+it is possible that the wrong information service is trying to process 
+the message. To correct the problem, click the Tools menu, click 
+Options, click Delivery, and then ensure the information services are 
+listed in the order you want them. 
+
+After quitting Windows Messaging, you may notice that mapisp32 is 
+still running. Mapisp32 continues to run for 20 seconds after you 
+quit Windows Messaging. 
+
+E-forms created with the Microsoft Electronic Forms Designer do not 
+open correctly when saved in the .msg file format. Transfer the .msg 
+file from the file system to the Inbox to open the e-form correctly.
+
+If clicking Send on the File command in Lotus Approach does not 
+work, please ensure that you have a file called Msmail.ini in your 
+{Windows}\ directory.  If the file does not exist, just create an 
+empty file with that name. 
+
+Two clients using Microsoft Mail should not be run against the same 
+Microsoft Mail mailbox. This configuration is not supported.
+
+You cannot schedule faxes to be sent at a later time with this 
+release of Windows 96.

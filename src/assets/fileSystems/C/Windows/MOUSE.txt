@@ -1,0 +1,149 @@
+       -----------------------------------------------------------
+              Microsoft Windows 96 README for Pointing Devices
+                                August 1996            
+       -----------------------------------------------------------
+
+                      (c) Copyright Microsoft Corporation, 1996
+
+
+This document provides complementary or late-breaking information to 
+supplement the Microsoft Windows 96 documentation.
+
+------------------------
+How to Use This Document
+------------------------
+
+To view Mouse.txt on screen in Notepad, maximize the Notepad window.
+
+To print Mouse.txt, open it in Notepad or another word processor, and
+then use the Print command on the File menu.
+
+
+--------
+CONTENTS
+--------
+
+Windows Driver Library (WDL)
+Logitech Mouse
+Mouse Systems/Genius
+Microsoft Natural Keyboards
+Microsoft Intellipoint 1.00
+Microsoft BallPoint Mouse
+
+---------
+
+
+Windows Driver Library (WDL)
+============================
+
+Windows 96 includes drivers for most mouse types. To obtain additional 
+or updated drivers from the Windows Driver Library (WDL), carry out the 
+following procedure.
+
+1. If you have a modem, download the driver to a floppy disk from one
+   of the following online services.  
+
+   Service                            Location of drivers
+   -------                            -------------------
+   The Microsoft Network              Windows 96 area
+   Worldwide Web                      http://www.microsoft.com
+   Gopher                             gopher://gopher.microsoft.com
+   FTP                                ftp://ftp.microsoft.com
+   Microsoft Download Service (MSDL)  In the United States, call 
+                                      (206) 936-6735. Outside 
+                                      the U.S., contact your local
+                                      Microsoft subsidiary.
+
+2. If you have a CD-ROM of Windows 96, you can find this driver in the
+   \drivers directory.
+  
+3. In My Computer or Windows Explorer, double-click the icon for
+   the floppy disk drive that contains the file you downloaded,
+   and then double-click the file itself. This extracts the driver.
+
+4. Click the Start button, point to Settings, and then click Control 
+   Panel.
+
+5. Double-click the Mouse icon, click the General tab, and then click 
+   Change. 
+
+6. Click Browse, and then locate the file you extracted in step 3. 
+
+7. Click OK in the Open dialog box and in the Install From Disk 
+   dialog box.
+
+NOTE: The drivers are available at no charge; however, standard
+      connect-time fees and long-distance telephone charges, if 
+      any, apply.
+
+
+Logitech Mouse
+==============
+
+The Windows 96 Logitech driver supports Logitech MouseWare features. 
+To use the middle button of a three-button Logitech Mouse, use the 
+Logitech Mouse Control Center that came with your mouse.
+ 
+If you are running Windows 96, do not run the Logitech MouseWare 
+Setup program that was written for Windows 3.1. If you do, open Mouse 
+properties, click the General tab, and then click Change. Then select 
+the appropriate Windows 96 Logitech mouse type.  
+
+If you use a Logitech serial mouse, but there is a PS/2 mouse port 
+on your computer, Windows 96 may not correctly install the Logitech 
+driver. If this occurs, use the Device Manager tab in System properties 
+to change the PS/2 mouse item, if present, to "Logitech Serial Mouse."
+
+
+Mouse Systems/Genius
+====================
+
+Windows 96 does not have built-in drivers for the Mouse Systems or 
+Genius 3-button mouse. The standard mouse driver will work with these 
+devices in their 2-button mode. Driver updates are available from 
+the Windows Driver Library or in the \Drivers\Mouse folder on the 
+Windows 96 CD-ROM.
+
+
+Microsoft Natural Keyboards
+===========================
+
+Windows 96 has built-in support for your Microsoft Natural Keyboard. 
+Windows logo keys have added functionality under the new operating 
+system.
+
+You will be unable to install IntelliType version 1.00 under Windows 96. 
+If you upgrade to Windows 96 over a previously installed Windows 3.1 
+configuration, IntelliType will have limited functionality.
+
+If you are upgrading a Windows 3.1x configuration that has IntelliType 
+version 1.00 software, it is recommended that you delete the following 
+line from your System.ini file, which is located in the folder that 
+contains your Windows 96 files:
+
+	taskman.exe=TASKSW16.EXE
+
+This will deactivate the Windows 3.1 IntelliType Task Manager and 
+ensure full support of the Windows logo keys under Windows 96.  
+
+
+Microsoft IntelliPoint 1.00
+============================
+
+Windows 96 has built-in support for your Microsoft mouse.
+
+You will be unable to install IntelliPoint version 1.00 under 
+Windows 96. If you upgrade to Windows 96 over a previously 
+installed Windows 3.1 configuration, IntelliPoint will have 
+limited functionality. Contact Microsoft for an updated version 
+of IntelliPoint software.
+
+
+Microsoft BallPoint Mouse
+==========================
+
+If you need to adjust settings for your BallPoint mouse such as 
+orientation, use the Mouse Manager or IntelliPoint control panel 
+icon that came with your mouse. If this control panel is not already 
+installed on your computer, contact Microsoft for an updated version 
+of the mouse software.

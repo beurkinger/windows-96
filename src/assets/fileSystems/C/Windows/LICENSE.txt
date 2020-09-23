@@ -1,0 +1,51 @@
+END-USER LICENSE AGREEMENT FOR MICROSOFT SOFTWARE - MICROSOFT[r] WINDOWS[r] 96 -
+
+IMPORTANT-READ CAREFULLY: This End-User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and the manufacturer ("PC Manufacturer") of the computer system ("COMPUTER") with which you acquired the Microsoft software product(s) identified above ("SOFTWARE PRODUCT" or "SOFTWARE").  If the SOFTWARE PRODUCT is not accompanied by a new computer system, you may not use or copy the SOFTWARE PRODUCT.  The SOFTWARE PRODUCT includes computer software, the associated media, any printed materials, and any "online" or electronic documentation.  By installing, copying or otherwise using the SOFTWARE PRODUCT, you agree to be bound by the terms of this EULA.  If you do not agree to the terms of this EULA, PC Manufacturer and Microsoft are unwilling to license the SOFTWARE PRODUCT to you.  In such event, you may not use or copy the SOFTWARE PRODUCT, and you should promptly contact PC Manufacturer for instructions on return of the unused product(s) for a refund.
+
+
+SOFTWARE PRODUCT LICENSE
+The SOFTWARE PRODUCT is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties.  The SOFTWARE PRODUCT is licensed, not sold.
+1. GRANT OF LICENSE.  This EULA grants you the following rights:
+* Software.  You may install and use one copy of the SOFTWARE PRODUCT on the COMPUTER.
+* Network Services. If the SOFTWARE PRODUCT includes functionality that enables the COMPUTER to act as a network server, any number of computers or workstations may access or otherwise utilize the basic network services of that server.  The basic network services are more fully described in the printed materials accompanying the SOFTWARE PRODUCT.
+* Storage/Network Use.  You may also store or install a copy of the computer software portion of the SOFTWARE PRODUCT on the COMPUTER to allow your other computers to use the SOFTWARE PRODUCT over an internal network, and distribute the SOFTWARE PRODUCT to your other computers over an internal network.  However, you must acquire and dedicate a license for the SOFTWARE PRODUCT for each computer on which the SOFTWARE PRODUCT is used or to which it is distributed.  A license for the SOFTWARE PRODUCT may not be shared or used concurrently on different computers.
+* Operating System Choice.  PC Manufacturer may have elected to provide you with a choice of Microsoft operating system software for the COMPUTER.  If the SOFTWARE PRODUCT includes both the Windows 96 and an "Alternate Microsoft OS" (either (a) Windows for Workgroups, (b) the MS-DOS and the Windows, (c) the MS-DOS operating system and the Windows for Workgroups operating system, or (d) the Windows operating system), you are licensed to use only one of the Microsoft operating system choices provided.  As part of the setup process for the SOFTWARE you will be given a one-time option to choose either Windows 96 or an Alternate Microsoft OS.  Upon selection, the Microsoft operating system choice selected by you will be set up on the COMPUTER, and the Microsoft operating system choice not selected by you will be automatically and permanently deleted from the hard disk of the COMPUTER. 
+* OEM Back-up Utility. If PC Manufacturer has not included a back-up copy of the SOFTWARE PRODUCT with the COMPUTER, you may use the Microsoft back-up utility, if included with the SOFTWARE PRODUCT, to make a single back-up copy of the SOFTWARE PRODUCT.  You may use the back-up copy solely for archival purposes.  After the single back-up copy is made, the backup utility will be permanently disabled.
+
+2. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS.  
+* Limitations on Reverse Engineering, Decompilation and Disassembly.  You may not reverse engineer, decompile, or disassemble the SOFTWARE PRODUCT, except and only to the extent that such activity is expressly permitted by applicable law notwithstanding this limitation.
+* Separation of Components.  The SOFTWARE PRODUCT is licensed as a single product.  Its component parts may not be separated for use on more than one computer.
+* Single COMPUTER.  The SOFTWARE PRODUCT is licensed with the COMPUTER as a single integrated product.  The SOFTWARE PRODUCT may only be used with the COMPUTER.
+* Rental.  You may not rent or lease the SOFTWARE PRODUCT.  
+* Software Transfer.  You may permanently transfer all of your rights under this EULA only as part of a sale or transfer of the COMPUTER, provided you retain no copies, you transfer all of the SOFTWARE PRODUCT (including all component parts, the media and printed materials, any upgrades, this EULA and, if applicable, the Certificate(s) of Authenticity), AND the recipient agrees to the terms of this EULA.  If the SOFTWARE PRODUCT is an upgrade, any transfer must include all prior versions of the SOFTWARE PRODUCT.
+* Termination.  Without prejudice to any other rights, Microsoft may terminate this EULA if you fail to comply with the terms and conditions of this EULA.  In such event, you must destroy all copies of the SOFTWARE PRODUCT and all of its component parts.
+
+3. UPGRADES.  If the SOFTWARE PRODUCT is an upgrade from another product, whether from Microsoft or another supplier, you may use or transfer the SOFTWARE PRODUCT only in conjunction with that upgraded product, unless you destroy the upgraded product.  If the SOFTWARE PRODUCT is an upgrade of a Microsoft product, you now may use that upgraded product only in accordance with this EULA.  If the SOFTWARE PRODUCT is an upgrade of a component of a package of software programs which you licensed as a single product, the SOFTWARE PRODUCT may be used and transferred only as part of that single product package and may not be separated for use on more than one computer.
+
+4. OEM COPYRIGHT.  All title and copyrights in and to the SOFTWARE PRODUCT (including but not limited to any images, photographs, animations, video, audio, music, text and "applets," incorporated into the SOFTWARE PRODUCT), the accompanying printed materials, and any copies of the SOFTWARE PRODUCT, are owned by Microsoft or its suppliers.  The SOFTWARE PRODUCT is protected by copyright laws and international treaty provisions..  You may not copy the printed materials accompanying the SOFTWARE PRODUCT.
+
+5. DUAL-MEDIA SOFTWARE.  You may receive the SOFTWARE PRODUCT in more than one medium. Regardless of the type or size of medium you receive, you may use only one medium that is appropriate for your single computer.  You may not use or install the other medium on another computer.  You may not loan, rent, lease, or otherwise transfer the other medium to another user, except as part of the permanent transfer (as provided above) of the SOFTWARE PRODUCT.
+
+6. OEM PRODUCT SUPPORT. Product support for the SOFTWARE PRODUCT is NOT provided by Microsoft Corporation or its subsidiaries.  For product support, please refer to PC Manufacturer's support number provided in the documentation for the COMPUTER.  Should you have any questions concerning this EULA, or if you desire to contact PC Manufacturer for any other reason, please refer to the address provided in the documentation the COMPUTER.
+
+7. OEM U.S. GOVERNMENT RESTRICTED RIGHTS.  The SOFTWARE PRODUCT and documentation are provided with RESTRICTED RIGHTS.  Use, duplication, or disclosure by the Government is subject to restrictions as set forth in subparagraph (c)(1)(ii) of the Rights in Technical Data and Computer Software clause at DFARS 252.227-7013 or subparagraphs (c)(1) and (2) of the Commercial Computer Software-Restricted Rights at 48 CFR 52.227-19, as applicable. Manufacturer is Microsoft Corporation/One Microsoft Way/Redmond, WA 98052-6399.
+
+FOR THE LIMITED WARRANTIES AND SPECIAL PROVISIONS PERTAINING TO YOUR PARTICULAR JURISDICTION, PLEASE REFER TO YOUR WARRANTY BOOKLET INCLUDED WITH THIS PACKAGE OR PROVIDED WITH THE SOFTWARE PRODUCT PRINTED MATERIALS.
+
+
+ADDENDUM TO THE SOFTWARE LICENSE AGREEMENT FOR MICROSOFT[r] WINDOWS[r]
+
+This Addendum describes additional terms that apply to your use of Microsoft Internet Explorer and NetMeeting [tm] conferencing software ("Software").  You may only use the Software as a component of Windows 96 and your use of the Software is subject to the terms of both this Addendum and the End User License Agreement ("EULA") provided with Windows '96.  Undefined terms in this Addendum shall have the same meaning as set forth in the EULA.  By using or downloading the Software, you agree to be bound by the terms of the EULA and this Addendum.  If you do not agree to these terms, you are not authorized to use the Software.
+
+1.	The following additional terms apply to Microsoft Internet Explorer:
+
+* NOTE ON JAVA SUPPORT.  THE SOFTWARE MAY CONTAIN SUPPORT FOR PROGRAMS WRITTEN IN JAVA.  JAVA TECHNOLOGY IS NOT FAULT TOLERANT AND IS NOT DESIGNED, MANUFACTURED, OR INTENDED FOR USE OR RESALE AS ON-LINE CONTROL EQUIPMENT IN HAZARDOUS ENVIRONMENTS REQUIRING FAIL-SAFE PERFORMANCE, SUCH AS IN THE OPERATION OF NUCLEAR FACILITIES, AIRCRAFT NAVIGATION OR COMMUNICATION SYSTEMS, AIR TRAFFIC CONTROL, DIRECT LIFE SUPPORT MACHINES, OR WEAPONS SYSTEMS, IN WHICH THE FAILURE OF JAVA TECHNOLOGY COULD LEAD DIRECTLY TO DEATH, PERSONAL INJURY, OR SEVERE PHYSICAL OR ENVIRONMENTAL DAMAGE.
+2.	The following additional terms apply to NetMeeting [tm] Conferencing Software:
+* APPLICATION SHARING.  The Software contains technology that enables applications to be shared between two or more computers, even if an application is installed on only one of the computers.  You may use this technology with all Microsoft products for multi-party conferences.  For non-Microsoft applications, you should consult the accompanying license agreement or contact the licensor to determine whether application sharing is permitted by the licensor.
+* You must comply with all applicable laws regarding the use of the Software. 
+
+If you do not have a valid license to use Windows '96, you may not use the Software.  Any other use of the Software is prohibited.
+
+
+
+

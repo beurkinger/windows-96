@@ -1,0 +1,1097 @@
+       -----------------------------------------------------------
+       Microsoft Windows 96 README for Frequently Asked Questions
+	                      August 1996     
+       -----------------------------------------------------------
+
+           (c) Copyright Microsoft Corporation, 1996
+
+
+This document provides complementary or late-breaking information to 
+supplement the Microsoft Windows 96 documentation.
+
+------------------------
+How to Use This Document
+------------------------
+
+To view FAQ.txt on screen in Notepad, maximize the Notepad window.
+
+To print FAQ.txt, open it in Notepad or another word processor,
+and then use the Print command on the File menu.
+
+NOTE: Some of the information in this document applies only to the
+Windows 96 Upgrade. If you received Windows 96 preinstalled on your
+computer, the upgrade-specific information may not apply.
+
+---------
+CONTENTS
+---------
+Windows 96 Setup
+MS-DOS
+Disk Compression
+Using CD-ROMs and Windows
+Networking
+Accessing the Internet with Windows 96
+Desktop
+PCMCIA Cards
+Modems
+FAT32
+Miscellaneous
+
+=================
+Windows 96 Setup
+=================
+
+[Q: What are some things I can do to make it easier to install 
+    Windows 96?]
+
+Some steps to follow to ensure a trouble-free installation are:
+- Run a virus scan before running Setup.
+- Run ScanDisk or Chkdsk before running Setup.
+- Make sure you have at least 100 to110 MB of free disk space 
+  (110 to 120 MB to back
+  up your previous MS-DOS and Windows system files so you can 
+  uninstall Windows 96 if needed).
+- If you have had any problems with your hardware or software, 
+  fix them before installing Windows 96.
+- Turn off any screen savers or utilities that are running.
+- Back up your Autoexec.bat and Config.sys files to a floppy 
+  disk.
+- Remove any unnecessary programs from Config.sys and 
+  Autoexec.bat. These may include Undelete programs, anti-virus 
+  software, start-up configuration programs, or any disk utilities.
+- Remark the LOAD= and RUN= lines in Win.ini by placing a 
+  semicolon (;) in front of the LOAD and run lines--for example:
+
+     ;load=C:\Msoffice\Msoffice.exe
+
+- Shut down any anti-virus software you are running. If you 
+  install Windows 96 on a computer that has a CMOS or system 
+  BIOS-based anti-virus setting, you will receive an error 
+  message and Setup will stop. Consult the hardware documentation 
+  for information about system BIOS or CMOS-enabled settings such 
+  as virus detection. 
+- Run Setup from Windows or Windows for Workgroups.
+- Shut down any running programs.
+- Remove programs from the Startup group before installation.
+
+
+[Q: How do I uninstall Windows 96?]
+
+To return to a previously installed version of Windows 3.1, run 
+the Uninstall program. To uninstall Windows 96, you must have 
+chosen "Save System Files" during Setup. 
+
+To run the uninstall program:
+
+** If Windows 96 is running:
+1. Click the Start menu, point to Settings, and then click 
+   Control Panel.
+2. Double-click the Add/Remove Programs icon, and then click 
+  the Install/Uninstall tab.
+3. In the list of software that can be removed by Windows, 
+  click Windows 96.
+4. Click Add/Remove, and then follow the directions on your 
+   screen. 
+
+   The Uninstall program removes all long filename entries 
+   from your hard disk, and then runs an MS-DOS-based program 
+   to remove Windows 96 and restore your previous MS-DOS and 
+   Windows 3.x files.
+
+** If Windows 96 is not running:
+1. Start your computer  from the Windows 96 Emergency Repair 
+   Disk if you created one during setup.
+2. Type UNINSTAL at the A prompt. 
+
+OR
+
+1. Start your computer from an MS-DOS boot disk.
+2. Type the following at the A prompt:
+
+     X:\Windows\Command\Uninstall.exe
+
+     Where x is the drive letter where Windows 96 is installed, 
+     and \Windows is the name of your Windows 96 directory.
+
+NOTES:
+
+* It is recommended that you run Uninstall from within Windows 96;
+  otherwise, all long filename information may not be completely
+  removed from your hard disk.
+
+* If Windows 96 came preinstalled on your computer, there is no
+  uninstall option.
+
+
+[Q: How do I install Windows 96 from a CD-ROM drive?]
+
+Windows 96 can be installed from a CD-ROM drive from within MS-DOS 
+or from within an existing version of Windows. The preferred and 
+most reliable method is to install it from an existing version of 
+Windows. 
+
+To install Windows 96 from MS-DOS: 
+1. Insert the Windows 96 CD in the CD-ROM drive. 
+2. At the C:\ prompt, type the drive letter of your CD-ROM drive 
+   followed by a colon (:) and a backslash (\), and the word Setup. 
+   For example: 
+
+     D:\Setup
+
+3. Press ENTER, and then follow the instructions on your screen.
+4. Click Next to continue Setup, and then follow the instructions 
+   on your screen.
+
+To install from your current version of Windows: 
+1. Start Windows, and then insert the Windows 96 CD in the 
+   appropriate drive.
+2. In File Manager or Program Manager, click the File menu, and 
+   then click Run.
+3. Type:
+
+     x:\Setup
+
+   where x is the drive letter of your CD-ROM drive.
+4. Follow the instructions on your screen.
+5. Click Next to continue Setup.
+
+
+[Q: How do I install Windows 96 from a remote CD-ROM drive?]
+
+If the computer with the CD-ROM drive is running Windows for 
+Workgroups or Windows 96, share the CD-ROM drive, and then follow 
+these steps:
+
+1. Connect to the shared CD-ROM by connecting to a network drive 
+   in File Manager or by typing the NET USE command at the command 
+   prompt. For example:
+
+     net use * \\machine\cdshare
+
+2. Double-click Setup.exe, or at the command prompt type Setup.
+
+
+[Q: How do I prepare my computer for a clean installation of 
+    Windows 96?]
+
+Windows 96 will install over MS-DOS, as well as over existing 
+versions of Windows and Windows for Workgroups.
+
+From File Manager in Windows or Windows for Workgroups:
+
+1. Click the drive letter for the drive that Windows 96 will be 
+   installed from. For example:
+
+     a:\ (floppy disk users)
+     d:\ (CD-ROM users)
+
+2. Double-click Setup.exe to start the installation process.
+
+During installation, Windows 96 checks for available disk space.
+If the required hard-disk space is not available, Windows 96 
+displays how much free space is available and how much is 
+required. To free up space on the hard disk, remove unnecessary 
+files.
+
+
+[Q: Do I need to reinstall my programs when I install Windows 96?]
+
+Windows 96 will pick up program settings when you upgrade an 
+existing version of Windows or Windows for Workgroups. If 
+Windows 96 is installed in a separate directory, all Windows-based 
+programs need to be reinstalled.
+
+
+[Q: How do I set up Windows 96 on a computer running Windows NT?]
+
+The Windows NT computer must be configured to multi-boot between 
+Windows NT and MS-DOS. 
+
+1. Start the Windows NT computer in MS-DOS mode.
+2. Run Windows 3.x, and then in Program Manager, select the File 
+   menu, and then choose the Run command.
+3. Type:
+
+     x:\Setup.exe
+
+     where x is the drive letter containing your Windows 96 
+     Setup disk or CD-ROM.
+4. Install Windows 96 in a new directory. 
+
+NOTES:
+* Windows 96 cannot be installed into the same directory as
+  Windows NT or into a shared Windows NT/Windows 3.x directory. 
+
+* A FAT16 partition is required for the Windows 96 / Windows NT
+  dual-boot configuration to work. Windows 96 must be installed
+  into a separate directory on the FAT partition. The Windows NT
+  OS Loader automatically provides a choice for Windows 96 or
+  MS-DOS on the menu.
+
+* Windows 96 cannot access data stored in NTFS partitions and,
+  Windows NT cannot access data stored in FAT32 partitions.
+
+
+[Q: I have 25 MB free on my hard disk, and when I try to upgrade 
+    to Windows 96 it tells me I do not have enough disk space. 
+    How much do I need for Windows 96 if I am upgrading?]
+
+When you upgrade over Windows 96, you need 90 to 100 MB of free 
+disk space, as opposed to 100 to 110 MB for a full installation.
+
+NOTE: Actual numbers vary depending on the options and accessories 
+you select during Setup. If you use disk compression (MS-DOS 
+DoubleSpace or DriveSpace, or Stacker), Setup may require more 
+than 90 to 100 MB because of the way disk compression estimates 
+available space. Setup adjusts the required free space to ensure 
+that you do not run out of disk space during Setup. 
+
+
+[Q: Can I install Windows 96 on a computer that has 
+    OS/2\MS-DOS\Windows? Can I still dual boot?]
+
+Windows 96 Setup.exe will not run on OS/2. To install Windows 96,
+start the computer in MS-DOS mode, and then run Setup.exe from 
+the MS-DOS prompt.
+
+NOTE: If you are upgrading over OS/2 on an HPFS partition, you 
+will need your OS/2 disk 1 during Setup.
+
+If you are using OS/2 Boot Manager to choose operating systems 
+at startup, Setup will disable Boot Manager to ensure that 
+Windows 96 can restart the computer and complete its installation. 
+You can reactivate Boot Manager by running the FDISK utility that 
+comes with Windows 96 (see procedure at the end of this section).
+
+If you are not using Boot Manager, configure your computer to use 
+Boot Manager, and then follow the instructions above. Consult your 
+OS/2 documentation for information about Boot Manager.
+
+If you start MS-DOS from a floppy disk and then run Setup, you will 
+not be able to start OS/2 after Windows 96 is installed. You need 
+to delete the Autoexec.bat and Config.sys files that OS/2 uses 
+before running Setup.
+
+To remove OS/2 from your computer after you install Windows 96:
+1. Back up the files you want to keep onto a floppy disk or 
+   network drive.
+2. Delete the files in each of your OS/2 directories and 
+   subdirectories, and then delete the OS/2 directories.
+3. In the root directory, delete the following hidden files:
+
+    EA DATA.SF
+    OS2LDR.MSG
+    OS2KRNL
+    OS2BOOT
+    WP DATA.SF
+
+To make sure hidden files are visible, in My Computer or Windows 
+Explorer, click the View menu, click Options, and then click Show 
+All Files. Then delete the OS/2 files listed above.
+
+NOTE: If you have a version of OS/2 other than version 2.0, the 
+names of your OS/2 files may differ from those in this procedure. 
+Also, depending on which version of OS/2 you have, you may see 
+the following files in your root directory. You can also delete 
+these files:
+
+    OS2DUMP
+    OS2LDR
+    OS2LOGO
+    OS2VER
+
+4. Empty the Recycle Bin to permanently remove the files from 
+   your computer. 
+5. If you had Boot Manager installed and want to remove it, 
+   restart your computer and then complete the following steps. 
+   (It is recommended that you print this file before restarting 
+   your computer.)
+6. When you see the Boot Manager menu, choose to restart your 
+   computer in MS-DOS mode, and then run FDisk.
+7. Make the MS-DOS partition (C) your active partition.
+8. Quit Fdisk, and then restart your computer.
+
+To reinstall Boot Manager after you install Windows 96:
+1. From the Windows 96 Start menu, click Run ,and then type 
+   FDISK.
+2. Choose Set Active Partition.
+3. Enter the number of the Boot Manager Partition. This partition 
+   is the 1MB Non-MS-DOS partition usually placed at the top or 
+   bottom.
+4. Quit FDISK, and then restart your computer as instructed. You 
+   can now start OS/2 at any time and change labels of partitions 
+   in Boot Manager through the OS/2 FDISK program.
+
+NOTE: OS/2 cannot access data stored in FAT32 partitions.
+
+[Q: How do I make copies of my original disks to install from?]
+
+The DMF disk format is not compatible with the DISKCOPY or COPY 
+commands and increases the amount of data stored on a standard 
+1.44/3.5" disk. There is no way to make a direct copy of these 
+disks.
+
+
+[Q: Can I make floppy disk images from the CD?]
+
+The CD-ROM contains cabinet files (*.cab) files that are 2 MB 
+each and cannot be copied onto floppy disks. 
+
+
+[Q: Setup stops responding while it is gathering information. 
+    How can I bypass the problem?]
+
+Occasionally, Setup stops while detecting a device on the computer. 
+To work around this:
+
+1. Turn the computer off for 10 seconds, and then turn it back on.
+2. Rerun Setup, and then choose Safe Recovery to bypass the problem 
+   area.
+3. Setup continues, bypassing the detection problem it encountered 
+   on the previous attempt.
+4. If this happens again, repeat steps 1 through 3 until Windows 96 
+   setup process is compete. 
+
+NOTE: If you have already run Safe Recovery several times, another 
+option is to manually specify the hardware on your computer to 
+minimize the chance of Setup stopping, since Setup will detect 
+only the hardware you specify.
+
+
+[Q: Should I set up a separate partition to install Windows 96?]
+
+As with any software package, it is always a good idea to have 
+a backup before installing it. Windows 96 has been tested on 
+thousands of computers on many system configurations with a 
+very high success rate, so we are confident that you will have 
+few, if any, problems installing Windows 96.
+
+You can enable an uninstall feature during Setup. Uninstall copies 
+your previous MS-DOS and Windows 3.x versions and keeps a log, so 
+that Windows 96 can be removed and the previous files returned to 
+where they were before Windows 96 was installed.
+
+Windows 96 does not require its own partition; however, it can 
+be installed if you want to dual boot between your current 
+Windows 3.x installation and Windows 96.
+
+NOTES:
+
+* Windows 96 version 4.00.960B does not support dual booting 
+  to a previous MS-DOS/Windows 3.x installation. To check the 
+  Windows 96 version number, right-click the My Computer icon 
+  on your desktop, click Properties, and then click the General 
+  tab.
+
+* If you received Windows 96 preinstalled on your computer, the
+  uninstall feature is not available.
+
+[Q: Should I install into my existing Windows directory or a 
+    different directory?]
+
+Preserving your existing installation of Windows and upgrading 
+on top of it is highly recommended as Setup is using your existing 
+configuration files (Config.sys, Autoexec.bat, System.ini, Win.ini, 
+Protocol.ini) for more accurate detection and installation. The 
+advantage to installing in your existing Windows directory is that 
+the previous settings and applications are used in the new 
+installation. 
+
+The advantage to installing Windows 96 into a different directory 
+is that it preserves your previous DOS/Windows configuration, 
+allowing you to dual boot between versions. The disadvantage is 
+that all Windows applications and possibly drivers for hardware 
+peripherals (sound cards, tape drives, etc.) must be re-installed 
+to put the proper support files in place as well as the application 
+settings in the .ini files and/or the registry.
+
+NOTE: Windows 96 version 4.00.960B does not support dual booting 
+to a previous MS-DOS/Windows 3.x installation. To check the 
+Windows 96 version number, right-click the My Computer icon on 
+your desktop, click Properties, and then click the General tab.
+
+
+[Q: How do I set up Windows 96 into a separate subdirectory?]
+
+During Setup, Windows 96 you are prompted to provide a directory 
+to install Windows 96 into. 
+
+To install Windows 96 into a new directory:
+1. Click the Other Directory option, and then click Next.
+2. Enter the new directory. For example, C:\Win96.
+
+
+[Q: What files do I backup to preserve Windows 96 settings?]
+
+You can use the Windows 96 Backup utility to backup your system 
+and all user and software specific preferences. In order to do 
+this, use the Full System Backup File set which is described on 
+the second screen that comes up when you run Backup.
+
+NOTE: After installing Windows 96 into another directory, all 
+programs (and possibly all hardware-peripheral drivers) must be 
+re-installed.
+
+
+[Q: I have installed Windows 96 into different directory than 
+    Windows 3.x or Windows for Workgroups 3.1x. How do I set up 
+    to dual boot between them?]
+
+When installing Windows 96 into a different directory, dual 
+booting is enabled by default. Dual boot is available only if 
+the existing version of MS-DOS is version 5.0 or greater. If 
+you are using version 5.0 or greater, you can set up dual-
+booting as follows:
+
+1. Start your computer. When you see the "Starting Windows 96" 
+   prompt, press F8.
+2. From the menu, select Previous Version Of MS-DOS.
+
+NOTE: Windows 96 version 4.00.960B does not support this method 
+of dual booting to a previous version of MS-DOS. To check the 
+Windows 96 version number, right-click the My Computer icon on 
+your desktop, click Properties, and then click the General tab.
+
+
+[Q: What files does Windows 96 modify during Setup?]
+
+Windows 96 is a new operating system, and affects many files on 
+the system.
+
+
+[Q: Can I run the Windows 96 Setup program from MS-DOS? Do I lose 
+    any functionality?]
+
+If you have a running installation of Windows 3.x or Windows for 
+Workgroups 3.x1, it is strongly recommended that you run Setup 
+from your existing version of Windows. This provides the safest 
+and smoothest installation. If you do run Setup from MS-DOS, and 
+it detects Windows on the computer, it will recommend quitting 
+Setup and rerunning it from Windows. If you do run Setup from 
+MS-DOS, Setup may run slower (especially if you are installing 
+from floppy disks). 
+
+
+[Q: Can I set up Windows 96 from a network?]
+
+Yes. There are two ways to set up Windows 96 from a network 
+location:
+
+- Create a Windows 96 flat directory either by using the COPY 
+  command for a CD-ROM, or by using the EXTRACT command for 
+  floppy disks. Connect to the shared directory, run Setup, and 
+  then choose a directory on your computer to set up to. 
+- Go to the Nettools directory (CD-ROM only) to use the Netsetup 
+  Utility.
+
+
+[Q: Setup stops after the first reboot. Why won't it restart?]
+
+There could be several reasons, ranging from video problems to 
+disk-access issues. Here are some steps to troubleshoot a no-start 
+situation:
+  
+1. Restart Windows 96, and then press F8 when you see the message 
+   "Starting Windows 96...". 
+2. Choose Safe Mode from the Startup menu. If Windows 96 starts, 
+   change the video driver to the standard VGA driver by following 
+   these steps:
+
+   1. Click the Start button, point to Settings, and then click 
+      Control Panel.
+   2. Double-click the Display icon.
+   3. Click the Settings tab, and then click Change Display Type.
+   4. Click Change in the Adapter Type section, and then click 
+      Show Compatible Devices.
+   5. Click Standard Display Types, and then double-click Standard 
+      Display Adapter (VGA). Click OK.
+   6. Restart Windows 96.
+
+If Windows 96 still stops during startup:
+
+1. Rename Config.sys and Autoexec.bat and/or
+2. Go to Control Panel, and then double-click the System icon.
+3. Click the Performance tab, and then click the File System 
+   button.
+4. Select the Troubleshooting tab.
+5. Check all of the available boxes, and then click OK in all 
+   dialog boxes and reboot.
+
+
+[Q: I was running Setup for the first time and it stopped during 
+    hardware detection. What do I do now?]
+
+If your computer stops during the hardware-detection phase of 
+Setup, turn off the power on your system, wait 10 seconds, and then 
+turn the power back on. Do not press CTRL-ALT-DEL. When your system 
+restarts, restart Windows using Safe Recovery, which will skip the 
+portion of detection that caused the problem. If your system stops 
+again, it will be in a different detection module. Perform these 
+steps as many times as necessary to allow your system to complete 
+detection.
+
+
+[Q: Setup didn't detect my network card, how do I set up my network 
+    card?]
+
+To add a network adapter: 
+From Control Panel, double click Add New Hardware, and let Windows
+try to detect the network card. If it does not, you can manually 
+select it as follows:
+	
+1. From Control Panel, double click the Network icon.
+2. Click Add, and then click Adapter. 
+3. Find your make and model from the list of manufacturers. 
+4. Change the displayed settings to match your card's 
+   configuration.
+
+   - If it is not a listed network adapter, check the disk that 
+     came with your adapter. If the driver came with Windows or 
+     Lanman (NDIS compatible) disks, then select "Have Disk" 
+     and point it to the path of the Oemsetup.inf file. 
+   - If there are only Novell ODI drivers available, install the 
+     driver in Autoexec.bat using the LSL.com and the <nic_odi>.com 
+     (provided by Novell and the NetWare card manufacturer) and 
+     then select "Existing ODI Driver" from "(detected net drivers)." 
+
+   For more information on how to install the ODI driver, consult 
+   your network card manufacturer.
+
+
+[Q: I am installing Windows 96 from CD-ROM, and the system hangs on 
+    the first boot. Why?]
+
+The most likely reason is that there may be a real-mode and 
+protected-mode conflict with the CD-ROM driver, and Setup is unable 
+to continue. Try remarking out the CD-ROM drivers in Config.sys. If 
+this doesn't solve the problem, then try these troubleshooting 
+procedures:
+
+*Can you boot into Windows in Safe mode? If not, reinstall.
+
+If you can: 
+- Create a Bootlog.txt file to see where it failed.
+- Look for the Detcrash.log file. If it is present, the problem 
+  is with
+  hardware detection.
+- Check Ios.ini and remark out the drivers that are loading in 
+  Config.sys in case there is a problem with these protect-mode 
+  drivers.
+- Check device manager for any conflicts. Don't be afraid to remove 
+  any device from here if you suspect it is the troublemaker.
+- Change the display driver to standard VGA.
+- Try the step-by-step boot. 
+- Rename Autoexec.bat and Config.sys so they don't load on the next 
+  boot.
+
+Copy System.cb to System.ini; very few drivers load here (not even 
+the mouse). If this solves the problem, check your System.ini for 
+any entries made by any third party applications; for example, Adobe 
+Type Manager.
+
+
+[Q: How do I install Microsoft Fax?]
+
+To install Microsoft Fax during Setup, when the Accessories screen 
+is displayed, make sure Microsoft Fax is checked. If you have not selected
+Windows Messaging, you will see a prompt to select it as well.
+
+To install Microsoft Fax after Setup, go to Control Panel, double-
+click the Add/Remove Programs icon, and then click the Windows Setup 
+tab. In the Accessories box, scroll to Microsoft Fax, and make sure it is 
+checked. If you have not selected Windows Messaging, you will see a prompt 
+to select it also.
+
+NOTE: Windows Messaging and Microsoft Fax require at least 10 MB of free space to 
+install.
+
+
+[Q: After running Setup I can no longer access my CD-ROM, why?]
+
+If your CD-ROM is proprietary, (Sony, Mitsumi, and Panasonic), 
+Windows 96 will install the drivers. If the CD-ROM is not detected, 
+there is a conflict with the device or the controller, and you 
+should check the settings for conflicts in the Device Manager in 
+Control Panel. Add new devices by double-clicking the Install New 
+Hardware icon in Control Panel.
+
+
+[Q: I am having a problem with the refresh rate of my monitor. How 
+    do I fix it?]
+
+To adjust the refresh rate in Windows 96, click the Start button,
+click Settings, and then click Control Panel. Double-click the 
+Display icon, click the Settings tab, and then click the Advanced 
+Properties button. Click the Adapter tab, and then select the 
+refresh rate from the list.
+
+To adjust the refresh rate in MS-DOS mode, you must specify your 
+monitor type in an adapter setup program supplied by your display 
+adapter or PC manufacturer. Some utilities must be run in Autoexe.bat. 
+On some PCs, monitor type is set in BIOS configuration programs. 
+Examples of utilities from adapter manufacturers include:
+
+     ATI                      INSTALL.EXE
+     Cirrus Logic             MONTYPE.EXE, CLMODE.EXE, WINMODE.EXE
+     Diamond Stealth          STLMODE.EXE
+     Diamond Stealth 64       S64MODE.EXE
+     Matrox                   \MGA\SETUP\SETUP.EXE
+     Tseng Labs               VMODE.EXE
+     Western Digital          VGAMODE.EXE
+
+
+=======
+MS-DOS
+=======
+
+[Q: How do I boot to an MS-DOS prompt ( C:\> )?]
+
+You can find this information in Windows Help Index. Look up
+"Restarting your computer, in MS-DOS mode."
+
+
+[Q: How do I boot to my previous version of DOS?]
+
+Windows 96 version 4.00.960 B does not support dual booting 
+to a previous MS-DOS/Windows 3.x installation. To check the 
+Windows 96 version number, right-click the My Computer icon on 
+your desktop, click Properties, and then click the General tab.
+
+
+[Q: Will I be able to multiboot PC-DOS 7.0?]
+
+No, for the same reason as listed above.
+
+
+=================
+Disk Compression
+=================
+
+[Q: Will Windows 96 work if I have compressed my hard drive using 
+    Stac Electronics Stacker software?]
+
+Yes, Windows 96 is fully compatible with Stacker versions 2.x and 
+greater, as well as all versions of Superstore. Older compression 
+drivers from third-party disk compression utilities function in 
+real-mode only. For upgraded Windows 96 drivers, contact your 
+software compression vendor.
+
+Windows 96 supplies a built-in disk compression utility called 
+DriveSpace that runs in protected mode. The advantages of DriveSpace 
+are that compression is faster, and it is built into the operating
+system. See Windows 96 Help for more information on DriveSpace.
+
+
+=============================
+Using CD-ROMs with Windows 96
+=============================
+
+[Q: Windows 96 does not detect my CD-ROM. Why is this? How do I get 
+    my CD-ROM to work?]
+
+CD-ROMs may be SCSI, proprietary, or IDE controller based.
+
+Windows 96 only detects proprietary controller-based CD-ROMS 
+(specifically Panasonic, Mitsumi, and Sony brands). Windows 96 also 
+detects the SCSI controllers; however, drivers for the SCSI bus will 
+enumerate the CD-ROMs. 
+
+1. Open Control Panel, and then double-click the System icon.
+2. Select the Device Manager tab.
+3. Verify that a SCSI or IDE controller exists in the device tree.
+   (If the SCSI or IDE controller branch is not available look up
+   "Adding, Hardware" in the Help Index.)
+4. Open the branch for SCSI or IDE controller by clicking the 
+   plus (+) sign.
+5. Click the controller, and then click Properties.
+6. In the General Tab, verify that the Device Status message states 
+   "This device is working properly" and that the Device Usage 
+   checkbox is enabled for "Current Configuration"
+7. Click the Resources tab, and then verify that the "Conflicting 
+   Device List" displays "No Conflicts."
+   - If a conflict exists, the conflicting devices are listed. 
+   - Verify that the Resource Settings match the actual hardware 
+     settings of the controller. Refer to the SCSI or IDE controller 
+     documentation.
+8. If multiple devices are connected to a SCSI or IDE controller, 
+   and any of the SCSI or IDE devices are not supported by Windows 96 
+   with a protected mode driver, then access to all devices connected 
+   to the controller will be provided via manufacturer-supplied MS-DOS 
+   drivers only. Contact the device manufacturer for information on 
+   protected-mode Windows 96 drivers.
+
+
+==========
+Networking
+==========
+[Q: How do I set up my Windows 96 computer for a TCP/IP network?]
+
+First, find out from your system administrator if your network is 
+using a DHCP server to allocate IP addresses automatically, or if 
+you have been assigned a specific IP address. Once you have this 
+information, follow these steps:
+1. In Control Panel, double-click the Network icon.
+2. On the Configuration tab, click Add, and then double-click 
+   Protocol.
+3. Click Microsoft, and then click TCP/IP.
+ 
+After it is installed, click TCP/IP on the Configuration tab of 
+Network properties, and then click Properties. Configure your 
+protocol per instructions from your system administrator.
+
+
+[Q: How do I set up Netware support?]
+
+There are three ways to access a Novell network with Windows 96. 
+If you are using Novell Netware 3.x, or if you have bindery 
+services enabled with 4.x, you can use the Microsoft Client for 
+Netware. This is installed from the Network properties by clicking 
+Add, clicking Client, clicking Microsoft, and then clicking 
+Microsoft Client for Netware. 
+
+If you need to load real-mode TSRs from your login script, you 
+must use the real-mode shell NETX or VLM, available from Novell. 
+If you are using NDS services with 4.x, you must install the VLM 
+client. 
+
+If you are using NETX, you need to install the Novell Workstation 
+Shell 3.x from Network properties. Click Add, click Client, and 
+then click the Novell properties dialog box. If you are using the 
+VLM client, install the Novell Workstation Shell 4.x client. 
+
+NOTE: You must have the proper version of the Windows support 
+files from Novell to use either Workstation Shell option.
+
+
+[Q: I am running a non-Microsoft network, and I can't connect to 
+    my network resources, why?]
+
+If it is a real-mode network, the network client must be loaded 
+from Autoexec.bat and/or Config.sys before Windows 96 loads. If 
+it is a network that Windows 96 does not recognize, then all drive 
+mappings and resource connections may need to be done before 
+starting Windows 96. Resource mappings done in an MS-DOS prompt 
+may only be accessible while that MS-DOS prompt is running. If it 
+is a supported network, make sure the client support is installed 
+in Network Properties.
+
+[Q: Why do the applications from my Novell server give an 
+    "Incorrect MS-DOS version" message?] 
+
+There are two possible reasons. Novell Netware login scripts can 
+use a Netware login script variable, OSVersion, to track which 
+versions of MS-DOS the clients are running and to map a drive to 
+a directory on the Novell server that contains a copy of that 
+version of MS-DOS. Your network administrator needs to ensure 
+that the same has been done for Windows 96, which will report 
+MS-DOS version 7.1. You should also check the SETVER table, and 
+see what version is being reported for the particular programs. 
+You may need to modify the table to have the correct version 
+reported to the system.
+
+
+[Q:How do I set up Windows 96 with Lantastic 6.0?]
+
+To configure Windows 96 to support an Artisoft LANtastic network,
+contact the vendor and request a Windows 96 LANtastic *.inf.
+
+NOTE: You cannot use Network Neighborhood to view LANtastic 
+resources. You must use the LANtastic utilities in the LANtastic 
+program group.
+
+
+[Q: How do I install a PPP dial-up network connection?]
+
+You will need a modem installed and configured correctly. If the 
+Dial-up Networking option is not installed, add it by opening 
+Control Panel and then double-clicking Add/Remove Programs. Click 
+the Windows Setup tab, and then follow the instructions on your 
+screen.
+
+Once installed, open the Dial-up Networking folder in My Computer. 
+Start the connection wizard. The PPP protocol is installed by 
+default because it is the most flexible, being able to work over 
+NetBeui, IPX/SPX and TCP/IP.
+
+
+[Q: How do I set up Dial-Up Networking to connect to a Novell 
+    server?]
+
+Install the following components from the Network icon in 
+Control Panel:
+
+- Microsoft Client for Netware Networks
+- IPX/SPX compatible protocol bound to the Microsoft Dial-up 
+  Adapter driver.
+	
+To use Dial-up Networking to connect to a Netware Connect Server, 
+you must specify Netware Connect as the server type in a Dial-up 
+Networking connection's properties. 
+
+
+[Q: Why does my system stop at the login script?]
+
+If the connection to the server is lost, the login script processor 
+for NetWare may appear to stop, the Microsoft Client for NetWare 
+will timeout, and an error will appear. Contact your network 
+administrator if you experience problems with the network and the 
+login script.
+
+[Q: How do I configure my computer to answer Dial Up Networking 
+    calls?]
+
+If you have Microsoft Plus! you can configure your computer to 
+answer Dial-Up Networking calls. 
+
+1. Start running Dial-Up Networking.
+2. On the Connections menu, click Dial-Up Server.
+3. Click Allow caller access.
+
+If you do not have Microsoft Plus!, you can only use Dial-Up 
+Networking to call out from your computer, not receive Dial-Up 
+Networking calls.
+
+
+======================================
+Accessing the Internet with Windows 96
+======================================
+
+[How do I connect to the Internet with Windows 96?]
+
+There is a Help topic that can walk you through the necessary 
+steps. In the Help index, look up "Internet, connecting to."
+
+
+[Q: How do I configure TCP/IP to connect to the Internet?]
+
+There is a Help topic that can walk you through the necessary 
+steps. In the Help Index, look up "Internet, connecting to."
+
+
+
+=======
+Desktop
+=======
+
+[How do I create shortcuts on the desktop?]
+
+There are two ways to create a shortcut on the desktop:
+
+Use your right mouse button to click the desktop, click New, 
+and then click Shortcut. Type the correct command along with 
+any specialparameters, or browse to find the application you 
+want the shortcut to. Click Next, and you will be prompted for 
+a shortcut name. Enter a name, and then click Finish.
+
+OR
+
+Open Windows Explorer, and find the program you want to create 
+a shortcut for. Click and hold the icon while dragging it to the 
+desktop. This creates a shortcut on the desktop named "Shortcut to 
+<program name>."
+
+
+[Q: How do I get animated cursors?]
+
+Animated cursors require a Windows 96 version display driver 
+running at 256 or more colors. They are not supported for the 
+following display types in this release: ATI Ultra (mach8), Chips 
+& Technologies, XGA.
+
+Animated cursors are available in Microsoft Plus!
+
+
+============
+PCMCIA Cards
+============
+
+[Q: What socket services do I need to use with my PCMCIA network 
+    adapter?]
+
+To use a protected mode PCMCIA network card, your socket services 
+must match your network card. If you use a real mode network card 
+driver, you must use real mode socket services. If you use a 
+protected mode net card driver, you must use protected mode socket 
+services. To determine what kind of network card driver you're using, 
+go to the Driver Type properties for your network adapter, in the 
+Network Control Panel. Choose a driver type. To enable protected 
+mode socket services, run the PCMCIA wizard from Control Panel.
+
+[Q: How do I get my PCMCIA cards to work in protected mode?]
+
+Double click the PCMCIA wizard and then follow the instructions 
+on the screen. You may be asked to select your PCMCIA network or 
+SCSI card during this process. After the wizard runs, you will no 
+longer be loading the device drivers in your configuration files, 
+and you will be running with protected mode drivers from within 
+Windows 96.
+
+
+======
+Modems
+======
+
+[Q: Setup didn't detect my modem, how do I install it?]
+
+To install a modem in Windows 96, go to Control Panel, and double-
+click the Modem icon. Start the Modem installation wizard which 
+will guide you through the installation of your modem.
+
+NOTE: This procedure is for internal or external modems. PCMCIA 
+modems automatically install when inserted (requires protected mode 
+PCMCIA drivers).
+
+
+[Q: My modem won't dial or connect. Why?]
+
+NOTE: There is a troubleshooter for modem problems in Windows 
+Help.
+
+If your modem is not set up correctly, communications features 
+may not function properly. The following procedures list steps 
+to verify the correct operation of your modem and Windows 96 
+communications.
+
+Because some communications programs designed for Windows 3.1 
+install incompatible driver files, which may cause COM ports and 
+modems to stop working, first verify that the correct Windows 96 
+files are being loaded.
+
+To verify that the required communications files are present:
+1. Verify the files sizes and dates of COMM.DRV and SERIAL.VXD 
+   in the System directory against the original versions from 
+   the Windows 96 floppy disks or CD-ROM.
+2. Confirm that the following lines are present in System.ini:
+     [boot]
+     Comm.drv=Comm.drv
+     [386enh]
+     device=*vcd
+3. To revert to the default communications drivers for Windows 96, 
+   select communications port entries in Device Manager.
+4. Run the Add New Hardware wizard in Control Panel to detect and
+   install the Windows 96 drivers.
+
+NOTE: Windows 96 does not load the SERIAL.VXD driver in System.ini. 
+Rather, Windows 96 loads it on demand using the registry. Also, 
+there is no corresponding file for the *vcd entry in System.ini. 
+This is an internal file built into VMM32.VXD.
+
+To verify the modem configuration
+1. In Control Panel, double-click the Modems icon.
+2. Verify that the manufacturer and model for your modem is correct. 
+   If not, run the Install New Modem wizard to detect the modem and 
+   confirm it with the current registry configuration.
+3. If your current modem does not appear in the list of installed 
+   modems, click Add, and then select the appropriate modem.
+4. If the manufacturer and model are not correct and are not 
+   available from the list, try the Hayes-compatible option for 
+   Generic Modem driver, set to the maximum baud rate supported 
+   by the modem, and then click OK.
+
+   Remove any other modem entries in the list of eliminate 
+   conflicts.
+
+To verify the modem is enabled 
+1. Double-click the System icon in Control Panel, and then click 
+   the Device Manager tab.
+2. Select your modem from the list and click Properties.
+3. Make sure the option, The Device Is Present, Please Use It, is 
+   checked.
+
+To verify that the port is correct
+1. Double-click the Modems icon in the Control Panel.
+2. Select your modem, and then click Properties.
+3. On the General tab, verify that the listed port is correct. If 
+   it is not, select the correct port, and then click OK.
+
+To determine if a serial port I/O address and IRQ settings are 
+properly defined
+1. Double-click the System icon in the Control Panel.
+2. Click the Device Manager tab, and then click Ports.
+3. Select a specific port, and click the Properties button.
+4. Click the Resources tab to display the current resource settings 
+   for that port. To find out the correct settings, consult the 
+   modem manual.
+5. In the Resources dialog box, check the Conflicting Devices List 
+   to see if the modem is using resources in conflict with other 
+   devices.
+6. If the modem is in conflict with other devices, click Change 
+   Settings, and then click a configuration that does not have 
+   resource conflicts.
+
+NOTE: Do not try to use a modem on COM3 if there is a serial mouse 
+or other device on COM1. Usually, COM1 and COM3 ports use the same 
+IRQ and cannot be used simultaneously on most computers. The COM2 
+and COM4 ports have the same problem. If possible, change the COM3 
+and COM4 port to an IRQ setting that is not in conflict. Also, some 
+display adapters have an address conflict with COM4 ports. To work 
+around this conflict, use another COM port; or, replace your graphics 
+adapters.
+
+To check the port settings
+1. Double-click the Modems icon in Control Panel, click a modem, and 
+   then click Properties.
+2. Click the Connection tab to check the current port settings, such 
+   as baud rate, data bits, stop bits, and parity. 
+3. Click Advanced to check error control and flow control. If you are 
+   using Win 16-based programs, turn off these advanced features.
+3. Verify the UART type.
+
+Data transmission problems may occur when a baud rate greater than 
+9600 is selected on a slower 8036-based computer not equipped with 
+a 16550 UART, or when performing other tasks during a file download. 
+If problems or errors occur during transmission, try lowering the 
+baud rate. Attempting to use baud rates greater than 9600 on 
+computers equipped with 8250 or 16450 UARTs will probably result 
+in dropped characters.
+
+To check modem baud rate
+1. Double-click the Modems icon in Control Panel.
+2. Select the modem, and then click Properties.
+3. Click the General tab, and then set the baud rate to the correct 
+   speed. Lower speeds may work, especially when using an older 
+   computer.
+5. Click Only Connect At This Speed if it is not already selected.
+
+NOTE: If the host system you are calling cannot communicate at the 
+initial baud rate, it may or may not be able to negotiate a slower 
+baud rate.
+
+Tip: To optimize communications performance, you can set the baud 
+rate higher if your computer has an 80486 or a Pentium(TM) processor.
+
+To disable hardware flow control if your modem cable doesn't support 
+it:
+1. Double-click the Modems icon in Control Panel.
+2. Click a modem, and then click Properties.
+3. Click the Connections tab, and then click Advanced.
+4. Make sure the option Use Flow Control is unchecked.
+
+
+=====
+FAT32
+=====
+
+[Q: Why can't I see my hard disk when I start my computer from a floppy 
+    disk?]
+
+If your hard disk is a FAT32 partition and your start-up floppy disk is 
+not from Windows 96 version 4.00.960 B, it will not recognize the FAT32 
+drive. Update the system files on the start-up floppy disk with the 
+Windows 96 4.00.960 B SYS command. To do this, type the following at 
+an MS-DOS command prompt:
+
+     sys a:
+
+
+=============
+Miscellaneous
+=============
+
+[Q: Is NTFS supported by Windows 96?]
+
+NTFS is not directly supported under Windows 96. NTFS volumes can 
+only be accessed by Windows NT locally. If Windows 96 is installed 
+on a computer already running Windows NT with an NTFS volume, it 
+will not be able to access any information that volume contains. 
+Windows 96 can access NTFS volumes across a network connection.
