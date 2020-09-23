@@ -1,6 +1,8 @@
 import { AppId } from '../../types/App';
 import { IconId } from '../../types/Icon';
 import {
+  dirTypes,
+  DirType,
   FileSystemApp,
   FileSystemDir,
   FileSystemFile,
@@ -65,6 +67,11 @@ export const getFileFromPath = (
   return getFileFromPath(nextPath, nextNode);
 };
 
+export const dirTypeExists = (dirType?: string): boolean => {
+  if (!dirType || typeof dirType !== 'string') return false;
+  return dirTypes.includes(dirType as DirType);
+};
+
 export const createFs = (
   r: __WebpackModuleApi.RequireContext
 ): FileSystemDir => {
@@ -107,7 +114,7 @@ const addItemToFs = (
       if (extension === 'ts' && type === 'dir') {
         updateFsDirInfos(
           currentFsNode,
-          content as { iconId?: string; name?: string }
+          content as { dirType?: string; iconId?: string; name?: string }
         );
       }
 
@@ -164,12 +171,16 @@ const addItemToFs = (
 
 const updateFsDirInfos = (
   fsDir: FileSystemDir,
-  content: { iconId?: string; name?: string }
+  content: { dirType?: string; iconId?: string; name?: string }
 ): void => {
   if (content.iconId && !iconExists(content.iconId)) {
     console.error(`Icon Id "${content.iconId}" doesn't exist in Icon List`);
   }
+  if (content.dirType && !dirTypeExists(content.dirType)) {
+    console.error(`Dir Type "${content.dirType}" doesn't exist in Dir Types`);
+  }
   fsDir.iconId = (content.iconId ?? fsDir.iconId) as IconId;
+  fsDir.dirType = (content.dirType ?? 'default') as DirType;
   fsDir.name = content.name ?? fsDir.name;
 };
 

@@ -135,14 +135,8 @@ export const myComputerFs = {
     'C:': hardDriveFs,
     'D:': cdDriveFs,
     controlPanel: controlPanelFs,
-    printers: {
-      appId: 'printers',
-      type: 'app',
-    },
-    dialUpNetwork: {
-      appId: 'dialUpNetwork',
-      type: 'app',
-    },
+    printers: printersFs,
+    dialUpNetwork: dialUpNetworkFs,
   },
 } as const;
 

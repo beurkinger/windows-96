@@ -2,6 +2,7 @@ import { h, FunctionComponent } from 'preact';
 
 import { AppProps } from '../../../types/App';
 import { ShellItem } from '../../../types/Shell';
+import { DirType } from '../../../types/FileSystem';
 import myComputerFs from '../../../data/fileSystem';
 import fileTypeList from '../../../data/fileTypeList';
 import useShellFilesState from '../../../hooks/useShellFilesState';
@@ -13,9 +14,31 @@ import Scrollable from '../../shared/Scrollable/Scrollable';
 import StatusBar from '../../shared/StatusBar/StatusBar';
 import WindowContent from '../../shared/WindowContent/WindowContent';
 
-const getSelectionStatusText = (items: ShellItem[]) => {
-  if (items.some((item) => item.hasFocus)) return '1 object(s) selected';
-  return `${items.length} object(s)`;
+const MENU_BAR = {
+  BRIEFCASE: ['File', 'Edit', 'View', 'Briefcase', 'Help'],
+  DIAL_UP_NETWORK: ['File', 'Edit', 'View', 'Connexions', 'Help'],
+  DEFAULT: ['File', 'Edit', 'View', 'Help'],
+};
+
+const getSelectionStatusText = (dirType: DirType, items: ShellItem[]) => {
+  const objectName = dirType === 'fonts' ? 'font' : 'object';
+  if (items.some((item) => item.hasFocus)) return `1 ${objectName}(s) selected`;
+  return `${items.length} ${objectName}(s)`;
+};
+
+const getSelectedItemStatusText = (dirType: DirType) => {
+  if (dirType === 'default') return '';
+  return undefined;
+};
+
+const getMenuBarOption = (dirType: DirType): string[] => {
+  if (dirType === 'dialUpNetwork') {
+    return MENU_BAR.DIAL_UP_NETWORK;
+  }
+  if (dirType === 'briefcase') {
+    return MENU_BAR.BRIEFCASE;
+  }
+  return MENU_BAR.DEFAULT;
 };
 
 const MyComputerApp: FunctionComponent<AppProps> = ({
@@ -26,9 +49,14 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
     workingDir ?? myComputerFs,
     !!workingDir
   );
+  const dirType: DirType = workingDir?.dirType ?? 'default';
 
   const handleOnDblClickFile = (file: ShellItem) => {
-    if (file.type === 'app') openApp({ appId: file.appId });
+    if (dirType !== 'default') return;
+
+    if (file.type === 'app') {
+      openApp({ appId: file.appId });
+    }
     if (file.type === 'dir') {
       openApp({ appId: 'myComputer', workingDir: file.fileSystemDir });
     }
@@ -40,10 +68,10 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
     }
   };
 
-  const textLeft = getSelectionStatusText(files);
+  const textLeft = getSelectionStatusText(dirType, files);
   return (
     <WindowContent
-      menu={<MenuBar options={['File', 'Edit', 'View', 'Help']} />}
+      menu={<MenuBar options={getMenuBarOption(dirType)} />}
       body={
         <Countour>
           <Scrollable>
@@ -56,7 +84,12 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
           </Scrollable>
         </Countour>
       }
-      footer={<StatusBar textLeft={textLeft} textRight="" />}
+      footer={
+        <StatusBar
+          textLeft={textLeft}
+          textRight={getSelectedItemStatusText(dirType)}
+        />
+      }
     />
   );
 };

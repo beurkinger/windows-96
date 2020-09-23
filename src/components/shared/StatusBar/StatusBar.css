@@ -6,9 +6,6 @@
 }
 
 .spaceLeft, .spaceRight {
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
     height: 100%;
     padding: 3px 3px 0 3px;
     text-overflow: ellipsis;

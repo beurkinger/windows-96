@@ -12,8 +12,10 @@ const StatusBar: FunctionComponent<Props> = ({
   textRight = null,
 }: Props) => (
   <div className={style.statusBar}>
-    {textLeft !== null && <div className={style.spaceLeft}>{textLeft}</div>}
-    <div className={style.spaceRight}>{textRight}</div>
+    {textRight !== null && <div className={style.spaceLeft}>{textLeft}</div>}
+    <div className={style.spaceRight}>
+      {textRight === null ? textLeft : textRight}
+    </div>
   </div>
 );
 

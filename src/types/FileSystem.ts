@@ -2,6 +2,19 @@ import { AppId } from './App';
 import { FileTypeId } from './FileType';
 import { IconId } from './Icon';
 
+export const dirTypes = [
+  'default',
+  'briefcase',
+  'controlPanel',
+  'dialUpNetwork',
+  'fonts',
+  'networkNeighborhood',
+  'printers',
+  'recycleBin',
+] as const;
+
+export type DirType = typeof dirTypes[number];
+
 export type FileSystemItem =
   | FileSystemApp
   | FileSystemDir
@@ -15,6 +28,7 @@ export type FileSystemApp = {
 
 export type FileSystemDir = {
   dir: { [key: string]: FileSystemItem };
+  dirType?: DirType;
   iconId?: IconId;
   name: string;
   type: 'dir';
