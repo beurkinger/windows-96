@@ -13,7 +13,7 @@ import WindowContent from '../../shared/WindowContent/WindowContent';
 
 import style from './TimerApp.css';
 
-const TARGET_MS = Date.now() + 1000 * 60 * 60 * 24 * 4.7666;
+const TARGET_MS = Date.now() + 1000 * 60 * 60 * 24 * 0.666;
 const SMILEY_SRC = [happy, sick];
 
 const parseNumber = (i: number): string[] => ('000' + i).slice(-3).split('');
