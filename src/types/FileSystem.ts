@@ -23,6 +23,7 @@ export type FileSystemItem =
 
 export type FileSystemApp = {
   appId: AppId;
+  name?: string;
   type: 'app';
 };
 

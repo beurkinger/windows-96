@@ -48,7 +48,9 @@ const getShellApp = (
     iconId: appList[fileSystemApp.appId].iconId,
     hasFocus: false,
     hasSoftFocus,
-    name: appList[fileSystemApp.appId].name,
+    name: fileSystemApp.name
+      ? fileSystemApp.name
+      : appList[fileSystemApp.appId].name,
     type: 'app',
   };
 };

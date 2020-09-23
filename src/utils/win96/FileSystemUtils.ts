@@ -180,16 +180,17 @@ const updateFsDirInfos = (
     console.error(`Dir Type "${content.dirType}" doesn't exist in Dir Types`);
   }
   fsDir.iconId = (content.iconId ?? fsDir.iconId) as IconId;
-  fsDir.dirType = (content.dirType ?? 'default') as DirType;
+  fsDir.dirType = content.dirType as DirType | undefined;
   fsDir.name = content.name ?? fsDir.name;
 };
 
-const getFsApp = (content: { appId: string }): FileSystemApp => {
+const getFsApp = (content: { appId: string, name?: string }): FileSystemApp => {
   if (!appExists(content.appId)) {
     console.error(`App Id "${content.appId}" doesn't exist in App List`);
   }
   return {
     appId: content.appId as AppId,
+    name: content.name,
     type: 'app',
   };
 };
