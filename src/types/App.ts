@@ -23,6 +23,7 @@ export const appIds = [
   'networkNeighborhood',
   'notepad',
   'phoneDialer',
+  'printers',
   'register',
   'quickView',
   'recycleBin',

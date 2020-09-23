@@ -9,6 +9,7 @@ import MyBriefcaseApp from '../../apps/MyBriefcaseApp/MyBriefcaseApp';
 import MyComputerApp from '../../apps/MyComputerApp/MyComputerApp';
 import NetworkNeighborhoodApp from '../../apps/NetworkNeighborhoodApp/NetworkNeighborhoodApp';
 import NotepadApp from '../../apps/NotepadApp/NotepadApp';
+import PrintersApp from '../../apps/PrintersApp/PrintersApp';
 import QuickViewApp from '../../apps/QuickViewApp/QuickViewApp';
 import RecycleBinApp from '../../apps/RecycleBinApp/ReycleBinApp';
 import TimerApp from '../../apps/TimerApp/TimerApp';
@@ -38,6 +39,7 @@ const components: { [key in AppId]: FunctionComponent<AppProps> } = {
   networkNeighborhood: NetworkNeighborhoodApp,
   notepad: NotepadApp,
   phoneDialer: VoidApp,
+  printers: PrintersApp,
   register: VoidApp,
   quickView: QuickViewApp,
   recycleBin: RecycleBinApp,

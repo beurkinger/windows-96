@@ -39,7 +39,9 @@ export const networkNeighborhoodFs = createFs(
     /\.(jpg|png|ts|txt)$/
   )
 );
-
+export const printersFs = createFs(
+  require.context('../assets/fileSystems/Printers', true, /\.(jpg|png|ts|txt)$/)
+);
 export const startMenuFs = {
   name: 'Start Menu',
   type: 'dir',
@@ -127,10 +129,8 @@ export const myComputerFs = {
     'D:': cdDriveFs,
     controlPanel: controlPanelFs,
     printers: {
-      name: 'Printers',
-      iconId: 'printers',
-      type: 'dir',
-      dir: {},
+      appId: 'printers',
+      type: 'app',
     },
     dialUpNetwork: {
       appId: 'dialUpNetwork',

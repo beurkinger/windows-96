@@ -134,6 +134,11 @@ export const appList: AppList = {
     name: 'Phone Dialer',
     size: { width: 400, height: 177 },
   },
+  printers: {
+    id: 'printers',
+    iconId: 'printers',
+    name: 'Printers',
+  },
   quickView: {
     id: 'quickView',
     iconId: 'quickView',
