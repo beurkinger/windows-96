@@ -5,6 +5,7 @@ import { AppId, AppProps } from '../../../types/App';
 import OpenWindowsContext, {
   OpenWindow,
 } from '../../../context/OpenWindowsContext';
+import MyBriefcaseApp from '../../apps/MyBriefcaseApp/MyBriefcaseApp';
 import MyComputerApp from '../../apps/MyComputerApp/MyComputerApp';
 import NotepadApp from '../../apps/NotepadApp/NotepadApp';
 import QuickViewApp from '../../apps/QuickViewApp/QuickViewApp';
@@ -16,7 +17,7 @@ import Window from '../../shared/Window/Window';
 import style from './WindowsContainer.css';
 
 const components: { [key in AppId]: FunctionComponent<AppProps> } = {
-  briefcase: VoidApp,
+  briefcase: MyBriefcaseApp,
   calc: VoidApp,
   cdPlayer: VoidApp,
   defrag: VoidApp,

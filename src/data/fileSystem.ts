@@ -20,7 +20,14 @@ export const controlPanelFs = createFs(
 );
 export const recycleBinFs = createFs(
   require.context(
-    '../assets/fileSystems/recycleBin',
+    '../assets/fileSystems/Recycle Bin',
+    true,
+    /\.(jpg|png|ts|txt)$/
+  )
+);
+export const myBriefcaseFs = createFs(
+  require.context(
+    '../assets/fileSystems/My Briefcase',
     true,
     /\.(jpg|png|ts|txt)$/
   )

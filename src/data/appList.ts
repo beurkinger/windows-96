@@ -4,9 +4,7 @@ export const appList: AppList = {
   briefcase: {
     id: 'briefcase',
     iconId: 'briefcase',
-    isResizeable: false,
     name: 'My Briefcase',
-    size: { width: 400, height: 177 },
   },
   calc: {
     id: 'calc',
@@ -146,7 +144,6 @@ export const appList: AppList = {
   recycleBin: {
     id: 'recycleBin',
     iconId: 'binEmpty',
-    isResizeable: false,
     name: 'Recycle Bin',
   },
   register: {
