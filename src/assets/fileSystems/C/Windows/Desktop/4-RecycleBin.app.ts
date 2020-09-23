@@ -1,5 +1,5 @@
 const infos = {
-  appId: 'binEmpty',
+  appId: 'recycleBin',
 };
 
 export default infos;

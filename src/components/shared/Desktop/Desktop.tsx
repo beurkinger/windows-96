@@ -3,7 +3,7 @@ import { h, FunctionComponent } from 'preact';
 import { OpenWindowsContextType } from '../../../context/OpenWindowsContext';
 import { ShellItem } from '../../../types/Shell';
 import fileTypeList from '../../../data/fileTypeList';
-import { fileSystem } from '../../../data/fileSystem';
+import { myComputerFs } from '../../../data/fileSystem';
 import { getDirFromPath } from '../../../utils/win96/FileSystemUtils';
 import useShellFilesState from '../../../hooks/useShellFilesState';
 import FileGrid from '../../shared/FileGrid/FileGrid';
@@ -20,7 +20,7 @@ const Desktop: FunctionComponent<Props> = ({
   openApp,
 }: Props) => {
   const { files, focusOnFile, removeFocus } = useShellFilesState(
-    getDirFromPath('C:/Windows/Desktop', fileSystem),
+    getDirFromPath('C:/Windows/Desktop', myComputerFs),
     false
   );
 

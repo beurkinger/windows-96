@@ -1,20 +1,6 @@
 import { AppList } from '../types/App';
 
 export const appList: AppList = {
-  binEmpty: {
-    id: 'binEmpty',
-    iconId: 'binEmpty',
-    isResizeable: false,
-    name: 'Recycle Bin',
-    size: { width: 400, height: 177 },
-  },
-  binFull: {
-    id: 'binFull',
-    iconId: 'binFull',
-    isResizeable: false,
-    name: 'Recycle Bin',
-    size: { width: 400, height: 177 },
-  },
   briefcase: {
     id: 'briefcase',
     iconId: 'briefcase',
@@ -157,7 +143,12 @@ export const appList: AppList = {
     iconId: 'quickView',
     name: 'Quick View',
   },
-
+  recycleBin: {
+    id: 'recycleBin',
+    iconId: 'binEmpty',
+    isResizeable: false,
+    name: 'Recycle Bin',
+  },
   register: {
     id: 'register',
     iconId: 'register',

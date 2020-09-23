@@ -8,6 +8,7 @@ import OpenWindowsContext, {
 import MyComputerApp from '../../apps/MyComputerApp/MyComputerApp';
 import NotepadApp from '../../apps/NotepadApp/NotepadApp';
 import QuickViewApp from '../../apps/QuickViewApp/QuickViewApp';
+import RecycleBinApp from '../../apps/RecycleBinApp/ReycleBinApp';
 import TimerApp from '../../apps/TimerApp/TimerApp';
 import VoidApp from '../../apps/VoidApp/VoidApp';
 import Window from '../../shared/Window/Window';
@@ -15,8 +16,6 @@ import Window from '../../shared/Window/Window';
 import style from './WindowsContainer.css';
 
 const components: { [key in AppId]: FunctionComponent<AppProps> } = {
-  binEmpty: VoidApp,
-  binFull: VoidApp,
   briefcase: VoidApp,
   calc: VoidApp,
   cdPlayer: VoidApp,
@@ -39,6 +38,7 @@ const components: { [key in AppId]: FunctionComponent<AppProps> } = {
   phoneDialer: VoidApp,
   register: VoidApp,
   quickView: QuickViewApp,
+  recycleBin: RecycleBinApp,
   run: VoidApp,
   scandisk: VoidApp,
   shutdown: VoidApp,

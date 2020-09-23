@@ -2,8 +2,7 @@ import { h, FunctionComponent } from 'preact';
 
 import { AppProps } from '../../../types/App';
 import { ShellItem } from '../../../types/Shell';
-import myComputerFs from '../../../data/fileSystem';
-import fileTypeList from '../../../data/fileTypeList';
+import { recycleBinFs } from '../../../data/fileSystem';
 import useShellFilesState from '../../../hooks/useShellFilesState';
 
 import Countour from '../../shared/Countour/Countour';
@@ -18,27 +17,10 @@ const getSelectionStatusText = (items: ShellItem[]) => {
   return `${items.length} object(s)`;
 };
 
-const MyComputerApp: FunctionComponent<AppProps> = ({
-  openApp,
-  workingDir,
-}: AppProps) => {
-  const { files, focusOnFile, removeFocus } = useShellFilesState(
-    workingDir ?? myComputerFs,
-    !!workingDir
-  );
+const RecycleBinApp: FunctionComponent<AppProps> = () => {
+  const { files, focusOnFile, removeFocus } = useShellFilesState(recycleBinFs);
 
-  const handleOnDblClickFile = (file: ShellItem) => {
-    if (file.type === 'app') openApp({ appId: file.appId });
-    if (file.type === 'dir') {
-      openApp({ appId: 'myComputer', workingDir: file.fileSystemDir });
-    }
-    if (file.type === 'file') {
-      openApp({
-        appId: fileTypeList[file.fileTypeId].appId,
-        workingFile: file.fileSystemFile,
-      });
-    }
-  };
+  const handleOnDblClickFile = () => null;
 
   const textLeft = getSelectionStatusText(files);
   return (
@@ -56,9 +38,9 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
           </Scrollable>
         </Countour>
       }
-      footer={<StatusBar textLeft={textLeft} textRight="" />}
+      footer={<StatusBar textLeft={textLeft} textRight="0 bytes" />}
     />
   );
 };
 
-export default MyComputerApp;
+export default RecycleBinApp;

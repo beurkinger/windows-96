@@ -3,7 +3,7 @@ import { appList } from '../../data/appList';
 import fileTypeList from '../../data/fileTypeList';
 import { OptionType } from '../../components/shared/MenuOption/MenuOption';
 import { getDirFromPath, getFileFromPath } from './FileSystemUtils';
-import { fileSystem } from '../../data/fileSystem';
+import { myComputerFs } from '../../data/fileSystem';
 
 export const getProgramsMenuOptions = (item: FileSystemItem): OptionType => {
   if (item.type === 'app') {
@@ -29,10 +29,10 @@ export const getProgramsMenuOptions = (item: FileSystemItem): OptionType => {
       value: {
         appId: item.toAppId,
         workingDir: item.dirPath
-          ? getDirFromPath(item.dirPath, fileSystem)
+          ? getDirFromPath(item.dirPath, myComputerFs)
           : undefined,
         workingFile: item.filePath
-          ? getFileFromPath(item.filePath, fileSystem) ?? undefined
+          ? getFileFromPath(item.filePath, myComputerFs) ?? undefined
           : undefined,
       },
     };

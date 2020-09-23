@@ -2,18 +2,25 @@ import { appList } from './appList';
 import { FileSystemDir } from '../types/FileSystem';
 import { createFs, getDirFromPath } from '../utils/win96/FileSystemUtils';
 
-const floppyDriveFs = createFs(
+export const floppyDriveFs = createFs(
   require.context('../assets/fileSystems/a', true, /\.(jpg|png|ts|txt)$/)
 );
-const cdDriveFs = createFs(
+export const cdDriveFs = createFs(
   require.context('../assets/fileSystems/d', true, /\.(jpg|png|ts|txt)$/)
 );
-const hardDriveFs = createFs(
+export const hardDriveFs = createFs(
   require.context('../assets/fileSystems/c', true, /\.(jpg|png|ts|txt)$/)
 );
-const controlPanelFs = createFs(
+export const controlPanelFs = createFs(
   require.context(
     '../assets/fileSystems/Control Panel',
+    true,
+    /\.(jpg|png|ts|txt)$/
+  )
+);
+export const recycleBinFs = createFs(
+  require.context(
+    '../assets/fileSystems/recycleBin',
     true,
     /\.(jpg|png|ts|txt)$/
   )
@@ -96,7 +103,7 @@ export const startMenuFs = {
   },
 } as const;
 
-export const fileSystem = {
+export const myComputerFs = {
   name: 'My Computer',
   iconId: appList.myComputer.iconId,
   type: 'dir',
@@ -118,6 +125,6 @@ export const fileSystem = {
   },
 } as const;
 
-const typedFileSystem: FileSystemDir = fileSystem as typeof fileSystem;
+const typedMyComputerFs: FileSystemDir = myComputerFs as typeof myComputerFs;
 
-export default typedFileSystem;
+export default typedMyComputerFs;
