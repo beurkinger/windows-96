@@ -96,15 +96,20 @@ const addItemToFs = (
         // If Dir infos
         if (currentPath === 'info.ts') {
           updateFsDirInfos(currentFsNode, content);
+          return;
         }
+
+        const matches = currentPath.match(/\w*?\.(\w*?)\.ts/);
+        const type = matches ? matches[1] : '';
+
         // If App
-        if ('appId' in content) {
+        if (type === 'app') {
           currentFsNode.dir[currentPath] = getFsApp(
             content as { appId: string }
           );
         }
         // If Shortcut
-        if ('toAppId' in content && 'iconId' in content && 'name' in content) {
+        if (type === 'ink') {
           currentFsNode.dir[currentPath] = getFsShortcut(
             content as {
               toAppId: string;
