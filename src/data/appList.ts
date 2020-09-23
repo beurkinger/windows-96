@@ -120,9 +120,7 @@ export const appList: AppList = {
   networkNeighborhood: {
     id: 'networkNeighborhood',
     iconId: 'networkNeighborhood',
-    isResizeable: false,
     name: 'Network Neighborhood',
-    size: { width: 400, height: 177 },
   },
   notepad: {
     id: 'notepad',

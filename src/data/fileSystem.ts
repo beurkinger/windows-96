@@ -32,6 +32,13 @@ export const myBriefcaseFs = createFs(
     /\.(jpg|png|ts|txt)$/
   )
 );
+export const networkNeighborhoodFs = createFs(
+  require.context(
+    '../assets/fileSystems/Network Neighborhood',
+    true,
+    /\.(jpg|png|ts|txt)$/
+  )
+);
 
 export const startMenuFs = {
   name: 'Start Menu',

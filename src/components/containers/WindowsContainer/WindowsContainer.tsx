@@ -7,6 +7,7 @@ import OpenWindowsContext, {
 } from '../../../context/OpenWindowsContext';
 import MyBriefcaseApp from '../../apps/MyBriefcaseApp/MyBriefcaseApp';
 import MyComputerApp from '../../apps/MyComputerApp/MyComputerApp';
+import NetworkNeighborhoodApp from '../../apps/NetworkNeighborhoodApp/NetworkNeighborhoodApp';
 import NotepadApp from '../../apps/NotepadApp/NotepadApp';
 import QuickViewApp from '../../apps/QuickViewApp/QuickViewApp';
 import RecycleBinApp from '../../apps/RecycleBinApp/ReycleBinApp';
@@ -34,7 +35,7 @@ const components: { [key in AppId]: FunctionComponent<AppProps> } = {
   msDos: VoidApp,
   msPaint: VoidApp,
   myComputer: MyComputerApp,
-  networkNeighborhood: VoidApp,
+  networkNeighborhood: NetworkNeighborhoodApp,
   notepad: NotepadApp,
   phoneDialer: VoidApp,
   register: VoidApp,

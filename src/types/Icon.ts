@@ -16,6 +16,7 @@ export const iconIds = [
   'dialUpNetwork',
   'display',
   'documents',
+  'globe',
   'hardDrive',
   'helpFile',
   'exchange',

@@ -7,9 +7,8 @@ import {
   IconUrls,
 } from '../types/Icon';
 
-function importIcons() {
+function importIcons(r: __WebpackModuleApi.RequireContext) {
   const importedIcons = {} as IconList;
-  const r = require.context('../assets/img/icons', true, /\.png$/);
   r.keys().forEach((key) => {
     const filePath: string = r(key);
     const matches = key.match(/\/(\w*?)\/(\w*?)_(\d*?)\.png/);
@@ -37,4 +36,6 @@ function importIcons() {
   if (error) throw "Some Icon ids don't have an associated icon folder";
   return importedIcons;
 }
-export const iconList = importIcons();
+export const iconList = importIcons(
+  require.context('../assets/img/icons', true, /\.png$/)
+);
