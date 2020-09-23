@@ -21,66 +21,77 @@ const controlPanelFs = createFs(
 
 export const startMenuFs = {
   name: 'Start Menu',
+  type: 'dir',
   dir: {
     programs: getDirFromPath('Windows/StartMenu/Programs', hardDriveFs),
     documents: {
       name: 'Documents',
       iconId: 'documents',
+      type: 'dir',
       dir: {
         readMe: {
           name: 'Readme',
           iconId: 'notepadDoc',
           fileTypeId: 'notepadDoc',
           content: '',
+          type: 'file',
         },
       },
     },
     settings: {
       name: 'Settings',
       iconId: 'settings',
+      type: 'dir',
       dir: {
         controlPanel: {
           iconId: 'controlPanel',
           dirPath: 'controlPanel',
           name: 'Control Panel',
           toAppId: 'myComputer',
+          type: 'shortcut',
         },
         printers: {
           name: 'Printers',
           iconId: 'printers',
+          type: 'dir',
           dir: {},
         },
         taskbar: {
           appId: appList.taskbar.id,
+          type: 'app',
         },
       },
     },
     find: {
       name: 'Find',
       iconId: 'find',
+      type: 'dir',
       dir: {
         findFiles: {
           name: 'Files or Folders...',
           iconId: appList.find.iconId,
           appId: appList.find.id,
-          dir: {},
+          type: 'app',
         },
         findComputers: {
           name: 'Computers...',
           iconId: appList.findComputer.iconId,
           appId: appList.findComputer.id,
-          dir: {},
+          type: 'app',
         },
       },
     },
     help: {
       appId: appList.help.id,
+      type: 'app',
     },
     run: {
       appId: appList.run.id,
+      type: 'app',
     },
     shutdown: {
       appId: appList.shutdown.id,
+      type: 'app',
     },
   },
 } as const;
@@ -88,6 +99,7 @@ export const startMenuFs = {
 export const fileSystem = {
   name: 'My Computer',
   iconId: appList.myComputer.iconId,
+  type: 'dir',
   dir: {
     'A:': floppyDriveFs,
     'C:': hardDriveFs,
@@ -96,10 +108,12 @@ export const fileSystem = {
     printers: {
       name: 'Printers',
       iconId: 'printers',
+      type: 'dir',
       dir: {},
     },
     dialUpNetwork: {
       appId: 'dialUpNetwork',
+      type: 'app',
     },
   },
 } as const;

@@ -10,18 +10,21 @@ export type FileSystemItem =
 
 export type FileSystemApp = {
   appId: AppId;
+  type: 'app';
 };
 
 export type FileSystemDir = {
   dir: { [key: string]: FileSystemItem };
   iconId?: IconId;
   name: string;
+  type: 'dir';
 };
 
 export type FileSystemFile = {
   content: string;
   fileTypeId: FileTypeId;
   name: string;
+  type: 'file';
 };
 
 export type FileSystemShortcut = {
@@ -30,4 +33,5 @@ export type FileSystemShortcut = {
   iconId: IconId;
   name: string;
   toAppId: AppId;
+  type: 'shortcut';
 };

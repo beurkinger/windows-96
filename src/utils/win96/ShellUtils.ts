@@ -13,15 +13,11 @@ export const getShellItems = (
   fileSystemDir: FileSystemDir,
   sorted = true
 ): ShellItem[] => {
-  console.log(fileSystemDir)
   const gridFiles = Object.values(fileSystemDir.dir).map((item, i) => {
-    // If App
-    if ('appId' in item) {
-      console.log(item)
+    if (item.type === 'app') {
       return getShellApp(item as FileSystemApp, i === 0);
     }
-    // If File
-    if ('fileTypeId' in item) {
+    if (item.type === 'file') {
       return getShellFile(item as FileSystemFile, i === 0);
     }
     //TODO : need to implement shortcuts :(

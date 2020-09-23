@@ -1,5 +1,5 @@
-import { AppId, appIds } from '../../types/App';
-import { IconId, iconIds } from '../../types/Icon';
+import { AppId } from '../../types/App';
+import { IconId } from '../../types/Icon';
 import {
   FileSystemApp,
   FileSystemDir,
@@ -7,7 +7,9 @@ import {
   FileSystemItem,
   FileSystemShortcut,
 } from '../../types/FileSystem';
+import { appExists } from './AppUtils';
 import { getFileTypeIdFromFileExtension } from './FileTypeUtils';
+import { iconExists } from './IconUtils';
 
 export const getDirFromPath = (
   path: string,
@@ -70,6 +72,7 @@ export const createFs = (
     dir: {},
     name: 'My Computer',
     iconId: 'myComputer',
+    type: 'dir',
   };
   r.keys().forEach((key) => {
     const path = key.substring(2).split('/');
@@ -99,14 +102,9 @@ const addItemToFs = (
       const fileName = splitCurrentPath[0] ?? '';
       const extension = splitCurrentPath[splitCurrentPath.length - 1] ?? '';
       const type = splitCurrentPath[splitCurrentPath.length - 2] ?? '';
-      // const matches = currentPath.match(/\.((\w*?\.)?\w*?)$/);
-      // const extension = (matches && matches[1]) ?? '';
-
-      // if (extension === 'ts') {
 
       // If Dir infos
       if (extension === 'ts' && type === 'dir') {
-        // console.log(currentPath);
         updateFsDirInfos(
           currentFsNode,
           content as { iconId?: string; name?: string }
@@ -114,12 +112,20 @@ const addItemToFs = (
       }
 
       // If App
-      if (extension === 'ts' && type === 'app') {
+      if (
+        extension === 'ts' &&
+        type === 'app' &&
+        isContentValid(content, currentPath, ['appId'])
+      ) {
         currentFsNode.dir[currentPath] = getFsApp(content as { appId: string });
       }
 
       // If Shortcut
-      if (extension === 'ts' && type === 'ink') {
+      if (
+        extension === 'ts' &&
+        type === 'ink' &&
+        isContentValid(content, currentPath, ['toAppid', 'iconId', 'name'])
+      ) {
         currentFsNode.dir[currentPath] = getFsShortcut(
           content as {
             toAppId: string;
@@ -148,6 +154,7 @@ const addItemToFs = (
       const newDir: FileSystemDir = {
         dir: {},
         name: currentPath,
+        type: 'dir',
       };
       currentFsNode.dir[currentPath] = newDir;
     }
@@ -159,22 +166,20 @@ const updateFsDirInfos = (
   fsDir: FileSystemDir,
   content: { iconId?: string; name?: string }
 ): void => {
-  if (content.iconId && !iconIds.includes(content.iconId as IconId)) {
+  if (content.iconId && !iconExists(content.iconId)) {
     console.error(`Icon Id "${content.iconId}" doesn't exist in Icon List`);
   }
   fsDir.iconId = (content.iconId ?? fsDir.iconId) as IconId;
   fsDir.name = content.name ?? fsDir.name;
 };
 
-const getFsApp = (content: { appId?: string }): FileSystemApp => {
-  if (!content.appId) {
-    console.error(`App Id is not set in app file.`);
-  }
-  if (content.appId && !appIds.includes(content.appId as AppId)) {
+const getFsApp = (content: { appId: string }): FileSystemApp => {
+  if (!appExists(content.appId)) {
     console.error(`App Id "${content.appId}" doesn't exist in App List`);
   }
   return {
     appId: content.appId as AppId,
+    type: 'app',
   };
 };
 
@@ -187,23 +192,21 @@ const getFsFile = (
     content,
     fileTypeId: getFileTypeIdFromFileExtension(fileExtension),
     name: fileName,
+    type: 'file',
   };
 };
 
 const getFsShortcut = (content: {
-  toAppId?: string;
-  iconId?: string;
-  name?: string;
+  toAppId: string;
+  iconId: string;
+  name: string;
   filePath?: string;
   dirPath?: string;
 }): FileSystemShortcut => {
-  if (!content.toAppId || !content.iconId || !content.name) {
-    console.error(`One or several fields are not set in shortcut file.`);
-  }
-  if (content.iconId && !iconIds.includes(content.iconId as IconId)) {
+  if (!iconExists(content.iconId)) {
     console.error(`Icon Id "${content.iconId}" doesn't exist in Icon List`);
   }
-  if (content.toAppId && !appIds.includes(content.toAppId as AppId)) {
+  if (!appExists(content.toAppId)) {
     console.error(`App Id "${content.toAppId}" doesn't exist in App List`);
   }
   return {
@@ -212,5 +215,27 @@ const getFsShortcut = (content: {
     iconId: content.iconId as IconId,
     name: content.name as string,
     toAppId: content.toAppId as AppId,
+    type: 'shortcut',
   };
+};
+
+const isContentValid = (
+  content: unknown,
+  currentPath: string,
+  fields: string[]
+): boolean => {
+  if (!content || typeof content !== 'object') {
+    console.error(`fsItem is not an object in file ${currentPath}`);
+    return false;
+  }
+
+  return (
+    fields.filter((field) => {
+      const hasField = field in (content as Record<string, unknown>);
+      if (!hasField) {
+        console.error(`Field ${field} doesn't exist in file ${currentPath}`);
+      }
+      return !hasField;
+    }).length === 0
+  );
 };
