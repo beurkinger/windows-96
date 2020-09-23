@@ -75,7 +75,11 @@ export const createFs = (
     const path = key.substring(2).split('/');
     const file = r(key);
     const content =
-      typeof file === 'object' && 'default' in file ? file.default : file ?? '';
+      typeof file === 'object' && 'default' in file
+        ? // if file is a module
+          file.default
+        : // else
+          file ?? '';
     addItemToFs(path, content, fs);
   });
   return fs;
@@ -91,39 +95,50 @@ const addItemToFs = (
   path.forEach((currentPath, i) => {
     // If end of path
     if (i + 1 === pathLength) {
-      // If content is an object
-      if (content && typeof content === 'object') {
-        // If Dir infos
-        if (currentPath === 'info.ts') {
-          updateFsDirInfos(currentFsNode, content);
-          return;
-        }
+      const splitCurrentPath = currentPath.split('.');
+      const fileName = splitCurrentPath[0] ?? '';
+      const extension = splitCurrentPath[splitCurrentPath.length - 1] ?? '';
+      const type = splitCurrentPath[splitCurrentPath.length - 2] ?? '';
+      // const matches = currentPath.match(/\.((\w*?\.)?\w*?)$/);
+      // const extension = (matches && matches[1]) ?? '';
 
-        const matches = currentPath.match(/\w*?\.(\w*?)\.ts/);
-        const type = matches ? matches[1] : '';
+      // if (extension === 'ts') {
 
-        // If App
-        if (type === 'app') {
-          currentFsNode.dir[currentPath] = getFsApp(
-            content as { appId: string }
-          );
-        }
-        // If Shortcut
-        if (type === 'ink') {
-          currentFsNode.dir[currentPath] = getFsShortcut(
-            content as {
-              toAppId: string;
-              iconId: string;
-              name: string;
-              filePath?: string;
-              dirPath?: string;
-            }
-          );
-        }
+      // If Dir infos
+      if (extension === 'ts' && type === 'dir') {
+        // console.log(currentPath);
+        updateFsDirInfos(
+          currentFsNode,
+          content as { iconId?: string; name?: string }
+        );
       }
+
+      // If App
+      if (extension === 'ts' && type === 'app') {
+        currentFsNode.dir[currentPath] = getFsApp(content as { appId: string });
+      }
+
+      // If Shortcut
+      if (extension === 'ts' && type === 'ink') {
+        currentFsNode.dir[currentPath] = getFsShortcut(
+          content as {
+            toAppId: string;
+            iconId: string;
+            name: string;
+            filePath?: string;
+            dirPath?: string;
+          }
+        );
+      }
+      // }
+
       // If content is a File
-      if (typeof content === 'string') {
-        currentFsNode.dir[currentPath] = getFsFile(content, currentPath);
+      if (['jpg', 'png', 'txt'].includes(extension)) {
+        currentFsNode.dir[currentPath] = getFsFile(
+          content as string,
+          fileName,
+          extension
+        );
       }
       return;
     }
@@ -152,16 +167,22 @@ const updateFsDirInfos = (
 };
 
 const getFsApp = (content: { appId?: string }): FileSystemApp => {
+  if (!content.appId) {
+    console.error(`App Id is not set in app file.`);
+  }
   if (content.appId && !appIds.includes(content.appId as AppId)) {
-    console.error(`Icon Id "${content.appId}" doesn't exist in App List`);
+    console.error(`App Id "${content.appId}" doesn't exist in App List`);
   }
   return {
     appId: content.appId as AppId,
   };
 };
 
-const getFsFile = (content: string, currentPath: string): FileSystemFile => {
-  const [fileName, fileExtension] = currentPath.split('.');
+const getFsFile = (
+  content: string,
+  fileName: string,
+  fileExtension: string
+): FileSystemFile => {
   return {
     content,
     fileTypeId: getFileTypeIdFromFileExtension(fileExtension),
@@ -170,12 +191,15 @@ const getFsFile = (content: string, currentPath: string): FileSystemFile => {
 };
 
 const getFsShortcut = (content: {
-  toAppId: string;
-  iconId: string;
-  name: string;
+  toAppId?: string;
+  iconId?: string;
+  name?: string;
   filePath?: string;
   dirPath?: string;
 }): FileSystemShortcut => {
+  if (!content.toAppId || !content.iconId || !content.name) {
+    console.error(`One or several fields are not set in shortcut file.`);
+  }
   if (content.iconId && !iconIds.includes(content.iconId as IconId)) {
     console.error(`Icon Id "${content.iconId}" doesn't exist in Icon List`);
   }
@@ -186,7 +210,7 @@ const getFsShortcut = (content: {
     dirPath: content.dirPath,
     filePath: content.filePath,
     iconId: content.iconId as IconId,
-    name: content.name,
+    name: content.name as string,
     toAppId: content.toAppId as AppId,
   };
 };
