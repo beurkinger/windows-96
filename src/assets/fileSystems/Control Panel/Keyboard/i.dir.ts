@@ -1,3 +1,5 @@
-const infos = {};
+const infos = {
+  iconId: 'keyboard',
+};
 
 export default infos;
