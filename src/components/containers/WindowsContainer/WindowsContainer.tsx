@@ -5,14 +5,9 @@ import { AppId, AppProps } from '../../../types/App';
 import OpenWindowsContext, {
   OpenWindow,
 } from '../../../context/OpenWindowsContext';
-import DialUpNetworkApp from '../../apps/DialUpNetworkApp/DialUpNetworkApp';
-import MyBriefcaseApp from '../../apps/MyBriefcaseApp/MyBriefcaseApp';
 import MyComputerApp from '../../apps/MyComputerApp/MyComputerApp';
-import NetworkNeighborhoodApp from '../../apps/NetworkNeighborhoodApp/NetworkNeighborhoodApp';
 import NotepadApp from '../../apps/NotepadApp/NotepadApp';
-import PrintersApp from '../../apps/PrintersApp/PrintersApp';
 import QuickViewApp from '../../apps/QuickViewApp/QuickViewApp';
-import RecycleBinApp from '../../apps/RecycleBinApp/ReycleBinApp';
 import TimerApp from '../../apps/TimerApp/TimerApp';
 import VoidApp from '../../apps/VoidApp/VoidApp';
 import Window from '../../shared/Window/Window';
@@ -20,11 +15,9 @@ import Window from '../../shared/Window/Window';
 import style from './WindowsContainer.css';
 
 const components: { [key in AppId]: FunctionComponent<AppProps> } = {
-  briefcase: MyBriefcaseApp,
   calc: VoidApp,
   cdPlayer: VoidApp,
   defrag: VoidApp,
-  dialUpNetwork: DialUpNetworkApp,
   exchange: VoidApp,
   explorer: VoidApp,
   find: VoidApp,
@@ -37,13 +30,10 @@ const components: { [key in AppId]: FunctionComponent<AppProps> } = {
   msDos: VoidApp,
   msPaint: VoidApp,
   myComputer: MyComputerApp,
-  networkNeighborhood: NetworkNeighborhoodApp,
   notepad: NotepadApp,
   phoneDialer: VoidApp,
-  printers: PrintersApp,
   register: VoidApp,
   quickView: QuickViewApp,
-  recycleBin: RecycleBinApp,
   run: VoidApp,
   scandisk: VoidApp,
   shutdown: VoidApp,

@@ -1,11 +1,6 @@
 import { AppList } from '../types/App';
 
 export const appList: AppList = {
-  briefcase: {
-    id: 'briefcase',
-    iconId: 'briefcase',
-    name: 'My Briefcase',
-  },
   calc: {
     id: 'calc',
     iconId: 'calc',
@@ -26,11 +21,6 @@ export const appList: AppList = {
     isResizeable: false,
     name: 'Disk Defragmenter',
     size: { width: 400, height: 177 },
-  },
-  dialUpNetwork: {
-    id: 'dialUpNetwork',
-    iconId: 'dialUpNetwork',
-    name: 'Dial-Up Networking',
   },
   exchange: {
     id: 'exchange',
@@ -74,7 +64,6 @@ export const appList: AppList = {
     name: 'Help',
     size: { width: 400, height: 177 },
   },
-
   hyperterminal: {
     id: 'hyperterminal',
     iconId: 'hyperterminal',
@@ -115,11 +104,6 @@ export const appList: AppList = {
     iconId: 'myComputer',
     name: 'My Computer',
   },
-  networkNeighborhood: {
-    id: 'networkNeighborhood',
-    iconId: 'networkNeighborhood',
-    name: 'Network Neighborhood',
-  },
   notepad: {
     id: 'notepad',
     iconId: 'notepad',
@@ -132,20 +116,10 @@ export const appList: AppList = {
     name: 'Phone Dialer',
     size: { width: 400, height: 177 },
   },
-  printers: {
-    id: 'printers',
-    iconId: 'printers',
-    name: 'Printers',
-  },
   quickView: {
     id: 'quickView',
     iconId: 'quickView',
     name: 'Quick View',
-  },
-  recycleBin: {
-    id: 'recycleBin',
-    iconId: 'binEmpty',
-    name: 'Recycle Bin',
   },
   register: {
     id: 'register',

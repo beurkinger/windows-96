@@ -1,4 +1,5 @@
 const infos = {
+  dirType: 'controlPanel',
   name: 'Control Panel',
   iconId: 'controlPanel',
 };

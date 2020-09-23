@@ -4,7 +4,7 @@ const fileTypeList: FileTypeList = {
   bmpFile: { appId: 'quickView', id: 'bmpFile', iconId: 'bmpFile' },
   cdTrack: { appId: 'cdPlayer', id: 'cdTrack', iconId: 'cdTrack' },
   helpFile: { appId: 'help', id: 'helpFile', iconId: 'helpFile' },
-  midiFile: { appId: 'briefcase', id: 'midiFile', iconId: 'midiFile' },
+  midiFile: { appId: 'mediaPlayer', id: 'midiFile', iconId: 'midiFile' },
   msDosApp: { appId: 'msDos', id: 'msDosApp', iconId: 'program' },
   notepadDoc: { appId: 'notepad', id: 'notepadDoc', iconId: 'notepadDoc' },
   videoFile: { appId: 'mediaPlayer', id: 'videoFile', iconId: 'videoFile' },

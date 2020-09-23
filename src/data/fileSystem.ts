@@ -18,27 +18,6 @@ export const controlPanelFs = createFs(
     /\.(jpg|png|ts|txt)$/
   )
 );
-export const recycleBinFs = createFs(
-  require.context(
-    '../assets/fileSystems/Recycle Bin',
-    true,
-    /\.(jpg|png|ts|txt)$/
-  )
-);
-export const myBriefcaseFs = createFs(
-  require.context(
-    '../assets/fileSystems/My Briefcase',
-    true,
-    /\.(jpg|png|ts|txt)$/
-  )
-);
-export const networkNeighborhoodFs = createFs(
-  require.context(
-    '../assets/fileSystems/Network Neighborhood',
-    true,
-    /\.(jpg|png|ts|txt)$/
-  )
-);
 export const printersFs = createFs(
   require.context('../assets/fileSystems/Printers', true, /\.(jpg|png|ts|txt)$/)
 );

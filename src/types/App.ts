@@ -3,11 +3,9 @@ import { IconId } from './Icon';
 import { OpenWindowsContextType } from '../context/OpenWindowsContext';
 
 export const appIds = [
-  'briefcase',
   'calc',
   'cdPlayer',
   'defrag',
-  'dialUpNetwork',
   'exchange',
   'explorer',
   'find',
@@ -20,13 +18,10 @@ export const appIds = [
   'msDos',
   'msPaint',
   'myComputer',
-  'networkNeighborhood',
   'notepad',
   'phoneDialer',
-  'printers',
   'register',
   'quickView',
-  'recycleBin',
   'run',
   'scandisk',
   'shutdown',
