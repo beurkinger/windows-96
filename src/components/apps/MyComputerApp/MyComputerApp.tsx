@@ -68,7 +68,6 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
     }
   };
 
-  const textLeft = getSelectionStatusText(dirType, files);
   return (
     <WindowContent
       menu={<MenuBar options={getMenuBarOption(dirType)} />}
@@ -86,7 +85,7 @@ const MyComputerApp: FunctionComponent<AppProps> = ({
       }
       footer={
         <StatusBar
-          textLeft={textLeft}
+          textLeft={getSelectionStatusText(dirType, files)}
           textRight={getSelectedItemStatusText(dirType)}
         />
       }

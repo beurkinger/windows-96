@@ -19,7 +19,7 @@ const QuickViewApp: FunctionComponent<AppProps> = ({
       </Countour>
     }
     footer={
-      <StatusBar textRight="To edit, click Open File for Editing on the File menu." />
+      <StatusBar textLeft="To edit, click Open File for Editing on the File menu." />
     }
   />
 );
