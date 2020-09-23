@@ -16,6 +16,7 @@
   margin: 4px 2px;
   width: 74px;
   height: 66px;
+  user-select: none;
 }
 
 .fileIcon {
@@ -30,7 +31,6 @@
   line-height: 13px;
   text-align: center;
   overflow: hidden;
-  user-select: none;
 }
 
 .file.focus .fileIcon {
