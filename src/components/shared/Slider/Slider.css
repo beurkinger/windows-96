@@ -12,12 +12,12 @@ input[type="range"].slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 21px;
     width: 11px;
-    background: svg-load("./icon/indicator-horizontal.svg");
+    background: url("../../../assets/img/ui/indicator-horizontal.svg");
     transform: translateY(-8px);
 }
 
 input[type="range"].slider.hasBoxIndicator::-webkit-slider-thumb {
-    background: svg-load("./icon/indicator-rectangle-horizontal.svg");
+    background: url("../../../assets/img/ui/indicator-rectangle-horizontal.svg");
     transform: translateY(-10px);
 }
 
@@ -26,12 +26,12 @@ input[type="range"].slider::-moz-range-thumb {
     width: 11px;
     border: 0;
     border-radius: 0;
-    background: svg-load("./icon/indicator-horizontal.svg");
+    background: url("../../../assets/img/ui/indicator-horizontal.svg");
     transform: translateY(2px);
 }
 
 input[type="range"].slider.hasBoxIndicator::-moz-range-thumb {
-    background: svg-load("./icon/indicator-rectangle-horizontal.svg");
+    background: url("../../../assets/img/ui/indicator-rectangle-horizontal.svg");
     transform: translateY(0px);
 }
 

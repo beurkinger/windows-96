@@ -86,88 +86,8 @@ input[type="radio"]+label, input[type="checkbox"]+label {
   line-height: 13px;
 }
 
-input[type="radio"]+label {
-  position: relative;
-  margin-left: var(--radio-total-width);
-}
-
-input[type="radio"]+label::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: calc(-1 * (var(--radio-total-width-precalc)));
-  display: inline-block;
-  width: var(--radio-width);
-  height: var(--radio-width);
-  margin-right: var(--radio-label-spacing);
-  background: svg-load("./icon/radio-border.svg");
-}
-
-input[type="radio"]:active+label::before {
-  background: svg-load("./icon/radio-border-disabled.svg");
-}
-
-input[type="radio"]:checked+label::after {
-  content: "";
-  display: block;
-  width: var(--radio-dot-width);
-  height: var(--radio-dot-width);
-  top: var(--radio-dot-top);
-  left: var(--radio-dot-left);
-  position: absolute;
-  background: svg-load("./icon/radio-dot.svg");
-}
-
 input[type="radio"]:focus+label, input[type="checkbox"]:focus+label {
   outline: 1px dotted #000000;
-}
-
-input[type="radio"][disabled]+label::before {
-  background: svg-load("./icon/radio-border-disabled.svg");
-}
-
-input[type="radio"][disabled]:checked+label::after {
-  background: svg-load("./icon/radio-dot-disabled.svg");
-}
-
-input[type="checkbox"]+label {
-  position: relative;
-  margin-left: var(--checkbox-total-width);
-}
-
-input[type="checkbox"]+label::before {
-  content: "";
-  position: absolute;
-  left: calc(-1 * (var(--checkbox-total-width-precalc)));
-  display: inline-block;
-  width: var(--checkbox-width);
-  height: var(--checkbox-width);
-  background: var(--button-highlight);
-  box-shadow: var(--border-field);
-  margin-right: var(--radio-label-spacing);
-}
-
-input[type="checkbox"]:active+label::before {
-  background: var(--surface);
-}
-
-input[type="checkbox"]:checked+label::after {
-  content: "";
-  display: block;
-  width: var(--checkmark-width);
-  height: var(--checkmark-width);
-  position: absolute;
-  top: var(--checkmark-top);
-  left: calc( -1 * (var(--checkbox-total-width-precalc)) + var(--checkmark-left));
-  background: svg-load("./icon/checkmark.svg");
-}
-
-input[type="checkbox"][disabled]+label::before {
-  background: var(--surface);
-}
-
-input[type="checkbox"][disabled]:checked+label::after {
-  background: svg-load("./icon/checkmark-disabled.svg");
 }
 
 input[type="text"], input[type="password"], input[type="email"], select, textarea {
@@ -191,36 +111,6 @@ input[type="text"], input[type="password"], input[type="email"] {
   line-height: 2;
 }
 
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  position: relative;
-  padding-right: 32px;
-  background-image: svg-load("./icon/button-down.svg");
-  background-position: top 2px right 2px;
-  background-repeat: no-repeat;
-  border-radius: 0;
-}
-
-select:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
-  outline: none;
-}
-
-select:focus {
-  color: var(--button-highlight);
-  background-color: var(--dialog-blue);
-}
-
-select:focus option {
-  color: #000;
-  background-color: #fff;
-}
-
-select:active {
-  background-image: svg-load("./icon/button-down-active.svg");
-}
-
 a {
   color: var(--link-blue);
 }
@@ -238,11 +128,7 @@ pre {
 }
 
 code, code * {
-  font-family: monospace;
-}
-
-summary:focus {
-  outline: 1px dotted #000000;
+  font-family: var(--font-family-sys);
 }
 
 ::-webkit-scrollbar {
@@ -258,7 +144,7 @@ summary:focus {
 }
 
 ::-webkit-scrollbar-track {
-  background-image: svg-load("./icon/scrollbar-background.svg");
+  background-image: url("./assets/img/ui/scrollbar-background.svg");
 }
 
 ::-webkit-scrollbar-thumb {
@@ -272,20 +158,20 @@ summary:focus {
 
 ::-webkit-scrollbar-button:vertical:start {
   height: 17px;
-  background-image: svg-load("./icon/button-up.svg");
+  background-image: url("./assets/img/ui/button-up.svg");
 }
 
 ::-webkit-scrollbar-button:vertical:end {
   height: 17px;
-  background-image: svg-load("./icon/button-down.svg");
+  background-image: url("./assets/img/ui/button-down.svg");
 }
 
 ::-webkit-scrollbar-button:horizontal:start {
   width: 16px;
-  background-image: svg-load("./icon/button-left.svg");
+  background-image: url("./assets/img/ui/button-left.svg");
 }
 
 ::-webkit-scrollbar-button:horizontal:end {
   width: 16px;
-  background-image: svg-load("./icon/button-right.svg");
+  background-image: url("./assets/img/ui/button-right.svg");
 }

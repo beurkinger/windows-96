@@ -1,1 +1,30 @@
-.dropdown {}
+.dropdown {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    padding-right: 32px;
+    background-image: url("../../../assets/img/ui/button-down.svg");
+    background-position: top 2px right 2px;
+    background-repeat: no-repeat;
+    border-radius: 0;
+  }
+  
+  .dropdown:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+    outline: none;
+  }
+  
+  .dropdown:focus {
+    color: var(--button-highlight);
+    background-color: var(--dialog-blue);
+  }
+  
+  .dropdown:focus option {
+    color: #000;
+    background-color: #fff;
+  }
+  
+  .dropdown:active {
+    background-image: url("../../../assets/img/ui/button-down-active.svg");
+  }
+  

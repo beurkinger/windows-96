@@ -1,1 +1,39 @@
-.checkbox {}
+.checkbox+label {
+    position: relative;
+    margin-left: var(--checkbox-total-width);
+}
+
+.checkbox+label::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * (var(--checkbox-total-width-precalc)));
+    display: inline-block;
+    width: var(--checkbox-width);
+    height: var(--checkbox-width);
+    background: var(--button-highlight);
+    box-shadow: var(--border-field);
+    margin-right: var(--radio-label-spacing);
+}
+
+.checkbox:active+label::before {
+    background: var(--surface);
+}
+
+.checkbox:checked+label::after {
+    content: "";
+    display: block;
+    width: var(--checkmark-width);
+    height: var(--checkmark-width);
+    position: absolute;
+    top: var(--checkmark-top);
+    left: calc( -1 * (var(--checkbox-total-width-precalc)) + var(--checkmark-left));
+    background: url("../../../assets/img/ui/checkmark.svg");
+}
+
+.checkbox[disabled]+label::before {
+    background: var(--surface);
+}
+
+.checkbox[disabled]:checked+label::after {
+    background: url("../../../assets/img/ui/checkmark-disabled.svg");
+}

@@ -1,1 +1,39 @@
-.radio {}
+.radio+label {
+    position: relative;
+    margin-left: var(--radio-total-width);
+}
+
+.radio+label::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(-1 * (var(--radio-total-width-precalc)));
+    display: inline-block;
+    width: var(--radio-width);
+    height: var(--radio-width);
+    margin-right: var(--radio-label-spacing);
+    background: urrl("../../../assets/img/ui/radio-border.svg");
+}
+
+.radio:active+label::before {
+    background: urrl("../../../assets/img/ui/radio-border-disabled.svg");
+}
+
+.radio:checked+label::after {
+    content: "";
+    display: block;
+    width: var(--radio-dot-width);
+    height: var(--radio-dot-width);
+    top: var(--radio-dot-top);
+    left: var(--radio-dot-left);
+    position: absolute;
+    background: url("../../../assets/img/ui/radio-dot.svg");
+}
+
+.radio[disabled]+label::before {
+    background: url("../../../assets/img/ui/radio-border-disabled.svg");
+}
+
+.radio[disabled]:checked+label::after {
+    background: url("../../../assets/img/ui/radio-dot-disabled.svg");
+}

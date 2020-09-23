@@ -88,3 +88,7 @@ ul.treeView {
   ul.treeView details[open] > summary:before {
     content: "-";
   }
+
+  ul.treeView summary:focus {
+    outline: 1px dotted #000000;
+  }
