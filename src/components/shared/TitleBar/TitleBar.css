@@ -5,18 +5,19 @@
   margin: 1px !important;
   height: 18px;
   padding: 1px 2px !important;
+  color: white;
   background: var(--dialog-blue);
   user-select: none;
 }
 
 .titleBar.inactive {
-  background: linear-gradient( 90deg, var(--dialog-gray), var(--dialog-gray-light));
+  background: var(--dialog-gray);
+  color: var(--surface);
 }
 
 .titleBarText {
   flex: 1;
   margin: 0 24px 0 1px;
-  color: white;
   letter-spacing: 0;
   font-weight: bold;
   text-overflow: ellipsis;

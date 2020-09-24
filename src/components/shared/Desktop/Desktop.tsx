@@ -16,7 +16,7 @@ type Props = {
 };
 
 const Desktop: FunctionComponent<Props> = ({
-  background = 'lightseagreen',
+  background = '',
   openApp,
 }: Props) => {
   const { files, focusOnFile, removeFocus } = useShellFilesState(
