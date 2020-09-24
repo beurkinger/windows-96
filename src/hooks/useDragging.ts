@@ -132,6 +132,7 @@ const useDragging = (
   };
 
   const handleOnMouseDown = (e: MouseEvent): void => {
+    e.preventDefault();
     const mouseCoords = getMouseCoordsFromEvent(e);
     handleStart(mouseCoords);
   };

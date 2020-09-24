@@ -79,8 +79,9 @@ const Window: FunctionComponent<Props> = ({
 
   return (
     <div
-      className={`${style.window} window`}
+      className={`${style.window}`}
       onMouseDown={onMouseDown}
+      onTouchStart={onMouseDown}
       ref={windowRef}
       style={{
         height: isMaximized ? '100%' : `${sizeState.y}px`,

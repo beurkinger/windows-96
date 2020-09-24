@@ -36,43 +36,54 @@ const TitleBar: FunctionComponent<Props> = ({
   onDblClickTitleBar,
   innerRef,
   title,
-}: Props) => (
-  <div
-    className={`${style.titleBar} ${isInactive ? style.inactive : ''}`}
-    onDblClick={onDblClickTitleBar}
-    ref={innerRef}
-  >
-    <div className={style.titleBarIcon}>
-      {!!iconId && <Icon iconId={iconId} />}
+}: Props) => {
+  const handleOnMouseDownButton = (e: MouseEvent | TouchEvent) => {
+    e.stopPropagation();
+  };
+  return (
+    <div
+      className={`${style.titleBar} ${isInactive ? style.inactive : ''}`}
+      onDblClick={onDblClickTitleBar}
+      ref={innerRef}
+    >
+      <div className={style.titleBarIcon}>
+        {!!iconId && <Icon iconId={iconId} />}
+      </div>
+      <div className={style.titleBarText}>{title}</div>
+      <div className={style.titleBarControls}>
+        {onClickMinimize && (
+          <Button
+            label={<img className={style.minimize} src={minimize} />}
+            onClick={onClickMinimize}
+            onMouseDown={handleOnMouseDownButton}
+          />
+        )}
+        {!isMaximized && (
+          <Button
+            disabled={!onClickMaximize}
+            label={<img className={style.maximize} src={maximize} />}
+            onClick={onClickMaximize}
+            onMouseDown={handleOnMouseDownButton}
+          />
+        )}
+        {isMaximized && onClickRestore && (
+          <Button
+            label={<img className={style.restore} src={restore} />}
+            onClick={onClickRestore}
+            onMouseDown={handleOnMouseDownButton}
+          />
+        )}
+        {onClickHelp && (
+          <Button onClick={onClickHelp} onMouseDown={handleOnMouseDownButton} />
+        )}
+        <Button
+          label={<img className={style.close} src={close} />}
+          onClick={onClickClose}
+          onMouseDown={handleOnMouseDownButton}
+        />
+      </div>
     </div>
-    <div className={style.titleBarText}>{title}</div>
-    <div className={style.titleBarControls}>
-      {onClickMinimize && (
-        <Button
-          label={<img className={style.minimize} src={minimize} />}
-          onClick={onClickMinimize}
-        />
-      )}
-      {!isMaximized && (
-        <Button
-          disabled={!onClickMaximize}
-          label={<img className={style.maximize} src={maximize} />}
-          onClick={onClickMaximize}
-        />
-      )}
-      {isMaximized && onClickRestore && (
-        <Button
-          label={<img className={style.restore} src={restore} />}
-          onClick={onClickRestore}
-        />
-      )}
-      {onClickHelp && <Button onClick={onClickHelp} />}
-      <Button
-        label={<img className={style.close} src={close} />}
-        onClick={onClickClose}
-      />
-    </div>
-  </div>
-);
+  );
+};
 
 export default TitleBar;
