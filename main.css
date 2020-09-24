@@ -50,7 +50,7 @@
 
 ._1qjwAZ7oB87EHVttG4SND._3pMHMvDG_UdCMTKNJsE9U ._3ETZZ5p_AtFxn_IBsv3AX5 {
   color: white;
-  background: #000080;
+  background: #040080;
   background: var(--dialog-blue);
 }
 
@@ -65,6 +65,8 @@
 ._1fPJKyKPKmwW0UfTMobJzG {
   width: 100%;
   height: 100%;
+  background-color: #008080;
+  background-color: var(--desktop-green);
 }
 ._3AO2i7Cwh3zqDA7KvSWgzn {
     display: flex;
@@ -173,7 +175,7 @@
 .ZLwPWAu0sA0na7rK7MXrj:hover
 {
     color: white;
-    background-color: #000080;
+    background-color: #040080;
     background-color: var(--dialog-blue);
 }
 
@@ -577,7 +579,8 @@
   margin: 1px !important;
   height: 18px;
   padding: 1px 2px !important;
-  background: #000080;
+  color: white;
+  background: #040080;
   background: var(--dialog-blue);
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -586,14 +589,15 @@
 }
 
 ._2eyKuduDzd67m4uxyDOX_S.HqCtTa_wsGzYMEi6cBsj7 {
-  background: linear-gradient( 90deg, #808080, #b5b5b5);
-  background: linear-gradient( 90deg, var(--dialog-gray), var(--dialog-gray-light));
+  background: #808080;
+  background: var(--dialog-gray);
+  color: #c0c0c0;
+  color: var(--surface);
 }
 
 .KGG7dTgdDoS37RJ0jWAKX {
   flex: 1;
   margin: 0 24px 0 1px;
-  color: white;
   letter-spacing: 0;
   font-weight: bold;
   text-overflow: ellipsis;
@@ -632,34 +636,39 @@
   position: relative;
 }
 
-._3JjqGVgmekrI4vMrS_39Y6 button img {
-  display: block;
-  position: absolute;
+._1SGvZRVt7AJ8C9jxmIh6Ri, ._80pw3kf1WWIsTOrNk-wCE, ._7gXB6ZfLQ5kmgWiTNmrgo, .SNH_rz6L8t2ATbFfljmS6, ._1MQCT6PGNCP9PCYzzoAqWr {
+  width: 16px;
+  height: 14px;
 }
 
 ._1SGvZRVt7AJ8C9jxmIh6Ri {
-  bottom: 3px;
-  left: 4px;
+  background-image: url(/windows-96/assets/minimize.svg);
+  background-repeat: no-repeat;
+  background-position: bottom 3px left 4px;
 }
 
 ._80pw3kf1WWIsTOrNk-wCE {
-  top: 2px;
-  left: 3px;
+  background-image: url(/windows-96/assets/maximize.svg);
+  background-repeat: no-repeat;
+  background-position: top 2px left 3px;
 }
 
 ._7gXB6ZfLQ5kmgWiTNmrgo {
-  top: 2px;
-  left: 3px;
+  background-image: url(/windows-96/assets/restore.svg);
+  background-repeat: no-repeat;
+  background-position: top 2px left 3px;
 }
 
 .SNH_rz6L8t2ATbFfljmS6 {
-  top: 2px;
-  left: 5px;
+  background-image: url(/windows-96/assets/help.svg);
+  background-repeat: no-repeat;
+  background-position: top 2px left 5px;
 }
 
 ._1MQCT6PGNCP9PCYzzoAqWr {
-  top: 3px;
-  left: 4px;
+  background-image: url(/windows-96/assets/close.svg);
+  background-repeat: no-repeat;
+  background-position: top 3px left 4px;
 }
 ._3dLUQsS1BA7dsnseS8Tgel {
     display: flex;
@@ -781,11 +790,13 @@
     --button-face: #dfdfdf;
     --button-shadow: #808080;
     --window-frame: #0a0a0a;
-    --dialog-blue: #000080;
-    --dialog-blue-light: #1084d0;
+    /* --dialog-blue: #000080; */
+    --dialog-blue:#040080;
+    /* --dialog-blue-light: #1084d0; */
     --dialog-gray: #808080;
-    --dialog-gray-light: #b5b5b5;
+    /* --dialog-gray-light: #b5b5b5; */
     --link-blue: #0000ff;
+    --desktop-green: #008080;
     /* Spacing */
     --element-spacing: 8px;
     --grouped-button-spacing: 4px;
