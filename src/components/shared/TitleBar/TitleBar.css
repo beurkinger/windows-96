@@ -55,32 +55,37 @@
   position: relative;
 }
 
-.titleBarControls button img {
-  display: block;
-  position: absolute;
+.minimize, .maximize, .restore, .help, .close {
+  width: 16px;
+  height: 14px;
 }
 
 .minimize {
-  bottom: 3px;
-  left: 4px;
+  background-image: url("../../../assets/img/ui/minimize.svg");
+  background-repeat: no-repeat;
+  background-position: bottom 3px left 4px;
 }
 
 .maximize {
-  top: 2px;
-  left: 3px;
+  background-image: url("../../../assets/img/ui/maximize.svg");
+  background-repeat: no-repeat;
+  background-position: top 2px left 3px;
 }
 
 .restore {
-  top: 2px;
-  left: 3px;
+  background-image: url("../../../assets/img/ui/restore.svg");
+  background-repeat: no-repeat;
+  background-position: top 2px left 3px;
 }
 
 .help {
-  top: 2px;
-  left: 5px;
+  background-image: url("../../../assets/img/ui/help.svg");
+  background-repeat: no-repeat;
+  background-position: top 2px left 5px;
 }
 
 .close {
-  top: 3px;
-  left: 4px;
+  background-image: url("../../../assets/img/ui/close.svg");
+  background-repeat: no-repeat;
+  background-position: top 3px left 4px;
 }

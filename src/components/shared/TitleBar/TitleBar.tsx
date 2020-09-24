@@ -1,10 +1,5 @@
 import { h, FunctionComponent, RefObject } from 'preact';
 
-import minimize from '../../../assets/img/ui/minimize.svg';
-import maximize from '../../../assets/img/ui/maximize.svg';
-import restore from '../../../assets/img/ui/restore.svg';
-// import help from '../../../assets/img/ui/help.svg';
-import close from '../../../assets/img/ui/close.svg';
 import { IconId } from '../../../types/Icon';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
@@ -53,7 +48,7 @@ const TitleBar: FunctionComponent<Props> = ({
       <div className={style.titleBarControls}>
         {onClickMinimize && (
           <Button
-            label={<img className={style.minimize} src={minimize} />}
+            label={<div className={style.minimize} />}
             onClick={onClickMinimize}
             onMouseDown={handleOnMouseDownButton}
           />
@@ -61,14 +56,14 @@ const TitleBar: FunctionComponent<Props> = ({
         {!isMaximized && (
           <Button
             disabled={!onClickMaximize}
-            label={<img className={style.maximize} src={maximize} />}
+            label={<div className={style.maximize} />}
             onClick={onClickMaximize}
             onMouseDown={handleOnMouseDownButton}
           />
         )}
         {isMaximized && onClickRestore && (
           <Button
-            label={<img className={style.restore} src={restore} />}
+            label={<div className={style.restore} />}
             onClick={onClickRestore}
             onMouseDown={handleOnMouseDownButton}
           />
@@ -77,7 +72,7 @@ const TitleBar: FunctionComponent<Props> = ({
           <Button onClick={onClickHelp} onMouseDown={handleOnMouseDownButton} />
         )}
         <Button
-          label={<img className={style.close} src={close} />}
+          label={<div className={style.close} />}
           onClick={onClickClose}
           onMouseDown={handleOnMouseDownButton}
         />
