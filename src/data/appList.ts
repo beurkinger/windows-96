@@ -167,7 +167,7 @@ export const appList: AppList = {
     id: 'timer',
     iconId: 'program',
     isResizeable: false,
-    name: 'cfb4-42b7-a723',
+    name: 'Timer cfb4-42b7-a723',
     size: { width: 231, height: 83 },
   },
   volumeControl: {
